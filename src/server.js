@@ -11,6 +11,7 @@ import PrettyError from 'pretty-error';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
 import App from './components/App';
 import Html from './components/Html';
+import ErrorPage from './routes/error/ErrorPage';
 import router from './router';
 // import assets from './asset-manifest.json'; // eslint-disable-line import/no-unresolved
 import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unresolved
@@ -85,7 +86,10 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   res => {
     const { status, statusText, headers, request, data } = res;
-    const { method, res: { responseUrl } } = request;
+    const {
+      method,
+      res: { responseUrl },
+    } = request;
 
     winston.info(
       `RESPONSE ${status} ${statusText} ${method.toUpperCase()} ${responseUrl}`,
@@ -187,7 +191,7 @@ app.use((err, req, res, next) => {
   console.error(pe.render(err));
   const html = ReactDOM.renderToStaticMarkup(
     <Html title="Internal Server Error" description={err.message}>
-      {ReactDOM.renderToString(<ErrorPageWithoutStyle error={err} />)}
+      {ReactDOM.renderToString(<ErrorPage error={err} />)}
     </Html>,
   );
   res.status(err.status || 500);
@@ -197,12 +201,9 @@ app.use((err, req, res, next) => {
 //
 // Launch the server
 // -----------------------------------------------------------------------------
-const promise = models.sync().catch(err => console.error(err.stack));
 if (!module.hot) {
-  promise.then(() => {
-    app.listen(config.port, () => {
-      console.info(`The server is running at http://localhost:${config.port}/`);
-    });
+  app.listen(config.port, () => {
+    console.info(`The server is running at http://localhost:${config.port}/`);
   });
 }
 

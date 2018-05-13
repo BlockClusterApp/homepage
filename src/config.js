@@ -1,13 +1,6 @@
-/**
- * React Starter Kit (https://www.reactstarterkit.com/)
- *
- * Copyright © 2014-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
 /* eslint-disable max-len */
+
+const mapWebEnv = map => map[process.env.WEB_ENV || 'development'];
 
 if (process.env.BROWSER) {
   throw new Error(
@@ -30,6 +23,32 @@ module.exports = {
     serverUrl:
       process.env.API_SERVER_URL ||
       `http://localhost:${process.env.PORT || 3000}`,
+  },
+
+  log: {
+    levelConsole: 'silly',
+    levelFile: 'info',
+    colorize: mapWebEnv({
+      development: true,
+      staging: false,
+      production: false,
+    }),
+    prettyPrint: mapWebEnv({
+      development: true,
+      staging: false,
+      production: false,
+    }),
+    colorStatus: mapWebEnv({
+      development: true,
+      staging: false,
+      production: false,
+    }),
+    timestamp: mapWebEnv({
+      development: true,
+      staging: false,
+      production: false,
+    }),
+    // filename: '../log/app.log',
   },
 
   // Web analytics
