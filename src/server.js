@@ -139,6 +139,10 @@ app.use(
 // -----------------------------------------------------------------------------
 app.get('*', async (req, res, next) => {
   try {
+    const context = {
+      pathname: req.path,
+      query: req.query,
+    };
     const sheet = new ServerStyleSheet();
     const route = await router.resolve(context);
 
@@ -148,11 +152,13 @@ app.get('*', async (req, res, next) => {
     }
 
     const data = { ...route };
+    data.canonical = data.canonical || req.path;
     data.children = ReactDOM.renderToString(
       <StyleSheetManager sheet={sheet.instance}>
         <App context={context}>{route.component}</App>
       </StyleSheetManager>,
     );
+    data.styleElement = sheet.getStyleElement();
 
     const scripts = new Set();
     const addChunk = chunk => {
@@ -167,9 +173,7 @@ app.get('*', async (req, res, next) => {
     if (route.chunks) route.chunks.forEach(addChunk);
 
     data.scripts = Array.from(scripts);
-    data.app = {
-      apiUrl: config.api.clientUrl,
-    };
+    data.app = {};
 
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
     res.status(route.status || 200);
