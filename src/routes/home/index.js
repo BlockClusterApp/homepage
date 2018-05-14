@@ -1,9 +1,10 @@
 import React from 'react';
+import Home from './Home';
 
 async function action() {
   return {
     chunks: ['home'],
-    component: <div>holla</div>,
+    component: <Home />,
   };
 }
 

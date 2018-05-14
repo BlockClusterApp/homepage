@@ -427,7 +427,10 @@ class Html extends React.Component {
           <script
             dangerouslySetInnerHTML={{
               __html: `WebFontConfig = {
-              google: { families: [ 'Source+Sans+Pro:300,400,600,700' ] }
+              google: { families: [
+                'Source+Sans+Pro:300,400,600,700',
+                'Montserrat:300,400,500,600,700'
+              ] }
             };
             (function(d) {
               var wf = d.createElement('script'), s = d.scripts[0];
