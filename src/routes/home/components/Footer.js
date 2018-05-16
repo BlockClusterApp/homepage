@@ -4,24 +4,25 @@ import { mix, clearFix } from 'polished';
 import { colors, spacing, uppercase } from '../../../styles';
 
 const Root = styled.footer`
+  position: relative;
+  z-index: 1;
   height: 152px;
   padding: 34px 0;
-  background: #405165;
+  background: #fafdff;
   text-align: center;
-  font-size: 15px;
+  font-size: 16px;
   overflow: hidden;
 `;
 
 const Wrapper = styled.div`
   display: inline-block;
-  color: #a4cdff;
 `;
 
 const Copyright = styled.div`
-  line-height: 84px;
+  line-height: 88px;
   float: left;
   margin-right: ${spacing()};
-  opacity: 0.6;
+  opacity: 0.45;
 `;
 
 const Separator = styled.div`
@@ -29,7 +30,6 @@ const Separator = styled.div`
   width: 1px;
   height: 11px;
   margin: 37px 0;
-  background: ${colors.textPrimary};
   margin-right: ${spacing()};
   opacity: 0.4;
 `;
@@ -43,28 +43,29 @@ const Company = styled.div`
 
 const Title = styled.h5`
   ${uppercase};
-  font-size: 11px;
-  opacity: 0.6;
+  font-size: 12px;
+  opacity: 0.5;
   line-height: 1.5;
-  margin: 0;
+  margin: 0 0 ${spacing(0.25)};
+  font-weight: 600;
 `;
 
 const Links = styled.div`
   ${clearFix()};
-  opacity: 0.5;
 `;
 
 const StyledLink = styled.a`
   float: left;
   margin-right: ${spacing()};
   border-bottom: 1px solid transparent;
-  transition: border-color 0.2s;
   line-height: 1;
-  color: #a4cdff;
-  font-size: 14px;
+  font-size: 15px;
+  color: ${colors.text};
+  opacity: 0.4;
 
   &:hover {
-    border-color: #a4cdff;
+    color: ${colors.primary};
+    opacity: 1;
   }
 `;
 
@@ -76,9 +77,9 @@ const Footer = () => (
       <Company>
         <Title>Company</Title>
         <Links>
-          <StyledLink href="mailto:team@getpreppy.com">About</StyledLink>
-          <StyledLink href="mailto:team@getpreppy.com">Contact</StyledLink>
-          <StyledLink href="mailto:team@getpreppy.com">Careers</StyledLink>
+          <StyledLink href="mailto:team@blockcluster.io">About</StyledLink>
+          <StyledLink href="mailto:team@blockcluster.io">Contact</StyledLink>
+          <StyledLink href="mailto:team@blockcluster.io">Careers</StyledLink>
         </Links>
       </Company>
     </Wrapper>

@@ -4,14 +4,7 @@ import serialize from 'serialize-javascript';
 import { injectGlobal } from 'styled-components';
 import { lighten } from 'polished';
 import config from '../config';
-// import { colors, spacing } from '../styles';
-
-const colors = {
-  bgBody: 'white',
-  text: '#444',
-};
-
-export const spacing = multiplier => `${(multiplier || 1) * 16}px`;
+import { colors, spacing } from '../styles';
 
 /* eslint-disable no-unused-expressions, react/no-danger */
 

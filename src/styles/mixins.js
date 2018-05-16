@@ -72,5 +72,5 @@ export const uppercase = css`
   font-size: 13px;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
 `;

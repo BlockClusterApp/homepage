@@ -3,7 +3,7 @@ import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Solution from './components/Solution';
 import Features from './components/Features';
-import RequestInvite from './components/RequestInvite';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 
 const Home = () => (
@@ -12,7 +12,7 @@ const Home = () => (
     <Problem />
     <Solution />
     <Features />
-    <RequestInvite />
+    <Contact />
     <Footer />
   </Fragment>
 );

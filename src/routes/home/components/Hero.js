@@ -2,12 +2,14 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { clearFix, mix, hiDPI } from 'polished';
 import heroBackground from '../assets/hero-bg.png';
+import blockNetwork from '../assets/block-network.png';
+import blockNetwork2x from '../assets/block-network@2x.png';
 import { colors, spacing, media, uppercase } from '../../../styles';
 import { wrapper, cover } from '../../../styles/mixins';
 
 const Root = styled.section`
   position: relative;
-  height: 720px;
+  height: 672px;
   background: ${colors.secondary};
   padding-top: ${spacing()};
   color: #fff;
@@ -15,7 +17,7 @@ const Root = styled.section`
 
 const Cover = styled.div`
   ${cover};
-  background: url(${heroBackground});
+  background: ${colors.background};
   background-size: cover;
 `;
 
@@ -100,7 +102,7 @@ const NavButton = styled.a`
 
 const InnerWrapper = styled.div`
   position: relative;
-  padding: ${spacing(4)} ${spacing()};
+  padding: ${spacing(5)} ${spacing()};
   text-align: center;
   text-align: left;
 `;
@@ -111,6 +113,11 @@ const Title = styled.h1`
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: ${spacing(1.5)};
+`;
+
+const TitleSecondary = styled.span`
+  font-weight: 600;
+  color: ${colors.backgroundSecondaryText};
 `;
 
 const Code = styled.span`
@@ -124,6 +131,50 @@ const Subtitle = styled.h2`
   font-weight: 600;
   opacity: 0.9;
   margin-bottom: ${spacing(4)};
+  color: #fff;
+`;
+
+const ButtonsWrapper = styled.div`
+  ${clearFix()};
+`;
+
+const Button = styled.a`
+  ${uppercase};
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  font-size: 14px;
+  float: left;
+  margin-right: ${spacing()};
+  width: 210px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 3px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s;
+
+  ${props =>
+    props.primary &&
+    css`
+      background: rgba(255, 255, 255, 0.9);
+      color: ${colors.secondary};
+
+      &:hover {
+        background: #fff;
+      }
+    `};
+
+  ${props =>
+    props.secondary &&
+    css`
+      background: ${colors.primary};
+      color: #fff;
+
+      &:hover {
+        background: ${mix(0.6, colors.primary, colors.backgroundSecondaryText)};
+      }
+    `};
 `;
 
 const Card = styled.div`
@@ -186,11 +237,14 @@ const InputField = styled.input`
   &:hover,
   &:focus {
     border-color: #fff;
-    background: rgba(0, 0, 0, 0);
   }
 
-  &:focus ~ ${InputLabel} {
-    opacity: 1;
+  &:focus {
+    background: rgba(0, 0, 0, 0);
+
+    ~ ${InputLabel} {
+      opacity: 1;
+    }
   }
 `;
 
@@ -212,6 +266,20 @@ const InputSubmit = styled.button`
 
   &:hover {
     background: #fff;
+  }
+`;
+
+const BlockNetwork = styled.div`
+  position: absolute;
+  top: 84px;
+  right: -16px;
+  width: 463px;
+  height: 354px;
+  background-image: url(${blockNetwork});
+  background-size: 463px 354px;
+
+  ${hiDPI(2)} {
+    background-image: url(${blockNetwork2x});
   }
 `;
 
@@ -240,13 +308,24 @@ const Hero = () => (
       <InnerWrapper>
         <Title>
           Build and deploy your blockchain network<br />
-          without writing any <Code>{'<code/>'}</Code>
+          <TitleSecondary>
+            without writing any <Code>{'<code/>'}</Code>
+          </TitleSecondary>
         </Title>
         <Subtitle>
-          Easily setup your own enterprise grade private-chain<br />
-          through a simple user interface.
+          Easily setup your own enterprise grade private<br />
+          blockchain through a simple user interface.
         </Subtitle>
-        <Card>
+        <ButtonsWrapper>
+          <Button primary href="mailto:team@blockcluster.io">
+            Get in touch
+          </Button>
+          <Button secondary href="mailto:team@blockcluster.io">
+            Request demo
+          </Button>
+        </ButtonsWrapper>
+        <BlockNetwork />
+        {/* <Card>
           <CardCover />
           <CardTitle>Request an invite</CardTitle>
           <CardSubtitle>
@@ -257,7 +336,7 @@ const Hero = () => (
             <InputLabel>Email address</InputLabel>
             <InputSubmit>Request invite</InputSubmit>
           </InputWrapper>
-        </Card>
+        </Card> */}
       </InnerWrapper>
     </Wrapper>
   </Root>
