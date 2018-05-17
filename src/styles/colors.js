@@ -18,7 +18,9 @@ export const bgBody = '#fff';
 
 export const border = '#e5e5e5';
 
-export const error = '#f9756e';
+export const error = '#ff3c3d';
+
+export const success = '#1cd800';
 
 const textMixShade = secondary; // '#0043ff';
 

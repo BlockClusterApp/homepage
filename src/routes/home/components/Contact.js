@@ -58,8 +58,8 @@ const Button = styled.a`
   width: 210px;
   height: 44px;
   line-height: 44px;
-  border-radius: 3px;
-  box-shadow: 0 4px 9px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.2s;
 
   &:last-child {

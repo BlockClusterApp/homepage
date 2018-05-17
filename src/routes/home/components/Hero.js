@@ -1,7 +1,8 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { clearFix, mix, hiDPI } from 'polished';
-import heroBackground from '../assets/hero-bg.png';
+import heroBackground from '../assets/hero-bg-3.jpg';
+import createNetwork from '../assets/create-network.png';
 import blockNetwork from '../assets/block-network.png';
 import blockNetwork2x from '../assets/block-network@2x.png';
 import { colors, spacing, media, uppercase } from '../../../styles';
@@ -9,7 +10,7 @@ import { wrapper, cover } from '../../../styles/mixins';
 
 const Root = styled.section`
   position: relative;
-  height: 672px;
+  height: 720px;
   background: ${colors.secondary};
   padding-top: ${spacing()};
   color: #fff;
@@ -17,7 +18,7 @@ const Root = styled.section`
 
 const Cover = styled.div`
   ${cover};
-  background: ${colors.background};
+  background-image: url(${heroBackground});
   background-size: cover;
 `;
 
@@ -104,7 +105,7 @@ const InnerWrapper = styled.div`
   position: relative;
   padding: ${spacing(5)} ${spacing()};
   text-align: center;
-  text-align: left;
+  ${'' /* text-align: left; */};
 `;
 
 const Title = styled.h1`
@@ -120,9 +121,50 @@ const TitleSecondary = styled.span`
   color: ${colors.backgroundSecondaryText};
 `;
 
+const UI = styled.div`
+  margin: 0 auto;
+  width: 756px;
+  height: 395px;
+  border-radius: 12px;
+  transform: matrix3d(
+    0.96,
+    0,
+    0,
+    0,
+    0,
+    0.96,
+    0,
+    -0.0001,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    1
+  );
+  box-shadow: -27.1px 62.5px 125px -25px rgba(51, 72, 97, 0.4),
+    -16.2px 37.5px 75px -37.5px rgba(0, 0, 0, 0.2);
+  background: #fff url(${createNetwork}) top no-repeat;
+`;
+
 const Code = styled.span`
+  position: relative;
+  z-index: 1;
   font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
     monospace;
+`;
+
+const CodeClosingBracket = styled.span`
+  color: ${colors.backgroundSecondaryText};
+  transition: color 0.1s;
+
+  ${props =>
+    props.blink &&
+    css`
+      color: ${colors.secondary};
+    `};
 `;
 
 const Subtitle = styled.h2`
@@ -135,7 +177,9 @@ const Subtitle = styled.h2`
 `;
 
 const ButtonsWrapper = styled.div`
+  display: inline-block;
   ${clearFix()};
+  margin-bottom: ${spacing(4)};
 `;
 
 const Button = styled.a`
@@ -150,8 +194,8 @@ const Button = styled.a`
   width: 210px;
   height: 44px;
   line-height: 44px;
-  border-radius: 3px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.2s;
 
   ${props =>
@@ -283,63 +327,105 @@ const BlockNetwork = styled.div`
   }
 `;
 
-const Hero = () => (
-  <Root>
-    <Cover />
-    <Wrapper>
-      <Header>
-        <Logo>
-          <LogoCaps>B</LogoCaps>
-          lock
-          <LogoCaps>C</LogoCaps>
-          luster
-        </Logo>
-        <Nav>
-          <NavLeft>
-            <NavItem>Use cases</NavItem>
-            <NavItem>Pricing</NavItem>
-          </NavLeft>
-          <NavRight>
-            <NavItem>Support</NavItem>
-            <NavButton>Login</NavButton>
-          </NavRight>
-        </Nav>
-      </Header>
-      <InnerWrapper>
-        <Title>
-          Build and deploy your blockchain network<br />
-          <TitleSecondary>
-            without writing any <Code>{'<code/>'}</Code>
-          </TitleSecondary>
-        </Title>
-        <Subtitle>
-          Easily setup your own enterprise grade private<br />
-          blockchain through a simple user interface.
-        </Subtitle>
-        <ButtonsWrapper>
-          <Button primary href="mailto:team@blockcluster.io">
-            Get in touch
-          </Button>
-          <Button secondary href="mailto:team@blockcluster.io">
-            Request demo
-          </Button>
-        </ButtonsWrapper>
-        <BlockNetwork />
-        {/* <Card>
-          <CardCover />
-          <CardTitle>Request an invite</CardTitle>
-          <CardSubtitle>
-            Build and deploy your own blockchain network within a few clicks
-          </CardSubtitle>
-          <InputWrapper>
-            <InputField />
-            <InputLabel>Email address</InputLabel>
-            <InputSubmit>Request invite</InputSubmit>
-          </InputWrapper>
-        </Card> */}
-      </InnerWrapper>
-    </Wrapper>
-  </Root>
-);
+const BlinkingCursor = styled.span`
+  display: inline-block;
+  width: 14px;
+  height: 32px;
+  left: -16px;
+  top: 5px;
+  position: relative;
+  background: #fff;
+  opacity: 0;
+  border-radius: 1px;
+  transition: opacity 0.1s;
+
+  ${props =>
+    props.blink &&
+    css`
+      opacity: 0.9;
+    `};
+`;
+
+class Hero extends React.Component {
+  state = {
+    blink: false,
+  };
+
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({ blink: !this.state.blink });
+    }, 1000);
+  }
+
+  render() {
+    return (
+      <Root>
+        <Cover />
+        <Wrapper>
+          <Header>
+            <Logo>
+              <LogoCaps>B</LogoCaps>
+              lock
+              <LogoCaps>C</LogoCaps>
+              luster
+            </Logo>
+            <Nav>
+              <NavLeft>
+                <NavItem>Features</NavItem>
+                <NavItem>Use cases</NavItem>
+                <NavItem>Pricing</NavItem>
+              </NavLeft>
+              <NavRight>
+                <NavItem>Support</NavItem>
+                <NavButton>Login</NavButton>
+              </NavRight>
+            </Nav>
+          </Header>
+          <InnerWrapper>
+            <Title>
+              Build and deploy your blockchain network<br />
+              <TitleSecondary>
+                without writing any{' '}
+                <Code>
+                  {'<code/'}
+                  <CodeClosingBracket blink={this.state.blink}>
+                    {'>'}
+                  </CodeClosingBracket>
+                </Code>
+                <BlinkingCursor blink={this.state.blink} />
+              </TitleSecondary>
+            </Title>
+            <Subtitle>
+              Easily setup your own enterprise grade private<br />
+              blockchain through a simple user interface.
+            </Subtitle>
+            <ButtonsWrapper>
+              <Button primary href="mailto:team@blockcluster.io">
+                Get in touch
+              </Button>
+              <Button secondary href="mailto:team@blockcluster.io">
+                Request demo
+              </Button>
+            </ButtonsWrapper>
+            <UI />
+            {/* <BlockNetwork /> */}
+            {/* <Card>
+              <CardCover />
+              <CardTitle>Request an invite</CardTitle>
+              <CardSubtitle>
+                Build and deploy your own blockchain network within a few clicks
+              </CardSubtitle>
+              <InputWrapper>
+                <InputField />
+                <InputLabel>Email address</InputLabel>
+                <InputSubmit>Request invite</InputSubmit>
+              </InputWrapper>
+            </Card> */}
+          </InnerWrapper>
+        </Wrapper>
+      </Root>
+    );
+  }
+}
 
 export default Hero;
