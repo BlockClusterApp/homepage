@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import { clearFix, lighten, tint, shade, desaturate } from 'polished';
-import createAssets from '../assets/create-assets.png';
+import createAssets from '../assets/assets-api.png';
 import { colors, spacing, media } from '../../../styles';
 import { wrapper, cover, uppercase } from '../../../styles/mixins';
 
@@ -181,7 +181,7 @@ const AssetsUI = styled.div`
     0.7,
     0,
     0,
-    0.0001,
+    -0.0001,
     0,
     0.7,
     0,
