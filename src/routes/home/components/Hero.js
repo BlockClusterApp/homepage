@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
 import { clearFix, mix, hiDPI } from 'polished';
+import logo2x from '../assets/logo@2x.png';
 import heroBackground from '../assets/hero-bg-3.jpg';
 import createNetwork from '../assets/create-network.png';
 import blockNetwork from '../assets/block-network.png';
@@ -41,13 +42,10 @@ const Header = styled.header`
 
 const Logo = styled.div`
   float: left;
-  font-family: 'Montserrat';
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 40px;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  background: url(${logo2x}) no-repeat;
+  background-size: 178px;
+  width: 178px;
+  height: 36px;
 `;
 
 const LogoCaps = styled.span`
@@ -363,12 +361,7 @@ class Hero extends React.Component {
         <Cover />
         <Wrapper>
           <Header>
-            <Logo>
-              <LogoCaps>B</LogoCaps>
-              lock
-              <LogoCaps>C</LogoCaps>
-              luster
-            </Logo>
+            <Logo />
             <Nav>
               <NavLeft>
                 <NavItem>Features</NavItem>
