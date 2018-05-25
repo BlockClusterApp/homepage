@@ -14,6 +14,11 @@ const Root = styled.section`
   background: ${colors.secondary};
   padding-top: ${spacing()};
   color: #fff;
+
+  ${media.max460} {
+    height: 584px;
+    text-align: center;
+  }
 `;
 
 const Cover = styled.div`
@@ -37,15 +42,19 @@ const Header = styled.header`
     padding: ${spacing()} 0;
     height: 98px;
   }
+
+  ${media.max460} {
+    padding: ${spacing(0.5)};
+  }
 `;
 
 const Logo = styled.a`
   display: block;
   float: left;
-  background: url(${logo2x}) no-repeat;
-  background-size: 178px;
+  background: url(${logo2x}) no-repeat center;
+  background-size: 178px 36px;
   width: 178px;
-  height: 36px;
+  height: 38px;
   transition: opacity 0.2s;
 
   &:hover {
@@ -75,7 +84,7 @@ const navItemCss = css`
   ${uppercase};
   float: left;
   display: block;
-  line-height: 42px;
+  line-height: 38px;
   padding: 0 ${spacing()};
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.2s;
@@ -106,7 +115,7 @@ const NavButton = styled.a`
 
 const InnerWrapper = styled.div`
   position: relative;
-  padding: ${spacing(5)} ${spacing()};
+  padding: ${spacing(5)} 0 ${spacing(5)} ${spacing()};
 `;
 
 const Title = styled.h1`
@@ -115,6 +124,10 @@ const Title = styled.h1`
   line-height: 1.2;
   font-weight: 700;
   margin-bottom: ${spacing(1.5)};
+
+  ${media.max460} {
+    font-size: 34px;
+  }
 `;
 
 const TitleSecondary = styled.span`
@@ -123,6 +136,16 @@ const TitleSecondary = styled.span`
   color: ${colors.backgroundSecondaryText};
   position: relative;
   top: -5px;
+
+  ${media.max460} {
+    font-size: 25px;
+  }
+`;
+
+const BreakDesktop = styled.br`
+  ${media.max460} {
+    display: none;
+  }
 `;
 
 const Network = styled.div`
@@ -137,12 +160,20 @@ const Network = styled.div`
   ${hiDPI(2)} {
     background-image: url(${network2x});
   }
+
+  ${media.max460} {
+    display: none;
+  }
 `;
 
 const Code = styled.span`
   position: relative;
   z-index: 1;
-  font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  font-family: monospace;
+
+  ${media.min460} {
+    font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+  }
 `;
 
 const CodeClosingBracket = styled.span`
@@ -163,6 +194,10 @@ const Subtitle = styled.h2`
   opacity: 0.9;
   margin-bottom: ${spacing(4)};
   color: #fff;
+
+  ${media.max460} {
+    font-size: 19px;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
@@ -186,6 +221,12 @@ const Button = styled.a`
   border-radius: 5px;
   box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.2s;
+
+  ${media.max460} {
+    width: 160px;
+    height: 42px;
+    line-height: 42px;
+  }
 
   ${props =>
     props.primary &&
@@ -227,6 +268,15 @@ const BlinkingCursor = styled.span`
     css`
       opacity: 0.9;
     `};
+
+  ${media.max460} {
+    position: absolute;
+    width: 11px;
+    left: auto;
+    right: 2px;
+    top: 1px;
+    height: 25px;
+  }
 `;
 
 class Hero extends React.Component {
@@ -277,7 +327,7 @@ class Hero extends React.Component {
               </TitleSecondary>
             </Title>
             <Subtitle>
-              Easily setup your own enterprise grade private<br />
+              Easily setup your own enterprise grade private <BreakDesktop />
               blockchain through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>

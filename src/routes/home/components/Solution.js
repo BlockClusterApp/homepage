@@ -2,6 +2,7 @@ import React from 'react';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import styled, { css } from 'styled-components';
 import { clearFix, lighten } from 'polished';
+import mq from '../../../helpers/mediaQueries';
 import AnimateText from '../../../components/AnimateText';
 import noTime from '../assets/no-time.png';
 import noTime2x from '../assets/no-time@2x.png';
@@ -18,9 +19,13 @@ const checkSvg =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>';
 
 const Root = styled.section`
-  padding: ${spacing(7)} ${spacing()};
-  text-align: center;
   background: linear-gradient(#fff, #f6fbff);
+  padding: ${spacing(2.5)} ${spacing(1.5)};
+  text-align: center;
+
+  ${media.min460} {
+    padding: ${spacing(7)} ${spacing()};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -29,6 +34,10 @@ const Wrapper = styled.div`
 
 const Title = styled.h3`
   margin-bottom: ${spacing(1.5)};
+
+  ${media.max460} {
+    margin-bottom: ${spacing()};
+  }
 `;
 
 const TitleIntro = styled.span`
@@ -36,6 +45,11 @@ const TitleIntro = styled.span`
   font-size: 17px;
   color: ${colors.primary};
   margin-bottom: ${spacing(1.5)};
+
+  ${media.max460} {
+    font-size: 15px;
+    margin-bottom: 0;
+  }
 `;
 
 const TitleEm = styled.span`
@@ -43,6 +57,10 @@ const TitleEm = styled.span`
   font-size: 36px;
   font-weight: 700;
   color: ${colors.secondary};
+
+  ${media.max460} {
+    font-size: 33px;
+  }
 `;
 
 const Subtitle = styled.h3`
@@ -51,42 +69,48 @@ const Subtitle = styled.h3`
   margin: 0 auto ${spacing(6)};
   line-height: 1.4;
   max-width: 462px;
+
+  ${media.max460} {
+    margin-bottom: ${spacing(2)};
+    font-size: 17px;
+  }
 `;
 
 const PointColumn = styled.div`
-  float: left;
-  width: 50%;
   text-align: center;
+
+  ${media.max460} {
+    &:first-child {
+      margin-bottom: ${spacing()};
+    }
+  }
+
+  ${media.min460} {
+    float: left;
+    width: 50%;
+  }
 `;
 
 const PointsRow = styled.div`
   margin: 0 auto ${spacing(2)};
   max-width: 840px;
   ${clearFix()};
-`;
 
-const faceCss = css`
-  opacity: 0;
-  will-change: opacity, transform;
-
-  transition: none;
-  transform: matrix(0.8, 0, 0, 0.8, 0, 32);
-`;
-
-const fadedCss = css`
-  opacity: 1;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  transition: opacity 0.5s, transform 0.5s;
+  ${media.max460} {
+    margin-bottom: ${spacing()};
+  }
 `;
 
 const pointCss = css`
-  ${faceCss};
-  width: 382px;
-  display: inline-block;
-  padding: ${spacing(2)};
+  padding: ${spacing(2)} ${spacing()};
   background: #fff;
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
+
+  ${media.min460} {
+    width: 382px;
+    display: inline-block;
+  }
 `;
 
 const Point1 = styled.div`
@@ -106,29 +130,41 @@ const Point4 = styled.div`
 `;
 
 const PointsWrapper = styled.div`
-  color: blue;
+  ${props =>
+    props.mounted &&
+    css`
+      ${Point1},
+      ${Point2},
+      ${Point3},
+      ${Point4} {
+        opacity: 0;
+        will-change: opacity, transform;
+        transition: none;
+        transform: matrix(0.8, 0, 0, 0.8, 0, 32);
+      }
+    `};
 
   ${props =>
-    props.faded &&
+    props.visible &&
     css`
-      color: red;
-
-      ${Point1} {
-        ${fadedCss};
+      ${Point1},
+      ${Point2},
+      ${Point3},
+      ${Point4} {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: opacity 0.5s, transform 0.5s;
       }
 
       ${Point2} {
-        ${fadedCss};
         transition-delay: 100ms;
       }
 
       ${Point3} {
-        ${fadedCss};
         transition-delay: 200ms;
       }
 
       ${Point4} {
-        ${fadedCss};
         transition-delay: 300ms;
       }
     `};
@@ -198,11 +234,14 @@ const PointImgIntegration = styled.img`
 
 class Problem extends React.Component {
   state = {
-    faded: false,
+    visible: false,
+    mounted: false,
   };
 
   componentDidMount() {
-    if (canUseDOM) {
+    if (canUseDOM && mq.min460()) {
+      // eslint-disable-next-line
+      this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);
     }
   }
@@ -213,24 +252,26 @@ class Problem extends React.Component {
 
   onScrollFade = () => {
     if (
-      !this.state.faded &&
+      !this.state.visible &&
       window.innerHeight * 0.8 >
         this.pointsRef.current.getBoundingClientRect().top
     ) {
-      this.setState({ faded: true });
+      this.setState({ visible: true });
     }
 
     if (
-      this.state.faded &&
+      this.state.visible &&
       window.innerHeight < this.pointsRef.current.getBoundingClientRect().top
     ) {
-      this.setState({ faded: false });
+      this.setState({ visible: false });
     }
   };
 
   pointsRef = React.createRef();
 
   render() {
+    const { visible, mounted } = this.state;
+
     return (
       <Root>
         <Wrapper>
@@ -258,7 +299,11 @@ class Problem extends React.Component {
               animationStyle="fadeSlide"
             />
           </Subtitle>
-          <PointsWrapper innerRef={this.pointsRef} faded={this.state.faded}>
+          <PointsWrapper
+            innerRef={this.pointsRef}
+            visible={visible}
+            mounted={mounted}
+          >
             <PointsRow>
               <PointColumn>
                 <Point1>

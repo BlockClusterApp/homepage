@@ -6,6 +6,7 @@ import { clearFix, darken, lighten, hiDPI } from 'polished';
 import { colors, spacing, media } from '../../../styles';
 import { wrapper, cover, uppercase } from '../../../styles/mixins';
 import AnimateText from '../../../components/AnimateText';
+import mq from '../../../helpers/mediaQueries';
 // import error from '../../../assets/images/error.svg';
 import slowDevelopment from '../assets/slow-dev.png';
 import slowDevelopment2x from '../assets/slow-dev@2x.png';
@@ -21,8 +22,12 @@ const errorSvg =
 
 const Root = styled.section`
   background: linear-gradient(#f6fbff, #eef7fe);
-  padding: ${spacing(7)} ${spacing()};
+  padding: ${spacing(2.5)} ${spacing(1.5)};
   text-align: center;
+
+  ${media.min460} {
+    padding: ${spacing(7)} ${spacing()};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -34,6 +39,11 @@ const Title = styled.h3`
   font-weight: 600;
   color: ${colors.primary};
   margin-bottom: ${spacing(1.5)};
+
+  ${media.max460} {
+    font-size: 31px;
+    margin-bottom: ${spacing()};
+  }
 `;
 
 const TitleEm = styled.span`
@@ -47,42 +57,48 @@ const Subtitle = styled.h3`
   margin: 0 auto ${spacing(6)};
   line-height: 1.4;
   max-width: 462px;
+
+  ${media.max460} {
+    margin-bottom: ${spacing(2)};
+    font-size: 17px;
+  }
 `;
 
 const PointColumn = styled.div`
-  float: left;
-  width: 50%;
   text-align: center;
+
+  ${media.max460} {
+    &:first-child {
+      margin-bottom: ${spacing()};
+    }
+  }
+
+  ${media.min460} {
+    float: left;
+    width: 50%;
+  }
 `;
 
 const PointsRow = styled.div`
   margin: 0 auto ${spacing(2)};
   max-width: 840px;
   ${clearFix()};
-`;
 
-const faceCss = css`
-  opacity: 0;
-  will-change: opacity, transform;
-
-  transition: none;
-  transform: matrix(0.8, 0, 0, 0.8, 0, 32);
-`;
-
-const fadedCss = css`
-  opacity: 1;
-  transform: matrix(1, 0, 0, 1, 0, 0);
-  transition: opacity 0.5s, transform 0.5s;
+  ${media.max460} {
+    margin-bottom: ${spacing()};
+  }
 `;
 
 const pointCss = css`
-  ${faceCss};
-  width: 382px;
-  display: inline-block;
   padding: ${spacing(2)};
   background: #fff;
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
+
+  ${media.min460} {
+    width: 382px;
+    display: inline-block;
+  }
 `;
 
 const PointDev = styled.div`
@@ -102,29 +118,41 @@ const PointInt = styled.div`
 `;
 
 const PointsWrapper = styled.div`
-  color: blue;
+  ${props =>
+    props.mounted &&
+    css`
+      ${PointDev},
+      ${PointErr},
+      ${PointExe},
+      ${PointInt} {
+        opacity: 0;
+        will-change: opacity, transform;
+        transition: none;
+        transform: matrix(0.8, 0, 0, 0.8, 0, 32);
+      }
+    `};
 
   ${props =>
-    props.faded &&
+    props.visible &&
     css`
-      color: red;
-
-      ${PointDev} {
-        ${fadedCss};
+      ${PointDev},
+      ${PointErr},
+      ${PointExe},
+      ${PointInt} {
+        opacity: 1;
+        transform: matrix(1, 0, 0, 1, 0, 0);
+        transition: opacity 0.5s, transform 0.5s;
       }
 
       ${PointErr} {
-        ${fadedCss};
         transition-delay: 100ms;
       }
 
       ${PointExe} {
-        ${fadedCss};
         transition-delay: 200ms;
       }
 
       ${PointInt} {
-        ${fadedCss};
         transition-delay: 300ms;
       }
     `};
@@ -194,14 +222,15 @@ const PointImgCumbersomeIntegration = styled.img`
 
 class Problem extends React.Component {
   state = {
-    faded: false,
+    visible: false,
+    mounted: false,
   };
 
   componentDidMount() {
-    if (canUseDOM) {
+    if (canUseDOM && mq.min460()) {
+      // eslint-disable-next-line
+      this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);
-
-      // this.titleRef;
     }
   }
 
@@ -211,18 +240,18 @@ class Problem extends React.Component {
 
   onScrollFade = () => {
     if (
-      !this.state.faded &&
+      !this.state.visible &&
       window.innerHeight * 0.8 >
         this.pointsRef.current.getBoundingClientRect().top
     ) {
-      this.setState({ faded: true });
+      this.setState({ visible: true });
     }
 
     if (
-      this.state.faded &&
+      this.state.visible &&
       window.innerHeight < this.pointsRef.current.getBoundingClientRect().top
     ) {
-      this.setState({ faded: false });
+      this.setState({ visible: false });
     }
   };
 
@@ -231,6 +260,8 @@ class Problem extends React.Component {
   pointsRef = React.createRef();
 
   render() {
+    const { mounted, visible } = this.state;
+
     return (
       <Root>
         <Wrapper>
@@ -258,7 +289,11 @@ class Problem extends React.Component {
               animationStyle="fadeSlide"
             />
           </Subtitle>
-          <PointsWrapper innerRef={this.pointsRef} faded={this.state.faded}>
+          <PointsWrapper
+            innerRef={this.pointsRef}
+            visible={visible}
+            mounted={mounted}
+          >
             <PointsRow>
               <PointColumn>
                 <PointDev>

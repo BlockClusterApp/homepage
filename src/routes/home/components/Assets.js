@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { tint } from 'polished';
 import AnimateText from '../../../components/AnimateText';
 import create from '../assets/create-assets.png';
-import { colors, spacing } from '../../../styles';
+import { colors, spacing, media } from '../../../styles';
 import { wrapper, uppercase } from '../../../styles/mixins';
 
 const checkSvg =
@@ -14,21 +14,29 @@ const Root = styled.section`
     ${tint(0.9, colors.secondary)},
     ${tint(0.95, colors.secondary)}
   );
+  text-align: center;
 `;
 
 const Wrapper = styled.div`
   ${wrapper};
   padding: ${spacing(4)} ${spacing()};
+
+  ${media.max460} {
+    padding: ${spacing(2.5)} ${spacing(1.5)};
+  }
 `;
 
 const Column = styled.div`
-  float: left;
-  width: 50%;
-  text-align: left;
+  ${media.min460} {
+    text-align: left;
+    float: left;
+    width: 50%;
+  }
 `;
 
 const Title = styled.div`
   font-size: 30px;
+  line-height: 1.2;
   color: #fff;
   margin-bottom: ${spacing(2)};
 `;
@@ -60,6 +68,10 @@ const UI = styled.div`
     -16.2px 37.5px 75px -37.5px rgba(0, 0, 0, 0.2);
   background: #fff url(${create}) left top no-repeat;
   background-size: 744px 401px;
+
+  ${media.max460} {
+    display: none;
+  }
 `;
 
 const PointTitle = styled.div`

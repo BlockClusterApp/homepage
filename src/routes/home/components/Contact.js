@@ -3,19 +3,28 @@ import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import styled, { css } from 'styled-components';
 import { clearFix, mix, shade } from 'polished';
 import AnimateText from '../../../components/AnimateText';
-import { colors, spacing, uppercase } from '../../../styles';
+import { colors, spacing, uppercase, media } from '../../../styles';
 import { wrapper } from '../../../styles/mixins';
+import mq from '../../../helpers/mediaQueries';
 
 const Root = styled.section`
   position: relative;
   height: 356px;
   background: #f6fbff;
+
+  ${media.max460} {
+    height: auto;
+  }
 `;
 
 const Wrapper = styled.div`
   ${wrapper};
   position: relative;
   padding: 142px ${spacing()};
+
+  ${media.max460} {
+    padding: ${spacing(2.5)} ${spacing(1.5)};
+  }
 `;
 
 const Title = styled.h3`
@@ -23,6 +32,10 @@ const Title = styled.h3`
   font-weight: 600;
   color: ${colors.primary};
   margin-bottom: ${spacing(0.25)};
+
+  ${media.max460} {
+    font-size: 30px;
+  }
 `;
 
 const TitleEm = styled.span`
@@ -35,6 +48,11 @@ const Subtitle = styled.h3`
   font-weight: 600;
   margin-bottom: ${spacing(6)};
   opacity: 0.8;
+
+  ${media.max460} {
+    font-size: 17px;
+    margin-bottom: ${spacing(2)};
+  }
 `;
 
 const TextWrapper = styled.div`
@@ -56,6 +74,10 @@ const Button = styled.a`
   border-radius: 5px;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: none;
+
+  ${media.max460} {
+    width: 160px;
+  }
 
   &:hover {
     transition: all 0.2s;
@@ -89,9 +111,14 @@ const Button = styled.a`
 `;
 
 const ButtonsWrapper = styled.div`
-  padding-top: 14px;
-  float: right;
-  ${clearFix()};
+  ${media.max460} {
+    padding-top: 14px;
+    ${clearFix()};
+  }
+
+  ${media.min460} {
+    float: right;
+  }
 
   ${props =>
     props.mounted &&
@@ -123,7 +150,7 @@ class Contact extends React.Component {
   };
 
   componentDidMount() {
-    if (canUseDOM) {
+    if (canUseDOM && mq.min460()) {
       // eslint-disable-next-line
       this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);

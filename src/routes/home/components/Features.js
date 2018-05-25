@@ -1,12 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import AnimateText from '../../../components/AnimateText';
-import { colors, spacing } from '../../../styles';
+import { colors, spacing, media } from '../../../styles';
 
 const Root = styled.section`
   background: ${colors.secondary};
   padding: ${spacing(7)} 0;
   text-align: center;
+
+  ${media.max460} {
+    padding: ${spacing(2.5)} ${spacing(2)};
+  }
 `;
 
 const Title = styled.h3`
@@ -14,6 +18,11 @@ const Title = styled.h3`
   font-weight: 600;
   color: #fff;
   margin-bottom: ${spacing(1.5)};
+
+  ${media.max460} {
+    font-size: 30px;
+    margin-bottom: ${spacing()};
+  }
 `;
 
 const TitleEm = styled.span`
@@ -29,6 +38,10 @@ const Subtitle = styled.h3`
   margin: 0 auto;
   color: #fff;
   opacity: 0.9;
+
+  ${media.max460} {
+    font-size: 17px;
+  }
 `;
 
 const Features = () => (
