@@ -21,13 +21,13 @@ const Wrapper = styled.div`
   ${wrapper};
   padding: ${spacing(4)} ${spacing()};
 
-  ${media.max460} {
+  ${media.max768} {
     padding: ${spacing(2.5)} ${spacing(1.5)};
   }
 `;
 
 const Column = styled.div`
-  ${media.min460} {
+  ${media.min768} {
     text-align: left;
     float: left;
     width: 50%;
@@ -69,7 +69,7 @@ const UI = styled.div`
   background: #fff url(${create}) left top no-repeat;
   background-size: 744px 401px;
 
-  ${media.max460} {
+  ${media.max768} {
     display: none;
   }
 `;

@@ -54,7 +54,7 @@ export const card = css`
   border-radius: 12px;
   margin: 0 auto ${spacing()};
 
-  ${media.max460} {
+  ${media.max768} {
     border-radius: 0;
   }
 `;

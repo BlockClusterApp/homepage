@@ -15,7 +15,7 @@ const Root = styled.section`
   padding-top: ${spacing()};
   color: #fff;
 
-  ${media.max460} {
+  ${media.max768} {
     height: 584px;
     text-align: center;
   }
@@ -43,7 +43,7 @@ const Header = styled.header`
     height: 98px;
   }
 
-  ${media.max460} {
+  ${media.max768} {
     padding: ${spacing(0.5)};
   }
 `;
@@ -125,7 +125,7 @@ const Title = styled.h1`
   font-weight: 700;
   margin-bottom: ${spacing(1.5)};
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 34px;
   }
 `;
@@ -137,13 +137,13 @@ const TitleSecondary = styled.span`
   position: relative;
   top: -5px;
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 25px;
   }
 `;
 
 const BreakDesktop = styled.br`
-  ${media.max460} {
+  ${media.max768} {
     display: none;
   }
 `;
@@ -161,7 +161,7 @@ const Network = styled.div`
     background-image: url(${network2x});
   }
 
-  ${media.max460} {
+  ${media.max768} {
     display: none;
   }
 `;
@@ -171,7 +171,7 @@ const Code = styled.span`
   z-index: 1;
   font-family: monospace;
 
-  ${media.min460} {
+  ${media.min768} {
     font-family: Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   }
 `;
@@ -195,7 +195,7 @@ const Subtitle = styled.h2`
   margin-bottom: ${spacing(4)};
   color: #fff;
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 19px;
   }
 `;
@@ -222,7 +222,7 @@ const Button = styled.a`
   box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.2s;
 
-  ${media.max460} {
+  ${media.max768} {
     width: 160px;
     height: 42px;
     line-height: 42px;
@@ -269,7 +269,7 @@ const BlinkingCursor = styled.span`
       opacity: 0.9;
     `};
 
-  ${media.max460} {
+  ${media.max768} {
     position: absolute;
     width: 11px;
     left: auto;

@@ -12,7 +12,7 @@ const Root = styled.section`
   height: 356px;
   background: #f6fbff;
 
-  ${media.max460} {
+  ${media.max768} {
     height: auto;
   }
 `;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   position: relative;
   padding: 142px ${spacing()};
 
-  ${media.max460} {
+  ${media.max768} {
     padding: ${spacing(2.5)} ${spacing(1.5)};
   }
 `;
@@ -33,7 +33,7 @@ const Title = styled.h3`
   color: ${colors.primary};
   margin-bottom: ${spacing(0.25)};
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 30px;
   }
 `;
@@ -49,7 +49,7 @@ const Subtitle = styled.h3`
   margin-bottom: ${spacing(6)};
   opacity: 0.8;
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 17px;
     margin-bottom: ${spacing(2)};
   }
@@ -75,7 +75,7 @@ const Button = styled.a`
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: none;
 
-  ${media.max460} {
+  ${media.max768} {
     width: 160px;
   }
 
@@ -111,12 +111,12 @@ const Button = styled.a`
 `;
 
 const ButtonsWrapper = styled.div`
-  ${media.max460} {
+  ${media.max768} {
     padding-top: 14px;
     ${clearFix()};
   }
 
-  ${media.min460} {
+  ${media.min768} {
     float: right;
   }
 
@@ -150,7 +150,7 @@ class Contact extends React.Component {
   };
 
   componentDidMount() {
-    if (canUseDOM && mq.min460()) {
+    if (canUseDOM && mq.min768()) {
       // eslint-disable-next-line
       this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);

@@ -7,7 +7,7 @@ import { media } from '../styles';
 import mq from '../helpers/mediaQueries';
 
 const TextPartInner = styled.span`
-  ${media.min460} {
+  ${media.min768} {
     float: left;
     overflow: hidden;
     transition: none;
@@ -15,11 +15,11 @@ const TextPartInner = styled.span`
 `;
 
 const TextPart = styled.span`
-  ${media.max460} {
+  ${media.max768} {
     display: inline-block;
   }
 
-  ${media.min460} {
+  ${media.min768} {
     float: left;
     overflow: hidden;
 
@@ -39,7 +39,7 @@ const Root = styled.span`
   display: inline-block;
   ${clearFix()};
 
-  ${media.min460} {
+  ${media.min768} {
     ${props =>
       props.animationStyle === 'slide' &&
       props.mounted &&
@@ -98,7 +98,7 @@ export default class AnimateText extends React.Component {
   };
 
   componentDidMount() {
-    if (canUseDOM && mq.min460()) {
+    if (canUseDOM && mq.min768()) {
       // eslint-disable-next-line
       this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);

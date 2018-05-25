@@ -23,7 +23,7 @@ const Root = styled.section`
   padding: ${spacing(2.5)} ${spacing(1.5)};
   text-align: center;
 
-  ${media.min460} {
+  ${media.min768} {
     padding: ${spacing(7)} ${spacing()};
   }
 `;
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 const Title = styled.h3`
   margin-bottom: ${spacing(1.5)};
 
-  ${media.max460} {
+  ${media.max768} {
     margin-bottom: ${spacing()};
   }
 `;
@@ -46,7 +46,7 @@ const TitleIntro = styled.span`
   color: ${colors.primary};
   margin-bottom: ${spacing(1.5)};
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 15px;
     margin-bottom: 0;
   }
@@ -58,7 +58,7 @@ const TitleEm = styled.span`
   font-weight: 700;
   color: ${colors.secondary};
 
-  ${media.max460} {
+  ${media.max768} {
     font-size: 33px;
   }
 `;
@@ -70,7 +70,7 @@ const Subtitle = styled.h3`
   line-height: 1.4;
   max-width: 462px;
 
-  ${media.max460} {
+  ${media.max768} {
     margin-bottom: ${spacing(2)};
     font-size: 17px;
   }
@@ -79,13 +79,13 @@ const Subtitle = styled.h3`
 const PointColumn = styled.div`
   text-align: center;
 
-  ${media.max460} {
+  ${media.max768} {
     &:first-child {
       margin-bottom: ${spacing()};
     }
   }
 
-  ${media.min460} {
+  ${media.min768} {
     float: left;
     width: 50%;
   }
@@ -96,7 +96,7 @@ const PointsRow = styled.div`
   max-width: 840px;
   ${clearFix()};
 
-  ${media.max460} {
+  ${media.max768} {
     margin-bottom: ${spacing()};
   }
 `;
@@ -107,7 +107,7 @@ const pointCss = css`
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
 
-  ${media.min460} {
+  ${media.min768} {
     width: 382px;
     display: inline-block;
   }
@@ -239,7 +239,7 @@ class Problem extends React.Component {
   };
 
   componentDidMount() {
-    if (canUseDOM && mq.min460()) {
+    if (canUseDOM && mq.min768()) {
       // eslint-disable-next-line
       this.setState({ mounted: true });
       window.addEventListener('scroll', this.onScrollFade);
