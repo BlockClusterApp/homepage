@@ -5,6 +5,7 @@ import { clearFix, darken, lighten, hiDPI } from 'polished';
 // import SVG from 'react-svg-inline';
 import { colors, spacing, media } from '../../../styles';
 import { wrapper, cover, uppercase } from '../../../styles/mixins';
+import AnimateText from '../../../components/AnimateText';
 // import error from '../../../assets/images/error.svg';
 import slowDevelopment from '../assets/slow-dev.png';
 import slowDevelopment2x from '../assets/slow-dev@2x.png';
@@ -20,7 +21,7 @@ const errorSvg =
 
 const Root = styled.section`
   background: linear-gradient(#f6fbff, #eef7fe);
-  padding: ${spacing(20)} ${spacing()} ${spacing(7)};
+  padding: ${spacing(7)} ${spacing()};
   text-align: center;
 `;
 
@@ -199,6 +200,8 @@ class Problem extends React.Component {
   componentDidMount() {
     if (canUseDOM) {
       window.addEventListener('scroll', this.onScrollFade);
+
+      // this.titleRef;
     }
   }
 
@@ -223,19 +226,37 @@ class Problem extends React.Component {
     }
   };
 
+  titleRef = React.createRef();
+
   pointsRef = React.createRef();
 
   render() {
     return (
       <Root>
         <Wrapper>
-          <Title>
-            Building your own private blockchain <TitleEm>is difficult</TitleEm>
+          <Title ref={this.titleRef}>
+            <AnimateText
+              textNodes={[
+                'Building',
+                'your',
+                'own',
+                'private',
+                'blockchain',
+                <TitleEm>is</TitleEm>,
+                <TitleEm>difficult</TitleEm>,
+              ]}
+              animationStyle="slide"
+            />
           </Title>
           <Subtitle>
-            Blockchain and its promising technology could provide immense value
-            to your business. What you’ll probably realise sooner than later is
-            that it’s not that easy to implement.
+            <AnimateText
+              textNodes={[
+                `Blockchain and its promising technology could provide immense value
+                to your business. What you’ll probably realise sooner than later is
+                that it’s not that easy to implement.`,
+              ]}
+              animationStyle="fadeSlide"
+            />
           </Subtitle>
           <PointsWrapper innerRef={this.pointsRef} faded={this.state.faded}>
             <PointsRow>

@@ -2,6 +2,7 @@ import React from 'react';
 import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import styled, { css } from 'styled-components';
 import { clearFix, lighten } from 'polished';
+import AnimateText from '../../../components/AnimateText';
 import noTime from '../assets/no-time.png';
 import noTime2x from '../assets/no-time@2x.png';
 import noKnowledge from '../assets/no-knowledge.png';
@@ -234,13 +235,28 @@ class Problem extends React.Component {
       <Root>
         <Wrapper>
           <Title>
-            <TitleIntro>Introducing BlockCluster’s</TitleIntro>
-            <TitleEm>Blockchain as a service</TitleEm>
+            <TitleIntro>
+              <AnimateText
+                textNodes={['Introducing', 'BlockCluster’s']}
+                animationStyle="slide"
+              />
+            </TitleIntro>
+            <TitleEm>
+              <AnimateText
+                textNodes={['Blockchain', 'as', 'a', 'service']}
+                animationStyle="slide"
+              />
+            </TitleEm>
           </Title>
           <Subtitle>
-            BlockCluster’s BaaS includes a rich catalog of cloud services which
-            allows you to customly build and deploy business blockchain
-            applications rapidly — a few clicks aways.
+            <AnimateText
+              textNodes={[
+                `BlockCluster’s BaaS includes a rich catalog of cloud services which
+                  allows you to customly build and deploy business blockchain
+                  applications rapidly — a few clicks aways.`,
+              ]}
+              animationStyle="fadeSlide"
+            />
           </Subtitle>
           <PointsWrapper innerRef={this.pointsRef} faded={this.state.faded}>
             <PointsRow>

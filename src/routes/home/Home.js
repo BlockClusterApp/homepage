@@ -4,7 +4,7 @@ import Problem from './components/Problem';
 import Solution from './components/Solution';
 import Assets from './components/Assets';
 import Infra from './components/Infra';
-// import Features from './components/Features';
+import Features from './components/Features';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
@@ -13,6 +13,7 @@ const Home = () => (
     <Hero />
     <Problem />
     <Solution />
+    <Features />
     <Assets />
     <Infra />
     <Contact />

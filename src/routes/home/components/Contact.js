@@ -1,9 +1,10 @@
 import React from 'react';
+import { canUseDOM } from 'fbjs/lib/ExecutionEnvironment';
 import styled, { css } from 'styled-components';
 import { clearFix, mix, shade } from 'polished';
-import heroBackground from '../assets/hero-bg.png';
-import { colors, spacing, media, uppercase } from '../../../styles';
-import { wrapper, cover } from '../../../styles/mixins';
+import AnimateText from '../../../components/AnimateText';
+import { colors, spacing, uppercase } from '../../../styles';
+import { wrapper } from '../../../styles/mixins';
 
 const Root = styled.section`
   position: relative;
@@ -40,15 +41,9 @@ const TextWrapper = styled.div`
   float: left;
 `;
 
-const ButtonsWrapper = styled.div`
-  padding-top: 14px;
-  float: right;
-  ${clearFix()};
-`;
-
 const Button = styled.a`
   ${uppercase};
-  display: inline-block;
+  display: block;
   text-align: center;
   position: relative;
   z-index: 2;
@@ -60,7 +55,11 @@ const Button = styled.a`
   line-height: 44px;
   border-radius: 5px;
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-  transition: all 0.2s;
+  transition: none;
+
+  &:hover {
+    transition: all 0.2s;
+  }
 
   &:last-child {
     margin-right: 0;
@@ -89,25 +88,113 @@ const Button = styled.a`
     `};
 `;
 
-const Contact = () => (
-  <Root>
-    <Wrapper>
-      <TextWrapper>
-        <Title>
-          Ready to use <TitleEm>BlockCluster?</TitleEm>
-        </Title>
-        <Subtitle>Get started with a free demo for your business.</Subtitle>
-      </TextWrapper>
-      <ButtonsWrapper>
-        <Button primary href="mailto:team@blockcluster.io">
-          Get in touch
-        </Button>
-        <Button secondary href="mailto:team@blockcluster.io">
-          Request demo
-        </Button>
-      </ButtonsWrapper>
-    </Wrapper>
-  </Root>
-);
+const ButtonsWrapper = styled.div`
+  padding-top: 14px;
+  float: right;
+  ${clearFix()};
+
+  ${props =>
+    props.mounted &&
+    css`
+      ${Button} {
+        opacity: 0;
+      }
+    `};
+
+  ${props =>
+    props.visible &&
+    css`
+      ${Button} {
+        opacity: 1;
+        transition: opacity 1.4s;
+        transition-delay: 0.5s;
+
+        &:last-child {
+          transition-delay: 0.75s;
+        }
+      }
+    `};
+`;
+
+class Contact extends React.Component {
+  state = {
+    visible: false,
+    mounted: false,
+  };
+
+  componentDidMount() {
+    if (canUseDOM) {
+      // eslint-disable-next-line
+      this.setState({ mounted: true });
+      window.addEventListener('scroll', this.onScrollFade);
+    }
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.onScrollFade);
+  }
+
+  onScrollFade = () => {
+    if (
+      !this.state.visible &&
+      window.innerHeight * 0.8 >
+        this.buttonsWrapperRef.current.getBoundingClientRect().top
+    ) {
+      this.setState({ visible: true });
+    }
+
+    if (
+      this.state.visible &&
+      window.innerHeight <
+        this.buttonsWrapperRef.current.getBoundingClientRect().top
+    ) {
+      this.setState({ visible: false });
+    }
+  };
+
+  buttonsWrapperRef = React.createRef();
+
+  render() {
+    const { mounted, visible } = this.state;
+
+    return (
+      <Root>
+        <Wrapper>
+          <TextWrapper>
+            <Title>
+              <AnimateText
+                textNodes={[
+                  'Ready',
+                  'to',
+                  'use',
+                  <TitleEm>BlockCluster?</TitleEm>,
+                ]}
+                animationStyle="slide"
+              />
+            </Title>
+            <Subtitle>
+              <AnimateText
+                textNodes={[`Get started with a free demo for your business.`]}
+                animationStyle="fadeSlide"
+              />
+            </Subtitle>
+          </TextWrapper>
+          <ButtonsWrapper
+            innerRef={this.buttonsWrapperRef}
+            mounted={mounted}
+            visible={visible}
+          >
+            <Button primary href="mailto:team@blockcluster.io">
+              Get in touch
+            </Button>
+            <Button secondary href="mailto:team@blockcluster.io">
+              Request demo
+            </Button>
+          </ButtonsWrapper>
+        </Wrapper>
+      </Root>
+    );
+  }
+}
 
 export default Contact;
