@@ -24,9 +24,12 @@ const routes = {
 
     // Provide default values for title, description etc.
     route.title = route.title
-      ? `${route.title} - Blockcluster`
-      : 'Blockcluster';
-    route.description = route.description || '';
+      ? `${route.title} - BlockCluster`
+      : 'BlockCluster';
+    route.description =
+      route.description ||
+      `Build and deploy your blockchain network without writing any code.
+      Setup your own enterprise grade private blockchain through a simple user interface.`;
 
     return route;
   },
