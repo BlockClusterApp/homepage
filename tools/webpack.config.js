@@ -28,7 +28,7 @@ const isAnalyze =
 
 const reScript = /\.(js|jsx|mjs)$/;
 const reStyle = /\.(css|less|styl|scss|sass|sss)$/;
-const reImage = /\.(bmp|gif|jpg|jpeg|png)$/;
+const reImage = /\.(bmp|gif|jpg|jpeg|png|svg)$/;
 const staticAssetName = isDebug
   ? '[path][name].[ext]?[hash:8]'
   : '[hash:8].[ext]';
@@ -194,14 +194,14 @@ const config = {
             issuer: reStyle,
             oneOf: [
               // Inline lightweight SVGs as UTF-8 encoded DataUrl string
-              // {
-              //   test: /\.svg$/,
-              //   loader: 'svg-url-loader',
-              //   options: {
-              //     name: staticAssetName,
-              //     limit: 4096, // 4kb
-              //   },
-              // },
+              {
+                test: /\.svg$/,
+                loader: 'svg-url-loader',
+                options: {
+                  name: staticAssetName,
+                  limit: 4096, // 4kb
+                },
+              },
 
               // Inline lightweight images as Base64 encoded DataUrl string
               {
@@ -226,7 +226,7 @@ const config = {
 
       // Convert plain text into JS module
       {
-        test: /\.(txt|svg)(\?.*)?$/,
+        test: /\.txt$/,
         loader: 'raw-loader',
       },
 
@@ -439,8 +439,8 @@ const serverConfig = {
       // Override paths to static assets
       if (
         rule.loader === 'file-loader' ||
-        rule.loader === 'url-loader'
-        // rule.loader === 'svg-url-loader'
+        rule.loader === 'url-loader' ||
+        rule.loader === 'svg-url-loader'
       ) {
         return {
           ...rule,

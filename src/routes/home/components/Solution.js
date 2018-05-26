@@ -106,10 +106,12 @@ const pointCss = css`
   background: #fff;
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
+  max-width: 382px;
+  margin: 0 auto;
 
   ${media.min768} {
-    width: 382px;
     display: inline-block;
+    width: 100%;
   }
 `;
 

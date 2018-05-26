@@ -16,17 +16,33 @@ import hardToExecute from '../assets/hard-exec.png';
 import hardToExecute2x from '../assets/hard-exec@2x.png';
 import cumbersomeIntegration from '../assets/cumbersome-int.png';
 import cumbersomeIntegration2x from '../assets/cumbersome-int@2x.png';
+import play from '../assets/play.png';
+import play2x from '../assets/play@2x.png';
 
 const errorSvg =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z"/></svg>';
 
 const Root = styled.section`
-  background: linear-gradient(#f6fbff, #eef7fe);
+  position: relative;
+  z-index: 2;
+  ${'' /* background: linear-gradient(#f6fbff, #eef7fe); */}
   padding: ${spacing(2.5)} ${spacing(1.5)};
   text-align: center;
 
   ${media.min768} {
     padding: ${spacing(7)} ${spacing()};
+  }
+`;
+
+const Cover = styled.div`
+  ${cover};
+  z-index: -1;
+  height: 114%;
+  background: linear-gradient(#f6fbff, #eef7fe);
+  transform: matrix(1, 0.06, 0, 1, 0, -124);
+
+  ${media.max768} {
+    transform: matrix(1, 0.06, 0, 1, 0, -156);
   }
 `;
 
@@ -94,10 +110,12 @@ const pointCss = css`
   background: #fff;
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   border-radius: 12px;
+  max-width: 382px;
+  margin: 0 auto;
 
   ${media.min768} {
-    width: 382px;
     display: inline-block;
+    width: 100%;
   }
 `;
 
@@ -211,8 +229,8 @@ const PointImgErrorProne = styled.img`
 `;
 
 const PointImgHardToExecute = styled.img`
-  width: 52px;
-  height: 42px;
+  width: 50px;
+  height: 50px;
 `;
 
 const PointImgCumbersomeIntegration = styled.img`
@@ -264,6 +282,7 @@ class Problem extends React.Component {
 
     return (
       <Root>
+        <Cover />
         <Wrapper>
           <Title ref={this.titleRef}>
             <AnimateText
@@ -339,8 +358,8 @@ class Problem extends React.Component {
                 <PointExe>
                   <PointIllustration>
                     <PointImgHardToExecute
-                      src={hardToExecute}
-                      srcSet={`${hardToExecute2x} 2x`}
+                      src={play}
+                      srcSet={`${play2x} 2x`}
                       alt="Hard to execute"
                     />
                     <PointIllustrationError

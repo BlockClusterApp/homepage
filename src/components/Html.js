@@ -412,9 +412,9 @@ class Html extends React.Component {
             href="/favicon-16x16.png"
           />
           <link rel="manifest" href="/manifest.json" />
-          <meta name="msapplication-TileColor" content="#03BCFF" />
+          <meta name="msapplication-TileColor" content={colors.primary} />
           <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
-          <meta name="theme-color" content="#03BCFF" />
+          <meta name="theme-color" content={colors.primary} />
           {noRobots && <meta name="robots" content="noindex, nofollow" />}
           {styleElement}
           <script

@@ -4,6 +4,8 @@ export const primary = '#2C92C4';
 
 export const secondary = '#104380';
 
+export const tertiary = '#00FFD3';
+
 export const backgroundSecondaryText = '#46D7FF';
 
 export const background = secondary;

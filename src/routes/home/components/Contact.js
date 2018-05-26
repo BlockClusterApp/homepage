@@ -9,21 +9,24 @@ import mq from '../../../helpers/mediaQueries';
 
 const Root = styled.section`
   position: relative;
-  height: 356px;
+  height: 456px;
   background: #f6fbff;
+  margin-top: -100px;
+  padding-top: 100px;
 
-  ${media.max768} {
+  @media (max-width: 980px) {
     height: auto;
+    text-align: center;
   }
 `;
 
 const Wrapper = styled.div`
   ${wrapper};
   position: relative;
-  padding: 142px ${spacing()};
+  padding: 142px ${spacing(1.5)};
 
-  ${media.max768} {
-    padding: ${spacing(2.5)} ${spacing(1.5)};
+  @media (max-width: 980px) {
+    padding: ${spacing(4.25)} ${spacing(1.5)} ${spacing(2.5)};
   }
 `;
 
@@ -49,14 +52,16 @@ const Subtitle = styled.h3`
   margin-bottom: ${spacing(6)};
   opacity: 0.8;
 
-  ${media.max768} {
+  @media (max-width: 980px) {
     font-size: 17px;
     margin-bottom: ${spacing(2)};
   }
 `;
 
 const TextWrapper = styled.div`
-  float: left;
+  @media (min-width: 981px) {
+    float: left;
+  }
 `;
 
 const Button = styled.a`
@@ -75,7 +80,7 @@ const Button = styled.a`
   box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: none;
 
-  ${media.max768} {
+  @media (max-width: 980px) {
     width: 160px;
   }
 
@@ -111,12 +116,14 @@ const Button = styled.a`
 `;
 
 const ButtonsWrapper = styled.div`
-  ${media.max768} {
-    padding-top: 14px;
-    ${clearFix()};
+  ${clearFix()};
+
+  @media (max-width: 980px) {
+    display: inline-block;
   }
 
-  ${media.min768} {
+  @media (min-width: 981px) {
+    padding-top: 14px;
     float: right;
   }
 

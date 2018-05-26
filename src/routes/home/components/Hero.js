@@ -10,8 +10,8 @@ import { wrapper, cover } from '../../../styles/mixins';
 
 const Root = styled.section`
   position: relative;
+  z-index: 3;
   height: 720px;
-  background: ${colors.secondary};
   padding-top: ${spacing()};
   color: #fff;
 
@@ -23,8 +23,11 @@ const Root = styled.section`
 
 const Cover = styled.div`
   ${cover};
+  height: 114%;
+  background-color: ${colors.secondary};
   background-image: url(${heroBackground});
   background-size: cover;
+  transform: matrix(1, -0.08, 0, 1, 0, -116);
 `;
 
 const Wrapper = styled.div`
@@ -103,7 +106,7 @@ const NavButton = styled.a`
   padding: 0 ${spacing(1.5)};
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 3px;
-  background: rgba(0, 0, 0, 0.1);
+  ${'' /* background: rgba(0, 0, 0, 0.1); */} background: rgba(10, 119, 182, 0.6);
   color: rgba(255, 255, 255, 0.9);
   margin-left: ${spacing()};
 
@@ -161,7 +164,7 @@ const Network = styled.div`
     background-image: url(${network2x});
   }
 
-  ${media.max768} {
+  @media (max-width: 980px) {
     display: none;
   }
 `;
@@ -177,6 +180,7 @@ const Code = styled.span`
 `;
 
 const CodeClosingBracket = styled.span`
+  position: relative;
   color: ${colors.backgroundSecondaryText};
   transition: color 0.1s;
 
@@ -197,6 +201,8 @@ const Subtitle = styled.h2`
 
   ${media.max768} {
     font-size: 19px;
+    max-width: 400px;
+    margin: 0 auto ${spacing(4)};
   }
 `;
 

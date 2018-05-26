@@ -7,9 +7,22 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
+const isDebug = !process.argv.includes('--release');
+
 // Babel configuration
 // https://babeljs.io/docs/usage/api/
 module.exports = {
+  // plugins: [
+  //   [
+  //     'styled-components',
+  //     {
+  //       ssr: true,
+  //       // minify: !isDebug,
+  //       displayName: isDebug,
+  //       // preproccess: !isDebug,
+  //     },
+  //   ],
+  // ],
   presets: [
     [
       '@babel/preset-env',

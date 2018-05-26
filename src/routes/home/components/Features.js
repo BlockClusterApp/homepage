@@ -1,15 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 import AnimateText from '../../../components/AnimateText';
-import { colors, spacing, media } from '../../../styles';
+import { colors, spacing, media, cover } from '../../../styles';
 
 const Root = styled.section`
-  background: ${colors.secondary};
+  position: relative;
+  z-index: 3;
   padding: ${spacing(7)} 0;
   text-align: center;
 
   ${media.max768} {
     padding: ${spacing(2.5)} ${spacing(2)};
+  }
+`;
+
+const Cover = styled.div`
+  ${cover};
+  z-index: -1;
+  height: 110%;
+  background: ${colors.secondary};
+  transform: matrix(1, -0.04, 0, 1, 0, -22);
+
+  ${media.max768} {
+    transform: matrix(1, -0.04, 0, 1, 0, -12);
   }
 `;
 
@@ -46,6 +59,7 @@ const Subtitle = styled.h3`
 
 const Features = () => (
   <Root>
+    <Cover />
     <Title>
       <AnimateText
         textNodes={['Blockchain', <TitleEm>automagically</TitleEm>]}
