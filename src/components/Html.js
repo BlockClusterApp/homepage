@@ -338,7 +338,7 @@ class Html extends React.Component {
           <meta property="og:site_name" content="Blockcluster" />
           <meta property="og:description" content={description} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="https://blockcluster.io/" />
+          <meta property="og:url" content="http://blockcluster.io/" />
           <meta property="og:locale" content="en_US" />
           <meta property="og:image" content="/og-image.png" />
           <meta property="og:image:type" content="image/png" />
