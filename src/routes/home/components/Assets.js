@@ -7,6 +7,8 @@ import { colors, spacing, media } from '../../../styles';
 import { cover, wrapper, uppercase } from '../../../styles/mixins';
 import mq from '../../../helpers/mediaQueries';
 
+//trigger
+
 const refresh = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path
