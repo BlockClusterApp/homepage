@@ -49,6 +49,10 @@ const Header = styled.header`
   ${media.max768} {
     padding: ${spacing(0.5)};
   }
+
+  ${media.max375} {
+    padding: 0;
+  }
 `;
 
 const Logo = styled.a`
@@ -114,11 +118,15 @@ const NavButton = styled.a`
     border-color: #fff;
     background: rgba(0, 0, 0, 0);
   }
+
+  ${media.max375} {
+    padding: 0 ${spacing()};
+  }
 `;
 
 const InnerWrapper = styled.div`
   position: relative;
-  padding: ${spacing(5)} 0 ${spacing(5)} ${spacing()};
+  padding: ${spacing(5)} 0;
 `;
 
 const Title = styled.h1`
@@ -131,6 +139,10 @@ const Title = styled.h1`
   ${media.max768} {
     font-size: 34px;
   }
+
+  ${media.max375} {
+    font-size: 29px;
+  }
 `;
 
 const TitleSecondary = styled.span`
@@ -142,6 +154,10 @@ const TitleSecondary = styled.span`
 
   ${media.max768} {
     font-size: 25px;
+  }
+
+  ${media.max375} {
+    font-size: 22px;
   }
 `;
 
@@ -164,7 +180,7 @@ const Network = styled.div`
     background-image: url(${network2x});
   }
 
-  @media (max-width: 980px) {
+  ${media.max980} {
     display: none;
   }
 `;
@@ -204,6 +220,10 @@ const Subtitle = styled.h2`
     max-width: 400px;
     margin: 0 auto ${spacing(4)};
   }
+
+  ${media.max375} {
+    font-size: 18px;
+  }
 `;
 
 const ButtonsWrapper = styled.div`
@@ -232,6 +252,11 @@ const Button = styled.a`
     width: 160px;
     height: 42px;
     line-height: 42px;
+  }
+
+  ${media.max375} {
+    float: none;
+    margin: 0 auto ${spacing()};
   }
 
   ${props =>

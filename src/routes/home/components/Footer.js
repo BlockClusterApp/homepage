@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { mix, clearFix } from 'polished';
-import { colors, spacing, uppercase } from '../../../styles';
+import { colors, spacing, uppercase, media } from '../../../styles';
 
 const Root = styled.footer`
   position: relative;
@@ -23,6 +23,11 @@ const Copyright = styled.div`
   float: left;
   margin-right: ${spacing()};
   opacity: 0.45;
+
+  ${media.max375} {
+    float: none;
+    line-height: 1;
+  }
 `;
 
 const Separator = styled.div`
@@ -32,6 +37,10 @@ const Separator = styled.div`
   margin: 37px 0;
   margin-right: ${spacing()};
   opacity: 0.4;
+
+  ${media.max375} {
+    display: none;
+  }
 `;
 
 const Company = styled.div`
@@ -39,6 +48,11 @@ const Company = styled.div`
   border-left: 1px;
   text-align: left;
   padding: 26px 0 22px;
+
+  ${media.max375} {
+    float: none;
+    text-align: center;
+  }
 `;
 
 const Title = styled.h5`
@@ -66,6 +80,10 @@ const StyledLink = styled.a`
   &:hover {
     color: ${colors.primary};
     opacity: 1;
+  }
+
+  &:last-child {
+    margin-right: 0;
   }
 `;
 

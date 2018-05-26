@@ -10,7 +10,11 @@ const Root = styled.section`
   text-align: center;
 
   ${media.max768} {
-    padding: ${spacing(2.5)} ${spacing(2)};
+    padding: ${spacing(2.5)} ${spacing(1.5)};
+  }
+
+  ${media.max375} {
+    padding: ${spacing(2.5)} ${spacing()};
   }
 `;
 
@@ -34,6 +38,11 @@ const Title = styled.h3`
 
   ${media.max768} {
     font-size: 30px;
+    margin-bottom: ${spacing()};
+  }
+
+  ${media.max375} {
+    font-size: 25px;
     margin-bottom: ${spacing()};
   }
 `;

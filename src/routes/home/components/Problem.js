@@ -25,12 +25,15 @@ const errorSvg =
 const Root = styled.section`
   position: relative;
   z-index: 2;
-  ${'' /* background: linear-gradient(#f6fbff, #eef7fe); */}
   padding: ${spacing(2.5)} ${spacing(1.5)};
   text-align: center;
 
   ${media.min768} {
     padding: ${spacing(7)} ${spacing()};
+  }
+
+  ${media.max375} {
+    padding: ${spacing(2.5)} ${spacing()};
   }
 `;
 
@@ -59,6 +62,10 @@ const Title = styled.h3`
   ${media.max768} {
     font-size: 31px;
     margin-bottom: ${spacing()};
+  }
+
+  ${media.max375} {
+    font-size: 25px;
   }
 `;
 
@@ -238,6 +245,12 @@ const PointImgCumbersomeIntegration = styled.img`
   height: 51px;
 `;
 
+const Break = styled.br`
+  ${media.max375} {
+    display: none;
+  }
+`;
+
 class Problem extends React.Component {
   state = {
     visible: false,
@@ -328,7 +341,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Slow development</PointTitle>
                   <PointDescription>
-                    Writing dedicated blockchain applications<br />
+                    Writing dedicated blockchain applications<Break />
                     is expected to take months to develop
                   </PointDescription>
                 </PointDev>
@@ -347,7 +360,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Error prone</PointTitle>
                   <PointDescription>
-                    Smart contract are prone to human error<br />
+                    Smart contract are prone to human error<Break />
                     which will risk your business integrity
                   </PointDescription>
                 </PointErr>
@@ -368,7 +381,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Hard to execute</PointTitle>
                   <PointDescription>
-                    Blockchain is relatively new and finding<br />
+                    Blockchain is relatively new and finding<Break />
                     experienced developers is hard
                   </PointDescription>
                 </PointExe>
@@ -387,7 +400,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Cumbersome integration</PointTitle>
                   <PointDescription>
-                    Existing systems introduce more hassles,<br />
+                    Existing systems introduce more hassles, <Break />
                     especially with an on-premises setup
                   </PointDescription>
                 </PointInt>

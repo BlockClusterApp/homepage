@@ -50,6 +50,10 @@ const Wrapper = styled.div`
   ${media.max768} {
     padding: ${spacing(2.5)} ${spacing(1.5)};
   }
+
+  ${media.max375} {
+    padding: ${spacing(2.5)} ${spacing()};
+  }
 `;
 
 const Column = styled.div`
@@ -73,6 +77,10 @@ const Title = styled.div`
 
   ${media.max768} {
     text-align: center;
+  }
+
+  ${media.max375} {
+    font-size: 25px;
   }
 `;
 
@@ -211,6 +219,10 @@ const PointTitle = styled.div`
     position: relative;
     left: 21px;
   }
+
+  ${media.max375} {
+    max-width: 234px;
+  }
 `;
 
 const PointCheck = styled.div`
@@ -262,6 +274,10 @@ const PointDescription = styled.div`
     left: 21px;
     margin: 0 auto ${spacing(2)};
     max-width: 274px;
+  }
+
+  ${media.max375} {
+    max-width: 234px;
   }
 `;
 

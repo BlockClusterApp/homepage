@@ -26,6 +26,10 @@ const Root = styled.section`
   ${media.min768} {
     padding: ${spacing(7)} ${spacing()};
   }
+
+  ${media.max375} {
+    padding: ${spacing(2.5)} ${spacing()};
+  }
 `;
 
 const Wrapper = styled.div`
@@ -50,6 +54,10 @@ const TitleIntro = styled.span`
     font-size: 15px;
     margin-bottom: 0;
   }
+
+  ${media.max375} {
+    font-size: 13px;
+  }
 `;
 
 const TitleEm = styled.span`
@@ -60,6 +68,10 @@ const TitleEm = styled.span`
 
   ${media.max768} {
     font-size: 33px;
+  }
+
+  ${media.max375} {
+    font-size: 28px;
   }
 `;
 
@@ -234,6 +246,12 @@ const PointImgIntegration = styled.img`
   height: 50px;
 `;
 
+const Break = styled.br`
+  ${media.max375} {
+    display: none;
+  }
+`;
+
 class Problem extends React.Component {
   state = {
     visible: false,
@@ -321,7 +339,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Build & deploy in no time</PointTitle>
                   <PointDescription>
-                    Setup your blockchain network within a few<br />
+                    Setup your blockchain network within a few <Break />
                     clicks or API calls without writing any code
                   </PointDescription>
                 </Point1>
@@ -340,7 +358,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>No knowledge required</PointTitle>
                   <PointDescription>
-                    Configure your digital assets through our<br />
+                    Configure your digital assets through our <Break />
                     user interface without writing smart contracts
                   </PointDescription>
                 </Point2>
@@ -361,7 +379,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Secure and reliable</PointTitle>
                   <PointDescription>
-                    Under the hood we’re leveraging the most<br />
+                    Under the hood we’re leveraging the most <Break />
                     reputable and well tested smart contracts
                   </PointDescription>
                 </Point3>
@@ -380,7 +398,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Easy integration & scalable</PointTitle>
                   <PointDescription>
-                    Whether hosted on the cloud or on premises,<br />
+                    Whether hosted on the cloud or on premises, <Break />
                     BlockCluster’s integration is simple
                   </PointDescription>
                 </Point4>
