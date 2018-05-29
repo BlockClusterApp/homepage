@@ -362,10 +362,10 @@ class Hero extends React.Component {
               blockchain through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
-              <Button primary href="mailto:team@blockcluster.io">
+              <Button primary href="mailto:info@blockcluster.io">
                 Get in touch
               </Button>
-              <Button secondary href="mailto:team@blockcluster.io">
+              <Button secondary href="mailto:info@blockcluster.io">
                 Request demo
               </Button>
             </ButtonsWrapper>

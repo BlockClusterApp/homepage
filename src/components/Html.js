@@ -340,7 +340,10 @@ class Html extends React.Component {
           <meta property="og:type" content="website" />
           <meta property="og:url" content="http://blockcluster.io/" />
           <meta property="og:locale" content="en_US" />
-          <meta property="og:image" content="/og-image.png" />
+          <meta
+            property="og:image"
+            content="http://blockcluster.io/og-image.png"
+          />
           <meta property="og:image:type" content="image/png" />
           <link
             rel="apple-touch-icon"
