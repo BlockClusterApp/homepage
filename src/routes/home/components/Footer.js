@@ -95,9 +95,9 @@ const Footer = () => (
       <Company>
         <Title>Company</Title>
         <Links>
-          <StyledLink href="mailto:team@blockcluster.io">About</StyledLink>
-          <StyledLink href="mailto:team@blockcluster.io">Contact</StyledLink>
-          <StyledLink href="mailto:team@blockcluster.io">Careers</StyledLink>
+          <StyledLink href="mailto:info@blockcluster.io">About</StyledLink>
+          <StyledLink href="mailto:info@blockcluster.io">Contact</StyledLink>
+          <StyledLink href="mailto:info@blockcluster.io">Careers</StyledLink>
         </Links>
       </Company>
     </Wrapper>
