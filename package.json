@@ -6,7 +6,12 @@
     "node": ">=6.13.1",
     "npm": ">=3.10.10"
   },
-  "browserslist": [">1%", "last 4 versions", "Firefox ESR", "not ie < 9"],
+  "browserslist": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9"
+  ],
   "dependencies": {
     "@babel/polyfill": "^7.0.0-beta.44",
     "axios": "^0.18.0",
@@ -46,6 +51,7 @@
     "@babel/preset-react": "^7.0.0-beta.44",
     "@babel/preset-stage-2": "^7.0.0-beta.44",
     "autoprefixer": "^8.1.0",
+    "babel-cli": "^6.26.0",
     "babel-core": "^7.0.0-0",
     "babel-eslint": "^8.2.2",
     "babel-jest": "^22.4.3",
@@ -98,9 +104,18 @@
     "webpack-node-externals": "^1.7.2"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["eslint --no-ignore --fix", "git add --force"],
-    "*.{json,md,graphql}": ["prettier --write", "git add --force"],
-    "*.{css,less,styl,scss,sass,sss}": ["stylelint --fix", "git add --force"]
+    "*.{js,jsx}": [
+      "eslint --no-ignore --fix",
+      "git add --force"
+    ],
+    "*.{json,md,graphql}": [
+      "prettier --write",
+      "git add --force"
+    ],
+    "*.{css,less,styl,scss,sass,sss}": [
+      "stylelint --fix",
+      "git add --force"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged",
