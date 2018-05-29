@@ -12,16 +12,9 @@
 module.exports = {
   parser: 'babel-eslint',
 
-  extends: [
-    'airbnb',
-    'plugin:flowtype/recommended',
-    'plugin:css-modules/recommended',
-    'prettier',
-    'prettier/flowtype',
-    'prettier/react',
-  ],
+  extends: ['airbnb', 'prettier', 'prettier/flowtype', 'prettier/react'],
 
-  plugins: ['flowtype', 'css-modules', 'prettier'],
+  plugins: ['prettier'],
 
   globals: {
     __DEV__: true,
