@@ -344,8 +344,8 @@ class Hero extends React.Component {
           </Header>
           <InnerWrapper>
             <Title>
-              Build and deploy your<br />
-              blockchain network<br />
+              Build and deploy powerful <br />
+              blockchain applications<br />
               <TitleSecondary>
                 without writing any{' '}
                 <Code>
@@ -358,8 +358,8 @@ class Hero extends React.Component {
               </TitleSecondary>
             </Title>
             <Subtitle>
-              Easily setup your own enterprise grade private <BreakDesktop />
-              blockchain through a simple user interface.
+              Easily setup your own enterprise grade blockchain <BreakDesktop />
+              ecosystems through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
               <Button primary href="mailto:info@blockcluster.io">

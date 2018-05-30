@@ -387,7 +387,7 @@ class AssetsComponent extends React.Component {
             <PointTitle>
               <PointCheck type="cross">{refresh}</PointCheck>
               <AnimateText
-                textNodes={['Cross', 'chain', 'assets']}
+                textNodes={['Cross', 'chain', 'asset', 'exchange']}
                 animationStyle="slide"
               />
             </PointTitle>
@@ -395,7 +395,7 @@ class AssetsComponent extends React.Component {
               <AnimateText
                 textNodes={[
                   `Interoperable assets means you are able to
-                  distribute your assets across different networks`,
+                  exchange  your assets across different networks atomically`,
                 ]}
                 animationStyle="fadeSlide"
               />

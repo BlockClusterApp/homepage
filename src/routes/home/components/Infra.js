@@ -347,7 +347,7 @@ class Infrastructure extends React.Component {
               <AnimateText
                 textNodes={[
                   `Take the advantage to run your infrastructure
-                  anywhere, on-premises, hybrid, or the cloud.`,
+                  anywhere - on-premises, hybrid or cloud.`,
                 ]}
                 animationStyle="fadeSlide"
               />
@@ -362,7 +362,7 @@ class Infrastructure extends React.Component {
             <PointDescription>
               <AnimateText
                 textNodes={[
-                  `Use familiar REST API’s to interact with the
+                  `Use secure REST API’s to interact with your
                   blockchain. Blockchain made easy.`,
                 ]}
                 animationStyle="fadeSlide"
@@ -379,7 +379,7 @@ class Infrastructure extends React.Component {
               <AnimateText
                 textNodes={[
                   `Query smart contracts and assets using
-                  the MongoDB query language style`,
+                  familiar  NoSQL  query language style`,
                 ]}
                 animationStyle="fadeSlide"
               />

@@ -28,8 +28,8 @@ const routes = {
       : 'BlockCluster';
     route.description =
       route.description ||
-      'Build and deploy your blockchain network without writing any code. ' +
-        'Setup your own enterprise grade private blockchain through a simple user interface.';
+      'Build and deploy powerful blockchain applications without writing any code. ' +
+        'Setup your own enterprise grade blockchain ecosystems through a simple user interface.';
 
     return route;
   },

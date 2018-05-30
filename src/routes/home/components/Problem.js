@@ -303,8 +303,8 @@ class Problem extends React.Component {
                 'Building',
                 'your',
                 'own',
-                'private',
                 'blockchain',
+                'ecosystem',
                 <TitleEm>is</TitleEm>,
                 <TitleEm>difficult</TitleEm>,
               ]}
