@@ -1,3 +1,5 @@
+export const max374 = '@media (max-width: 374px)';
+
 export const max375 = '@media (max-width: 375px)';
 
 export const min375 = '@media (min-width: 376px)';

@@ -137,11 +137,11 @@ const Title = styled.h1`
   margin-bottom: ${spacing(1.5)};
 
   ${media.max768} {
-    font-size: 34px;
+    font-size: 31px;
   }
 
   ${media.max375} {
-    font-size: 29px;
+    font-size: 28px;
   }
 `;
 
@@ -248,15 +248,19 @@ const Button = styled.a`
   box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
   transition: all 0.2s;
 
+  &:last-child {
+    margin-right: 0;
+  }
+
+  ${media.max374} {
+    float: none;
+    margin: 0 auto ${spacing()};
+  }
+
   ${media.max768} {
     width: 160px;
     height: 42px;
     line-height: 42px;
-  }
-
-  ${media.max375} {
-    float: none;
-    margin: 0 auto ${spacing()};
   }
 
   ${props =>

@@ -71,7 +71,7 @@ const TitleEm = styled.span`
   }
 
   ${media.max375} {
-    font-size: 28px;
+    font-size: 29px;
   }
 `;
 

@@ -65,7 +65,7 @@ const Title = styled.h3`
   }
 
   ${media.max375} {
-    font-size: 25px;
+    font-size: 27px;
   }
 `;
 
@@ -303,8 +303,8 @@ class Problem extends React.Component {
                 'Building',
                 'your',
                 'own',
+                'private',
                 'blockchain',
-                'ecosystem',
                 <TitleEm>is</TitleEm>,
                 <TitleEm>difficult</TitleEm>,
               ]}
@@ -341,7 +341,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Slow development</PointTitle>
                   <PointDescription>
-                    Writing dedicated blockchain applications<Break />
+                    Writing dedicated blockchain applications <Break />
                     is expected to take months to develop
                   </PointDescription>
                 </PointDev>
@@ -360,7 +360,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Error prone</PointTitle>
                   <PointDescription>
-                    Smart contract are prone to human error<Break />
+                    Smart contract are prone to human error <Break />
                     which will risk your business integrity
                   </PointDescription>
                 </PointErr>
@@ -381,7 +381,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Hard to execute</PointTitle>
                   <PointDescription>
-                    Blockchain is relatively new and finding<Break />
+                    Blockchain is relatively new and finding <Break />
                     experienced developers is hard
                   </PointDescription>
                 </PointExe>
