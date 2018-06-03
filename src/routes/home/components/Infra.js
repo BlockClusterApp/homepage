@@ -7,12 +7,9 @@ import { colors, spacing, media } from '../../../styles';
 import { cover, wrapper, uppercase } from '../../../styles/mixins';
 import mq from '../../../helpers/mediaQueries';
 
-const building = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-    <path
-      fill="currentColor"
-      d="M436 480h-20V24c0-13.255-10.745-24-24-24H56C42.745 0 32 10.745 32 24v456H12c-6.627 0-12 5.373-12 12v20h448v-20c0-6.627-5.373-12-12-12zM128 76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76zm0 96c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40zm52 148h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40c0 6.627-5.373 12-12 12zm76 160h-64v-84c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v84zm64-172c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12v-40c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40zm0-96c0 6.627-5.373 12-12 12h-40c-6.627 0-12-5.373-12-12V76c0-6.627 5.373-12 12-12h40c6.627 0 12 5.373 12 12v40z"
-    />
+const server = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M480 160H32c-17.673 0-32-14.327-32-32V64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm112 248H32c-17.673 0-32-14.327-32-32v-64c0-17.673 14.327-32 32-32h448c17.673 0 32 14.327 32 32v64c0 17.673-14.327 32-32 32zm-48-88c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24zm-64 0c-13.255 0-24 10.745-24 24s10.745 24 24 24 24-10.745 24-24-10.745-24-24-24z" />
   </svg>
 );
 
@@ -231,7 +228,7 @@ const PointCheck = styled.div`
   border-radius: 50%;
   text-align: center;
   color: ${colors.secondary};
-  padding: 4px 6px;
+  padding: 4px 5px;
 
   ${props =>
     props.type === 'code' &&
@@ -337,7 +334,7 @@ class Infrastructure extends React.Component {
               />
             </Title>
             <PointTitle>
-              <PointCheck>{building}</PointCheck>
+              <PointCheck>{server}</PointCheck>
               <AnimateText
                 textNodes={'Run anywhere'.split(' ')}
                 animationStyle="slide"
@@ -355,7 +352,7 @@ class Infrastructure extends React.Component {
             <PointTitle>
               <PointCheck type="code">{code}</PointCheck>
               <AnimateText
-                textNodes={'Auto generated API’s'.split(' ')}
+                textNodes={'Auto generate API’s'.split(' ')}
                 animationStyle="slide"
               />
             </PointTitle>
@@ -363,7 +360,7 @@ class Infrastructure extends React.Component {
               <AnimateText
                 textNodes={[
                   `Use secure REST API’s to interact with your
-                  blockchain. Blockchain made easy.`,
+                  blockchain.`,
                 ]}
                 animationStyle="fadeSlide"
               />

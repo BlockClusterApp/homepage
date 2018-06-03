@@ -45,7 +45,7 @@ const Title = styled.h3`
   }
 
   ${media.max375} {
-    font-size: 28px;
+    font-size: 27px;
   }
 `;
 
@@ -67,7 +67,7 @@ const Subtitle = styled.h3`
 `;
 
 const TextWrapper = styled.div`
-  ${media.min981} {
+  ${media.min980} {
     float: left;
   }
 `;
@@ -92,7 +92,7 @@ const Button = styled.a`
     width: 160px;
   }
 
-  ${media.max375} {
+  ${media.max374} {
     float: none;
     margin: 0 auto ${spacing()};
   }
@@ -135,7 +135,7 @@ const ButtonsWrapper = styled.div`
     display: inline-block;
   }
 
-  ${media.min981} {
+  ${media.min980} {
     padding-top: 14px;
     float: right;
   }

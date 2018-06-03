@@ -42,7 +42,7 @@ const Title = styled.h3`
   }
 
   ${media.max375} {
-    font-size: 25px;
+    font-size: 27px;
     margin-bottom: ${spacing()};
   }
 `;
