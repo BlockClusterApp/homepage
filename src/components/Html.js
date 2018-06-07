@@ -443,6 +443,7 @@ class Html extends React.Component {
               __html: children,
             }}
           />
+          <div id="modal" />
           <script
             dangerouslySetInnerHTML={{ __html: `window.App=${serialize(app)}` }}
           />

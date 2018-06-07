@@ -5,6 +5,7 @@ import logo2x from '../assets/logo@2x.png';
 import heroBackground from '../assets/hero-bg-3.jpg';
 import network from '../assets/network.png';
 import network2x from '../assets/network@2x.png';
+import ModalRequestDemo from './ModalRequestDemo';
 import { colors, spacing, media, uppercase } from '../../../styles';
 import { wrapper, cover } from '../../../styles/mixins';
 
@@ -369,13 +370,22 @@ class Hero extends React.Component {
               <Button primary href="mailto:info@blockcluster.io">
                 Get in touch
               </Button>
-              <Button secondary href="mailto:info@blockcluster.io">
+              <Button
+                secondary
+                onClick={() => this.setState({ showModalRequestDemo: true })}
+              >
                 Request demo
               </Button>
             </ButtonsWrapper>
             <Network />
           </InnerWrapper>
         </Wrapper>
+        <ModalRequestDemo
+          show={this.state.showModalRequestDemo}
+          onOutsideModalClick={() =>
+            this.setState({ showModalRequestDemo: false })
+          }
+        />
       </Root>
     );
   }

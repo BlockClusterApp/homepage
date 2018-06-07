@@ -7,6 +7,7 @@ import App from './components/App';
 import history from './history';
 import { updateMeta } from './DOMUtils';
 import router from './router';
+import './helpers/EventTarget.onTransitionEnd';
 import './vendor/modernizr.mq';
 
 // Global (context) variables that can be easily accessed from any React component

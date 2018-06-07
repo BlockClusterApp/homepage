@@ -6,6 +6,7 @@ import AnimateText from '../../../components/AnimateText';
 import { colors, spacing, uppercase, media } from '../../../styles';
 import { wrapper } from '../../../styles/mixins';
 import mq from '../../../helpers/mediaQueries';
+import ModalRequestDemo from './ModalRequestDemo';
 
 const Root = styled.section`
   position: relative;
@@ -98,7 +99,7 @@ const Button = styled.a`
   }
 
   &:hover {
-    transition: all 0.2s;
+    transition: all 0.2s !important;
   }
 
   &:last-child {
@@ -167,6 +168,7 @@ class Contact extends React.Component {
   state = {
     visible: false,
     mounted: false,
+    showModalRequestDemo: false,
   };
 
   componentDidMount() {
@@ -234,11 +236,20 @@ class Contact extends React.Component {
             <Button primary href="mailto:info@blockcluster.io">
               Get in touch
             </Button>
-            <Button secondary href="mailto:info@blockcluster.io">
+            <Button
+              secondary
+              onClick={() => this.setState({ showModalRequestDemo: true })}
+            >
               Request demo
             </Button>
           </ButtonsWrapper>
         </Wrapper>
+        <ModalRequestDemo
+          show={this.state.showModalRequestDemo}
+          onOutsideModalClick={() =>
+            this.setState({ showModalRequestDemo: false })
+          }
+        />
       </Root>
     );
   }
