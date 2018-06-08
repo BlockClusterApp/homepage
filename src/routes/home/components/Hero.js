@@ -452,7 +452,7 @@ class Hero extends React.Component {
               <Button primary href="mailto:info@blockcluster.io">
                 Get in touch
               </Button>
-              <Button secondary href="/contact">
+              <Button secondary href="/request-demo">
                 Request demo
               </Button>
             </ButtonsWrapper>

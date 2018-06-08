@@ -1,11 +1,18 @@
 import React, { Fragment } from 'react';
-import { Formik } from 'formik';
+import { Formik, Field } from 'formik';
+import Dropdown from 'react-dropdown';
 import * as yup from 'yup';
-import styled, { css, keyframes } from 'styled-components';
+import styled, { css, keyframes, injectGlobal } from 'styled-components';
 import { clearFix, mix, hiDPI, shade, darken, lighten } from 'polished';
 import logo2x from './assets/logo@2x.png';
 import { colors, spacing, media, uppercase } from '../../styles';
 import { wrapper, cover, card } from '../../styles/mixins';
+
+const check = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+    <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
+  </svg>
+);
 
 const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
@@ -370,7 +377,7 @@ const Label = styled.label`
   color: ${mix(0.7, colors.text, colors.primary)};
 `;
 
-const Input = styled.input`
+const Input = styled(Field)`
   width: 100%;
   font-size: 17px;
   background: #eef5fb;
@@ -411,6 +418,29 @@ const Textarea = Input.withComponent('textarea').extend`
   min-height: ${spacing(6)};
 `;
 
+const Radio = Input.extend.attrs({
+  type: 'radio',
+})`
+  width: auto;
+  position: relative;
+  top: -1px;
+`;
+
+const InputError = styled.div`
+  font-size: 14px;
+  color: ${colors.error};
+`;
+
+const RadioLabel = styled.label`
+  color: ${colors.text};
+  margin-right: ${spacing(1.5)};
+  padding: 6px ${spacing(0.5)} 0;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: ${mix(0.7, colors.text, colors.primary)};
+`;
+
 // const Button = styled.a`
 //   ${uppercase};
 //   display: block;
@@ -443,6 +473,51 @@ const Textarea = Input.withComponent('textarea').extend`
 //     `};
 // `;
 
+// eslint-disable-next-line no-unused-expressions
+injectGlobal`
+  .Dropdown-root {
+    width: 100%;
+    font-size: 17px;
+    background: #eef5fb;
+    border: 1px solid #eef5fb;
+    border-radius: 3px;
+    padding: 8px 16px;
+    transition: all 0.3s;
+    color: ${colors.text};
+
+    &.is-open {
+      background: #fff;
+      border-color: ${colors.primary};
+    }
+  }
+
+  .Dropdown-placeholder {
+    color: ${lighten(0.3, mix(0.8, colors.text, colors.primary))};
+  }
+
+  .Dropdown-menu {
+    position: absolute;
+    top: 38px;
+    left: 0;
+    width: 100%;
+    z-index: 4;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, .08);
+  }
+
+  .Dropdown-option {
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #fff;
+    color: ${lighten(0.2, mix(0.8, colors.text, colors.primary))};
+    transition: all .2s;
+
+    &:hover {
+      background: #eef5fb;
+      color: ${mix(0.7, colors.text, colors.primary)};
+    }
+  }
+`;
+
 // Is this going to send a verification email to this email id? Also will this refrain them for using gmail ids?
 
 // Company sector as >>>>Organization Name (Type box)
@@ -455,7 +530,7 @@ const Textarea = Input.withComponent('textarea').extend`
 
 // Anything else >>>> Comment (hint text to be>>> I would like to know specific application of Blockcluster)
 
-class Hero extends React.Component {
+class RequestDemo extends React.Component {
   state = {
     blink: false,
   };
@@ -498,19 +573,28 @@ class Hero extends React.Component {
               <Card>
                 <Formik
                   initialValues={{
+                    name: '',
                     email: '',
-                    password: '',
+                    website: '',
+                    orgName: '',
+                    orgType: '',
+                    orgSize: '',
+                    blockchainBudget: '',
+                    projectStarts: '',
+                    decisionMaker: '',
+                    comments: '',
                   }}
                   validationSchema={yup.object().shape({
                     name: yup.string().required(),
-                    age: yup
-                      .number()
-                      .required()
-                      .positive()
-                      .integer(),
                     email: yup.string().email(),
                     website: yup.string().url(),
-                    createdOn: yup.date().default(() => new Date()),
+                    orgName: yup.string().required(),
+                    orgType: yup.string().required(),
+                    orgSize: yup.string().required(),
+                    blockchainBudget: yup.bool().required(),
+                    projectStarts: yup.string().required(),
+                    decisionMaker: yup.bool().required(),
+                    comments: yup.string().required(),
                   })}
                   onSubmit={(
                     values,
@@ -519,6 +603,7 @@ class Hero extends React.Component {
                       setErrors /* setValues and other goodies */,
                     },
                   ) => {
+                    console.log(values);
                     // LoginToMyApp(values).then(
                     //   user => {
                     //     setSubmitting(false);
@@ -544,72 +629,84 @@ class Hero extends React.Component {
                     <form onChange={handleChange} onSubmit={handleSubmit}>
                       <Row>
                         <Column>
-                          <Label>Full name</Label>
+                          <Label htmlFor="name">Full name</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
                             name="name"
+                            id="name"
                             placeholder="John Doe"
                           />
+                          {errors.email &&
+                            touched.email && (
+                              <InputError>{errors.email}</InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
                         <Column>
-                          <Label>Work email</Label>
+                          <Label htmlFor="email">Work email</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
                             name="email"
+                            id="email"
                             placeholder="john.doe@company.com"
                           />
+                          {errors.email &&
+                            touched.social.email && <div>{errors.email}</div>}
                         </Column>
                       </Row>
                       <Row>
                         <Column>
-                          <Label>Organization website</Label>
+                          <Label htmlFor="website">Organization website</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
-                            name="sector"
+                            name="website"
+                            id="website"
                             placeholder="www.blockcluster.io"
                           />
                         </Column>
                       </Row>
                       <Row>
                         <Column>
-                          <Label>Organization name</Label>
+                          <Label htmlFor="orgName">Organization name</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
-                            name="sector"
+                            name="orgName"
+                            id="orgName"
                             placeholder="BlockCluster"
                           />
                         </Column>
                       </Row>
                       <Row>
                         <Column>
-                          <Label>Organization type</Label>
+                          <Label htmlFor="orgType">Organization type</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
                             name="orgType"
+                            id="orgType"
                             placeholder="Healthcare"
                           />
                         </Column>
                       </Row>
                       <Row>
                         <Column>
-                          <Label>Organization size</Label>
+                          <Label htmlFor="orgSize">Organization size</Label>
                         </Column>
                         <Column>
                           <Input
                             type="text"
                             name="orgSize"
+                            id="orgSize"
                             placeholder="50-100 employees"
                           />
                         </Column>
@@ -621,23 +718,63 @@ class Hero extends React.Component {
                           </Label>
                         </Column>
                         <Column>
-                          <Input
-                            type="text"
-                            name="orgSize"
-                            placeholder="Yes/No"
+                          <Radio
+                            name="blockchainBudget"
+                            id="blockchainBudgetYes"
+                            value="yes"
                           />
+                          <RadioLabel htmlFor="blockchainBudgetYes">
+                            Yes
+                          </RadioLabel>
+                          <Radio
+                            name="blockchainBudget"
+                            id="blockchainBudgetNo"
+                            value="no"
+                          />
+                          <RadioLabel htmlFor="blockchainBudgetNo">
+                            No
+                          </RadioLabel>
                         </Column>
                       </Row>
                       <Row>
                         <Column>
                           <Label>
-                            How soon is your Blockchain project starting?
+                            When is your blockchain project starting?
                           </Label>
                         </Column>
                         <Column>
+                          <Dropdown
+                            options={[
+                              {
+                                value: '1-2-weeks',
+                                label: '1 to 2 weeks',
+                              },
+                              {
+                                value: '2-4-weeks',
+                                label: '2 to 4 weeks',
+                              },
+                              {
+                                value: '1-2-months',
+                                label: '1 to 2 months',
+                              },
+                              {
+                                value: '2-6-months',
+                                label: '2 to 6 months',
+                              },
+                              {
+                                value: '6-weeks-plus',
+                                label: 'more than 6 months',
+                              },
+                            ]}
+                            // onChange={this._onSelect}
+                            // value={defaultOption}
+                            placeholder="Select an option"
+                          />
+
                           <Input
                             type="text"
-                            name="orgSize"
+                            name="projectStarts"
+                            id="projectStarts"
                             placeholder="1 to 2 weeks"
                           />
                         </Column>
@@ -647,11 +784,20 @@ class Hero extends React.Component {
                           <Label>Are you a decision maker?</Label>
                         </Column>
                         <Column>
-                          <Input
-                            type="text"
-                            name="orgSize"
-                            placeholder="Yes/No"
+                          <Radio
+                            name="decisionMaker"
+                            id="decisionMakerYes"
+                            value="yes"
                           />
+                          <RadioLabel htmlFor="decisionMakerYes">
+                            Yes
+                          </RadioLabel>
+                          <Radio
+                            name="decisionMaker"
+                            id="decisionMakerNo"
+                            value="no"
+                          />
+                          <RadioLabel htmlFor="decisionMakerNo">No</RadioLabel>
                         </Column>
                       </Row>
                       <Row>
@@ -661,6 +807,7 @@ class Hero extends React.Component {
                         <Column>
                           <Textarea
                             name="comments"
+                            id="comments"
                             placeholder="I would like to know a specific application of Blockcluster"
                           />
                         </Column>
@@ -668,7 +815,11 @@ class Hero extends React.Component {
                       <Row>
                         <Column>&nbsp;</Column>
                         <Column>
-                          <Button secondary disabled={isSubmitting}>
+                          <Button
+                            type="submit"
+                            secondary
+                            disabled={isSubmitting}
+                          >
                             Request demo
                           </Button>
                         </Column>
@@ -686,4 +837,4 @@ class Hero extends React.Component {
   }
 }
 
-export default Hero;
+export default RequestDemo;
