@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css, keyframes } from 'styled-components';
-import { clearFix, mix, hiDPI } from 'polished';
+import { clearFix, mix, hiDPI, darken, lighten } from 'polished';
 import logo2x from '../assets/logo@2x.png';
 import heroBackground from '../assets/hero-bg-3.jpg';
 import network from '../assets/network.png';
@@ -25,9 +25,20 @@ const Root = styled.section`
 const Cover = styled.div`
   ${cover};
   height: 114%;
-  background-color: ${colors.secondary};
-  background-image: url(${heroBackground});
-  background-size: cover;
+  background: linear-gradient(-135deg, #00a6ff, #004286);
+
+  ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
+  background-size: cover; */}
+  transform: matrix(1, -0.08, 0, 1, 0, -116);
+`;
+
+const Cover2 = styled.div`
+  ${cover};
+  height: 114%;
+  background: radial-gradient(circle at 70% 4%, #00dcff, #00deff00 40%);
+  opacity: 0.5;
+  ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
+  background-size: cover; */}
   transform: matrix(1, -0.08, 0, 1, 0, -116);
 `;
 
@@ -62,7 +73,7 @@ const Logo = styled.a`
   background: url(${logo2x}) no-repeat center;
   background-size: 178px 36px;
   width: 178px;
-  height: 38px;
+  height: 42px;
   transition: opacity 0.2s;
 
   &:hover {
@@ -92,7 +103,7 @@ const navItemCss = css`
   ${uppercase};
   float: left;
   display: block;
-  line-height: 38px;
+  line-height: 42px;
   padding: 0 ${spacing()};
   color: rgba(255, 255, 255, 0.8);
   transition: all 0.2s;
@@ -104,25 +115,6 @@ const navItemCss = css`
 
 const NavItem = styled.a`
   ${navItemCss};
-`;
-
-const NavButton = styled.a`
-  ${navItemCss};
-  padding: 0 ${spacing(1.5)};
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
-  ${'' /* background: rgba(0, 0, 0, 0.1); */} background: rgba(10, 119, 182, 0.6);
-  color: rgba(255, 255, 255, 0.9);
-  margin-left: ${spacing()};
-
-  &:hover {
-    border-color: #fff;
-    background: rgba(0, 0, 0, 0);
-  }
-
-  ${media.max375} {
-    padding: 0 ${spacing()};
-  }
 `;
 
 const InnerWrapper = styled.div`
@@ -246,11 +238,34 @@ const Button = styled.a`
   height: 44px;
   line-height: 44px;
   border-radius: 5px;
-  box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16),
+    0 1px 8px rgba(0, 0, 0, 0.2), 0 4px 24px rgba(0, 0, 0, 0);
   transition: all 0.2s;
 
   &:last-child {
     margin-right: 0;
+  }
+
+  &:hover {
+    transform: matrix(1, 0, 0, 1, 0, -1);
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16),
+      0 10px 16px -10px rgba(0, 0, 0, 0.4), 0 5px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active:not([disabled]) {
+    transform: matrix(1, 0, 0, 1, 0, 1);
+    box-shadow: inset 0 -1px 0px rgba(0, 0, 0, 0.16),
+      0 -1px 8px rgba(0, 0, 0, 0.2), 0 3px 24px rgba(0, 0, 0, 0);
+
+    &,
+    &:before,
+    &:after {
+      transition-duration: 0.05s;
+    }
+
+    &:after {
+      opacity: 1;
+    }
   }
 
   ${media.max374} {
@@ -269,9 +284,14 @@ const Button = styled.a`
     css`
       background: rgba(255, 255, 255, 0.9);
       color: ${colors.secondary};
+      color: #026fbb;
 
       &:hover {
         background: #fff;
+      }
+
+      &:active {
+        background: rgba(255, 255, 255, 0.8);
       }
     `};
 
@@ -279,10 +299,15 @@ const Button = styled.a`
     props.secondary &&
     css`
       background: ${colors.primary};
+      background: #03b0e9;
       color: #fff;
 
       &:hover {
-        background: ${mix(0.6, colors.primary, colors.backgroundSecondaryText)};
+        background: ${lighten(0.05, '#03b0e9')};
+      }
+
+      &:active {
+        background: ${darken(0.05, '#03b0e9')};
       }
     `};
 `;
@@ -315,6 +340,62 @@ const BlinkingCursor = styled.span`
   }
 `;
 
+const NavButton = Button.extend`
+  width: auto;
+  padding: 0 20px;
+  height: 42px;
+  line-height: 42px;
+  background: linear-gradient(20deg, #0392da, #03a1e4);
+  box-shadow: none;
+  color: #fff;
+
+  &:before {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    content: '';
+    opacity: 0.1;
+    transition: all 0.2s;
+    background: #000;
+  }
+
+  &:before {
+    z-index: 1;
+  }
+
+  &:hover,
+  &:active {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  &:hover {
+    background: linear-gradient(20deg, #0392da, #03a1e4);
+    color: #fff;
+
+    &:before {
+      opacity: 0.2;
+    }
+  }
+
+  &:active {
+    &:before {
+      opacity: 0.3;
+    }
+  }
+`;
+
+const NavButtonText = styled.span`
+  display: inline-block;
+  position: relative;
+  z-index: 3;
+  transition: all 0.2s;
+`;
+
 class Hero extends React.Component {
   state = {
     blink: false,
@@ -330,6 +411,7 @@ class Hero extends React.Component {
     return (
       <Root>
         <Cover />
+        <Cover2 />
         <Wrapper>
           <Header>
             <Logo href="/" />
@@ -341,8 +423,8 @@ class Hero extends React.Component {
               </NavLeft> */}
               <NavRight>
                 {/* <NavItem>Support</NavItem> */}
-                <NavButton href="http://blockcluster.io:3000/login">
-                  Login
+                <NavButton primary href="http://blockcluster.io:3000/login">
+                  <NavButtonText>Login</NavButtonText>
                 </NavButton>
               </NavRight>
             </Nav>
@@ -364,28 +446,19 @@ class Hero extends React.Component {
             </Title>
             <Subtitle>
               Easily setup your own enterprise grade blockchain <BreakDesktop />
-              ecosystems through a simple user interface.
+              ecosystem through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
               <Button primary href="mailto:info@blockcluster.io">
                 Get in touch
               </Button>
-              <Button
-                secondary
-                onClick={() => this.setState({ showModalRequestDemo: true })}
-              >
+              <Button secondary href="/contact">
                 Request demo
               </Button>
             </ButtonsWrapper>
             <Network />
           </InnerWrapper>
         </Wrapper>
-        <ModalRequestDemo
-          show={this.state.showModalRequestDemo}
-          onOutsideModalClick={() =>
-            this.setState({ showModalRequestDemo: false })
-          }
-        />
       </Root>
     );
   }
