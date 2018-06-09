@@ -1,8 +1,7 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { clearFix, mix, hiDPI } from 'polished';
-import logo2x from '../assets/logo@2x.png';
-import heroBackground from '../assets/hero-bg-3.jpg';
+import styled, { css } from 'styled-components';
+import { clearFix, hiDPI, darken, lighten } from 'polished';
+import Header from './Header';
 import network from '../assets/network.png';
 import network2x from '../assets/network@2x.png';
 import { colors, spacing, media, uppercase } from '../../../styles';
@@ -24,9 +23,20 @@ const Root = styled.section`
 const Cover = styled.div`
   ${cover};
   height: 114%;
-  background-color: ${colors.secondary};
-  background-image: url(${heroBackground});
-  background-size: cover;
+  background: linear-gradient(-135deg, #00a6ff, #004286);
+
+  ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
+  background-size: cover; */}
+  transform: matrix(1, -0.08, 0, 1, 0, -116);
+`;
+
+const Cover2 = styled.div`
+  ${cover};
+  height: 114%;
+  background: radial-gradient(circle at 70% 4%, #00dcff, #00deff00 40%);
+  opacity: 0.5;
+  ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
+  background-size: cover; */}
   transform: matrix(1, -0.08, 0, 1, 0, -116);
 `;
 
@@ -34,94 +44,6 @@ const Wrapper = styled.div`
   ${wrapper};
   position: relative;
   padding: 0 ${spacing()};
-`;
-
-const Header = styled.header`
-  ${clearFix()};
-  height: 34px;
-  padding: 0;
-
-  ${media.min768} {
-    padding: ${spacing()} 0;
-    height: 98px;
-  }
-
-  ${media.max768} {
-    padding: ${spacing(0.5)};
-  }
-
-  ${media.max375} {
-    padding: 0;
-  }
-`;
-
-const Logo = styled.a`
-  display: block;
-  float: left;
-  background: url(${logo2x}) no-repeat center;
-  background-size: 178px 36px;
-  width: 178px;
-  height: 38px;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const LogoCaps = styled.span`
-  font-size: 22px;
-  font-weight: 400;
-`;
-
-const Nav = styled.nav`
-  ${clearFix()};
-`;
-
-const NavLeft = styled.div`
-  float: left;
-  margin-left: ${spacing(2)};
-`;
-
-const NavRight = styled.div`
-  float: right;
-`;
-
-const navItemCss = css`
-  ${uppercase};
-  float: left;
-  display: block;
-  line-height: 38px;
-  padding: 0 ${spacing()};
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.2s;
-
-  &:hover {
-    color: #fff;
-  }
-`;
-
-const NavItem = styled.a`
-  ${navItemCss};
-`;
-
-const NavButton = styled.a`
-  ${navItemCss};
-  padding: 0 ${spacing(1.5)};
-  border: 1px solid rgba(255, 255, 255, 0.6);
-  border-radius: 3px;
-  ${'' /* background: rgba(0, 0, 0, 0.1); */} background: rgba(10, 119, 182, 0.6);
-  color: rgba(255, 255, 255, 0.9);
-  margin-left: ${spacing()};
-
-  &:hover {
-    border-color: #fff;
-    background: rgba(0, 0, 0, 0);
-  }
-
-  ${media.max375} {
-    padding: 0 ${spacing()};
-  }
 `;
 
 const InnerWrapper = styled.div`
@@ -245,11 +167,34 @@ const Button = styled.a`
   height: 44px;
   line-height: 44px;
   border-radius: 5px;
-  box-shadow: 0 7px 14px rgba(51, 72, 97, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+  box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16),
+    0 1px 8px rgba(0, 0, 0, 0.2), 0 4px 24px rgba(0, 0, 0, 0);
   transition: all 0.2s;
 
   &:last-child {
     margin-right: 0;
+  }
+
+  &:hover {
+    transform: matrix(1, 0, 0, 1, 0, -1);
+    box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16),
+      0 10px 16px -10px rgba(0, 0, 0, 0.4), 0 5px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  &:active:not([disabled]) {
+    transform: matrix(1, 0, 0, 1, 0, 1);
+    box-shadow: inset 0 -1px 0px rgba(0, 0, 0, 0.16),
+      0 -1px 8px rgba(0, 0, 0, 0.2), 0 3px 24px rgba(0, 0, 0, 0);
+
+    &,
+    &:before,
+    &:after {
+      transition-duration: 0.05s;
+    }
+
+    &:after {
+      opacity: 1;
+    }
   }
 
   ${media.max374} {
@@ -268,9 +213,14 @@ const Button = styled.a`
     css`
       background: rgba(255, 255, 255, 0.9);
       color: ${colors.secondary};
+      color: #026fbb;
 
       &:hover {
         background: #fff;
+      }
+
+      &:active {
+        background: rgba(255, 255, 255, 0.8);
       }
     `};
 
@@ -278,10 +228,15 @@ const Button = styled.a`
     props.secondary &&
     css`
       background: ${colors.primary};
+      background: #03b0e9;
       color: #fff;
 
       &:hover {
-        background: ${mix(0.6, colors.primary, colors.backgroundSecondaryText)};
+        background: ${lighten(0.05, '#03b0e9')};
+      }
+
+      &:active {
+        background: ${darken(0.05, '#03b0e9')};
       }
     `};
 `;
@@ -329,23 +284,9 @@ class Hero extends React.Component {
     return (
       <Root>
         <Cover />
+        <Cover2 />
         <Wrapper>
-          <Header>
-            <Logo href="/" />
-            <Nav>
-              {/* <NavLeft>
-                <NavItem>Features</NavItem>
-                <NavItem>Use cases</NavItem>
-                <NavItem>Pricing</NavItem>
-              </NavLeft> */}
-              <NavRight>
-                {/* <NavItem>Support</NavItem> */}
-                <NavButton href="http://blockcluster.io:3000/login">
-                  Login
-                </NavButton>
-              </NavRight>
-            </Nav>
-          </Header>
+          <Header />
           <InnerWrapper>
             <Title>
               Build and deploy powerful <br />
@@ -363,13 +304,13 @@ class Hero extends React.Component {
             </Title>
             <Subtitle>
               Easily setup your own enterprise grade blockchain <BreakDesktop />
-              ecosystems through a simple user interface.
+              ecosystem through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
               <Button primary href="mailto:info@blockcluster.io">
                 Get in touch
               </Button>
-              <Button secondary href="mailto:info@blockcluster.io">
+              <Button secondary href="/request-demo">
                 Request demo
               </Button>
             </ButtonsWrapper>

@@ -98,7 +98,7 @@ const Button = styled.a`
   }
 
   &:hover {
-    transition: all 0.2s;
+    transition: all 0.2s !important;
   }
 
   &:last-child {
@@ -234,7 +234,7 @@ class Contact extends React.Component {
             <Button primary href="mailto:info@blockcluster.io">
               Get in touch
             </Button>
-            <Button secondary href="mailto:info@blockcluster.io">
+            <Button secondary href="/request-demo">
               Request demo
             </Button>
           </ButtonsWrapper>

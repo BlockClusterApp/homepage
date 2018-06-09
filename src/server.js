@@ -9,6 +9,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/server';
 import PrettyError from 'pretty-error';
 import { ServerStyleSheet, StyleSheetManager } from 'styled-components';
+import nodemailer from 'nodemailer';
 import App from './components/App';
 import Html from './components/Html';
 import ErrorPage from './routes/error/ErrorPage';
@@ -16,6 +17,7 @@ import router from './router';
 // import assets from './asset-manifest.json'; // eslint-disable-line import/no-unresolved
 import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
+import { LABELS as REQUEST_DEMO_LABELS } from './routes/request-demo/constants';
 
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
@@ -178,6 +180,89 @@ app.get('*', async (req, res, next) => {
     const html = ReactDOM.renderToStaticMarkup(<Html {...data} />);
     res.status(route.status || 200);
     res.send(`<!doctype html>${html}`);
+  } catch (err) {
+    next(err);
+  }
+});
+
+//
+// Email from request a demo
+// -----------------------------------------------------------------------------
+app.post('/emails/request-demo', async (req, res, next) => {
+  try {
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: 'jason.hasperhoven@blockcluster.io',
+        pass: 'bcinthemix',
+      },
+    });
+
+    const resetStyles = {
+      fontFamily: 'Helvetica Neue',
+      fontSize: '16px',
+      padding: 0,
+      margin: 0,
+    };
+
+    const mailOptions = {
+      to: 'info@blockcluster.io',
+      subject: 'Demo request',
+      html: ReactDOM.renderToStaticMarkup(
+        <React.Fragment>
+          <p
+            style={{
+              ...resetStyles,
+              fontSize: '21px',
+              fontWeight: 500,
+              paddingBottom: '32px',
+              color: '#111',
+            }}
+          >
+            Demo request from the website
+          </p>
+          {Object.entries(req.body).map(([key, value]) => (
+            <React.Fragment>
+              <p
+                style={{
+                  ...resetStyles,
+                  fontSize: '18px',
+                  fontWeight: 500,
+                  paddingBottom: '4px',
+                  color: '#111',
+                }}
+              >
+                {REQUEST_DEMO_LABELS[key]}
+              </p>
+              <p
+                style={{
+                  ...resetStyles,
+                  paddingBottom: '16px',
+                  color: '#111',
+                }}
+              >
+                {value}
+              </p>
+            </React.Fragment>
+          ))}
+        </React.Fragment>,
+      ),
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(400).json({
+          error: err,
+        });
+        return;
+      }
+
+      console.info(err);
+      res.status(200).json({
+        info,
+      });
+    });
   } catch (err) {
     next(err);
   }
