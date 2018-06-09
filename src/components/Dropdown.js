@@ -13,82 +13,82 @@ const chevronDown = `
 // eslint-disable-next-line
 injectGlobal`
   .Dropdown-root {
-      cursor: pointer;
-      position: relative;
-      width: 100%;
-      font-size: 17px;
-      line-height: normal;
-      background: #eef5fb;
-      border: 1px solid #eef5fb;
-      border-radius: 3px;
-      padding: 8px 16px;
-      transition: all 0.3s;
-      color: ${colors.text};
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    font-size: 17px;
+    line-height: normal;
+    background: #eef5fb;
+    border: 1px solid #eef5fb;
+    border-radius: 3px;
+    padding: 8px 16px;
+    transition: all 0.3s;
+    color: ${colors.text};
 
-      &:hover {
-        background: #f6fbff;
-        border-color: ${shade(0.95, '#eef5fb')};
-      }
-
-      &.is-open {
-        background: #fff;
-        border-color: ${colors.primary};
-      }
+    &:hover {
+      background: #f6fbff;
+      border-color: ${shade(0.95, '#eef5fb')};
     }
 
-    .Dropdown-placeholder {
-      color: ${lighten(0.3, mix(0.8, colors.text, colors.primary))};
-
-      &.is-selected {
-        color: ${colors.text};
-      }
-    }
-
-    .Dropdown-menu {
-      box-sizing: content-box;
-      position: absolute;
-      overflow: hidden;
-      top: 42px;
-      left: -1px;
-      width: 100%;
-      z-index: 4;
-      border: 1px solid #e5e7e8;
-      border-radius: 3px;
-      box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, .08);
-    }
-
-    .Dropdown-option {
-      cursor: pointer;
-      padding: 8px 16px;
+    &.is-open {
       background: #fff;
-      color: ${lighten(0.2, mix(0.8, colors.text, colors.primary))};
-      transition: all .2s;
-
-      &:hover {
-        background: #eef5fb;
-        color: ${mix(0.7, colors.text, colors.primary)};
-      }
+      border-color: ${colors.primary};
     }
+  }
 
-    .Dropdown-arrow {
-      position: absolute;
-      right: 0;
-      top: 0;
-      width: 38px;
-      height: 38px;
-      background-image: url('data:image/svg+xml;utf8,${chevronDown}');
-      background-repeat: no-repeat;
-      background-size: 13px;
-      background-position: center;
+  .Dropdown-placeholder {
+    color: ${lighten(0.3, mix(0.8, colors.text, colors.primary))};
+
+    &.is-selected {
+      color: ${colors.text};
     }
-  `;
+  }
+
+  .Dropdown-menu {
+    box-sizing: content-box;
+    position: absolute;
+    overflow: hidden;
+    top: 42px;
+    left: -1px;
+    width: 100%;
+    z-index: 4;
+    border: 1px solid #e5e7e8;
+    border-radius: 3px;
+    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, .08);
+  }
+
+  .Dropdown-option {
+    cursor: pointer;
+    padding: 8px 16px;
+    background: #fff;
+    color: ${lighten(0.2, mix(0.8, colors.text, colors.primary))};
+    transition: all .2s;
+
+    &:hover {
+      background: #eef5fb;
+      color: ${mix(0.7, colors.text, colors.primary)};
+    }
+  }
+
+  .Dropdown-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    background-image: url('data:image/svg+xml;utf8,${chevronDown}');
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: center;
+  }
+`;
 
 // eslint-disable-next-line react/prop-types
 export default ({ onChange, id, name, ...props }) => (
   <Dropdown
     id={id}
     name={name}
-    onChange={({ value }) =>
+    onChange={({ value }) => {
       onChange({
         persist: () => null,
         target: {
@@ -97,8 +97,8 @@ export default ({ onChange, id, name, ...props }) => (
           name,
           value,
         },
-      })
-    }
+      });
+    }}
     {...props}
   />
 );

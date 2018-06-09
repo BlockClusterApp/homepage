@@ -53,10 +53,6 @@ export const card = css`
   box-shadow: 0 3px 4px rgba(0, 0, 0, 0.06), 0 4px 24px rgba(0, 0, 0, 0.04);
   border-radius: 6px;
   margin: 0 auto ${spacing()};
-
-  ${media.max768} {
-    border-radius: 0;
-  }
 `;
 
 export const cover = css`

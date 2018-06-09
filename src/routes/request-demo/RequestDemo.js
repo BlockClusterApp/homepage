@@ -74,6 +74,10 @@ const InnerWrapper = styled.div`
   position: relative;
   padding: ${spacing(1.5)} 0;
 
+  @media (max-width: 460px) {
+    padding-top: ${spacing(4)};
+  }
+
   ${props =>
     props.formSuccess &&
     css`
@@ -102,13 +106,14 @@ const Subtitle = styled.h2`
   font-size: 20px;
   font-weight: 600;
   opacity: 0.9;
-  margin-bottom: ${spacing(4)};
+  max-width: 482px;
+  margin: 0 auto 64px;
   color: #fff;
 
   ${media.max768} {
     font-size: 19px;
     max-width: 400px;
-    margin: 0 auto ${spacing(4)};
+    margin: 0 auto ${spacing(3)};
   }
 
   ${media.max375} {
@@ -118,9 +123,13 @@ const Subtitle = styled.h2`
 
 const Card = styled.div`
   ${card};
-  padding: ${spacing(1.5)} ${spacing(2)} ${spacing(2)};
+  padding: ${spacing()};
   box-shadow: 0 15px 35px rgba(50, 73, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   max-width: 624px;
+
+  @media (min-width: 641px) {
+    padding: ${spacing()};
+  }
 `;
 
 const Row = styled.div`
@@ -135,14 +144,18 @@ const Row = styled.div`
 `;
 
 const Column = styled.div`
-  float: left;
+  width: 100%;
 
-  &:first-child {
-    width: 40%;
-  }
+  @media (min-width: 641px) {
+    float: left;
 
-  &:last-child {
-    width: 60%;
+    &:first-child {
+      width: 40%;
+    }
+
+    &:last-child {
+      width: 60%;
+    }
   }
 `;
 
@@ -170,6 +183,16 @@ const RadioLabel = styled.label`
   font-weight: 600;
   line-height: 1.3;
   color: ${mix(0.7, colors.text, colors.primary)};
+`;
+
+const SubmitButton = Button.extend`
+  width: 100%;
+  padding: 0 20px;
+
+  @media (min-width: 461px) {
+    margin-left: 40%;
+    width: auto;
+  }
 `;
 
 class RequestDemo extends React.Component {
@@ -208,9 +231,8 @@ class RequestDemo extends React.Component {
                 <Fragment>
                   <Title>Request a demo</Title>
                   <Subtitle>
-                    Thanks for showing your interest in BlockCluster!<br />
-                    Go ahead and fill in your details, and we’ll get back to
-                    you.
+                    Thanks for showing your interest in BlockCluster! Go ahead
+                    and fill in your details, and we’ll get back to you.
                   </Subtitle>
                   <Card>
                     {form.error && <InputError>{form.error}</InputError>}
@@ -416,20 +438,12 @@ class RequestDemo extends React.Component {
                                   '101 to 500 employees',
                                   'more than 500 employees',
                                 ]}
-                                onChange={({ value }) => {
+                                onChange={event => {
                                   this.setState({
                                     isSelectedOrgSize: true,
                                   });
 
-                                  handleChange({
-                                    persist: () => null,
-                                    target: {
-                                      id: 'orgSize',
-                                      name: 'orgSize',
-                                      type: 'select',
-                                      value,
-                                    },
-                                  });
+                                  handleChange(event);
                                 }}
                                 value={values.orgSize}
                                 placeholder="Select an option"
@@ -507,7 +521,6 @@ class RequestDemo extends React.Component {
                                   this.setState({
                                     isSelectedProjectStarts: true,
                                   });
-
                                   handleChange(event);
                                 }}
                                 value={values.projectStarts}
@@ -582,16 +595,13 @@ class RequestDemo extends React.Component {
                             </Column>
                           </Row>
                           <Row>
-                            <Column>&nbsp;</Column>
-                            <Column>
-                              <Button
-                                type="submit"
-                                secondary
-                                disabled={isSubmitting}
-                              >
-                                Request demo
-                              </Button>
-                            </Column>
+                            <SubmitButton
+                              type="submit"
+                              secondary
+                              disabled={isSubmitting}
+                            >
+                              Request demo
+                            </SubmitButton>
                           </Row>
                         </Form>
                       )}
