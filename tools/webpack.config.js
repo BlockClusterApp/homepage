@@ -87,11 +87,10 @@ const config = {
             // A Babel preset that can automatically determine the Babel plugins and polyfills
             // https://github.com/babel/babel-preset-env
             [
-              '@babel/preset-env',
+              'env',
               {
                 targets: {
                   browsers: pkg.browserslist,
-                  forceAllTransforms: !isDebug, // for UglifyJS
                 },
                 modules: false,
                 useBuiltIns: false,
@@ -100,21 +99,30 @@ const config = {
             ],
             // Experimental ECMAScript proposals
             // https://babeljs.io/docs/plugins/#presets-stage-x-experimental-presets-
-            ['@babel/preset-stage-2', { decoratorsLegacy: true }],
-            // JSX
+            'stage-2',
+            // JSX, Flow
             // https://github.com/babel/babel/tree/master/packages/babel-preset-react
-            ['@babel/preset-react', { development: isDebug }],
+            'react',
+            // Optimize React code for the production build
+            // https://github.com/thejameskyle/babel-react-optimize
+            ...(isDebug ? [] : ['react-optimize']),
           ],
           plugins: [
-            // Treat React JSX elements as value types and hoist them to the highest scope
-            // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-constant-elements
-            ...(isDebug ? [] : ['@babel/transform-react-constant-elements']),
-            // Replaces the React.createElement function with one that is more optimized for production
-            // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-inline-elements
-            ...(isDebug ? [] : ['@babel/transform-react-inline-elements']),
-            // Remove unnecessary React propTypes from the production build
-            // https://github.com/oliviertassinari/babel-plugin-transform-react-remove-prop-types
-            ...(isDebug ? [] : ['transform-react-remove-prop-types']),
+            [
+              'styled-components',
+              {
+                ssr: true,
+                // minify: !isDebug,
+                displayName: isDebug,
+                // preproccess: !isDebug,
+              },
+            ],
+            // Adds component stack to warning messages
+            // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-source
+            ...(isDebug ? ['transform-react-jsx-source'] : []),
+            // Adds __self attribute to JSX which React will use for some warnings
+            // https://github.com/babel/babel/tree/master/packages/babel-plugin-transform-react-jsx-self
+            ...(isDebug ? ['transform-react-jsx-self'] : []),
           ],
         },
       },
