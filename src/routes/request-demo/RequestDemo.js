@@ -11,6 +11,7 @@ import Dropdown from '../../components/Dropdown';
 import Input, { InputError, Textarea } from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../home/components/Header';
+import Footer from '../home/components/Footer';
 import { LABELS } from './constants';
 
 // const check = (
@@ -128,7 +129,7 @@ const Card = styled.div`
   max-width: 624px;
 
   @media (min-width: 641px) {
-    padding: ${spacing()};
+    padding: ${spacing(2)};
   }
 `;
 
@@ -187,11 +188,11 @@ const RadioLabel = styled.label`
 
 const SubmitButton = Button.extend`
   width: 100%;
-  padding: 0 20px;
 
-  @media (min-width: 461px) {
+  @media (min-width: 641px) {
     margin-left: 40%;
     width: auto;
+    padding: 0 20px;
   }
 `;
 
@@ -613,6 +614,7 @@ class RequestDemo extends React.Component {
           </Wrapper>
         </Root>
         {!form.success && <Bg />}
+        <Footer />
       </Fragment>
     );
   }
