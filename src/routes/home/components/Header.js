@@ -109,7 +109,7 @@ export default () => (
       </NavLeft> */}
       <NavRight>
         {/* <NavItem>Support</NavItem> */}
-        <NavButton href="app.blockcluster.io/login">Login</NavButton>
+        <NavButton href="//app.blockcluster.io/login">Login</NavButton>
       </NavRight>
     </Nav>
   </Header>
