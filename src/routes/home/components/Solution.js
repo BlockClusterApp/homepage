@@ -304,7 +304,7 @@ class Problem extends React.Component {
             </TitleIntro>
             <TitleEm>
               <AnimateText
-                textNodes={['Blockchain', 'as', 'a', 'service']}
+                textNodes={['Blockchain', 'Management', 'System']}
                 animationStyle="slide"
               />
             </TitleEm>
@@ -312,7 +312,7 @@ class Problem extends React.Component {
           <Subtitle>
             <AnimateText
               textNodes={[
-                `BlockCluster’s BaaS includes a rich catalog of cloud services which
+                `BlockCluster’s BMS includes a rich catalog of cloud services which
                   allows you to customly build and deploy business blockchain
                   applications rapidly — a few clicks aways.`,
               ]}
