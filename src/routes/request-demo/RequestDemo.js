@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Formik, Field } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import Dropdown from 'react-dropdown';
 import * as yup from 'yup';
 import styled, { css, keyframes, injectGlobal } from 'styled-components';
@@ -7,12 +7,19 @@ import { clearFix, mix, hiDPI, shade, darken, lighten } from 'polished';
 import logo2x from './assets/logo@2x.png';
 import { colors, spacing, media, uppercase } from '../../styles';
 import { wrapper, cover, card } from '../../styles/mixins';
+import uppercaseFirstChar from '../../helpers/uppercaseFirstChar';
 
 const check = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
   </svg>
 );
+
+const chevronDown = `
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+    <path fill="#2d5f76" d="M207.029 381.476L12.686 187.132c-9.373-9.373-9.373-24.569 0-33.941l22.667-22.667c9.357-9.357 24.522-9.375 33.901-.04L224 284.505l154.745-154.021c9.379-9.335 24.544-9.317 33.901.04l22.667 22.667c9.373 9.373 9.373 24.569 0 33.941L240.971 381.476c-9.373 9.372-24.569 9.372-33.942 0z" />
+  </svg>
+`;
 
 const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
@@ -283,6 +290,8 @@ const Button = styled.a`
     `};
 `;
 
+const SubmitButton = Button.withComponent('button');
+
 const NavButton = Button.extend`
   width: auto;
   padding: 0 20px;
@@ -429,6 +438,7 @@ const Radio = Input.extend.attrs({
 const InputError = styled.div`
   font-size: 14px;
   color: ${colors.error};
+  color: #ff4775;
 `;
 
 const RadioLabel = styled.label`
@@ -476,14 +486,22 @@ const RadioLabel = styled.label`
 // eslint-disable-next-line no-unused-expressions
 injectGlobal`
   .Dropdown-root {
+    cursor: pointer;
+    position: relative;
     width: 100%;
     font-size: 17px;
+    line-height: normal;
     background: #eef5fb;
     border: 1px solid #eef5fb;
     border-radius: 3px;
     padding: 8px 16px;
     transition: all 0.3s;
     color: ${colors.text};
+
+    &:hover {
+      background: #f6fbff;
+      border-color: ${shade(0.95, '#eef5fb')};
+    }
 
     &.is-open {
       background: #fff;
@@ -493,14 +511,22 @@ injectGlobal`
 
   .Dropdown-placeholder {
     color: ${lighten(0.3, mix(0.8, colors.text, colors.primary))};
+
+    &.is-selected {
+      color: ${colors.text};
+    }
   }
 
   .Dropdown-menu {
+    box-sizing: content-box;
     position: absolute;
-    top: 38px;
-    left: 0;
+    overflow: hidden;
+    top: 42px;
+    left: -1px;
     width: 100%;
     z-index: 4;
+    border: 1px solid #e5e7e8;
+    border-radius: 3px;
     box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, .08);
   }
 
@@ -515,6 +541,18 @@ injectGlobal`
       background: #eef5fb;
       color: ${mix(0.7, colors.text, colors.primary)};
     }
+  }
+
+  .Dropdown-arrow {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 38px;
+    height: 38px;
+    background-image: url('data:image/svg+xml;utf8,${chevronDown}');
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-position: center;
   }
 `;
 
@@ -586,8 +624,17 @@ class RequestDemo extends React.Component {
                   }}
                   validationSchema={yup.object().shape({
                     name: yup.string().required(),
-                    email: yup.string().email(),
-                    website: yup.string().url(),
+                    email: yup
+                      .string()
+                      .email()
+                      .required(),
+                    website: yup
+                      .string()
+                      .matches(
+                        /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+                        'Website must be a valid URL',
+                      )
+                      .required(),
                     orgName: yup.string().required(),
                     orgType: yup.string().required(),
                     orgSize: yup.string().required(),
@@ -623,10 +670,10 @@ class RequestDemo extends React.Component {
                     touched,
                     handleChange,
                     handleBlur,
-                    handleSubmit,
                     isSubmitting,
+                    setFieldValue,
                   }) => (
-                    <form onChange={handleChange} onSubmit={handleSubmit}>
+                    <Form>
                       <Row>
                         <Column>
                           <Label htmlFor="name">Full name</Label>
@@ -636,11 +683,17 @@ class RequestDemo extends React.Component {
                             type="text"
                             name="name"
                             id="name"
+                            value={values.name}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             placeholder="John Doe"
                           />
-                          {errors.email &&
-                            touched.email && (
-                              <InputError>{errors.email}</InputError>
+                          {errors &&
+                            errors.name &&
+                            touched.name && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.name)}
+                              </InputError>
                             )}
                         </Column>
                       </Row>
@@ -653,10 +706,18 @@ class RequestDemo extends React.Component {
                             type="text"
                             name="email"
                             id="email"
+                            value={values.email}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             placeholder="john.doe@company.com"
                           />
-                          {errors.email &&
-                            touched.social.email && <div>{errors.email}</div>}
+                          {errors &&
+                            errors.email &&
+                            touched.email && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.email)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -668,8 +729,18 @@ class RequestDemo extends React.Component {
                             type="text"
                             name="website"
                             id="website"
+                            value={values.website}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             placeholder="www.blockcluster.io"
                           />
+                          {errors &&
+                            errors.website &&
+                            touched.website && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.website)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -681,8 +752,18 @@ class RequestDemo extends React.Component {
                             type="text"
                             name="orgName"
                             id="orgName"
+                            value={values.orgName}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             placeholder="BlockCluster"
                           />
+                          {errors &&
+                            errors.orgName &&
+                            touched.orgName && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.orgName)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -694,8 +775,18 @@ class RequestDemo extends React.Component {
                             type="text"
                             name="orgType"
                             id="orgType"
+                            value={values.orgType}
+                            onBlur={handleBlur}
+                            onChange={handleChange}
                             placeholder="Healthcare"
                           />
+                          {errors &&
+                            errors.orgType &&
+                            touched.orgType && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.orgType)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -703,12 +794,45 @@ class RequestDemo extends React.Component {
                           <Label htmlFor="orgSize">Organization size</Label>
                         </Column>
                         <Column>
-                          <Input
-                            type="text"
-                            name="orgSize"
+                          <Dropdown
                             id="orgSize"
-                            placeholder="50-100 employees"
+                            name="orgSize"
+                            placeholderClassName={
+                              this.state.isSelectedOrgSize ? 'is-selected' : ''
+                            }
+                            options={[
+                              '1 to 5 employees',
+                              '5 to 10 employees',
+                              '11 to 50 employees',
+                              '51 to 100 employees',
+                              '101 to 500 employees',
+                              'more than 500 employees',
+                            ]}
+                            onChange={({ value }) => {
+                              this.setState({
+                                isSelectedOrgSize: true,
+                              });
+
+                              handleChange({
+                                persist: () => null,
+                                target: {
+                                  id: 'orgSize',
+                                  name: 'orgSize',
+                                  type: 'select',
+                                  value,
+                                },
+                              });
+                            }}
+                            value={values.orgSize}
+                            placeholder="Select an option"
                           />
+                          {errors &&
+                            errors.orgSize &&
+                            touched.orgSize && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.orgSize)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -721,7 +845,12 @@ class RequestDemo extends React.Component {
                           <Radio
                             name="blockchainBudget"
                             id="blockchainBudgetYes"
-                            value="yes"
+                            value={values.blockchainBudget}
+                            onBlur={handleBlur}
+                            onChange={() => {
+                              setFieldValue('blockchainBudget', true);
+                            }}
+                            checked={values.blockchainBudget}
                           />
                           <RadioLabel htmlFor="blockchainBudgetYes">
                             Yes
@@ -729,11 +858,25 @@ class RequestDemo extends React.Component {
                           <Radio
                             name="blockchainBudget"
                             id="blockchainBudgetNo"
-                            value="no"
+                            value={values.blockchainBudget}
+                            onBlur={handleBlur}
+                            onChange={() => {
+                              setFieldValue('blockchainBudget', false);
+                            }}
+                            // here we have to explicitely check for false
+                            // since an empty string is falsy too
+                            checked={values.blockchainBudget === false}
                           />
                           <RadioLabel htmlFor="blockchainBudgetNo">
                             No
                           </RadioLabel>
+                          {errors &&
+                            errors.blockchainBudget &&
+                            touched.blockchainBudget && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.blockchainBudget)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -744,39 +887,45 @@ class RequestDemo extends React.Component {
                         </Column>
                         <Column>
                           <Dropdown
+                            id="projectStarts"
+                            name="projectStarts"
+                            placeholderClassName={
+                              this.state.isSelectedProjectStarts
+                                ? 'is-selected'
+                                : ''
+                            }
                             options={[
-                              {
-                                value: '1-2-weeks',
-                                label: '1 to 2 weeks',
-                              },
-                              {
-                                value: '2-4-weeks',
-                                label: '2 to 4 weeks',
-                              },
-                              {
-                                value: '1-2-months',
-                                label: '1 to 2 months',
-                              },
-                              {
-                                value: '2-6-months',
-                                label: '2 to 6 months',
-                              },
-                              {
-                                value: '6-weeks-plus',
-                                label: 'more than 6 months',
-                              },
+                              '1 to 2 weeks',
+                              '2 to 4 weeks',
+                              '1 to 2 months',
+                              '2 to 6 months',
+                              'more than 6 months',
                             ]}
-                            // onChange={this._onSelect}
-                            // value={defaultOption}
+                            onChange={({ value }) => {
+                              this.setState({
+                                isSelectedProjectStarts: true,
+                              });
+
+                              handleChange({
+                                persist: () => null,
+                                target: {
+                                  id: 'projectStarts',
+                                  name: 'projectStarts',
+                                  type: 'select',
+                                  value,
+                                },
+                              });
+                            }}
+                            value={values.projectStarts}
                             placeholder="Select an option"
                           />
-
-                          <Input
-                            type="text"
-                            name="projectStarts"
-                            id="projectStarts"
-                            placeholder="1 to 2 weeks"
-                          />
+                          {errors &&
+                            errors.projectStarts &&
+                            touched.projectStarts && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.projectStarts)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -787,7 +936,12 @@ class RequestDemo extends React.Component {
                           <Radio
                             name="decisionMaker"
                             id="decisionMakerYes"
-                            value="yes"
+                            value={values.decisionMaker}
+                            onBlur={handleBlur}
+                            onChange={() => {
+                              setFieldValue('decisionMaker', true);
+                            }}
+                            checked={values.decisionMaker}
                           />
                           <RadioLabel htmlFor="decisionMakerYes">
                             Yes
@@ -795,9 +949,23 @@ class RequestDemo extends React.Component {
                           <Radio
                             name="decisionMaker"
                             id="decisionMakerNo"
-                            value="no"
+                            value={values.decisionMaker}
+                            onBlur={handleBlur}
+                            onChange={() => {
+                              setFieldValue('decisionMaker', false);
+                            }}
+                            // here we have to explicitely check for false
+                            // since an empty string is falsy too
+                            checked={values.decisionMaker === false}
                           />
                           <RadioLabel htmlFor="decisionMakerNo">No</RadioLabel>
+                          {errors &&
+                            errors.decisionMaker &&
+                            touched.decisionMaker && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.decisionMaker)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
@@ -808,23 +976,32 @@ class RequestDemo extends React.Component {
                           <Textarea
                             name="comments"
                             id="comments"
+                            value={values.comments}
+                            onChange={handleChange}
                             placeholder="I would like to know a specific application of Blockcluster"
                           />
+                          {errors &&
+                            errors.comments &&
+                            touched.comments && (
+                              <InputError>
+                                {uppercaseFirstChar(errors.comments)}
+                              </InputError>
+                            )}
                         </Column>
                       </Row>
                       <Row>
                         <Column>&nbsp;</Column>
                         <Column>
-                          <Button
+                          <SubmitButton
                             type="submit"
                             secondary
                             disabled={isSubmitting}
                           >
                             Request demo
-                          </Button>
+                          </SubmitButton>
                         </Column>
                       </Row>
-                    </form>
+                    </Form>
                   )}
                 />
               </Card>
