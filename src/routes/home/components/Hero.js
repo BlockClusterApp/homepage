@@ -1,11 +1,9 @@
 import React from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { clearFix, mix, hiDPI, darken, lighten } from 'polished';
-import logo2x from '../assets/logo@2x.png';
-import heroBackground from '../assets/hero-bg-3.jpg';
+import styled, { css } from 'styled-components';
+import { clearFix, hiDPI, darken, lighten } from 'polished';
+import Header from './Header';
 import network from '../assets/network.png';
 import network2x from '../assets/network@2x.png';
-import ModalRequestDemo from './ModalRequestDemo';
 import { colors, spacing, media, uppercase } from '../../../styles';
 import { wrapper, cover } from '../../../styles/mixins';
 
@@ -46,75 +44,6 @@ const Wrapper = styled.div`
   ${wrapper};
   position: relative;
   padding: 0 ${spacing()};
-`;
-
-const Header = styled.header`
-  ${clearFix()};
-  height: 34px;
-  padding: 0;
-
-  ${media.min768} {
-    padding: ${spacing()} 0;
-    height: 98px;
-  }
-
-  ${media.max768} {
-    padding: ${spacing(0.5)};
-  }
-
-  ${media.max375} {
-    padding: 0;
-  }
-`;
-
-const Logo = styled.a`
-  display: block;
-  float: left;
-  background: url(${logo2x}) no-repeat center;
-  background-size: 178px 36px;
-  width: 178px;
-  height: 42px;
-  transition: opacity 0.2s;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const LogoCaps = styled.span`
-  font-size: 22px;
-  font-weight: 400;
-`;
-
-const Nav = styled.nav`
-  ${clearFix()};
-`;
-
-const NavLeft = styled.div`
-  float: left;
-  margin-left: ${spacing(2)};
-`;
-
-const NavRight = styled.div`
-  float: right;
-`;
-
-const navItemCss = css`
-  ${uppercase};
-  float: left;
-  display: block;
-  line-height: 42px;
-  padding: 0 ${spacing()};
-  color: rgba(255, 255, 255, 0.8);
-  transition: all 0.2s;
-
-  &:hover {
-    color: #fff;
-  }
-`;
-
-const NavItem = styled.a`
-  ${navItemCss};
 `;
 
 const InnerWrapper = styled.div`
@@ -340,62 +269,6 @@ const BlinkingCursor = styled.span`
   }
 `;
 
-const NavButton = Button.extend`
-  width: auto;
-  padding: 0 20px;
-  height: 42px;
-  line-height: 42px;
-  background: linear-gradient(20deg, #0392da, #03a1e4);
-  box-shadow: none;
-  color: #fff;
-
-  &:before {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 6px;
-    content: '';
-    opacity: 0.1;
-    transition: all 0.2s;
-    background: #000;
-  }
-
-  &:before {
-    z-index: 1;
-  }
-
-  &:hover,
-  &:active {
-    transform: none !important;
-    box-shadow: none !important;
-  }
-
-  &:hover {
-    background: linear-gradient(20deg, #0392da, #03a1e4);
-    color: #fff;
-
-    &:before {
-      opacity: 0.2;
-    }
-  }
-
-  &:active {
-    &:before {
-      opacity: 0.3;
-    }
-  }
-`;
-
-const NavButtonText = styled.span`
-  display: inline-block;
-  position: relative;
-  z-index: 3;
-  transition: all 0.2s;
-`;
-
 class Hero extends React.Component {
   state = {
     blink: false,
@@ -413,22 +286,7 @@ class Hero extends React.Component {
         <Cover />
         <Cover2 />
         <Wrapper>
-          <Header>
-            <Logo href="/" />
-            <Nav>
-              {/* <NavLeft>
-                <NavItem>Features</NavItem>
-                <NavItem>Use cases</NavItem>
-                <NavItem>Pricing</NavItem>
-              </NavLeft> */}
-              <NavRight>
-                {/* <NavItem>Support</NavItem> */}
-                <NavButton primary href="http://blockcluster.io:3000/login">
-                  <NavButtonText>Login</NavButtonText>
-                </NavButton>
-              </NavRight>
-            </Nav>
-          </Header>
+          <Header />
           <InnerWrapper>
             <Title>
               Build and deploy powerful <br />

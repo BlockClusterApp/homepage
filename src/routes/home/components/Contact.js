@@ -6,7 +6,6 @@ import AnimateText from '../../../components/AnimateText';
 import { colors, spacing, uppercase, media } from '../../../styles';
 import { wrapper } from '../../../styles/mixins';
 import mq from '../../../helpers/mediaQueries';
-import ModalRequestDemo from './ModalRequestDemo';
 
 const Root = styled.section`
   position: relative;
@@ -168,7 +167,6 @@ class Contact extends React.Component {
   state = {
     visible: false,
     mounted: false,
-    showModalRequestDemo: false,
   };
 
   componentDidMount() {
@@ -236,20 +234,11 @@ class Contact extends React.Component {
             <Button primary href="mailto:info@blockcluster.io">
               Get in touch
             </Button>
-            <Button
-              secondary
-              onClick={() => this.setState({ showModalRequestDemo: true })}
-            >
+            <Button secondary href="/request-demo">
               Request demo
             </Button>
           </ButtonsWrapper>
         </Wrapper>
-        <ModalRequestDemo
-          show={this.state.showModalRequestDemo}
-          onOutsideModalClick={() =>
-            this.setState({ showModalRequestDemo: false })
-          }
-        />
       </Root>
     );
   }
