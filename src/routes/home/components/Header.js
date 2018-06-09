@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { clearFix, shade } from 'polished';
 import logo2x from '../assets/logo@2x.png';
-import { spacing, media, uppercase } from '../../../styles';
+import { spacing, media } from '../../../styles';
 import Button from '../../../components/Button';
 
 const Header = styled.header`
@@ -109,7 +109,7 @@ export default () => (
       </NavLeft> */}
       <NavRight>
         {/* <NavItem>Support</NavItem> */}
-        <NavButton href="http://blockcluster.io:3000/login">Login</NavButton>
+        <NavButton href="http://app.blockcluster.io/login">Login</NavButton>
       </NavRight>
     </Nav>
   </Header>

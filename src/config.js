@@ -10,12 +10,10 @@ if (process.env.BROWSER) {
 
 module.exports = {
   // Node.js app
-  port: process.env.PORT || 80,
+  port: process.env.PORT || 3000,
 
   // https://expressjs.com/en/guide/behind-proxies.html
   trustProxy: process.env.TRUST_PROXY || 'loopback',
-
-  appUrl: process.env.APP_URL || 'http://blockcluster.io:3000',
 
   log: {
     levelConsole: 'silly',
