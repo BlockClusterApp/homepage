@@ -1,13 +1,15 @@
 import React, { Fragment } from 'react';
 import { Formik, Form, Field } from 'formik';
+import axios from 'axios';
 import Dropdown from 'react-dropdown';
 import * as yup from 'yup';
-import styled, { css, keyframes, injectGlobal } from 'styled-components';
-import { clearFix, mix, hiDPI, shade, darken, lighten } from 'polished';
+import styled, { css, injectGlobal } from 'styled-components';
+import { clearFix, mix, shade, darken, lighten } from 'polished';
 import logo2x from './assets/logo@2x.png';
 import { colors, spacing, media, uppercase } from '../../styles';
 import { wrapper, cover, card } from '../../styles/mixins';
 import uppercaseFirstChar from '../../helpers/uppercaseFirstChar';
+import { LABELS } from './constants';
 
 const check = (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -48,6 +50,12 @@ const Cover = styled.div`
   ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
   background-size: cover; */}
   transform: matrix(1, -0.08, 0, 1, 0, -116);
+
+  ${props =>
+    props.formSuccess &&
+    css`
+      height: 86%;
+    `};
 `;
 
 const Cover2 = styled.div`
@@ -99,11 +107,6 @@ const Logo = styled.a`
   }
 `;
 
-const LogoCaps = styled.span`
-  font-size: 22px;
-  font-weight: 400;
-`;
-
 const Nav = styled.nav`
   ${clearFix()};
 `;
@@ -138,6 +141,12 @@ const NavItem = styled.a`
 const InnerWrapper = styled.div`
   position: relative;
   padding: ${spacing(1.5)} 0;
+
+  ${props =>
+    props.formSuccess &&
+    css`
+      padding-top: 124px;
+    `};
 `;
 
 const Title = styled.h1`
@@ -224,7 +233,7 @@ const Button = styled.a`
     margin-right: 0;
   }
 
-  &:hover {
+  &:hover:not([disabled]) {
     transform: matrix(1, 0, 0, 1, 0, -1);
     box-shadow: inset 0 1px 0px rgba(255, 255, 255, 0.16),
       0 10px 16px -10px rgba(0, 0, 0, 0.4), 0 5px 24px rgba(0, 0, 0, 0.1);
@@ -244,6 +253,11 @@ const Button = styled.a`
     &:after {
       opacity: 1;
     }
+  }
+
+  &:disabled {
+    box-shadow: none;
+    background: #bfccd4;
   }
 
   ${media.max374} {
@@ -280,11 +294,11 @@ const Button = styled.a`
       background: #03b0e9;
       color: #fff;
 
-      &:hover {
+      &:hover:not([disabled]) {
         background: ${lighten(0.05, '#03b0e9')};
       }
 
-      &:active {
+      &:active:not([disabled]) {
         background: ${darken(0.05, '#03b0e9')};
       }
     `};
@@ -556,21 +570,12 @@ injectGlobal`
   }
 `;
 
-// Is this going to send a verification email to this email id? Also will this refrain them for using gmail ids?
-
-// Company sector as >>>>Organization Name (Type box)
-// Organization Type (drop down)
-// Organization Size (drop down)
-
-// Is there a budget for Blockchain Project? (Yes/No)
-// How soon is your Blockchain project starting? Drop down (Weeks, Month, not scheduled yet)
-// Are you a decision maker ? (Yes/No)
-
-// Anything else >>>> Comment (hint text to be>>> I would like to know specific application of Blockcluster)
-
 class RequestDemo extends React.Component {
   state = {
     blink: false,
+    form: {
+      success: false,
+    },
   };
 
   componentDidMount() {
@@ -580,10 +585,12 @@ class RequestDemo extends React.Component {
   }
 
   render() {
+    const { form } = this.state;
+
     return (
       <Fragment>
         <Root>
-          <Cover />
+          <Cover formSuccess={form.success} />
           <Cover2 />
           <Wrapper>
             <Header>
@@ -602,413 +609,421 @@ class RequestDemo extends React.Component {
                 </NavRight>
               </Nav>
             </Header>
-            <InnerWrapper>
-              <Title>Request a demo</Title>
-              <Subtitle>
-                Thanks for showing your interest in BlockCluster!<br />
-                Go ahead and fill in your details, and we’ll get back to you.
-              </Subtitle>
-              <Card>
-                <Formik
-                  initialValues={{
-                    name: '',
-                    email: '',
-                    website: '',
-                    orgName: '',
-                    orgType: '',
-                    orgSize: '',
-                    blockchainBudget: '',
-                    projectStarts: '',
-                    decisionMaker: '',
-                    comments: '',
-                  }}
-                  validationSchema={yup.object().shape({
-                    name: yup.string().required(),
-                    email: yup
-                      .string()
-                      .email()
-                      .required(),
-                    website: yup
-                      .string()
-                      .matches(
-                        /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
-                        'Website must be a valid URL',
-                      )
-                      .required(),
-                    orgName: yup.string().required(),
-                    orgType: yup.string().required(),
-                    orgSize: yup.string().required(),
-                    blockchainBudget: yup.bool().required(),
-                    projectStarts: yup.string().required(),
-                    decisionMaker: yup.bool().required(),
-                    comments: yup.string().required(),
-                  })}
-                  onSubmit={(
-                    values,
-                    {
-                      setSubmitting,
-                      setErrors /* setValues and other goodies */,
-                    },
-                  ) => {
-                    console.log(values);
-                    // LoginToMyApp(values).then(
-                    //   user => {
-                    //     setSubmitting(false);
-                    //     // do whatevs...
-                    //     // props.updateUser(user)
-                    //   },
-                    //   errors => {
-                    //     setSubmitting(false);
-                    //     // Maybe transform your API's errors into the same shape as Formik's
-                    //     setErrors(transformMyApiErrors(errors));
-                    //   },
-                    // );
-                  }}
-                  render={({
-                    values,
-                    errors,
-                    touched,
-                    handleChange,
-                    handleBlur,
-                    isSubmitting,
-                    setFieldValue,
-                  }) => (
-                    <Form>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="name">Full name</Label>
-                        </Column>
-                        <Column>
-                          <Input
-                            type="text"
-                            name="name"
-                            id="name"
-                            value={values.name}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="John Doe"
-                          />
-                          {errors &&
-                            errors.name &&
-                            touched.name && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.name)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="email">Work email</Label>
-                        </Column>
-                        <Column>
-                          <Input
-                            type="text"
-                            name="email"
-                            id="email"
-                            value={values.email}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="john.doe@company.com"
-                          />
-                          {errors &&
-                            errors.email &&
-                            touched.email && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.email)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="website">Organization website</Label>
-                        </Column>
-                        <Column>
-                          <Input
-                            type="text"
-                            name="website"
-                            id="website"
-                            value={values.website}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="www.blockcluster.io"
-                          />
-                          {errors &&
-                            errors.website &&
-                            touched.website && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.website)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="orgName">Organization name</Label>
-                        </Column>
-                        <Column>
-                          <Input
-                            type="text"
-                            name="orgName"
-                            id="orgName"
-                            value={values.orgName}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="BlockCluster"
-                          />
-                          {errors &&
-                            errors.orgName &&
-                            touched.orgName && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.orgName)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="orgType">Organization type</Label>
-                        </Column>
-                        <Column>
-                          <Input
-                            type="text"
-                            name="orgType"
-                            id="orgType"
-                            value={values.orgType}
-                            onBlur={handleBlur}
-                            onChange={handleChange}
-                            placeholder="Healthcare"
-                          />
-                          {errors &&
-                            errors.orgType &&
-                            touched.orgType && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.orgType)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label htmlFor="orgSize">Organization size</Label>
-                        </Column>
-                        <Column>
-                          <Dropdown
-                            id="orgSize"
-                            name="orgSize"
-                            placeholderClassName={
-                              this.state.isSelectedOrgSize ? 'is-selected' : ''
-                            }
-                            options={[
-                              '1 to 5 employees',
-                              '5 to 10 employees',
-                              '11 to 50 employees',
-                              '51 to 100 employees',
-                              '101 to 500 employees',
-                              'more than 500 employees',
-                            ]}
-                            onChange={({ value }) => {
-                              this.setState({
-                                isSelectedOrgSize: true,
-                              });
+            <InnerWrapper formSuccess={form.success}>
+              {form.success ? (
+                <Fragment>
+                  <Title>Thank you!</Title>
+                  <Subtitle>
+                    We’ll get back to you as soon as possible at {form.email}
+                  </Subtitle>
+                </Fragment>
+              ) : (
+                <Fragment>
+                  <Title>Request a demo</Title>
+                  <Subtitle>
+                    Thanks for showing your interest in BlockCluster!<br />
+                    Go ahead and fill in your details, and we’ll get back to
+                    you.
+                  </Subtitle>
+                  <Card>
+                    {form.error && <InputError>{form.error}</InputError>}
+                    <Formik
+                      initialValues={{
+                        name: '',
+                        email: '',
+                        website: '',
+                        orgName: '',
+                        orgType: '',
+                        orgSize: '',
+                        blockchainBudget: '',
+                        projectStarts: '',
+                        decisionMaker: '',
+                        comments: '',
+                      }}
+                      validationSchema={yup.object().shape({
+                        name: yup.string().required(),
+                        email: yup
+                          .string()
+                          .email()
+                          .required(),
+                        website: yup
+                          .string()
+                          .matches(
+                            /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
+                            'Website must be a valid URL',
+                          )
+                          .required(),
+                        orgName: yup.string().required(),
+                        orgType: yup.string().required(),
+                        orgSize: yup.string().required(),
+                        blockchainBudget: yup.string().required(),
+                        projectStarts: yup.string().required(),
+                        decisionMaker: yup.string().required(),
+                        comments: yup.string(),
+                      })}
+                      onSubmit={async (values, { setSubmitting }) => {
+                        await axios
+                          .post('/emails/request-demo', values)
+                          .then(() =>
+                            this.setState({
+                              form: {
+                                success: true,
+                                email: values.email,
+                              },
+                            }),
+                          )
+                          .catch(e => {
+                            // reportError(e);
+                            setSubmitting(false);
+                            this.setState({
+                              form: {
+                                success: true,
+                                email: values.email,
+                                error: 'Couldn’t submit the form',
+                              },
+                            });
+                          });
+                      }}
+                      render={({
+                        values,
+                        errors,
+                        touched,
+                        handleChange,
+                        handleBlur,
+                        isSubmitting,
+                      }) => (
+                        <Form>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="name">{LABELS.name}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="name"
+                                id="name"
+                                value={values.name}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="John Doe"
+                              />
+                              {errors &&
+                                errors.name &&
+                                touched.name && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.name)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="email">{LABELS.email}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="email"
+                                id="email"
+                                value={values.email}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="john.doe@company.com"
+                              />
+                              {errors &&
+                                errors.email &&
+                                touched.email && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.email)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="website">{LABELS.website}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="website"
+                                id="website"
+                                value={values.website}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="www.blockcluster.io"
+                              />
+                              {errors &&
+                                errors.website &&
+                                touched.website && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.website)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="orgName">{LABELS.orgName}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="orgName"
+                                id="orgName"
+                                value={values.orgName}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="BlockCluster"
+                              />
+                              {errors &&
+                                errors.orgName &&
+                                touched.orgName && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.orgName)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="orgType">{LABELS.orgType}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="orgType"
+                                id="orgType"
+                                value={values.orgType}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="Healthcare"
+                              />
+                              {errors &&
+                                errors.orgType &&
+                                touched.orgType && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.orgType)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="orgSize">{LABELS.orgSize}</Label>
+                            </Column>
+                            <Column>
+                              <Dropdown
+                                id="orgSize"
+                                name="orgSize"
+                                placeholderClassName={
+                                  this.state.isSelectedOrgSize
+                                    ? 'is-selected'
+                                    : ''
+                                }
+                                options={[
+                                  '1 to 5 employees',
+                                  '5 to 10 employees',
+                                  '11 to 50 employees',
+                                  '51 to 100 employees',
+                                  '101 to 500 employees',
+                                  'more than 500 employees',
+                                ]}
+                                onChange={({ value }) => {
+                                  this.setState({
+                                    isSelectedOrgSize: true,
+                                  });
 
-                              handleChange({
-                                persist: () => null,
-                                target: {
-                                  id: 'orgSize',
-                                  name: 'orgSize',
-                                  type: 'select',
-                                  value,
-                                },
-                              });
-                            }}
-                            value={values.orgSize}
-                            placeholder="Select an option"
-                          />
-                          {errors &&
-                            errors.orgSize &&
-                            touched.orgSize && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.orgSize)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label>
-                            Is there a budget for a blockchain project?
-                          </Label>
-                        </Column>
-                        <Column>
-                          <Radio
-                            name="blockchainBudget"
-                            id="blockchainBudgetYes"
-                            value={values.blockchainBudget}
-                            onBlur={handleBlur}
-                            onChange={() => {
-                              setFieldValue('blockchainBudget', true);
-                            }}
-                            checked={values.blockchainBudget}
-                          />
-                          <RadioLabel htmlFor="blockchainBudgetYes">
-                            Yes
-                          </RadioLabel>
-                          <Radio
-                            name="blockchainBudget"
-                            id="blockchainBudgetNo"
-                            value={values.blockchainBudget}
-                            onBlur={handleBlur}
-                            onChange={() => {
-                              setFieldValue('blockchainBudget', false);
-                            }}
-                            // here we have to explicitely check for false
-                            // since an empty string is falsy too
-                            checked={values.blockchainBudget === false}
-                          />
-                          <RadioLabel htmlFor="blockchainBudgetNo">
-                            No
-                          </RadioLabel>
-                          {errors &&
-                            errors.blockchainBudget &&
-                            touched.blockchainBudget && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.blockchainBudget)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label>
-                            When is your blockchain project starting?
-                          </Label>
-                        </Column>
-                        <Column>
-                          <Dropdown
-                            id="projectStarts"
-                            name="projectStarts"
-                            placeholderClassName={
-                              this.state.isSelectedProjectStarts
-                                ? 'is-selected'
-                                : ''
-                            }
-                            options={[
-                              '1 to 2 weeks',
-                              '2 to 4 weeks',
-                              '1 to 2 months',
-                              '2 to 6 months',
-                              'more than 6 months',
-                            ]}
-                            onChange={({ value }) => {
-                              this.setState({
-                                isSelectedProjectStarts: true,
-                              });
+                                  handleChange({
+                                    persist: () => null,
+                                    target: {
+                                      id: 'orgSize',
+                                      name: 'orgSize',
+                                      type: 'select',
+                                      value,
+                                    },
+                                  });
+                                }}
+                                value={values.orgSize}
+                                placeholder="Select an option"
+                              />
+                              {errors &&
+                                errors.orgSize &&
+                                touched.orgSize && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.orgSize)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label>{LABELS.blockchainBudget}</Label>
+                            </Column>
+                            <Column>
+                              <Radio
+                                name="blockchainBudget"
+                                id="blockchainBudgetYes"
+                                value="Yes"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                checked={values.blockchainBudget === 'Yes'}
+                              />
+                              <RadioLabel htmlFor="blockchainBudgetYes">
+                                Yes
+                              </RadioLabel>
+                              <Radio
+                                name="blockchainBudget"
+                                id="blockchainBudgetNo"
+                                value="No"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                // here we have to explicitely check for false
+                                // since an empty string is falsy too
+                                checked={values.blockchainBudget === 'No'}
+                              />
+                              <RadioLabel htmlFor="blockchainBudgetNo">
+                                No
+                              </RadioLabel>
+                              {errors &&
+                                errors.blockchainBudget &&
+                                touched.blockchainBudget && (
+                                  <InputError>
+                                    {uppercaseFirstChar(
+                                      errors.blockchainBudget,
+                                    )}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label>{LABELS.projectStarts}</Label>
+                            </Column>
+                            <Column>
+                              <Dropdown
+                                id="projectStarts"
+                                name="projectStarts"
+                                placeholderClassName={
+                                  this.state.isSelectedProjectStarts
+                                    ? 'is-selected'
+                                    : ''
+                                }
+                                options={[
+                                  '1 to 2 weeks',
+                                  '2 to 4 weeks',
+                                  '1 to 2 months',
+                                  '2 to 6 months',
+                                  'more than 6 months',
+                                ]}
+                                onChange={({ value }) => {
+                                  this.setState({
+                                    isSelectedProjectStarts: true,
+                                  });
 
-                              handleChange({
-                                persist: () => null,
-                                target: {
-                                  id: 'projectStarts',
-                                  name: 'projectStarts',
-                                  type: 'select',
-                                  value,
-                                },
-                              });
-                            }}
-                            value={values.projectStarts}
-                            placeholder="Select an option"
-                          />
-                          {errors &&
-                            errors.projectStarts &&
-                            touched.projectStarts && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.projectStarts)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label>Are you a decision maker?</Label>
-                        </Column>
-                        <Column>
-                          <Radio
-                            name="decisionMaker"
-                            id="decisionMakerYes"
-                            value={values.decisionMaker}
-                            onBlur={handleBlur}
-                            onChange={() => {
-                              setFieldValue('decisionMaker', true);
-                            }}
-                            checked={values.decisionMaker}
-                          />
-                          <RadioLabel htmlFor="decisionMakerYes">
-                            Yes
-                          </RadioLabel>
-                          <Radio
-                            name="decisionMaker"
-                            id="decisionMakerNo"
-                            value={values.decisionMaker}
-                            onBlur={handleBlur}
-                            onChange={() => {
-                              setFieldValue('decisionMaker', false);
-                            }}
-                            // here we have to explicitely check for false
-                            // since an empty string is falsy too
-                            checked={values.decisionMaker === false}
-                          />
-                          <RadioLabel htmlFor="decisionMakerNo">No</RadioLabel>
-                          {errors &&
-                            errors.decisionMaker &&
-                            touched.decisionMaker && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.decisionMaker)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>
-                          <Label>Comment</Label>
-                        </Column>
-                        <Column>
-                          <Textarea
-                            name="comments"
-                            id="comments"
-                            value={values.comments}
-                            onChange={handleChange}
-                            placeholder="I would like to know a specific application of Blockcluster"
-                          />
-                          {errors &&
-                            errors.comments &&
-                            touched.comments && (
-                              <InputError>
-                                {uppercaseFirstChar(errors.comments)}
-                              </InputError>
-                            )}
-                        </Column>
-                      </Row>
-                      <Row>
-                        <Column>&nbsp;</Column>
-                        <Column>
-                          <SubmitButton
-                            type="submit"
-                            secondary
-                            disabled={isSubmitting}
-                          >
-                            Request demo
-                          </SubmitButton>
-                        </Column>
-                      </Row>
-                    </Form>
-                  )}
-                />
-              </Card>
+                                  handleChange({
+                                    persist: () => null,
+                                    target: {
+                                      id: 'projectStarts',
+                                      name: 'projectStarts',
+                                      type: 'select',
+                                      value,
+                                    },
+                                  });
+                                }}
+                                value={values.projectStarts}
+                                placeholder="Select an option"
+                              />
+                              {errors &&
+                                errors.projectStarts &&
+                                touched.projectStarts && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.projectStarts)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label>{LABELS.decisionMaker}</Label>
+                            </Column>
+                            <Column>
+                              <Radio
+                                name="decisionMaker"
+                                id="decisionMakerYes"
+                                value="Yes"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                checked={values.decisionMaker === 'Yes'}
+                              />
+                              <RadioLabel htmlFor="decisionMakerYes">
+                                Yes
+                              </RadioLabel>
+                              <Radio
+                                name="decisionMaker"
+                                id="decisionMakerNo"
+                                value="No"
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                // here we have to explicitely check for false
+                                // since an empty string is falsy too
+                                checked={values.decisionMaker === 'No'}
+                              />
+                              <RadioLabel htmlFor="decisionMakerNo">
+                                No
+                              </RadioLabel>
+                              {errors &&
+                                errors.decisionMaker &&
+                                touched.decisionMaker && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.decisionMaker)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label>{LABELS.comments}</Label>
+                            </Column>
+                            <Column>
+                              <Textarea
+                                name="comments"
+                                id="comments"
+                                value={values.comments}
+                                onChange={handleChange}
+                                placeholder="I would like to know a specific application of Blockcluster"
+                              />
+                              {errors &&
+                                errors.comments &&
+                                touched.comments && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.comments)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>&nbsp;</Column>
+                            <Column>
+                              <SubmitButton
+                                type="submit"
+                                secondary
+                                disabled={isSubmitting}
+                              >
+                                Request demo
+                              </SubmitButton>
+                            </Column>
+                          </Row>
+                        </Form>
+                      )}
+                    />
+                  </Card>
+                </Fragment>
+              )}
             </InnerWrapper>
           </Wrapper>
         </Root>
-        <Bg />
+        {!form.success && <Bg />}
       </Fragment>
     );
   }
