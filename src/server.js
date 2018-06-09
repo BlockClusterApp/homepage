@@ -206,6 +206,7 @@ app.post('/emails/request-demo', async (req, res, next) => {
     };
 
     const mailOptions = {
+      from: req.body.email,
       to: 'info@blockcluster.io',
       subject: 'Demo request',
       html: ReactDOM.renderToStaticMarkup(
