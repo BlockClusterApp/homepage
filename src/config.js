@@ -14,8 +14,8 @@ module.exports = {
     process.env.PORT ||
     mapWebEnv({
       development: 3000,
-      staging: 80,
-      production: 80,
+      staging: 3000,
+      production: 3000,
     }),
 
   // https://expressjs.com/en/guide/behind-proxies.html
