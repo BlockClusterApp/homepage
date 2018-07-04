@@ -38,6 +38,16 @@ references:
           - staging
           - production
 
+  build_tags: &build_tags
+    filters:
+      tags:
+        ignore:
+          - dev
+          - development
+          - test       
+          - staging
+          - production
+
   all_tags: &all_tags
     filters:
       tags:
@@ -77,6 +87,14 @@ jobs:
       - run:
           name: "Build end notification"
           command: ./.circleci/build-end-notification.sh
+
+  build:
+    <<: *container_config
+    steps:
+      - *restore_repo
+      - run:
+          name: "Repo Build"
+          command: ./shell-scripts/build.sh
         
 workflows:
   version: 2
@@ -86,7 +104,7 @@ workflows:
           <<: *all_tags
 
       - build:
-          <<: *all_tags
+          <<: *build_tags
           requires:
             - checkout_code
 
