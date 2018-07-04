@@ -1,0 +1,32 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "server.name" }}
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    ingress.kubernetes.io/configuration-snippet: |
+      if ($host = 'blockcluster.io' ) {
+        rewrite ^ https://www.blockcluster.io$request_uri permanent;
+      }
+spec:
+  tls:
+  - hosts:
+    - www.blockcluster.io
+    - blockcluster.io
+    secretName: blockcluster-ssl
+  rules:
+  - host: blockcluster.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "server.name" . }}
+          servicePort: 3000
+  - host: www.blockcluster.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "server.name" . }}
+          servicePort: 3000
