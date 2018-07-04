@@ -85,6 +85,11 @@ workflows:
       - checkout_code:
           <<: *all_tags
 
+      - build:
+          <<: *all_tags
+          requires:
+            - checkout_code
+
       - docker_push:
           <<: *deploy_tag_filters
           requires: 
