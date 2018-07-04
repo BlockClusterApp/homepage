@@ -1,5 +1,5 @@
 server:
-  commitHash: 1234
+  # commitHash: 1234
 
   staging:
     minReplicas: 1
@@ -18,5 +18,4 @@ server:
     maxRepicas: 2
 
 
-NODE_ENV: development
-image: 402432300121.dkr.ecr.us-west-2.amazonaws.com/blockcluster-web
+# NODE_ENV: development

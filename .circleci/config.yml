@@ -88,10 +88,10 @@ workflows:
       - docker_push:
         <<: *deploy_tag_filters
         requires: checkout_code
-        context: docker_push_context
+        context: aws_creds
 
       - apply_kube_config:
         <<: *deploy_tag_filters
         requires: docker_push
-        context: apply_kube_config_context
+        context: aws_creds
       
