@@ -15,7 +15,7 @@ references:
       - image: blockcluster/circleci-kubectl-base
     working_directory: ~/repo  
 
-restore_repo: &restore_repo
+  restore_repo: &restore_repo
     restore_cache:
       keys:
         - repo-bc-web-{{ .Branch }}-{{ .Revision }}
@@ -83,15 +83,17 @@ workflows:
   build-and-push:
     jobs:
       - checkout_code:
-        <<: *all_tags
+          <<: *all_tags
 
       - docker_push:
-        <<: *deploy_tag_filters
-        requires: checkout_code
-        context: aws_creds
+          <<: *deploy_tag_filters
+          requires: 
+            - checkout_code
+          context: aws_creds
 
       - apply_kube_config:
-        <<: *deploy_tag_filters
-        requires: docker_push
-        context: aws_creds
+          <<: *deploy_tag_filters
+          requires: 
+            - docker_push
+          context: aws_creds
       
