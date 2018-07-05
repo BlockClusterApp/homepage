@@ -4,19 +4,41 @@ kind: Ingress
 metadata:
   name: {{ template "server.name" . }}
   namespace: {{ template "server.namespace" . }}
-  annotations:
-    ingress.kubernetes.io/rewrite-target: /
-    kubernetes.io/ingress.class: nginx
+{{ include "server.ingress.annotations" . | indent 2 }}
 spec:
+{{- if eq .Values.NODE_ENV "staging" -}}
   tls:
   - hosts:
-    - dev.blockcluster.io
+    - blockcluster.io
+    - www.blockcluster.io
     secretName: blockcluster-ssl
   rules:
-  - host: dev.blockcluster.io
+  - host: blockcluster.io
     http:
       paths:
       - path: /
         backend:
           serviceName: {{ template "server.name" . }}
-          servicePort: 3000
+          servicePort: 80
+  - host: www.blockcluster.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "server.name" . }}
+          servicePort: 80
+{{- else -}}
+  tls:
+  - hosts:
+    - {{ .Values.NODE_ENV }}.blockcluster.io
+    secretName: blockcluster-ssl
+  rules:
+  - host: {{ .Values.NODE_ENV }}.blockcluster.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "server.name" . }}
+          servicePort: 80
+
+{{- end -}}

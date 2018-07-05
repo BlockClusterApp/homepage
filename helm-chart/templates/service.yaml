@@ -9,9 +9,13 @@ metadata:
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  type: ClusterIP
+  type: NodePort
   ports: 
-  - port: 3000
+  - name: http
+    port: 80
+    targetPort: 3000
+  - name: https
+    port: 443
     targetPort: 3000
   selector:
     app: {{ template "server.app" . }}

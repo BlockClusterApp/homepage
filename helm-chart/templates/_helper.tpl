@@ -47,3 +47,15 @@ blockcluster-web
 {{ .Values.server.dev.minReplicas }}
 {{- end -}}
 {{- end -}}
+
+{{- define "server.ingress.annotations" -}}
+annotations:
+  ingress.kubernetes.io/rewrite-target: /
+  kubernetes.io/ingress.class: nginx
+{{- if eq .Values.NODE_ENV "staging" }}
+  ingress.kubernetes.io/configuration-snippet: |
+    if ($host = 'blockcluster.io' ) {
+      rewrite ^ https://www.blockcluster.io$request_uri permanent;
+    }
+{{- end -}}
+{{- end -}}

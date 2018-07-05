@@ -26,11 +26,11 @@ spec:
       - name: {{ template "server.name" . }} 
         image: {{ .Values.image }}:{{ template "server.image-tag" . }}
         imagePullPolicy: IfNotPresent
-        envs:
+        env:
         - name: WEB_ENV
-          value: {{ .Values.NODE_ENV }}
+          value: "production" # {{ .Values.NODE_ENV | quote }}
         - name: NODE_ENV
-          value: {{ .Values.NODE_ENV }}
+          value: "production" # {{ .Values.NODE_ENV | quote }}
         - name: KUBERNETES_NODE_NAME
           valueFrom:
             fieldRef:
@@ -38,7 +38,7 @@ spec:
         - name: KUBERNETES_POD_NAME
           valueFrom:
             fieldRef:
-              fieldPath: meta.name
+              fieldPath: metadata.name
         - name: NODE_ENV
           value: {{ .Values.NODE_ENV }}
         ports:
