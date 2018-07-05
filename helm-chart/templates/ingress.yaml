@@ -6,7 +6,7 @@ metadata:
   namespace: {{ template "server.namespace" . }}
 {{ include "server.ingress.annotations" . | indent 2 }}
 spec:
-{{- if eq .Values.NODE_ENV "staging" -}}
+{{- if eq .Values.NODE_ENV "staging" }}
   tls:
   - hosts:
     - blockcluster.io
@@ -27,7 +27,7 @@ spec:
         backend:
           serviceName: {{ template "server.name" . }}
           servicePort: 80
-{{- else -}}
+{{- else }}
   tls:
   - hosts:
     - {{ .Values.NODE_ENV }}.blockcluster.io
