@@ -112,11 +112,11 @@ workflows:
           <<: *deploy_tag_filters
           requires: 
             - checkout_code
-          context: aws_creds
+          context: aws-creds
 
       - apply_kube_config:
           <<: *deploy_tag_filters
           requires: 
             - docker_push
-          context: aws_creds
+          context: aws-creds
       
