@@ -10,7 +10,7 @@ setVariables="NODE_ENV=${NODE_ENV},image=${IMAGE_NAME},commitHash=${COMMIT_HASH}
 releaseName="blockcluster-web-${NODE_ENV}"
 
 helm --debug \
-  --kube-context k8s-${CLUSTER_PREFIX} \
+  --kube-context "k8s-${CLUSTER_PREFIX}.blockcluster.io" \
   upgrade \
   --install \
   --set ${setVariables} \
