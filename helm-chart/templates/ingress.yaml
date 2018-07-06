@@ -34,7 +34,7 @@ spec:
       - path: /
         backend:
           serviceName: {{ template "server.name" . }}
-          servicePort: 80 
+          servicePort: 80
 {{- else }}
   tls:
   - hosts:

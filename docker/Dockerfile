@@ -1,9 +1,7 @@
-FROM node:8.11.2-alpine as builder
+FROM blockcluster/node-alpine-base as builder
 
 # Set a working directory
 WORKDIR /src/
-
-RUN apk add --no-cache --virtual .persistant-deps curl make gcc g++ python py-pip && npm install -g node-gyp
 
 COPY package.json yarn.lock jest.config.js chunk-manifest.json .stylelintrc.js .prettierrc.js .flowconfig .eslintrc.js /src/
 RUN yarn
