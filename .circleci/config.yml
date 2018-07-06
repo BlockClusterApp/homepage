@@ -40,6 +40,9 @@ references:
 
   build_tags: &build_tags
     filters:
+      branches:
+        only:
+          - master
       tags:
         ignore:
           - dev
