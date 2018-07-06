@@ -11,6 +11,7 @@ spec:
   - hosts:
     - blockcluster.io
     - www.blockcluster.io
+    - staging.blockcluster.io
     secretName: blockcluster-ssl
   rules:
   - host: blockcluster.io
@@ -27,6 +28,13 @@ spec:
         backend:
           serviceName: {{ template "server.name" . }}
           servicePort: 80
+  - host: staging.blockcluster.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ template "server.name" . }}
+          servicePort: 80 
 {{- else }}
   tls:
   - hosts:

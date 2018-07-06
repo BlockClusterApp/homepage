@@ -52,7 +52,7 @@ blockcluster-web
 annotations:
   ingress.kubernetes.io/rewrite-target: /
   kubernetes.io/ingress.class: nginx
-{{- if eq .Values.NODE_ENV "staging" -}}
+{{- if eq .Values.NODE_ENV "staging" }}
   ingress.kubernetes.io/configuration-snippet: |
     if ($host = 'blockcluster.io' ) {
       rewrite ^ https://www.blockcluster.io$request_uri permanent;
