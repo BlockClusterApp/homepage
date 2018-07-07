@@ -1,5 +1,5 @@
 {{- define "server.name" -}}
-{{ "blockcluster-web" }}
+{{ "homepage" }}
 {{- end -}}
 
 {{- define "server.image-tag" -}}

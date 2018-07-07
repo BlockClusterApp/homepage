@@ -2,7 +2,7 @@
 apiVersion: autoscaling/v1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ template "server.name" . }}
+  name: {{ template "server.name" . }}-hpa
   namespace: {{ template "server.namespace" . }}
 spec:
   scaleTargetRef:

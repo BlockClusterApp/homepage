@@ -18,4 +18,4 @@ server:
 
 # NODE_ENV: staging
 # image: 402432300121.dkr.ecr.us-west-2.amazonaws.com/blockcluster-web
-# commitHash: 7f8d6fd3ccfd04046b85d5a21f00c5e200fda7b5
+# commitHash: c9a7875b9eddeab32afa511ac31e346225f8c66b

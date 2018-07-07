@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "server.name" . }}
+  name: {{ template "server.name" . }}-svc
   namespace: {{ template "server.namespace" . }}
   labels:
     app: {{ template "server.app" . }}

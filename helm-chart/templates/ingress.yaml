@@ -2,7 +2,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ template "server.name" . }}
+  name: {{ template "server.name" . }}-ing
   namespace: {{ template "server.namespace" . }}
 {{ include "server.ingress.annotations" . | indent 2 }}
 spec:
@@ -19,21 +19,21 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "server.name" . }}
+          serviceName: {{ template "server.name" . }}-svc
           servicePort: 80
   - host: www.blockcluster.io
     http:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "server.name" . }}
+          serviceName: {{ template "server.name" . }}-svc
           servicePort: 80
   - host: staging.blockcluster.io
     http:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "server.name" . }}
+          serviceName: {{ template "server.name" . }}-svc
           servicePort: 80
 {{- else }}
   tls:

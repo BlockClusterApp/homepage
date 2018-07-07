@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "server.name" . }}
+  name: {{ template "server.name" . }}-deploy
   namespace: {{ template "server.namespace" . }}
   labels:
     name: {{ template "server.name" . }}
