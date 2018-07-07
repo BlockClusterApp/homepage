@@ -1,5 +1,5 @@
 {{- define "server.name" -}}
-{{ "blockcluster-web" }}-{{ .Values.NODE_ENV}}
+{{ "blockcluster-web" }}
 {{- end -}}
 
 {{- define "server.image-tag" -}}
