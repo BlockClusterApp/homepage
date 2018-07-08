@@ -46,7 +46,7 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: {{ template "server.name" . }}
+          serviceName: {{ template "server.name" . }}-svc
           servicePort: 80
 
 {{- end -}}
