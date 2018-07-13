@@ -15,6 +15,14 @@ const routes = {
       load: () =>
         import(/* webpackChunkName: 'request-demo' */ './request-demo'),
     },
+    {
+      path: '/privacy',
+      load: () => import(/* webpackChunkName: 'privacy' */ './legal/privacy'),
+    },
+    {
+      path: '/terms',
+      load: () => import(/* webpackChunkName: 'terms' */ './legal/terms'),
+    },
 
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
