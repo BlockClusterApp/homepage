@@ -1,13 +1,7 @@
-import React, { Fragment } from 'react';
-import { Title, Subtitle, Paragraph } from '../components/Layout';
+import React from 'react';
+import Markdown from '../../../components/Markdown';
+import terms from './terms.md';
 
 export default function Terms() {
-  return (
-    <Fragment>
-      <Title>Terms and conditions</Title>
-      <Paragraph>We’re working on this.</Paragraph>
-      {/* <Subtitle>Coming soon</Subtitle>
-      <Paragraph>We’re working on this.</Paragraph> */}
-    </Fragment>
-  );
+  return <Markdown dangerouslySetInnerHTML={{ __html: terms.html }} />;
 }

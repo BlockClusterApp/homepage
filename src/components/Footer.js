@@ -42,7 +42,7 @@ const Wrapper = styled.div`
 
 const Logo = styled.img.attrs({
   src: logo,
-  srcset: `${logo2x} 2x`,
+  srcSet: `${logo2x} 2x`,
   alt: 'BlockCluster',
 })`
   color: ${lighten(0.4, colors.text)};
@@ -224,9 +224,8 @@ export default function Footer() {
       <Wrapper>
         <Nav>
           <StyledAnchor href="/about">About</StyledAnchor>
-          <StyledAnchor href="mailto:team@blockcluster.io">
-            Contact
-          </StyledAnchor>
+          <StyledAnchor href="/contact">Contact</StyledAnchor>
+          <StyledAnchor href="/pricing">Pricing</StyledAnchor>
           <StyledLink href="https://angel.co/blockcluster/jobs">
             Careers
           </StyledLink>

@@ -1,4 +1,6 @@
-﻿BlockClutser collects and uses personal data as needed in order for us to provide you with top-notch applications, products, services, and support (collectively, our "Services"). Your personal data includes information such as:
+﻿# Privacy policy
+
+BlockCluster collects and uses personal data as needed in order for us to provide you with top-notch applications, products, services, and support (collectively, our "Services"). Your personal data includes information such as:
 
 - Name
 - Address
@@ -18,12 +20,12 @@ Most of your personal data is collected from you when:
 4.  You participate in contests, apply for a job, or participate in activities where we may require information about you.
 
 In order to deliver the best Services to you, we may collect the following information:
-  
- **Account related information** is collected when you sign up for our Services. This information may include your name, address, phone number, email address, credit card information, etc.
-  
- **Service Usage Data** is automatically collected when you interact with our Services. This information may include data about your interactions with the features, content and links contained in our Services, time of interaction, browser type and configuration, operating system used, IP address, language preferences, and other cookie data. While none of this data will allow us to directly identify who you are, some of this data can be used to approximate your location.
-  
- **Supplementary Data** may be received about you from third party sources, such as public databases. We may combine this data with the information we already have about you in order to maintain accuracy of our records, and provide products and services that you may be interested in.
+
+**Account related information** is collected when you sign up for our Services. This information may include your name, address, phone number, email address, credit card information, etc.
+
+**Service Usage Data** is automatically collected when you interact with our Services. This information may include data about your interactions with the features, content and links contained in our Services, time of interaction, browser type and configuration, operating system used, IP address, language preferences, and other cookie data. While none of this data will allow us to directly identify who you are, some of this data can be used to approximate your location.
+
+**Supplementary Data** may be received about you from third party sources, such as public databases. We may combine this data with the information we already have about you in order to maintain accuracy of our records, and provide products and services that you may be interested in.
 
 ## How we use data
 

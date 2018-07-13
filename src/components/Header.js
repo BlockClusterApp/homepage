@@ -33,7 +33,7 @@ const LogoLink = styled(({ white, ...props }) => <a {...props} />)`
 
 const LogoImg = styled.img.attrs({
   src: logo,
-  srcset: `${logo2x} 2x`,
+  srcSet: `${logo2x} 2x`,
   alt: 'BlockCluster',
 })`
   width: 191px;

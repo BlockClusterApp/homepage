@@ -1,13 +1,7 @@
-import React, { Fragment } from 'react';
-import { Title, Subtitle, Paragraph } from '../components/Layout';
+import React from 'react';
+import Markdown from '../../../components/Markdown';
+import privacy from './privacy.md';
 
 export default function Privacy() {
-  return (
-    <Fragment>
-      <Title>Privacy policy</Title>
-      <Paragraph>We’re working on this.</Paragraph>
-      {/* <Subtitle>Coming soon</Subtitle>
-      <Paragraph>We’re working on this.</Paragraph> */}
-    </Fragment>
-  );
+  return <Markdown dangerouslySetInnerHTML={{ __html: privacy.html }} />;
 }

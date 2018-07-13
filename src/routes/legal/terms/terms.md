@@ -1,4 +1,6 @@
-﻿## General
+﻿# Terms and conditions
+
+## General
 
 These Terms and Conditions ("Agreement") governs the use of the services ("Service") that are made available by BlockCluster. These Terms and Conditions represent the whole agreement and understanding between BlockCluster and the individual or entity who subscribes to our service ("Subscriber" or "you").
 
@@ -15,11 +17,11 @@ Subscribers are responsible for maintaining accurate account information at all 
 ## Prohibited Conduct
 
 Any Subscriber engaging in spamming blockchain networks through BlockCluster will be considered in breach of this Agreement and will be suspended from the Service immediately.
-  
+
 Your use of the Service must be in compliance with Indian laws, and the laws of your country at all times.
-  
+
 You are responsible for ensuring that your use of the Service does not consume excessive system or network resources that disrupts the normal use of the Service through, but not limited to, spawning multiple processes, or consuming excessive amounts of memory, CPU or bandwidth capacity.
-  
+
 The following is a non-exclusive list of content, and behavior prohibited by the Service:
 
 1.  Tokenising or digitalising government or licensed assets without authorities approval, monitoring and auditing.

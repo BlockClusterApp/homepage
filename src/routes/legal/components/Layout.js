@@ -4,9 +4,13 @@ import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 import Header from '../../../components/Header';
 import Footer from '../../../components/Footer';
-// import Link from '../../../components/Link';
 import { colors, spacing, media } from '../../../styles';
 import { title, wrapper } from '../../../styles/mixins';
+
+const Wrapper = styled.div`
+  position: relative;
+  min-height: 100%;
+`;
 
 // padding-bottom footer height
 const Root = styled.div`
@@ -27,6 +31,7 @@ const Body = styled.div``;
 
 const NavTitle = styled.div`
   font-size: 19px;
+  font-weight: 600;
   margin-bottom: ${spacing(0.5)};
   color: ${darken(0.1, colors.text)};
 `;
@@ -93,22 +98,27 @@ const defaultProps = {};
 
 export default function Layout({ children }) {
   return (
-    <Root>
-      <StyledWrapper>
-        <Header />
-        <Body>
-          <Sidebar>
-            <nav>
-              <NavTitle>Legal</NavTitle>
-              <NavLink href="/privacy">Privacy policy</NavLink>
-              <NavLink href="/terms">Terms and condition</NavLink>
-            </nav>
-          </Sidebar>
-          <Content>{children}</Content>
-        </Body>
-      </StyledWrapper>
-      <Footer />
-    </Root>
+    <Wrapper>
+      <Root>
+        <StyledWrapper>
+          <Header />
+          <Body>
+            <Sidebar>
+              <nav>
+                <NavTitle>Legal</NavTitle>
+                <NavLink href="/privacy">Privacy policy</NavLink>
+                <NavLink href="/terms">Terms and condition</NavLink>
+                <NavLink href="/about">About</NavLink>
+                <NavLink href="/pricing">Pricing</NavLink>
+                <NavLink href="/contact">Contact us</NavLink>
+              </nav>
+            </Sidebar>
+            <Content>{children}</Content>
+          </Body>
+        </StyledWrapper>
+        <Footer />
+      </Root>
+    </Wrapper>
   );
 }
 
