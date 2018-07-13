@@ -24,7 +24,7 @@ const Root = styled.footer`
   position: absolute;
   width: 100%;
   bottom: 0;
-  background: #fbfbfb;
+  background: #f6fbff;
 
   ${media.max768} {
     padding: 0 0 ${spacing()};
