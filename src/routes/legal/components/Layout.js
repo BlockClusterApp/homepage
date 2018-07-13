@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { darken, lighten } from 'polished';
 import Header from '../../../components/Header';
-// import Footer from '../../../components/FooterWeb';
+import Footer from '../../../components/Footer';
 // import Link from '../../../components/Link';
 import { colors, spacing, media } from '../../../styles';
 import { title, wrapper } from '../../../styles/mixins';
@@ -100,13 +100,14 @@ export default function Layout({ children }) {
           <Sidebar>
             <nav>
               <NavTitle>Legal</NavTitle>
-              <a to="/privacy">Privacy policy</a>
-              <a to="/terms">Terms and condition</a>
+              <NavLink href="/privacy">Privacy policy</NavLink>
+              <NavLink href="/terms">Terms and condition</NavLink>
             </nav>
           </Sidebar>
           <Content>{children}</Content>
         </Body>
       </StyledWrapper>
+      <Footer />
     </Root>
   );
 }

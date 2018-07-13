@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import SVG from 'react-svg-inline';
 import { lighten, clearFix } from 'polished';
+import logo from '../assets/images/logo-text.png';
+import logo2x from '../assets/images/logo-text@2x.png';
 // import Link from './Link';
 // import logo from '../assets/images/logo.svg';
 import { media, spacing, colors } from '../styles';
@@ -34,12 +36,21 @@ const Wrapper = styled.div`
   position: relative;
 
   ${media.min768} {
-    padding: 0 184px 0 144px;
+    padding: 0 184px 0 182px;
   }
 `;
 
-const Logo = styled(SVG)`
+const Logo = styled.img.attrs({
+  src: logo,
+  srcset: `${logo2x} 2x`,
+  alt: 'BlockCluster',
+})`
   color: ${lighten(0.4, colors.text)};
+  filter: grayscale(100%);
+  width: 138px;
+  height: auto;
+  opacity: 0.6;
+  margin-top: 4px;
 
   ${media.max768} {
     float: left;
@@ -51,12 +62,6 @@ const Logo = styled(SVG)`
     left: ${spacing()};
     top: 0;
     margin-right: ${spacing(3)};
-  }
-
-  svg {
-    margin-top: 8px;
-    width: 100px;
-    height: 22px;
   }
 `;
 
@@ -70,10 +75,11 @@ const Nav = styled.nav`
   }
 `;
 
+// eslint-disable-next-line
 const StyledLink = styled(({ noBorder, ...props }) => <a {...props} />)`
   display: block;
   float: left;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 600;
   color: ${lighten(0.3, colors.text)};
   margin-right: ${spacing(0.75)};
@@ -103,7 +109,7 @@ const StyledLink = styled(({ noBorder, ...props }) => <a {...props} />)`
 const StyledAnchor = StyledLink.withComponent('a');
 
 const Copyright = styled.div`
-  font-size: 12px;
+  font-size: 13px;
   color: ${lighten(0.35, colors.text)};
 
   ${media.max768} {
@@ -149,24 +155,31 @@ const SocialMedia = styled.a.attrs({
     color: #fff;
 
     ${props =>
-      props.provider === FACEBOOK &&
+      props.provider === 'FACEBOOK' &&
       css`
         background: ${colors.facebook};
         border-color: ${colors.facebook};
       `}
-      
+
     ${props =>
-      props.provider === TWITTER &&
+      props.provider === 'TWITTER' &&
       css`
         background: ${colors.twitter};
         border-color: ${colors.twitter};
       `}
-      
+
     ${props =>
-      props.provider === MEDIUM &&
+      props.provider === 'MEDIUM' &&
       css`
         background: #000;
         border-color: #000;
+      `}
+
+    ${props =>
+      props.provider === 'LINKED_IN' &&
+      css`
+        background: #0077b5;
+        border-color: #0077b5;
       `}
   }
 
@@ -176,21 +189,27 @@ const SocialMedia = styled.a.attrs({
     font-size: 17px;
 
     ${props =>
-      props.provider === FACEBOOK &&
+      props.provider === 'FACEBOOK' &&
       css`
         content: '\f09a';
       `}
-      
+
     ${props =>
-      props.provider === TWITTER &&
+      props.provider === 'FACEBOOK' &&
+      css`
+        content: '\f09a';
+      `}
+
+    ${props =>
+      props.provider === 'TWITTER' &&
       css`
         content: '\f099';
       `}
-      
+
     ${props =>
-      props.provider === MEDIUM &&
+      props.provider === 'LINKED_IN' &&
       css`
-        content: '\f23a';
+        content: '\f0e1';
       `}
   }
 `;
@@ -204,24 +223,23 @@ export default function Footer() {
     <Root>
       <Wrapper>
         <Nav>
-          <StyledAnchor href="mailto:team@blockcluster.io">About</StyledAnchor>
+          <StyledAnchor href="/about">About</StyledAnchor>
           <StyledAnchor href="mailto:team@blockcluster.io">
             Contact
           </StyledAnchor>
           <StyledLink href="https://angel.co/blockcluster/jobs">
             Careers
           </StyledLink>
-          <StyledLink to="/terms">Terms & conditions</StyledLink>
-          <StyledLink to="/privacy" noBorder>
-            Privacy policy
-          </StyledLink>
+          <StyledLink href="/terms">Terms & conditions</StyledLink>
+          <StyledLink href="/privacy">Privacy policy</StyledLink>
         </Nav>
-        {/* <Logo svg={logo} /> */}
-        {/* <SocialMediaWrapper>
-          <SocialMedia href={FACEBOOK_LINK} provider={FACEBOOK} />
-          <SocialMedia href={TWITTER_LINK} provider={TWITTER} />
-          <SocialMedia href={MEDIUM_LINK} provider={MEDIUM} />
-        </SocialMediaWrapper> */}
+        <Logo />
+        <SocialMediaWrapper>
+          <SocialMedia
+            href="https://www.linkedin.com/company/blockcluster"
+            provider="LINKED_IN"
+          />
+        </SocialMediaWrapper>
         <Copyright>
           &copy; BlockCluster {new Date().getFullYear()}. All rights reserved.
         </Copyright>
