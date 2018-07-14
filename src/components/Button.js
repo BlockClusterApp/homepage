@@ -4,7 +4,7 @@ import { darken, lighten } from 'polished';
 import { colors, spacing, uppercase } from '../styles';
 
 const Button = styled(props => {
-  const { component, ...rest } = props;
+  const { component, buttonCss, ...rest } = props;
   const Component = component;
 
   if (Component) {

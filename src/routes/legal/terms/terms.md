@@ -30,7 +30,7 @@ The following is a non-exclusive list of content, and behavior prohibited by the
 
 ## Notices
 
-You agree that, unless other instructions are posted on BlockCluster's website, any notices required to be given under this Agreement will be deemed to have been given if delivered by email or fax, or sent by registered mail or by courier to each of the parties in accordance with the most current contact information you have provided to us, and the contact information for BlockCluster posted on the BlockClutser.io website. All notices shall be effective upon receipt, except that email and fax notices shall be effective upon transmission.
+You agree that, unless other instructions are posted on BlockCluster's website, any notices required to be given under this Agreement will be deemed to have been given if delivered by email or fax, or sent by registered mail or by courier to each of the parties in accordance with the most current contact information you have provided to us, and the contact information for BlockCluster posted on the BlockCluster.io website. All notices shall be effective upon receipt, except that email and fax notices shall be effective upon transmission.
 
 ## Reservation of Rights
 

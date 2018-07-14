@@ -9,6 +9,7 @@ import { title, wrapper } from '../../../styles/mixins';
 
 const Wrapper = styled.div`
   position: relative;
+  overflow: hidden;
   min-height: 100%;
 `;
 
@@ -33,7 +34,7 @@ const NavTitle = styled.div`
   font-size: 19px;
   font-weight: 600;
   margin-bottom: ${spacing(0.5)};
-  color: ${darken(0.1, colors.text)};
+  color: ${colors.secondary};
 `;
 
 const NavLinkWrapper = styled.div`
@@ -57,6 +58,8 @@ const NavLink = styled(props => (
 `;
 
 const Sidebar = styled.div`
+  position: relative;
+
   ${media.max768} {
     margin-bottom: ${spacing(2)};
   }
@@ -67,12 +70,27 @@ const Sidebar = styled.div`
   }
 `;
 
+const SidebarBgCover = styled.div`
+  position: absolute;
+  z-index: -1;
+  top: -98px;
+  right: 32px;
+  height: ${props => (props.coverHeight ? `${props.coverHeight}px` : '1000vh')};
+  width: 100vh;
+  background: linear-gradient(#f6fbff, #eef7fe);
+
+  ${media.max768} {
+    display: none;
+  }
+`;
+
 const Content = styled.div`
   margin-bottom: ${spacing()};
 
   ${media.min768} {
     float: left;
     width: 75%;
+    margin-bottom: ${spacing(2)};
   }
 `;
 
@@ -90,37 +108,64 @@ export const Paragraph = styled.p`
   margin-bottom: ${spacing(2)};
 `;
 
-const propTypes = {
-  children: PropTypes.node.isRequired,
-};
+export default class Layout extends React.Component {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  };
 
-const defaultProps = {};
+  static defaultProps = {};
 
-export default function Layout({ children }) {
-  return (
-    <Wrapper>
-      <Root>
-        <StyledWrapper>
-          <Header />
-          <Body>
-            <Sidebar>
-              <nav>
-                <NavTitle>Legal</NavTitle>
-                <NavLink href="/privacy">Privacy policy</NavLink>
-                <NavLink href="/terms">Terms and condition</NavLink>
-                <NavLink href="/about">About</NavLink>
-                <NavLink href="/pricing">Pricing</NavLink>
-                <NavLink href="/contact">Contact us</NavLink>
-              </nav>
-            </Sidebar>
-            <Content>{children}</Content>
-          </Body>
-        </StyledWrapper>
-        <Footer />
-      </Root>
-    </Wrapper>
-  );
+  state = {
+    sidebarBgHeight: null,
+  };
+
+  componentDidMount() {
+    requestAnimationFrame(this.setSidebarBgHeight);
+
+    window.addEventListener('resize', this.setSidebarBgHeight);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.setSidebarBgHeight);
+  }
+
+  setSidebarBgHeight = () => {
+    this.setState({
+      sidebarBgHeight: this.wrapperRef.clientHeight,
+    });
+  };
+
+  render() {
+    const { children } = this.props;
+    const { sidebarBgHeight } = this.state;
+
+    return (
+      <Wrapper
+        innerRef={ref => {
+          this.wrapperRef = ref;
+        }}
+      >
+        <Root>
+          <StyledWrapper>
+            <Header />
+            <Body>
+              <Sidebar>
+                <SidebarBgCover coverHeight={sidebarBgHeight} />
+                <nav>
+                  <NavTitle>Legal</NavTitle>
+                  <NavLink href="/privacy">Privacy policy</NavLink>
+                  <NavLink href="/terms">Terms and condition</NavLink>
+                  <NavLink href="/about">About</NavLink>
+                  <NavLink href="/pricing">Pricing</NavLink>
+                  <NavLink href="/contact">Contact us</NavLink>
+                </nav>
+              </Sidebar>
+              <Content>{children}</Content>
+            </Body>
+          </StyledWrapper>
+          <Footer />
+        </Root>
+      </Wrapper>
+    );
+  }
 }
-
-Layout.propTypes = propTypes;
-Layout.defaultProps = defaultProps;
