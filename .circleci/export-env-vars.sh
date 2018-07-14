@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 
 export COMMIT_HASH=${CIRCLE_SHA1}
-if [ "$CIRCLE_TAG" = "production" ];
-then
-  export NODE_ENV=production
-  export WEB_ENV=production
-  export CLUSTER_PREFIX="production";
-elif [ "$CIRCLE_TAG" = "staging" ];
+if [ "$CIRCLE_BRANCH" = "master" ];
 then
   export NODE_ENV=staging
   export WEB_ENV=staging
   export CLUSTER_PREFIX="dev";
-elif [ "$CIRCLE_TAG" = "test" ];
+elif [ "$CIRCLE_BRANCH" = "staging" ];
+then
+  export NODE_ENV=staging
+  export WEB_ENV=staging
+  export CLUSTER_PREFIX="dev";
+elif [ "$CIRCLE_BRANCH" = "test" ];
 then
   export NODE_ENV=test
   export WEB_ENV=test

@@ -16,6 +16,6 @@ server:
     minReplicas: 1
     maxRepicas: 2
 
-# NODE_ENV: staging
+# NODE_ENV: dev
 # image: 402432300121.dkr.ecr.us-west-2.amazonaws.com/blockcluster-web
-# commitHash: c9a7875b9eddeab32afa511ac31e346225f8c66b
+# commitHash: 027b280b69323e09f8e7562883e85128c7d3c04f
