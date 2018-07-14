@@ -1,4 +1,5 @@
-import React, { Fragment } from 'react';
+import React from 'react';
+import styled from 'styled-components';
 import Hero from './components/Hero';
 import Problem from './components/Problem';
 import Solution from './components/Solution';
@@ -6,10 +7,20 @@ import Assets from './components/Assets';
 import Infra from './components/Infra';
 import Features from './components/Features';
 import Contact from './components/Contact';
-import Footer from './components/Footer';
+import Footer from '../../components/Footer';
+import { media } from '../../styles';
+
+const Root = styled.div`
+  position: relative;
+  padding-bottom: 138px;
+
+  ${media.max768} {
+    padding-bottom: 264px;
+  }
+`;
 
 const Home = () => (
-  <Fragment>
+  <Root>
     <Hero />
     <Problem />
     <Solution />
@@ -18,7 +29,7 @@ const Home = () => (
     <Infra />
     <Contact />
     <Footer />
-  </Fragment>
+  </Root>
 );
 
 export default Home;

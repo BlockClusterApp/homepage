@@ -11,42 +11,42 @@ export const wrapper = css`
   margin: 0 auto;
 `;
 
-// export const title = css`
-//   font-size: 24px;
-//   color: ${colors.text};
-//
-//   ${media.min768`
-//     font-size: 27px;
-//   `};
-// `;
-//
-// export const subtitle = css`
-//   font-size: 16px;
-//   color: ${lighten(0.2, colors.text)};
-//
-//   ${media.min768`
-//     font-size: 18px;
-//   `};
-// `;
-//
-// export const title2 = css`
-//   font-size: 21px;
-//   color: ${colors.text};
-//
-//   ${media.min768`
-//     font-size: 24px;
-//   `};
-// `;
-//
-// export const subtitle2 = css`
-//   font-size: 16px;
-//   color: ${lighten(0.2, colors.text)};
-//
-//   ${media.min768`
-//     font-size: 17px;
-//   `};
-// `;
-//
+export const title = css`
+  font-size: 24px;
+  color: ${colors.text};
+
+  ${'' /* ${media.min768`
+    font-size: 27px;
+  `}; */};
+`;
+
+export const subtitle = css`
+  font-size: 16px;
+  color: ${lighten(0.2, colors.text)};
+
+  ${'' /* ${media.min768`
+    font-size: 18px;
+  `}; */};
+`;
+
+export const title2 = css`
+  font-size: 21px;
+  color: ${colors.text};
+
+  ${'' /* ${media.min768`
+    font-size: 24px;
+  `}; */};
+`;
+
+export const subtitle2 = css`
+  font-size: 16px;
+  color: ${lighten(0.2, colors.text)};
+
+  ${'' /* ${media.min768`
+    font-size: 17px;
+  `}; */};
+`;
+
 export const card = css`
   overflow: hidden;
   background: #fff;

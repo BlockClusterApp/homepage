@@ -1,8 +1,18 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 import { colors, spacing, uppercase } from '../styles';
 
-const Button = styled.button`
+const Button = styled(props => {
+  const { component, buttonCss, ...rest } = props;
+  const Component = component;
+
+  if (Component) {
+    return <Component {...rest} />;
+  }
+
+  return <button {...rest} />;
+})`
   ${uppercase};
   display: block;
   text-align: center;
@@ -77,6 +87,8 @@ const Button = styled.button`
         background: ${darken(0.05, '#03b0e9')};
       }
     `};
+
+  ${props => props.buttonCss};
 `;
 
 export default Button;

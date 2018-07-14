@@ -14,7 +14,7 @@ export const background = secondary;
 
 export const grey = '#f8f8f8';
 
-export const link = '#2d79be';
+export const link = primary;
 
 export const disabled = '#c1c1c1';
 

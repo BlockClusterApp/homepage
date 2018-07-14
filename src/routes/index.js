@@ -15,6 +15,26 @@ const routes = {
       load: () =>
         import(/* webpackChunkName: 'request-demo' */ './request-demo'),
     },
+    {
+      path: '/privacy',
+      load: () => import(/* webpackChunkName: 'privacy' */ './legal/privacy'),
+    },
+    {
+      path: '/terms',
+      load: () => import(/* webpackChunkName: 'terms' */ './legal/terms'),
+    },
+    {
+      path: '/about',
+      load: () => import(/* webpackChunkName: 'about' */ './legal/about'),
+    },
+    {
+      path: '/pricing',
+      load: () => import(/* webpackChunkName: 'pricing' */ './legal/pricing'),
+    },
+    {
+      path: '/contact',
+      load: () => import(/* webpackChunkName: 'contact' */ './legal/contact'),
+    },
 
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
