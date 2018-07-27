@@ -237,7 +237,7 @@ function Checkbox(props) {
   );
 }
 
-class RequestDemo extends React.Component {
+class RSVP extends React.Component {
   state = {
     blink: false,
     form: {
@@ -570,4 +570,4 @@ class RequestDemo extends React.Component {
   }
 }
 
-export default RequestDemo;
+export default RSVP;

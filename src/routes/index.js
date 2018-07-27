@@ -20,6 +20,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'rsvp' */ './rsvp'),
     },
     {
+      path: '/media',
+      load: () => import(/* webpackChunkName: 'media' */ './media'),
+    },
+    {
       path: '/privacy',
       load: () => import(/* webpackChunkName: 'privacy' */ './legal/privacy'),
     },
