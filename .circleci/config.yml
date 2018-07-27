@@ -29,27 +29,22 @@ references:
   deploy_tag_filters: &deploy_tag_filters
     filters:
       branches:
-        ignore: /.*/
-      tags:
-        only:
+        only: 
           - dev
           - development
-          - test       
           - staging
-          - production
+          - test
+          - master
 
   build_tags: &build_tags
     filters:
       branches:
-        only:
-          - master
-      tags:
         ignore:
+          - master
+          - staging
+          - test
           - dev
           - development
-          - test       
-          - staging
-          - production
 
   all_tags: &all_tags
     filters:

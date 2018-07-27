@@ -38,10 +38,10 @@ spec:
 {{- else }}
   tls:
   - hosts:
-    - {{ .Values.NODE_ENV }}.blockcluster.io
+    - home-{{ .Values.NODE_ENV }}.blockcluster.io
     secretName: blockcluster-ssl
   rules:
-  - host: {{ .Values.NODE_ENV }}.blockcluster.io
+  - host: home-{{ .Values.NODE_ENV }}.blockcluster.io
     http:
       paths:
       - path: /

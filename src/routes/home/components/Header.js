@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { clearFix, shade } from 'polished';
 import logo2x from '../assets/logo@2x.png';
-import { spacing, media } from '../../../styles';
+import { spacing, media, uppercase } from '../../../styles';
 import Button from '../../../components/Button';
 
 const Header = styled.header`
@@ -42,32 +42,32 @@ const Nav = styled.nav`
   ${clearFix()};
 `;
 
-// const NavLeft = styled.div`
-//   float: left;
-//   margin-left: ${spacing(2)};
-// `;
+const NavLeft = styled.div`
+  float: left;
+  margin-left: ${spacing(2)};
+`;
 
 const NavRight = styled.div`
   float: right;
 `;
 
-// const navItemCss = css`
-//   ${uppercase};
-//   float: left;
-//   display: block;
-//   line-height: 42px;
-//   padding: 0 ${spacing()};
-//   color: rgba(255, 255, 255, 0.8);
-//   transition: all 0.2s;
+const navItemCss = css`
+  ${uppercase};
+  float: left;
+  display: block;
+  line-height: 42px;
+  padding: 0 ${spacing()};
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s;
 
-//   &:hover {
-//     color: #fff;
-//   }
-// `;
+  &:hover {
+    color: #fff;
+  }
+`;
 
-// const NavItem = styled.a`
-//   ${navItemCss};
-// `;
+const NavItem = styled.a`
+  ${navItemCss};
+`;
 
 const NavButton = Button.withComponent('a').extend`
   width: auto;
@@ -102,13 +102,14 @@ export default () => (
   <Header>
     <Logo href="/" />
     <Nav>
-      {/* <NavLeft>
-        <NavItem>Features</NavItem>
+      <NavLeft>
+        <NavItem href="/media">Media</NavItem>
+        {/* <NavItem>Features</NavItem>
         <NavItem>Use cases</NavItem>
-        <NavItem>Pricing</NavItem>
-      </NavLeft> */}
+        <NavItem>Pricing</NavItem> */}
+      </NavLeft>
       <NavRight>
-        {/* <NavItem>Support</NavItem> */}
+        {/* <NavItem href="/media">Media</NavItem> */}
         <NavButton href="//app.blockcluster.io/login">Login</NavButton>
       </NavRight>
     </Nav>

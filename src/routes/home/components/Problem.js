@@ -302,7 +302,6 @@ class Problem extends React.Component {
               textNodes={[
                 'Building',
                 'your',
-                'own',
                 'private',
                 'blockchain',
                 <TitleEm>is</TitleEm>,
