@@ -253,10 +253,10 @@ class RequestDemo extends React.Component {
             <InnerWrapper>
               <Title>Media & Events</Title>
               <Subtitle>
-                We are one of the most appreciated projects in the Blockchain
-                community and have been regularly in news and invited to
-                meetups, conferences, universities and government assemblies
-                around the world to present our innovative solutions.
+                Discover more about BlockCluster and it’s quest to build world’s
+                first Blockchain Management System. We want to accelerate the
+                adoption of blockchain technology by making it easy for
+                enterprises to set it up.
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
@@ -274,9 +274,9 @@ class RequestDemo extends React.Component {
                     Internation Blockchain Congress
                   </CardTitle>
                   <CardParagraph>
-                    We’re going to be attending the IBC on the 3rd & 4th of
-                    August 2018 at the Novotel & HICC Complex in Hyderabad.{' '}
-                    <CardLink href="/rsvp">Come say hi!</CardLink>
+                    The BlockCluster team will be attending the IBC on the 3rd &
+                    4th of August 2018 at the Novotel & HICC Complex in
+                    Hyderabad. <CardLink href="/rsvp">Come say hi!</CardLink>
                   </CardParagraph>
                 </CardBody>
               </Card>
@@ -286,11 +286,10 @@ class RequestDemo extends React.Component {
                 <CardImgLink href="/" />
                 <CardBody>
                   <CardTitle href="/">More coming soon!</CardTitle>
-                  {/* <CardParagraph>
-                    We’re going to be attending the IBC on the 3rd & 4th of
-                    August 2018 at the Novotel & HICC Complex in Hyderabad.{' '}
-                    <CardLink href="/rsvp">Come say hi!</CardLink>
-                  </CardParagraph> */}
+                  <CardParagraph>
+                    Want to feature us or see us featured?{' '}
+                    <CardLink href="/contact">Contact us</CardLink>
+                  </CardParagraph>
                 </CardBody>
               </Card>
             </Column>
