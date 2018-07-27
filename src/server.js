@@ -327,7 +327,7 @@ app.post('/emails/rsvp', async (req, res, next) => {
                   color: '#111',
                 }}
               >
-                {value}
+                {Array.isArray(value) ? value.join(', ') : value}
               </p>
             </React.Fragment>
           ))}
