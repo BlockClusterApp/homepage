@@ -86,7 +86,7 @@ If you make a request to delete your personal data, that request will be honored
 
 ## Age restrictions
 
-Our Services are only available for purchase for those who are over the age of 18. Our Services are not designed to target, entice, or consumed by individuals under the age of 18. If you know of or have reason to believe someone under the age of 18 has provided us with any personal data, please contact us.
+Our Services are only available for purchase for those who are over the age of 18 or for those otherwise able to enter into a legally binding agreement. Our Services are not designed to target, entice, or consumed by individuals which do not meet the above criteria. If you know of or have reason to believe someone under the age of 18 which is not able to enter into a legally binding agreement has provided us with any personal data, please contact us.
 
 ## Changes to our Privacy Policy
 
