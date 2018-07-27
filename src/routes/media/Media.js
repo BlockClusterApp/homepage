@@ -3,7 +3,7 @@ import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import * as yup from 'yup';
 import styled, { css } from 'styled-components';
-import { clearFix, mix, lighten, darken } from 'polished';
+import { clearFix, mix, lighten, darken, ellipsis } from 'polished';
 import { colors, spacing, media } from '../../styles';
 import { wrapper, cover, card } from '../../styles/mixins';
 import uppercaseFirstChar from '../../helpers/uppercaseFirstChar';
@@ -188,12 +188,19 @@ const Card = styled.div`
   }
 `;
 
+const CardImgLink = styled.a`
+  display: block;
+  height: 214px;
+  background: ${colors.secondary};
+`;
+
 const CardImg = styled.img`
   width: 100%;
   height: auto;
 `;
 
 const CardBody = styled.div`
+  height: 140px;
   text-align: left;
   padding: 14px ${spacing(1.5)} ${spacing(1.5)};
 `;
@@ -259,9 +266,9 @@ class RequestDemo extends React.Component {
           <Row>
             <Column>
               <Card>
-                <a href="https://www.enbloc.media/" target="_blank">
+                <CardImgLink href="https://www.enbloc.media/" target="_blank">
                   <CardImg src={ibc} />
-                </a>
+                </CardImgLink>
                 <CardBody>
                   <CardTitle href="https://www.enbloc.media/" target="_blank">
                     Internation Blockchain Congress
@@ -276,23 +283,19 @@ class RequestDemo extends React.Component {
             </Column>
             <Column>
               <Card>
-                <a href="https://www.enbloc.media/" target="_blank">
-                  <CardImg src={ibc} />
-                </a>
+                <CardImgLink href="/" />
                 <CardBody>
-                  <CardTitle href="https://www.enbloc.media/" target="_blank">
-                    Internation Blockchain Congress
-                  </CardTitle>
-                  <CardParagraph>
+                  <CardTitle href="/">More coming soon!</CardTitle>
+                  {/* <CardParagraph>
                     We’re going to be attending the IBC on the 3rd & 4th of
                     August 2018 at the Novotel & HICC Complex in Hyderabad.{' '}
                     <CardLink href="/rsvp">Come say hi!</CardLink>
-                  </CardParagraph>
+                  </CardParagraph> */}
                 </CardBody>
               </Card>
             </Column>
           </Row>
-          <Row>
+          {/* <Row>
             <Column>
               <Card>
                 <a href="https://www.enbloc.media/" target="_blank">
@@ -327,7 +330,7 @@ class RequestDemo extends React.Component {
                 </CardBody>
               </Card>
             </Column>
-          </Row>
+          </Row> */}
         </Content>
         <Footer />
       </Root>
