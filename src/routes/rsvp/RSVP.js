@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { Formik, Form } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import axios from 'axios';
 import * as yup from 'yup';
 import styled, { css } from 'styled-components';
@@ -134,6 +134,7 @@ const Subtitle = styled.h2`
 
 const Card = styled.div`
   ${card};
+  overflow: initial;
   padding: ${spacing()};
   box-shadow: 0 15px 35px rgba(50, 73, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   max-width: 624px;
@@ -161,11 +162,11 @@ const Column = styled.div`
     float: left;
 
     &:first-child {
-      width: 40%;
+      width: 42%;
     }
 
     &:last-child {
-      width: 60%;
+      width: 58%;
     }
   }
 `;
@@ -178,15 +179,15 @@ const Label = styled.label`
   color: ${mix(0.7, colors.text, colors.primary)};
 `;
 
-const Radio = styled.input.attrs({
-  type: 'radio',
+const CheckboxInput = styled.input.attrs({
+  type: 'checkbox',
 })`
   width: auto;
   position: relative;
   top: -1px;
 `;
 
-const RadioLabel = styled.label`
+const CheckboxLabel = styled.label`
   color: ${colors.text};
   margin-right: ${spacing(1.5)};
   padding: 6px ${spacing(0.5)} 0;
@@ -200,11 +201,41 @@ const SubmitButton = Button.extend`
   width: 100%;
 
   @media (min-width: 641px) {
-    margin-left: 40%;
+    margin-left: 42%;
     width: auto;
     padding: 0 20px;
   }
 `;
+
+function Checkbox(props) {
+  /* eslint-disable react/prop-types */
+  return (
+    <Field name={props.name}>
+      {({ field, form }) => (
+        <div>
+          <CheckboxInput
+            type="checkbox"
+            id={props.value}
+            {...props}
+            checked={field.value.includes(props.value)}
+            onChange={() => {
+              if (field.value.includes(props.value)) {
+                const nextValue = field.value.filter(
+                  value => value !== props.value,
+                );
+                form.setFieldValue(props.name, nextValue);
+              } else {
+                const nextValue = field.value.concat(props.value);
+                form.setFieldValue(props.name, nextValue);
+              }
+            }}
+          />
+          <CheckboxLabel htmlFor={props.value}>{props.value}</CheckboxLabel>
+        </div>
+      )}
+    </Field>
+  );
+}
 
 class RequestDemo extends React.Component {
   state = {
@@ -240,10 +271,9 @@ class RequestDemo extends React.Component {
                 </Fragment>
               ) : (
                 <Fragment>
-                  <Title>Request a demo</Title>
+                  <Title>International Blockchain Congress</Title>
                   <Subtitle>
-                    Thanks for showing your interest in BlockCluster! Go ahead
-                    and fill in your details, and we’ll get back to you.
+                    Thank you for taking time to complete RSVP for our event.
                   </Subtitle>
                   <Card>
                     {form.error && <InputError>{form.error}</InputError>}
@@ -251,13 +281,11 @@ class RequestDemo extends React.Component {
                       initialValues={{
                         name: '',
                         email: '',
+                        phone: '',
+                        company: '',
                         website: '',
-                        orgName: '',
-                        orgType: '',
-                        orgSize: '',
-                        blockchainBudget: '',
-                        projectStarts: '',
-                        decisionMaker: '',
+                        attendees: '',
+                        interest: [],
                         comments: '',
                       }}
                       validationSchema={yup.object().shape({
@@ -266,24 +294,21 @@ class RequestDemo extends React.Component {
                           .string()
                           .email()
                           .required(),
+                        phone: yup.string().required(),
+                        company: yup.string(),
                         website: yup
                           .string()
                           .matches(
                             /[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/,
                             'Website must be a valid URL',
-                          )
-                          .required(),
-                        orgName: yup.string().required(),
-                        orgType: yup.string().required(),
-                        orgSize: yup.string().required(),
-                        blockchainBudget: yup.string().required(),
-                        projectStarts: yup.string().required(),
-                        decisionMaker: yup.string().required(),
+                          ),
+                        attendees: yup.string().required(),
+                        interest: yup.array().required(),
                         comments: yup.string(),
                       })}
                       onSubmit={async (values, { setSubmitting }) => {
                         await axios
-                          .post('/emails/request-demo', values)
+                          .post('/emails/rsvp', values)
                           .then(() =>
                             this.setState({
                               form: {
@@ -315,7 +340,7 @@ class RequestDemo extends React.Component {
                         <Form>
                           <Row>
                             <Column>
-                              <Label htmlFor="name">{LABELS.name}</Label>
+                              <Label htmlFor="name">{LABELS.name} *</Label>
                             </Column>
                             <Column>
                               <Input
@@ -338,7 +363,7 @@ class RequestDemo extends React.Component {
                           </Row>
                           <Row>
                             <Column>
-                              <Label htmlFor="email">{LABELS.email}</Label>
+                              <Label htmlFor="email">{LABELS.email} *</Label>
                             </Column>
                             <Column>
                               <Input
@@ -355,6 +380,52 @@ class RequestDemo extends React.Component {
                                 touched.email && (
                                   <InputError>
                                     {uppercaseFirstChar(errors.email)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="phone">{LABELS.phone} *</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="phone"
+                                id="phone"
+                                value={values.phone}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="+91 123 456 7890"
+                              />
+                              {errors &&
+                                errors.phone &&
+                                touched.phone && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.phone)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="company">{LABELS.company}</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="company"
+                                id="company"
+                                value={values.company}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="BlockCluster"
+                              />
+                              {errors &&
+                                errors.company &&
+                                touched.company && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.company)}
                                   </InputError>
                                 )}
                             </Column>
@@ -384,79 +455,40 @@ class RequestDemo extends React.Component {
                           </Row>
                           <Row>
                             <Column>
-                              <Label htmlFor="orgName">{LABELS.orgName}</Label>
-                            </Column>
-                            <Column>
-                              <Input
-                                type="text"
-                                name="orgName"
-                                id="orgName"
-                                value={values.orgName}
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                placeholder="BlockCluster"
-                              />
-                              {errors &&
-                                errors.orgName &&
-                                touched.orgName && (
-                                  <InputError>
-                                    {uppercaseFirstChar(errors.orgName)}
-                                  </InputError>
-                                )}
-                            </Column>
-                          </Row>
-                          <Row>
-                            <Column>
-                              <Label htmlFor="orgType">{LABELS.orgType}</Label>
-                            </Column>
-                            <Column>
-                              <Input
-                                type="text"
-                                name="orgType"
-                                id="orgType"
-                                value={values.orgType}
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                placeholder="Healthcare"
-                              />
-                              {errors &&
-                                errors.orgType &&
-                                touched.orgType && (
-                                  <InputError>
-                                    {uppercaseFirstChar(errors.orgType)}
-                                  </InputError>
-                                )}
-                            </Column>
-                          </Row>
-                          <Row>
-                            <Column>
-                              <Label htmlFor="orgSize">{LABELS.orgSize}</Label>
+                              <Label htmlFor="attendees">
+                                {LABELS.attendees} *
+                              </Label>
                             </Column>
                             <Column>
                               <Dropdown
-                                id="orgSize"
-                                name="orgSize"
+                                id="attendees"
+                                name="attendees"
                                 placeholderClassName={
-                                  this.state.isSelectedOrgSize
+                                  this.state.isSelectedAttendees
                                     ? 'is-selected'
                                     : ''
                                 }
                                 options={[
-                                  '1 to 5 employees',
-                                  '5 to 10 employees',
-                                  '11 to 50 employees',
-                                  '51 to 100 employees',
-                                  '101 to 500 employees',
-                                  'more than 500 employees',
+                                  '1',
+                                  '2',
+                                  '3',
+                                  '4',
+                                  '5',
+                                  '6',
+                                  '7',
+                                  '8',
+                                  '9',
+                                  '10',
+                                  'more than 10',
                                 ]}
                                 onChange={event => {
                                   this.setState({
-                                    isSelectedOrgSize: true,
+                                    isSelectedAttendees: true,
                                   });
 
                                   handleChange(event);
                                 }}
-                                value={values.orgSize}
+                                value={values.attendees}
                                 placeholder="Select an option"
                               />
                               {errors &&
@@ -470,116 +502,24 @@ class RequestDemo extends React.Component {
                           </Row>
                           <Row>
                             <Column>
-                              <Label>{LABELS.blockchainBudget}</Label>
+                              <Label>{LABELS.interest} *</Label>
                             </Column>
                             <Column>
-                              <Radio
-                                name="blockchainBudget"
-                                id="blockchainBudgetYes"
-                                value="Yes"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                checked={values.blockchainBudget === 'Yes'}
+                              <Checkbox name="interest" value="Investing" />
+                              <Checkbox name="interest" value="Partnership" />
+                              <Checkbox
+                                name="interest"
+                                value="Using the product"
                               />
-                              <RadioLabel htmlFor="blockchainBudgetYes">
-                                Yes
-                              </RadioLabel>
-                              <Radio
-                                name="blockchainBudget"
-                                id="blockchainBudgetNo"
-                                value="No"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                // here we have to explicitely check for false
-                                // since an empty string is falsy too
-                                checked={values.blockchainBudget === 'No'}
-                              />
-                              <RadioLabel htmlFor="blockchainBudgetNo">
-                                No
-                              </RadioLabel>
-                              {errors &&
-                                errors.blockchainBudget &&
-                                touched.blockchainBudget && (
-                                  <InputError>
-                                    {uppercaseFirstChar(
-                                      errors.blockchainBudget,
-                                    )}
-                                  </InputError>
-                                )}
-                            </Column>
-                          </Row>
-                          <Row>
-                            <Column>
-                              <Label>{LABELS.projectStarts}</Label>
-                            </Column>
-                            <Column>
-                              <Dropdown
-                                id="projectStarts"
-                                name="projectStarts"
-                                placeholderClassName={
-                                  this.state.isSelectedProjectStarts
-                                    ? 'is-selected'
-                                    : ''
-                                }
-                                options={[
-                                  '1 to 2 weeks',
-                                  '2 to 4 weeks',
-                                  '1 to 2 months',
-                                  '2 to 6 months',
-                                  'more than 6 months',
-                                ]}
-                                onChange={event => {
-                                  this.setState({
-                                    isSelectedProjectStarts: true,
-                                  });
-                                  handleChange(event);
-                                }}
-                                value={values.projectStarts}
-                                placeholder="Select an option"
+                              <Checkbox
+                                name="interest"
+                                value="Blockchain 101"
                               />
                               {errors &&
-                                errors.projectStarts &&
-                                touched.projectStarts && (
+                                errors.interest &&
+                                touched.interest && (
                                   <InputError>
-                                    {uppercaseFirstChar(errors.projectStarts)}
-                                  </InputError>
-                                )}
-                            </Column>
-                          </Row>
-                          <Row>
-                            <Column>
-                              <Label>{LABELS.decisionMaker}</Label>
-                            </Column>
-                            <Column>
-                              <Radio
-                                name="decisionMaker"
-                                id="decisionMakerYes"
-                                value="Yes"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                checked={values.decisionMaker === 'Yes'}
-                              />
-                              <RadioLabel htmlFor="decisionMakerYes">
-                                Yes
-                              </RadioLabel>
-                              <Radio
-                                name="decisionMaker"
-                                id="decisionMakerNo"
-                                value="No"
-                                onBlur={handleBlur}
-                                onChange={handleChange}
-                                // here we have to explicitely check for false
-                                // since an empty string is falsy too
-                                checked={values.decisionMaker === 'No'}
-                              />
-                              <RadioLabel htmlFor="decisionMakerNo">
-                                No
-                              </RadioLabel>
-                              {errors &&
-                                errors.decisionMaker &&
-                                touched.decisionMaker && (
-                                  <InputError>
-                                    {uppercaseFirstChar(errors.decisionMaker)}
+                                    {uppercaseFirstChar(errors.interest)}
                                   </InputError>
                                 )}
                             </Column>
@@ -611,7 +551,7 @@ class RequestDemo extends React.Component {
                               secondary
                               disabled={isSubmitting}
                             >
-                              Request demo
+                              Submit RSVP
                             </SubmitButton>
                           </Row>
                         </Form>
