@@ -44,7 +44,14 @@ const Nav = styled.nav`
 
 const NavLeft = styled.div`
   float: left;
-  margin-left: ${spacing(2)};
+  margin-left: ${spacing(4)};
+
+  ${media.max460} {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    margin-left: 8px;
+  }
 `;
 
 const NavRight = styled.div`
@@ -57,11 +64,11 @@ const navItemCss = css`
   display: block;
   line-height: 42px;
   padding: 0 ${spacing()};
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   transition: all 0.2s;
 
   &:hover {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
   }
 `;
 
@@ -104,6 +111,9 @@ export default () => (
     <Nav>
       <NavLeft>
         <NavItem href="/media">Media</NavItem>
+        <NavItem href="/pricing">Pricing</NavItem>
+        <NavItem href="/about">About</NavItem>
+        <NavItem href="/contact">Contact</NavItem>
         {/* <NavItem>Features</NavItem>
         <NavItem>Use cases</NavItem>
         <NavItem>Pricing</NavItem> */}
