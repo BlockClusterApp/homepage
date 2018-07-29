@@ -4,8 +4,9 @@ import { clearFix, shade } from 'polished';
 import logo2x from '../assets/logo@2x.png';
 import { spacing, media, uppercase } from '../../../styles';
 import Button from '../../../components/Button';
+import Sidebar from '../../../components/Sidebar';
 
-const Header = styled.header`
+const Root = styled.header`
   ${clearFix()};
   height: 34px;
   padding: 0;
@@ -40,11 +41,22 @@ const Logo = styled.a`
 
 const Nav = styled.nav`
   ${clearFix()};
+
+  ${media.max768} {
+    display: none;
+  }
 `;
 
 const NavLeft = styled.div`
   float: left;
-  margin-left: ${spacing(2)};
+  margin-left: ${spacing(4)};
+
+  ${media.max460} {
+    position: absolute;
+    left: 0;
+    top: 45px;
+    margin-left: 8px;
+  }
 `;
 
 const NavRight = styled.div`
@@ -57,11 +69,11 @@ const navItemCss = css`
   display: block;
   line-height: 42px;
   padding: 0 ${spacing()};
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1);
   transition: all 0.2s;
 
   &:hover {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.8);
   }
 `;
 
@@ -98,20 +110,80 @@ const NavButton = Button.withComponent('a').extend`
   }
 `;
 
-export default () => (
-  <Header>
-    <Logo href="/" />
-    <Nav>
-      <NavLeft>
-        <NavItem href="/media">Media</NavItem>
-        {/* <NavItem>Features</NavItem>
+const Hamburger = styled.button`
+  float: right;
+  position: relative;
+  top: -6px;
+  width: 48px;
+  height: 54px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0);
+  transition: background-color 0.05s;
+  cursor: pointer;
+
+  &:active {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  svg {
+    position: relative;
+    top: 2px;
+  }
+
+  ${media.min768} {
+    display: none;
+  }
+`;
+
+const HamburgerIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="16"
+    height="10"
+    viewBox="0 0 16 10"
+  >
+    <path
+      fill="none"
+      stroke="#FFF"
+      strokeLinecap="round"
+      strokeWidth="1.5"
+      d="M1.5.75H15m-13.5 4H15m-13.5 4H15"
+    />
+  </svg>
+);
+
+export default class Header extends React.Component {
+  state = {
+    showSidebar: false,
+  };
+
+  render() {
+    return (
+      <Root>
+        <Logo href="/" />
+        <Nav>
+          <NavLeft>
+            <NavItem href="/media">Media</NavItem>
+            <NavItem href="/pricing">Pricing</NavItem>
+            <NavItem href="/about">About</NavItem>
+            <NavItem href="/contact">Contact</NavItem>
+            {/* <NavItem>Features</NavItem>
         <NavItem>Use cases</NavItem>
         <NavItem>Pricing</NavItem> */}
-      </NavLeft>
-      <NavRight>
-        {/* <NavItem href="/media">Media</NavItem> */}
-        <NavButton href="//app.blockcluster.io/login">Login</NavButton>
-      </NavRight>
-    </Nav>
-  </Header>
-);
+          </NavLeft>
+          <NavRight>
+            {/* <NavItem href="/media">Media</NavItem> */}
+            <NavButton href="//app.blockcluster.io/login">Login</NavButton>
+          </NavRight>
+        </Nav>
+        <Hamburger onClick={() => this.setState({ showSidebar: true })}>
+          <HamburgerIcon />
+        </Hamburger>
+        <Sidebar
+          show={this.state.showSidebar}
+          onClose={() => this.setState({ showSidebar: false })}
+        />
+      </Root>
+    );
+  }
+}

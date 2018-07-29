@@ -19,6 +19,7 @@ import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unr
 import config from './config';
 import { LABELS as REQUEST_DEMO_LABELS } from './routes/request-demo/constants';
 import { LABELS as RSVP_LABELS } from './routes/rsvp/constants';
+import { LABELS as CONTACT_LABELS } from './routes/legal/contact/constants';
 
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
@@ -186,64 +187,101 @@ app.get('*', async (req, res, next) => {
   }
 });
 
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: 'jason.hasperhoven@blockcluster.io',
+    pass: 'bcinthemix',
+  },
+});
+
+const resetStyles = {
+  fontFamily: 'Helvetica Neue',
+  fontSize: '16px',
+  padding: 0,
+  margin: 0,
+};
+
+const styles = {
+  headline: {
+    ...resetStyles,
+    fontSize: '21px',
+    fontWeight: 500,
+    paddingBottom: '32px',
+    color: '#111',
+  },
+  title: {
+    ...resetStyles,
+    fontSize: '18px',
+    fontWeight: 500,
+    paddingBottom: '4px',
+    color: '#111',
+  },
+  text: {
+    ...resetStyles,
+    paddingBottom: '16px',
+    color: '#111',
+  },
+};
+
 //
 // Email from request a demo
 // -----------------------------------------------------------------------------
 app.post('/emails/request-demo', async (req, res, next) => {
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'jason.hasperhoven@blockcluster.io',
-        pass: 'bcinthemix',
-      },
-    });
-
-    const resetStyles = {
-      fontFamily: 'Helvetica Neue',
-      fontSize: '16px',
-      padding: 0,
-      margin: 0,
-    };
-
     const mailOptions = {
       from: req.body.email,
       to: 'info@blockcluster.io',
       subject: 'Demo request',
       html: ReactDOM.renderToStaticMarkup(
         <React.Fragment>
-          <p
-            style={{
-              ...resetStyles,
-              fontSize: '21px',
-              fontWeight: 500,
-              paddingBottom: '32px',
-              color: '#111',
-            }}
-          >
-            Demo request from the website
-          </p>
+          <p style={styles.headline}>Demo request from the website</p>
           {Object.entries(req.body).map(([key, value]) => (
             <React.Fragment>
-              <p
-                style={{
-                  ...resetStyles,
-                  fontSize: '18px',
-                  fontWeight: 500,
-                  paddingBottom: '4px',
-                  color: '#111',
-                }}
-              >
-                {REQUEST_DEMO_LABELS[key]}
-              </p>
-              <p
-                style={{
-                  ...resetStyles,
-                  paddingBottom: '16px',
-                  color: '#111',
-                }}
-              >
-                {value}
+              <p style={styles.title}>{REQUEST_DEMO_LABELS[key]}</p>
+              <p style={styles.text}>{value}</p>
+            </React.Fragment>
+          ))}
+        </React.Fragment>,
+      ),
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(400).json({
+          error: err,
+        });
+        return;
+      }
+
+      console.info(err);
+      res.status(200).json({
+        info,
+      });
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+//
+// Email from rsvp
+// -----------------------------------------------------------------------------
+app.post('/emails/rsvp', async (req, res, next) => {
+  try {
+    const mailOptions = {
+      from: req.body.email,
+      to: 'info@blockcluster.io',
+      subject: 'RSVP',
+      html: ReactDOM.renderToStaticMarkup(
+        <React.Fragment>
+          <p style={styles.headline}>RSVP from the website</p>
+          {Object.entries(req.body).map(([key, value]) => (
+            <React.Fragment>
+              <p style={styles.title}>{RSVP_LABELS[key]}</p>
+              <p style={styles.text}>
+                {Array.isArray(value) ? value.join(', ') : value}
               </p>
             </React.Fragment>
           ))}
@@ -271,62 +309,21 @@ app.post('/emails/request-demo', async (req, res, next) => {
 });
 
 //
-// Email from request a demo
+// Email from contact
 // -----------------------------------------------------------------------------
-app.post('/emails/rsvp', async (req, res, next) => {
+app.post('/emails/contact', async (req, res, next) => {
   try {
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: 'jason.hasperhoven@blockcluster.io',
-        pass: 'bcinthemix',
-      },
-    });
-
-    const resetStyles = {
-      fontFamily: 'Helvetica Neue',
-      fontSize: '16px',
-      padding: 0,
-      margin: 0,
-    };
-
     const mailOptions = {
       from: req.body.email,
       to: 'info@blockcluster.io',
-      subject: 'RSVP',
+      subject: 'Contact form',
       html: ReactDOM.renderToStaticMarkup(
         <React.Fragment>
-          <p
-            style={{
-              ...resetStyles,
-              fontSize: '21px',
-              fontWeight: 500,
-              paddingBottom: '32px',
-              color: '#111',
-            }}
-          >
-            International Blockchain Congress RSVP
-          </p>
+          <p style={styles.headline}>Contact form from the website</p>
           {Object.entries(req.body).map(([key, value]) => (
             <React.Fragment>
-              <p
-                style={{
-                  ...resetStyles,
-                  fontSize: '18px',
-                  fontWeight: 500,
-                  paddingBottom: '4px',
-                  color: '#111',
-                }}
-              >
-                {RSVP_LABELS[key]}
-              </p>
-              <p
-                style={{
-                  ...resetStyles,
-                  paddingBottom: '16px',
-                  color: '#111',
-                }}
-              >
+              <p style={styles.title}>{CONTACT_LABELS[key]}</p>
+              <p style={styles.text}>
                 {Array.isArray(value) ? value.join(', ') : value}
               </p>
             </React.Fragment>

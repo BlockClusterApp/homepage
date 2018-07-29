@@ -239,17 +239,10 @@ function Checkbox(props) {
 
 class RSVP extends React.Component {
   state = {
-    blink: false,
     form: {
       success: false,
     },
   };
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ blink: !this.state.blink });
-    }, 1000);
-  }
 
   render() {
     const { form } = this.state;
@@ -271,7 +264,7 @@ class RSVP extends React.Component {
                 </Fragment>
               ) : (
                 <Fragment>
-                  <Title>International Blockchain Congress</Title>
+                  <Title>Meet Us</Title>
                   <Subtitle>
                     Thank you for taking time to complete RSVP for our event.
                   </Subtitle>
@@ -279,6 +272,7 @@ class RSVP extends React.Component {
                     {form.error && <InputError>{form.error}</InputError>}
                     <Formik
                       initialValues={{
+                        event: '',
                         name: '',
                         email: '',
                         phone: '',
@@ -289,6 +283,7 @@ class RSVP extends React.Component {
                         comments: '',
                       }}
                       validationSchema={yup.object().shape({
+                        event: yup.string().required(),
                         name: yup.string().required(),
                         email: yup
                           .string()
@@ -338,6 +333,29 @@ class RSVP extends React.Component {
                         isSubmitting,
                       }) => (
                         <Form>
+                          <Row>
+                            <Column>
+                              <Label htmlFor="event">{LABELS.event} *</Label>
+                            </Column>
+                            <Column>
+                              <Input
+                                type="text"
+                                name="event"
+                                id="event"
+                                value={values.event}
+                                onBlur={handleBlur}
+                                onChange={handleChange}
+                                placeholder="International Blockchain Congress"
+                              />
+                              {errors &&
+                                errors.event &&
+                                touched.event && (
+                                  <InputError>
+                                    {uppercaseFirstChar(errors.event)}
+                                  </InputError>
+                                )}
+                            </Column>
+                          </Row>
                           <Row>
                             <Column>
                               <Label htmlFor="name">{LABELS.name} *</Label>

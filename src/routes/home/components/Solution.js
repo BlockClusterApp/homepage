@@ -358,8 +358,8 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>No knowledge required</PointTitle>
                   <PointDescription>
-                    Configure your digital assets through our <Break />
-                    user interface without writing smart contracts
+                    Our dynamo protocol let’s you configure your <Break />
+                    digital assets without writing smart contracts
                   </PointDescription>
                 </Point2>
               </PointColumn>
@@ -379,8 +379,8 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Secure and reliable</PointTitle>
                   <PointDescription>
-                    Under the hood we’re leveraging the most <Break />
-                    reputable and well tested smart contracts
+                    Our impulse server provides full proof <Break />
+                    access control and privacy over data
                   </PointDescription>
                 </Point3>
               </PointColumn>

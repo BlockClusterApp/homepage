@@ -37,7 +37,7 @@ const routes = {
     },
     {
       path: '/pricing',
-      load: () => import(/* webpackChunkName: 'pricing' */ './legal/pricing'),
+      load: () => import(/* webpackChunkName: 'pricing' */ './pricing'),
     },
     {
       path: '/contact',
