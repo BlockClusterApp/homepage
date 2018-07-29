@@ -380,8 +380,8 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Hard to achieve privacy</PointTitle>
                   <PointDescription>
-                    Difficult to implement access control <Break />
-                    over critical data
+                    Implementing access control over <Break />
+                    confidential and personal data is difficult
                   </PointDescription>
                 </PointExe>
               </PointColumn>

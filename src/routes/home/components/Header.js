@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import { clearFix, shade } from 'polished';
 import logo2x from '../assets/logo@2x.png';
-import { spacing, media, uppercase } from '../../../styles';
+import { spacing, media, uppercase, colors } from '../../../styles';
 import Button from '../../../components/Button';
 import Sidebar from '../../../components/Sidebar';
 
@@ -50,6 +50,10 @@ const Nav = styled.nav`
 const NavLeft = styled.div`
   float: left;
   margin-left: ${spacing(4)};
+
+  @media (max-width: 820px) {
+    margin-left: ${spacing()};
+  }
 
   ${media.max460} {
     position: absolute;
@@ -152,6 +156,23 @@ const HamburgerIcon = () => (
   </svg>
 );
 
+const NavTop = styled.nav`
+  margin-bottom: ${spacing()};
+`;
+
+const NavBottom = styled.nav`
+  margin-bottom: ${spacing()};
+`;
+
+const SidebarNavItem = styled.a`
+  ${uppercase};
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: ${colors.secondary};
+  padding: ${spacing(0.5)} ${spacing(1.5)};
+`;
+
 export default class Header extends React.Component {
   state = {
     showSidebar: false,
@@ -165,7 +186,7 @@ export default class Header extends React.Component {
           <NavLeft>
             <NavItem href="/media">Media</NavItem>
             <NavItem href="/pricing">Pricing</NavItem>
-            <NavItem href="/about">About</NavItem>
+            <NavItem href="/about">About us</NavItem>
             {/* <NavItem>Features</NavItem>
         <NavItem>Use cases</NavItem>
         <NavItem>Pricing</NavItem> */}
@@ -181,7 +202,21 @@ export default class Header extends React.Component {
         <Sidebar
           show={this.state.showSidebar}
           onClose={() => this.setState({ showSidebar: false })}
-        />
+        >
+          <NavTop>
+            <SidebarNavItem href="/media">Media</SidebarNavItem>
+            <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
+            <SidebarNavItem href="/about">About us</SidebarNavItem>
+          </NavTop>
+          <NavBottom>
+            <SidebarNavItem href="//app.blockcluster.io/login">
+              Login
+            </SidebarNavItem>
+            <SidebarNavItem href="//app.blockcluster.io/register">
+              Register
+            </SidebarNavItem>
+          </NavBottom>
+        </Sidebar>
       </Root>
     );
   }

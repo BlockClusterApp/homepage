@@ -5,4 +5,5 @@ export const LABELS = {
   email: 'Email',
   phone: 'Phone number',
   message: 'Message',
+  reason: 'Reason',
 };
