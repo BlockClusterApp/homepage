@@ -231,7 +231,7 @@ class Contact extends React.Component {
             mounted={mounted}
             visible={visible}
           >
-            <Button primary href="mailto:info@blockcluster.io">
+            <Button primary href="/contact">
               Get in touch
             </Button>
             <Button secondary href="/request-demo">

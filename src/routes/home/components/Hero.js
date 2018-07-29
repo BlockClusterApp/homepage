@@ -307,7 +307,7 @@ class Hero extends React.Component {
               ecosystem through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
-              <Button primary href="mailto:info@blockcluster.io">
+              <Button primary href="/contact">
                 Get in touch
               </Button>
               <Button secondary href="/request-demo">
