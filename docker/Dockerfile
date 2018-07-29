@@ -6,7 +6,7 @@ WORKDIR /src/
 COPY package.json yarn.lock jest.config.js chunk-manifest.json .stylelintrc.js .prettierrc.js .flowconfig .eslintrc.js /src/
 RUN yarn
 COPY ./ /src/
-RUN yarn build
+RUN yarn build --release
 RUN mv node_modules dev_node_modules
 RUN yarn --production
 

@@ -1,6 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 
 export const LABELS = {
+  event: 'Event name',
   name: 'Full name',
   email: 'Email',
   phone: 'Phone number',

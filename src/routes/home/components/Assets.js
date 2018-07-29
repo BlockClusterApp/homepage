@@ -403,15 +403,16 @@ class AssetsComponent extends React.Component {
             <PointTitle>
               <PointCheck type="verified">{shield}</PointCheck>
               <AnimateText
-                textNodes={['Audited', 'smart', 'contracts']}
+                textNodes={'Privacy and Advanced Permissioning over assets'.split(
+                  ' ',
+                )}
                 animationStyle="slide"
               />
             </PointTitle>
             <PointDescription>
               <AnimateText
                 textNodes={[
-                  `Verified smart contracts which went through
-                  rigorous independent reviews.`,
+                  `Ability to distribute operations control over assets and manage visibility of assets.`,
                 ]}
                 animationStyle="fadeSlide"
               />
