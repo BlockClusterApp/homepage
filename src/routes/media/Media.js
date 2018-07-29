@@ -144,6 +144,11 @@ const Subtitle = styled.h2`
   }
 `;
 
+const SubtitleLink = styled.a`
+  color: #fff;
+  text-decoration: underline;
+`;
+
 const Content = styled.div`
   padding: ${spacing(2)} ${spacing()};
 `;
@@ -256,7 +261,8 @@ class RequestDemo extends React.Component {
                 Discover more about BlockCluster and it’s quest to build world’s
                 first Blockchain Management System. We want to accelerate the
                 adoption of blockchain technology by making it easy for
-                enterprises to set it up.
+                enterprises to set it up.{' '}
+                <SubtitleLink href="/rsvp">Come say hi!</SubtitleLink>
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
@@ -276,7 +282,7 @@ class RequestDemo extends React.Component {
                   <CardParagraph>
                     The BlockCluster team will be attending the IBC on the 3rd &
                     4th of August 2018 at the Novotel & HICC Complex in
-                    Hyderabad. <CardLink href="/rsvp">Come say hi!</CardLink>
+                    Hyderabad.
                   </CardParagraph>
                 </CardBody>
               </Card>

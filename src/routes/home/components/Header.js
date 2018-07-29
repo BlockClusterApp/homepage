@@ -166,7 +166,6 @@ export default class Header extends React.Component {
             <NavItem href="/media">Media</NavItem>
             <NavItem href="/pricing">Pricing</NavItem>
             <NavItem href="/about">About</NavItem>
-            <NavItem href="/contact">Contact</NavItem>
             {/* <NavItem>Features</NavItem>
         <NavItem>Use cases</NavItem>
         <NavItem>Pricing</NavItem> */}
