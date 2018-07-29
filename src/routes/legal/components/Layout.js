@@ -65,7 +65,7 @@ const Sidebar = styled.div`
   position: relative;
 
   ${media.max768} {
-    margin-bottom: ${spacing(2)};
+    display: none;
   }
 
   ${media.min768} {

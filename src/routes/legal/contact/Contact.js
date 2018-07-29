@@ -82,6 +82,36 @@ const SubmitButton = Button.extend`
   width: 100%;
 `;
 
+function Checkbox(props) {
+  /* eslint-disable react/prop-types */
+  return (
+    <Field name={props.name}>
+      {({ field, form }) => (
+        <div>
+          <CheckboxInput
+            type="checkbox"
+            id={props.value}
+            {...props}
+            checked={field.value.includes(props.value)}
+            onChange={() => {
+              if (field.value.includes(props.value)) {
+                const nextValue = field.value.filter(
+                  value => value !== props.value,
+                );
+                form.setFieldValue(props.name, nextValue);
+              } else {
+                const nextValue = field.value.concat(props.value);
+                form.setFieldValue(props.name, nextValue);
+              }
+            }}
+          />
+          <CheckboxLabel htmlFor={props.value}>{props.value}</CheckboxLabel>
+        </div>
+      )}
+    </Field>
+  );
+}
+
 export default class Contact extends React.Component {
   state = {
     form: {
@@ -112,6 +142,7 @@ export default class Contact extends React.Component {
                 name: '',
                 email: '',
                 phone: '',
+                reason: '',
                 message: '',
               }}
               validationSchema={yup.object().shape({
@@ -121,6 +152,7 @@ export default class Contact extends React.Component {
                   .email()
                   .required(),
                 phone: yup.string(),
+                reason: yup.array().required(),
                 message: yup.string().required(),
               })}
               onSubmit={async (values, { setSubmitting }) => {
@@ -213,6 +245,27 @@ export default class Contact extends React.Component {
                       )}
                   </Row>
                   <Row>
+                    <Label>{LABELS.reason} *</Label>
+                    <Checkbox name="reason" value="Interested in investing" />
+                    <Checkbox name="reason" value="Interested in partnership" />
+                    <Checkbox
+                      name="reason"
+                      value="Question about the service"
+                    />
+                    <Checkbox
+                      name="reason"
+                      value="I want to know more about Blockchain"
+                    />
+                    <Checkbox name="reason" value="Other" />
+                    {errors &&
+                      errors.reason &&
+                      touched.reason && (
+                        <InputError>
+                          {uppercaseFirstChar(errors.reason)}
+                        </InputError>
+                      )}
+                  </Row>
+                  <Row>
                     <Label htmlFor="message">{LABELS.message} *</Label>
                     <Textarea
                       name="message"
@@ -220,7 +273,7 @@ export default class Contact extends React.Component {
                       value={values.message}
                       onBlur={handleBlur}
                       onChange={handleChange}
-                      placeholder="I want to learn more about BlockCluster"
+                      placeholder="I have a question about ..."
                     />
                     {errors &&
                       errors.message &&

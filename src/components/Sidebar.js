@@ -39,23 +39,7 @@ const Wrapper = styled.div`
   margin-bottom: -48px;
   padding: ${spacing()} 0;
   text-align: left;
-`;
-
-const NavTop = styled.nav`
-  margin-bottom: ${spacing()};
-`;
-
-const NavBottom = styled.nav`
-  margin-bottom: ${spacing()};
-`;
-
-const NavItem = styled.a`
-  ${uppercase};
-  display: block;
-  font-size: 14px;
-  font-weight: 700;
-  color: ${colors.secondary};
-  padding: ${spacing(0.5)} ${spacing(1.5)};
+  overflow-y: auto;
 `;
 
 const Logo = styled.a`
@@ -140,15 +124,7 @@ export default class Sidebar extends React.Component {
         >
           <Wrapper>
             <Logo href="/" />
-            <NavTop>
-              <NavItem href="/media">Media</NavItem>
-              <NavItem href="/pricing">Pricing</NavItem>
-              <NavItem href="/about">About</NavItem>
-              <NavItem href="/contact">Contact</NavItem>
-            </NavTop>
-            <NavBottom>
-              <NavItem href="//app.blockcluster.io/login">Login</NavItem>
-            </NavBottom>
+            {this.props.children}
           </Wrapper>
         </StyledSidebar>
       </div>

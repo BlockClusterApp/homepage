@@ -403,7 +403,7 @@ class AssetsComponent extends React.Component {
             <PointTitle>
               <PointCheck type="verified">{shield}</PointCheck>
               <AnimateText
-                textNodes={'Privacy and Advanced Permissioning over assets'.split(
+                textNodes={'Privacy and Advanced Permissioning'.split(
                   ' ',
                 )}
                 animationStyle="slide"
@@ -412,7 +412,7 @@ class AssetsComponent extends React.Component {
             <PointDescription>
               <AnimateText
                 textNodes={[
-                  `Ability to distribute operations control over assets and manage visibility of assets.`,
+                  `You can distribute control over assets and manage visibility of assets.`,
                 ]}
                 animationStyle="fadeSlide"
               />
