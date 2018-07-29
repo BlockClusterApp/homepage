@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { media } from '../styles';
 
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 
@@ -14,6 +15,7 @@ const Root = styled.div`
   background: #000;
   opacity: 0;
   transition: opacity 0.45s;
+  pointer-events: none;
 
   &.isPrepared {
     z-index: 10;
@@ -22,11 +24,11 @@ const Root = styled.div`
 
   &.isActive {
     opacity: 0.4;
+    pointer-events: initial;
   }
 
   &.isClosing {
     transition: opacity 0.7s ease-out;
-    pointer-events: none;
   }
 
   ${props => props.backdropCss && props.backdropCss};
