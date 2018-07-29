@@ -216,8 +216,8 @@ export default function Footer() {
     <Root>
       <Wrapper>
         <Nav>
-          <StyledAnchor href="/about">About</StyledAnchor>
-          <StyledAnchor href="/contact">Contact</StyledAnchor>
+          <StyledAnchor href="/about">About us</StyledAnchor>
+          <StyledAnchor href="/contact">Contact us</StyledAnchor>
           <StyledAnchor href="/pricing">Pricing</StyledAnchor>
           <StyledLink href="https://angel.co/blockcluster/jobs">
             Careers
