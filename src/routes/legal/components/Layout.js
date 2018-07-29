@@ -30,6 +30,10 @@ const StyledWrapper = styled.div`
 
 const Body = styled.div``;
 
+const Nav = styled.div`
+  margin-bottom: ${spacing()};
+`;
+
 const NavTitle = styled.div`
   font-size: 19px;
   font-weight: 600;
@@ -151,14 +155,22 @@ export default class Layout extends React.Component {
             <Body>
               <Sidebar>
                 <SidebarBgCover coverHeight={sidebarBgHeight} />
-                <nav>
+                <Nav>
+                  <NavTitle>Site</NavTitle>
+                  <NavLink href="/media">Media</NavLink>
+                  <NavLink href="/pricing">Pricing</NavLink>
+                  <NavLink href="/about">About</NavLink>
+                  <NavLink href="/contact">Contact us</NavLink>
+                </Nav>
+                <Nav>
                   <NavTitle>Legal</NavTitle>
                   <NavLink href="/privacy">Privacy policy</NavLink>
                   <NavLink href="/terms">Terms and condition</NavLink>
-                  <NavLink href="/about">About</NavLink>
-                  <NavLink href="/pricing">Pricing</NavLink>
-                  <NavLink href="/contact">Contact us</NavLink>
-                </nav>
+                </Nav>
+                <Nav>
+                  <NavTitle>Misc</NavTitle>
+                  <NavLink href="/rsvp">RSVP</NavLink>
+                </Nav>
               </Sidebar>
               <Content>{children}</Content>
             </Body>

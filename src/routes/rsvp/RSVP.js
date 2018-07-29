@@ -239,17 +239,10 @@ function Checkbox(props) {
 
 class RSVP extends React.Component {
   state = {
-    blink: false,
     form: {
       success: false,
     },
   };
-
-  componentDidMount() {
-    setInterval(() => {
-      this.setState({ blink: !this.state.blink });
-    }, 1000);
-  }
 
   render() {
     const { form } = this.state;
@@ -342,7 +335,7 @@ class RSVP extends React.Component {
                         <Form>
                           <Row>
                             <Column>
-                              <Label htmlFor="name">{LABELS.event} *</Label>
+                              <Label htmlFor="event">{LABELS.event} *</Label>
                             </Column>
                             <Column>
                               <Input
