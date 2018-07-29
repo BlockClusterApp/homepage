@@ -16,8 +16,8 @@ import hardToExecute from '../assets/hard-exec.png';
 import hardToExecute2x from '../assets/hard-exec@2x.png';
 import cumbersomeIntegration from '../assets/cumbersome-int.png';
 import cumbersomeIntegration2x from '../assets/cumbersome-int@2x.png';
-import play from '../assets/play.png';
-import play2x from '../assets/play@2x.png';
+import play from '../assets/eye.png';
+import play2x from '../assets/eye@2x.png';
 
 const errorSvg =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 512"><path fill="currentColor" d="M176 432c0 44.112-35.888 80-80 80s-80-35.888-80-80 35.888-80 80-80 80 35.888 80 80zM25.26 25.199l13.6 272C39.499 309.972 50.041 320 62.83 320h66.34c12.789 0 23.331-10.028 23.97-22.801l13.6-272C167.425 11.49 156.496 0 142.77 0H49.23C35.504 0 24.575 11.49 25.26 25.199z"/></svg>';
@@ -372,16 +372,16 @@ class Problem extends React.Component {
                     <PointImgHardToExecute
                       src={play}
                       srcSet={`${play2x} 2x`}
-                      alt="Hard to execute"
+                      alt="Hard to achieve privacy"
                     />
                     <PointIllustrationError
                       dangerouslySetInnerHTML={{ __html: errorSvg }}
                     />
                   </PointIllustration>
-                  <PointTitle>Hard to execute</PointTitle>
+                  <PointTitle>Hard to achieve privacy</PointTitle>
                   <PointDescription>
-                    Blockchain is relatively new and finding <Break />
-                    experienced developers is hard
+                    Difficult to implement access control <Break />
+                    over critical data
                   </PointDescription>
                 </PointExe>
               </PointColumn>

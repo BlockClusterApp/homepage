@@ -303,7 +303,7 @@ class Hero extends React.Component {
               </TitleSecondary>
             </Title>
             <Subtitle>
-              Easily setup your enterprise blockchain <BreakDesktop />
+              Easily manage your enterprise blockchain <BreakDesktop />
               ecosystem through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
