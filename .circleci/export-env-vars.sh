@@ -3,9 +3,9 @@
 export COMMIT_HASH=${CIRCLE_SHA1}
 if [ "$CIRCLE_BRANCH" = "master" ];
 then
-  export NODE_ENV=staging
-  export WEB_ENV=staging
-  export CLUSTER_PREFIX="dev";
+  export NODE_ENV=production
+  export WEB_ENV=production
+  export CLUSTER_PREFIX="production-ap-south-1a";
 elif [ "$CIRCLE_BRANCH" = "staging" ];
 then
   export NODE_ENV=staging

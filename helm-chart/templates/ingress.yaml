@@ -6,12 +6,11 @@ metadata:
   namespace: {{ template "server.namespace" . }}
 {{ include "server.ingress.annotations" . | indent 2 }}
 spec:
-{{- if eq .Values.NODE_ENV "staging" }}
+{{- if eq .Values.NODE_ENV "production" }}
   tls:
   - hosts:
     - blockcluster.io
     - www.blockcluster.io
-    - staging.blockcluster.io
     secretName: blockcluster-ssl
   rules:
   - host: blockcluster.io
@@ -22,13 +21,6 @@ spec:
           serviceName: {{ template "server.name" . }}-svc
           servicePort: 80
   - host: www.blockcluster.io
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: {{ template "server.name" . }}-svc
-          servicePort: 80
-  - host: staging.blockcluster.io
     http:
       paths:
       - path: /

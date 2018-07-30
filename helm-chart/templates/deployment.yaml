@@ -23,7 +23,7 @@ spec:
     spec:
       restartPolicy: Always
       containers:
-      - name: {{ template "server.name" . }} 
+      - name: {{ template "server.name" . }}
         image: {{ .Values.image }}:{{ template "server.image-tag" . }}
         imagePullPolicy: IfNotPresent
         env:
@@ -47,11 +47,11 @@ spec:
           protocol: TCP
         resources:
           requests:
+            memory: "0.2Gi"
+            cpu: "50m"
+          limits:
             memory: "0.6Gi"
             cpu: "500m"
-          limits:
-            memory: "1Gi"
-            cpu: "1000m"
       imagePullSecrets:
       - name: regsecret
 

@@ -13,8 +13,8 @@ server:
     maxReplicas: 1
 
   production:
-    minReplicas: 1
-    maxRepicas: 2
+    minReplicas: 2
+    maxRepicas: 5
 
 # NODE_ENV: dev
 # image: 402432300121.dkr.ecr.us-west-2.amazonaws.com/blockcluster-web
