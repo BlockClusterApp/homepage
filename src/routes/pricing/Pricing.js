@@ -27,6 +27,7 @@ const Root = styled.section`
   position: relative;
   min-height: 100%;
   padding-bottom: 138px;
+  padding-bottom: 184px;
 
   ${media.max768} {
     padding-bottom: 264px;
@@ -75,7 +76,7 @@ const Cover2 = styled.div`
 const CoverContent = styled.div`
   ${cover};
   z-index: -1;
-  height: 110%;
+  height: 120%;
   background: linear-gradient(#f6fbff, #eef7fe);
   transform: matrix(1, 0, 0, 1, 0, -124);
 
@@ -142,6 +143,7 @@ const Subtitle = styled.h2`
 `;
 
 const Body = styled.div`
+  position: relative;
   padding: ${spacing(2)} ${spacing()};
 `;
 
@@ -162,12 +164,12 @@ const Column = styled.div`
 `;
 
 const Row = styled.div`
-  margin: 0 auto ${spacing(2)};
+  margin: 0 auto ${spacing(4)};
   max-width: 840px;
   ${clearFix()};
 
   ${media.max768} {
-    margin-bottom: ${spacing()};
+    margin-bottom: ${spacing(2)};
   }
 `;
 
@@ -186,6 +188,19 @@ const Card = styled.div`
     display: inline-block;
     width: 100%;
     height: 486px;
+  }
+`;
+
+const CardOnPremises = Card.extend`
+  float: right;
+
+  @media (min-width: 850px) {
+    height: auto;
+  }
+
+  ${media.max768} {
+    float: none;
+    margin: 0 auto;
   }
 `;
 
@@ -329,6 +344,91 @@ const ContentText = styled.p`
   line-height: 1.4;
 `;
 
+const Enterprise = styled.section`
+  position: relative;
+  z-index: 3;
+  padding: ${spacing(4)} 0;
+
+  ${media.max768} {
+    padding: ${spacing(2)} ${spacing()};
+  }
+
+  ${CardHighlight} {
+    margin-bottom: -24px;
+  }
+`;
+
+const EnterpriseCover = styled.div`
+  ${cover};
+  z-index: -1;
+  height: 120%;
+  background: ${colors.secondary};
+  transform: matrix(1, -0.02, 0, 1, 0, -22);
+
+  ${media.max768} {
+    transform: matrix(1, -0.02, 0, 1, 0, -12);
+  }
+`;
+
+const EnterpriseTitle = styled.h3`
+  margin-top: ${spacing(2)};
+  font-size: 34px;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: ${spacing(1.5)};
+
+  ${media.max768} {
+    font-size: 30px;
+    margin-bottom: ${spacing()};
+  }
+
+  ${media.max375} {
+    font-size: 27px;
+    margin-bottom: ${spacing()};
+  }
+`;
+
+const EnterpriseTitleEm = styled.span`
+  font-weight: 600;
+  color: ${colors.backgroundSecondaryText};
+`;
+
+const EnterpriseSubtitle = styled.p`
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 600;
+  max-width: 378px;
+  margin: 0 auto ${spacing()};
+  color: #fff;
+  opacity: 0.9;
+
+  ${media.max768} {
+    font-size: 17px;
+    max-width: none;
+  }
+`;
+
+const EnterpriseWrapper = styled.div`
+  ${clearFix()};
+  ${wrapper};
+  max-width: 884px;
+  padding: 0 ${spacing()};
+
+  ${media.max768} {
+    padding: 0;
+  }
+`;
+
+const EnterpriseContent = styled.div`
+  float: left;
+
+  ${media.max768} {
+    float: none;
+    margin: 0 auto ${spacing(4)};
+    padding: 0 ${spacing()};
+  }
+`;
+
 class Pricing extends React.Component {
   state = {
     blink: false,
@@ -347,7 +447,10 @@ class Pricing extends React.Component {
             <Header />
             <InnerWrapper>
               <Title>On-Demand Pricing</Title>
-              <Subtitle>How does BlockClusters’s pricing work?</Subtitle>
+              <Subtitle>
+                BlockClusters gives two offerings,<br /> in the cloud and
+                on-premises
+              </Subtitle>
             </InnerWrapper>
           </Wrapper>
         </Hero>
@@ -355,7 +458,7 @@ class Pricing extends React.Component {
           <CoverContent />
           <Content>
             <ContentTitle>
-              Simple, <span>predictable pricing</span>
+              In the <span>cloud</span>
             </ContentTitle>
             <ContentText>
               BlockCluster’s On-Demand Blockchain Nodes let you pay for compute
@@ -450,6 +553,44 @@ class Pricing extends React.Component {
             </Column>
           </Row>
         </Body>
+        <Enterprise>
+          <EnterpriseCover />
+          <EnterpriseWrapper>
+            <EnterpriseContent>
+              <EnterpriseTitle>
+                Enterprise <EnterpriseTitleEm>license</EnterpriseTitleEm>
+              </EnterpriseTitle>
+              <EnterpriseSubtitle>
+                You can install BlockCluster on-premise and in your hybrid,
+                public or private cloud by obtaining our enterprise license. Our
+                automation tools and infrastructure experts help you setup
+                blockcluster anywhere without any hassle.
+              </EnterpriseSubtitle>
+              <EnterpriseSubtitle>
+                BlockCluster enterprise works independently of any on-premise or
+                cloud infrastructure.
+              </EnterpriseSubtitle>
+            </EnterpriseContent>
+            <CardOnPremises>
+              <CardTitle>
+                Maximum <span>control</span>
+              </CardTitle>
+              <CardDescription>
+                BlockCluster Enterprise let’s you achieve your goals by securing
+                data as per as regulatory compliance.
+              </CardDescription>
+              <CardDescription>
+                This gives you the ability to further decentralize your
+                application and control over data and accounts.
+              </CardDescription>
+              <CardHighlight>
+                <Button component="a" href="/request-demo" secondary>
+                  Get in touch
+                </Button>
+              </CardHighlight>
+            </CardOnPremises>
+          </EnterpriseWrapper>
+        </Enterprise>
         <Footer />
       </Root>
     );

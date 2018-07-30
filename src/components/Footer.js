@@ -22,6 +22,7 @@ const Root = styled.footer`
   ${clearFix()};
   padding: ${spacing(3)} ${spacing()};
   position: absolute;
+  z-index: 3;
   width: 100%;
   bottom: 0;
   background: #f6fbff;
