@@ -545,7 +545,7 @@ class Pricing extends React.Component {
                   </NodeSpecs>
                   <NodePrice>
                     <NodePriceTitle>Price</NodePriceTitle>
-                    <NodePricePerHour>$0.284/hour</NodePricePerHour>
+                    <NodePricePerHour>$0.276/hour</NodePricePerHour>
                     <NodePricePerMonth>$199/month</NodePricePerMonth>
                   </NodePrice>
                 </CardFooter>
@@ -561,14 +561,15 @@ class Pricing extends React.Component {
                 Enterprise <EnterpriseTitleEm>license</EnterpriseTitleEm>
               </EnterpriseTitle>
               <EnterpriseSubtitle>
-                You can install BlockCluster on-premise and in your hybrid,
-                public or private cloud by obtaining our enterprise license. Our
-                automation tools and infrastructure experts help you setup
-                blockcluster anywhere without any hassle.
+                You can install BlockCluster on-premise on your local servers,
+                hybrid IT, public clouds and private cloud by purchasing our
+                enterprise license. Our automation tools and PSO experts help
+                you setup blockcluster across any infrastructure without any
+                hassle.
               </EnterpriseSubtitle>
               <EnterpriseSubtitle>
-                BlockCluster enterprise works independently of any on-premise or
-                cloud infrastructure.
+                It works independently of any infrastructure and seamlessly
+                across multiple geo servers.
               </EnterpriseSubtitle>
             </EnterpriseContent>
             <CardOnPremises>
