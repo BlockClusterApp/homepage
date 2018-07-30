@@ -57,7 +57,7 @@ If any part of this Agreement is found to be invalid or unenforceable under appl
 
 ## Governing Law
 
-The rights and obligations of the parties pursuant to this Agreement are governed by, and shall be construed in accordance with, the laws of the province of India.
+The rights and obligations of the parties pursuant to this Agreement are governed by, and shall be construed in accordance with, the laws of India.
 
 You may be subject to other local, provincial or state and national laws. You hereby irrevocably submit to the exclusive jurisdiction of the Courts of the Province of India for any dispute arising under or relating to this Agreement and waive your right to institute legal proceedings in any other jurisdiction. We shall be entitled to institute legal proceedings in connection with any matter arising under this Agreement in any jurisdiction where you reside, do business or have assets.
 
