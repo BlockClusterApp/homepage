@@ -123,10 +123,10 @@ const NavBottom = styled.nav`
 const SidebarNavItem = styled.a`
   ${uppercase};
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: ${colors.secondary};
-  padding: ${spacing(0.25)} ${spacing(1.5)};
+  padding: ${spacing(0.5)} ${spacing(1.5)};
 `;
 
 export default class Header extends React.Component {
@@ -155,6 +155,19 @@ export default class Header extends React.Component {
           onClose={() => this.setState({ showSidebar: false })}
         >
           <NavTop>
+            <SidebarNavItem href="/media">Media</SidebarNavItem>
+            <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
+            <SidebarNavItem href="/about">About us</SidebarNavItem>
+          </NavTop>
+          <NavBottom>
+            <SidebarNavItem href="//app.blockcluster.io/login">
+              Login
+            </SidebarNavItem>
+            <SidebarNavItem href="//app.blockcluster.io/register">
+              Register
+            </SidebarNavItem>
+          </NavBottom>
+          {/* <NavTop>
             <NavTitle>Site</NavTitle>
             <SidebarNavItem href="/media">Media</SidebarNavItem>
             <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
@@ -177,7 +190,7 @@ export default class Header extends React.Component {
             <SidebarNavItem href="//app.blockcluster.io/register">
               Register
             </SidebarNavItem>
-          </NavBottom>
+          </NavBottom> */}
         </Sidebar>
       </Root>
     );
