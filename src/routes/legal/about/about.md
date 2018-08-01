@@ -10,7 +10,7 @@ BlockCluster is an offering of Byzantine Technologies Pvt Ltd. BlockCluster is a
 
 ## Our Story
 
-From our Blockchain Ninjas' experience of working for multiple clients across various sectors, we realised that it was near impossible for any client to create and manage their blockchain applications with the toolsets and platforms currently available. Traditional platform services were simply too complicated, time consuming, and expensive to manage. As a result Blockcluster was conceptualised in early 2017.
+From our Blockchain Ninjas' experience of working for multiple clients across various sectors, we realised that it was very difficult for any client to create and manage their blockchain applications with the toolsets and platforms currently available. Traditional platform services were simply too complicated, time consuming, and expensive to manage. As a result Blockcluster was conceptualised in early 2017.
 
 We created BlockCluster as a BMS(Blockchain Management System) with the enterprise perspective. We wanted to offer a platform that seamlessly manage the technical complexities of blockchain and keep it simple so our customers can focus on creating their amazing blockchain applications or consortiums. Best of all - it's cheap. You can either use the public cloud version or install it on-premise with enterprise license.
 
