@@ -379,7 +379,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Secure and reliable</PointTitle>
                   <PointDescription>
-                    Impulse server provides full proof <Break />
+                    Impulse master node provides full proof <Break />
                     access control and privacy over data
                   </PointDescription>
                 </Point3>
