@@ -446,7 +446,7 @@ class Pricing extends React.Component {
           <Wrapper>
             <Header />
             <InnerWrapper>
-              <Title>On-Demand Pricing</Title>
+              <Title>On-Demand Nodes</Title>
               <Subtitle>
                 BlockClusters gives two offerings,<br /> on the cloud and
                 on-premises
