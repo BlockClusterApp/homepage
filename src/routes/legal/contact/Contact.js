@@ -97,7 +97,6 @@ function Checkbox(props) {
               field.value[props.name].includes(props.value)
             }
             onChange={() => {
-
               if (Object.keys(field.value).includes(props.name)) {
                 const nextValue = field.value[props.name].filter(
                   value => value !== props.value,
