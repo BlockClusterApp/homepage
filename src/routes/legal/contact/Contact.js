@@ -92,16 +92,35 @@ function Checkbox(props) {
             type="checkbox"
             id={props.value}
             {...props}
-            checked={field.value.includes(props.value)}
+            checked={
+              field.value[props.name] &&
+              field.value[props.name].includes(props.value)
+            }
             onChange={() => {
-              if (field.value.includes(props.value)) {
-                const nextValue = field.value.filter(
+
+              if (Object.keys(field.value).includes(props.name)) {
+                const nextValue = field.value[props.name].filter(
                   value => value !== props.value,
                 );
-                form.setFieldValue(props.name, nextValue);
+                let reasons = form.values[props.name];
+                if (!form.values[props.name]) {
+                  reasons = [];
+                }
+
+                if (!reasons.includes(nextValue)) {
+                  reasons.push(nextValue);
+                }
+                form.setFieldValue(props.name, reasons);
               } else {
                 const nextValue = field.value.concat(props.value);
-                form.setFieldValue(props.name, nextValue);
+                let reasons = form.values[props.name];
+                if (!form.values[props.name]) {
+                  reasons = [];
+                }
+                if (!reasons.includes(nextValue)) {
+                  reasons.push(nextValue);
+                }
+                form.setFieldValue(props.name, reasons);
               }
             }}
           />
@@ -156,6 +175,7 @@ export default class Contact extends React.Component {
                 message: yup.string().required(),
               })}
               onSubmit={async (values, { setSubmitting }) => {
+                console.log(values);
                 await axios
                   .post('/emails/contact', values)
                   .then(() =>
