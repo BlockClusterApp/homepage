@@ -13,7 +13,11 @@ import Button from '../../components/Button';
 import Header from '../home/components/Header';
 import Footer from '../../components/Footer';
 import ibc from './assets/ibc.jpg';
-
+import bh from './assets/bh.jpg'
+import wbcMalta from './assets/wbc-malta.jpg'
+import dubai from './assets/dubai.jpg'
+import dubai2 from './assets/dubai2.jpg'
+import zurich from './assets/zurich.jpg'
 // const check = (
 //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 //     <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
@@ -201,7 +205,7 @@ const CardImgLink = styled.a`
 
 const CardImg = styled.img`
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 
 const CardBody = styled.div`
@@ -287,6 +291,96 @@ class RequestDemo extends React.Component {
                 </CardBody>
               </Card>
             </Column>
+            <Column>
+                <Card>
+                  <CardImgLink href="https://www.block-hedge.com/" target="_blank">
+                    <CardImg src={bh} />
+                  </CardImgLink>
+                  <CardBody>
+                    <CardTitle href="https://www.block-hedge.com/" target="_blank">
+                      Block Hedge
+                    </CardTitle>
+                    <CardParagraph>
+                      The BlockCluster team will be attending Block Hedge on 31st
+                      of August 2018 at the Grant Hyatt in
+                      Bangkok.
+                    </CardParagraph>
+                  </CardBody>
+                </Card>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Card>
+                <CardImgLink href="http://malta.wbcseries.com/index.html" target="_blank">
+                  <CardImg src={wbcMalta} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle href="http://malta.wbcseries.com/index.html" target="_blank">
+                    World Blockchain Congress
+                  </CardTitle>
+                  <CardParagraph>
+                    The BlockCluster team will be attending the WBC on the 26th &
+                    27th of September 2018 at the Hotel Hilton in
+                    Malta.
+                  </CardParagraph>
+                </CardBody>
+              </Card>
+            </Column>
+            <Column>
+                <Card>
+                  <CardImgLink href="https://www.gitex.com/" target="_blank">
+                    <CardImg src={dubai} />
+                  </CardImgLink>
+                  <CardBody>
+                    <CardTitle href="https://www.gitex.com/" target="_blank">
+                      Gitex Technology Week
+                    </CardTitle>
+                    <CardParagraph>
+                      The BlockCluster team will be attending the Gitex Technology
+                      Week from 14th to 18th of October 2018 at the World Trade
+                      Centre in Dubai.
+                    </CardParagraph>
+                  </CardBody>
+                </Card>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Card>
+                <CardImgLink href="https://dubai.worldblockchainsummit.com/" target="_blank">
+                  <CardImg src={dubai2} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle href="https://dubai.worldblockchainsummit.com/" target="_blank">
+                    World Blockchain Summit
+                  </CardTitle>
+                  <CardParagraph>
+                    The BlockCluster team will be attending the WBS on the 24th &
+                    25th of October 2018 at the Jumeirah Emirates
+                    Towers in Dubai.
+                  </CardParagraph>
+                </CardBody>
+              </Card>
+            </Column>
+            <Column>
+                <Card>
+                  <CardImgLink href="http://switzerland.wbcseries.com/index.html" target="_blank">
+                    <CardImg src={zurich} />
+                  </CardImgLink>
+                  <CardBody>
+                    <CardTitle href="http://switzerland.wbcseries.com/index.html" target="_blank">
+                      World Blockchain Congress
+                    </CardTitle>
+                    <CardParagraph>
+                      The BlockCluster team will be attending the WBC on the 8th
+                      & 9th of November 2018 at Zurich, Switzerland.
+                    </CardParagraph>
+                  </CardBody>
+                </Card>
+            </Column>
+          </Row>
+          <Row>
             <Column>
               <Card>
                 <CardImgLink href="/" />
