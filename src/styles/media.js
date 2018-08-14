@@ -1,4 +1,8 @@
+export const max320 = '@media (max-width: 325px)';
+
 export const max374 = '@media (max-width: 374px)';
+
+export const max364 = '@media (max-width: 364px)';
 
 export const max375 = '@media (max-width: 375px)';
 
