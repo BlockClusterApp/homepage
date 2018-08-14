@@ -3,7 +3,7 @@ import { lighten, clearFix } from 'polished';
 import { siteWidth } from './constants';
 import { spacing } from './helpers';
 import * as colors from './colors';
-import * as media from './media';
+// import * as media from './media';
 
 export const wrapper = css`
   ${clearFix()}
