@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import SVG from 'react-svg-inline';
+// import SVG from 'react-svg-inline';
 import { lighten, clearFix } from 'polished';
 import logo from '../assets/images/logo-text.png';
 import logo2x from '../assets/images/logo-text@2x.png';
@@ -21,14 +21,27 @@ import { wrapper } from '../styles/mixins';
 const Root = styled.footer`
   ${clearFix()};
   padding: ${spacing(3)} ${spacing()};
-  position: absolute;
+  position: relative;
   z-index: 3;
   width: 100%;
   bottom: 0;
   background: #f6fbff;
+  margin-top: 0px;
 
   ${media.max768} {
     padding: 0 0 ${spacing()};
+    margin-top: 150px;
+  }
+  ${media.max460} {
+    margin-top: 180px;
+  }
+
+  ${media.max364} {
+    margin-top: 200px;
+  }
+
+  ${media.max320} {
+    margin-top: 230px;
   }
 `;
 
