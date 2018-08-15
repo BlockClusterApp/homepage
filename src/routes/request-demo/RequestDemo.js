@@ -1,4 +1,4 @@
-/* eslint-disable */
+
 import React, { Fragment } from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
@@ -26,10 +26,6 @@ const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
   height: 568px;
   margin-top: -114px;
-
-  ${media.max768} {
-    height: 568px;
-  }
 `;
 
 const Root = styled.section`
