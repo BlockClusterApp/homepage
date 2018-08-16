@@ -9,7 +9,6 @@ import logo2x from '../assets/images/logo-text@2x.png';
 // import logo from '../assets/images/logo.svg';
 import { media, spacing, colors } from '../styles';
 import { wrapper } from '../styles/mixins';
-import { relative } from 'upath';
 // import { FACEBOOK, TWITTER, MEDIUM } from '../constants/providers';
 // import {
 //   FACEBOOK_LINK,
