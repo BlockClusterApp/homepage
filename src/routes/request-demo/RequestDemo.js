@@ -24,20 +24,23 @@ import { LABELS } from './constants';
 
 const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
-  height: 568px;
+  height: 50vh;
   margin-top: -114px;
 
-  ${media.max768} {
-    height: 80vh;
-  }
+
   ${media.max640}{
     height: 100vh;
   }
-  ${media.max460}{
-    height: 110vh;
+
+  ${media.max375}{
+    height:120vh;
   }
+  ${media.max320}{
+    height:170vh;
+  }
+  
   ${media.max254}{
-    height: 130vh;
+    height: 160vh;
   }
 `;
 
