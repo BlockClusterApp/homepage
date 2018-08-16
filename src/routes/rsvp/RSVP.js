@@ -29,11 +29,6 @@ const Bg = styled.div`
 const Root = styled.section`
   position: relative;
   min-height: 100%;
-  padding-bottom: 138px;
-
-  ${media.max768} {
-    padding-bottom: 264px;
-  }
 `;
 
 const Main = styled.div`

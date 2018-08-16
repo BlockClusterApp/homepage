@@ -28,7 +28,16 @@ const Bg = styled.div`
   margin-top: -114px;
 
   ${media.max768} {
-    height: 568px;
+    height: 80vh;
+  }
+  ${media.max640}{
+    height: 100vh;
+  }
+  ${media.max460}{
+    height: 110vh;
+  }
+  ${media.max254}{
+    height: 130vh;
   }
 `;
 
