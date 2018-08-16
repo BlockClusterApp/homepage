@@ -33,11 +33,6 @@ const Bg = styled.div`
 const Root = styled.section`
   position: relative;
   min-height: 100%;
-  padding-bottom: 138px;
-
-  ${media.max768} {
-    padding-bottom: 264px;
-  }
 `;
 
 const Main = styled.div`
@@ -82,7 +77,6 @@ const Cover2 = styled.div`
 const CoverContent = styled.div`
   ${cover};
   z-index: -1;
-  height: 110%;
   background: linear-gradient(#f6fbff, #eef7fe);
   transform: matrix(1, 0, 0, 1, 0, -124);
 

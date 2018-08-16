@@ -1,4 +1,3 @@
-
 import React, { Fragment } from 'react';
 import { Formik, Form } from 'formik';
 import axios from 'axios';
@@ -15,7 +14,6 @@ import Header from '../home/components/Header';
 import Footer from '../../components/Footer';
 import { LABELS } from './constants';
 
-
 // const check = (
 //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 //     <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
@@ -24,8 +22,22 @@ import { LABELS } from './constants';
 
 const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
-  height: 568px;
+  height: 50vh;
   margin-top: -114px;
+
+  ${media.max640} {
+    height: 100vh;
+  }
+
+  ${media.max375} {
+    height: 120vh;
+  }
+  ${media.max320} {
+    height: 170vh;
+  }
+  ${media.max254} {
+    height: 160vh;
+  }
 `;
 
 const Root = styled.section`

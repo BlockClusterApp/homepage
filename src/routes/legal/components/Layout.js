@@ -15,10 +15,10 @@ const Wrapper = styled.div`
 
 // padding-bottom footer height
 const Root = styled.div`
-  padding-bottom: 138px;
+  padding-bottom: 0px;
 
   ${media.max768} {
-    padding-bottom: 264px;
+    padding-bottom: 0px;
   }
 `;
 
@@ -94,7 +94,7 @@ const Content = styled.div`
   ${media.min768} {
     float: left;
     width: 75%;
-    margin-bottom: ${spacing(2)};
+    margin-bottom: ${spacing(4)};
   }
 `;
 

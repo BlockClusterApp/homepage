@@ -26,12 +26,6 @@ const Bg = styled.div`
 const Root = styled.section`
   position: relative;
   min-height: 100%;
-  padding-bottom: 138px;
-  padding-bottom: 184px;
-
-  ${media.max768} {
-    padding-bottom: 264px;
-  }
 `;
 
 const Hero = styled.div`

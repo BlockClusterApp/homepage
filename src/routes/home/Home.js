@@ -8,15 +8,10 @@ import Infra from './components/Infra';
 import Features from './components/Features';
 import Contact from './components/Contact';
 import Footer from '../../components/Footer';
-import { media } from '../../styles';
+// import { media } from '../../styles';
 
 const Root = styled.div`
   position: relative;
-  padding-bottom: 138px;
-
-  ${media.max768} {
-    padding-bottom: 264px;
-  }
 `;
 
 const Home = () => (
