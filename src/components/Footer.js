@@ -27,22 +27,6 @@ const Root = styled.footer`
   bottom: 0;
   background: #f6fbff;
   margin-top: 0px;
-
-  ${media.max768} {
-    padding: 0 0 ${spacing()};
-    margin-top: 150px;
-  }
-  ${media.max460} {
-    margin-top: 180px;
-  }
-
-  ${media.max364} {
-    margin-top: 200px;
-  }
-
-  ${media.max320} {
-    margin-top: 230px;
-  }
 `;
 
 const Wrapper = styled.div`
