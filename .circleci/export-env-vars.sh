@@ -5,7 +5,7 @@ if [ "$CIRCLE_BRANCH" = "master" ];
 then
   export NODE_ENV=production
   export WEB_ENV=production
-  export CLUSTER_PREFIX="production-ap-south-1a";
+  export CLUSTER_PREFIX="production-ap-south-1b";
 elif [ "$CIRCLE_BRANCH" = "staging" ];
 then
   export NODE_ENV=staging
