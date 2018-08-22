@@ -22,6 +22,8 @@ export const max768 = '@media (max-width: 768px)';
 
 export const min768 = '@media (min-width: 769px)';
 
+export const max820 = '@media (max-width: 820px)';
+
 export const max980 = '@media (max-width: 980px)';
 
 export const min980 = '@media (min-width: 981px)';
