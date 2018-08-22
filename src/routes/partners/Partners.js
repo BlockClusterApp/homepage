@@ -1,8 +1,8 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { clearFix, mix, lighten, darken, ellipsis } from 'polished';
+import { clearFix } from 'polished';
 import { colors, spacing, media } from '../../styles';
-import { wrapper, cover, card, uppercase } from '../../styles/mixins';
+import { wrapper, cover } from '../../styles/mixins';
 import PartnersButton from './PartnersButton';
 import Header from '../home/components/Header';
 import Footer from '../../components/Footer';
@@ -350,7 +350,7 @@ class Partners extends React.Component {
             </ContentTitle>
             <ContentText>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-              Pellentesque porta euismod dolor,urabitur justo odio, elementum at 
+              Pellentesque porta euismod dolor,urabitur justo odio, elementum at
               mi in, molestie vulputate eros.
             </ContentText>
             {/* Keep adding context tag for more context */}
