@@ -162,12 +162,12 @@ const Card = styled.div`
   max-width: 382px;
   margin: 0 auto;
   text-align: left;
-  padding: ${spacing(1.5)};
+  padding: ${spacing(2.5)};
 
   @media (min-width: 850px) {
     display: inline-block;
     width: 100%;
-    height: 486px;
+    height: 450px;
   }
 `;
 
