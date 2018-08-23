@@ -346,7 +346,7 @@ class Partners extends React.Component {
           <CoverContent />
           <Content>
             <ContentTitle>
-              Benefits of being a<span> Partner</span>
+              Partner<span> Types</span>
             </ContentTitle>
             <ContentText>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam

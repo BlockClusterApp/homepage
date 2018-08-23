@@ -247,7 +247,7 @@ class Benefits extends React.Component {
         <Wrapper>
           <Title ref={this.titleRef}>
             <AnimateText
-              textNodes={['Partner', <TitleEm> Types </TitleEm>]}
+              textNodes={['Benefits of being a', <TitleEm> Partner </TitleEm>]}
               animationStyle="slide"
             />
           </Title>
