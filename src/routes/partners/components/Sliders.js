@@ -51,7 +51,7 @@ const BrandBack1 = styled.div`
   margin-left: -410px;
   margin-top: -120px;
   width: 220px;
-  transform: skewX(-12deg); 
+  transform: skewX(-12deg);
 `;
 const BrandBack2 = styled.div`
   background-color: rgba(63, 104, 179, 0.657);
@@ -89,7 +89,6 @@ const Person = styled.div`
   color: #404549;
 `;
 
-
 class Sliders extends React.Component {
   constructor(props) {
     super(props);
@@ -111,7 +110,7 @@ class Sliders extends React.Component {
 
   render() {
     const settings = {
-      customPaging: function(i) {
+      customPaging(i) {
         return (
           <a>
             <img
@@ -145,11 +144,10 @@ class Sliders extends React.Component {
                 <BrandBack1 />
                 <FontAwesomeIcon icon={faPiggyBank} className="brandIcons" />
                 <Details>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-                Nam Nam sed velit urna. Pellentesque porta euismod dolor, 
-                ut varius arcu efficitur.
-                Nam Nam sed velit urna. Pellentesque porta euismod dolor, 
-                ut varius arcu efficitur
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
+                  Nam sed velit urna. Pellentesque porta euismod dolor, ut
+                  varius arcu efficitur. Nam Nam sed velit urna. Pellentesque
+                  porta euismod dolor, ut varius arcu efficitur
                 </Details>
                 <Person>
                   AROKO BELL <br />Chief Tech Officer
@@ -162,11 +160,10 @@ class Sliders extends React.Component {
                 <BrandBack2 />
                 <FontAwesomeIcon icon={faBicycle} className="brandIcons" />
                 <Details>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-                 Nam Nam sed velit urna. Pellentesque porta euismod dolor, 
-                ut varius arcu efficitur.
-                Nam Nam sed velit urna. Pellentesque porta euismod dolor, 
-                ut varius arcu efficitur
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
+                  Nam sed velit urna. Pellentesque porta euismod dolor, ut
+                  varius arcu efficitur. Nam Nam sed velit urna. Pellentesque
+                  porta euismod dolor, ut varius arcu efficitur
                 </Details>
                 <Person>
                   STEVE CAT <br />
@@ -180,15 +177,14 @@ class Sliders extends React.Component {
                 <BrandBack3 />
                 <FontAwesomeIcon icon={faTaxi} className="brandIcons" />
                 <Details>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit 
-               sed velit urna. Pellentesque porta euismod dolor, 
-            ut varius arcu efficitur.      
-            Nam Nam sed velit urna. Pellentesque porta euismod 
-            dolor, dolor, ut varius arcu efficitur
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit sed
+                  velit urna. Pellentesque porta euismod dolor, ut varius arcu
+                  efficitur. Nam Nam sed velit urna. Pellentesque porta euismod
+                  dolor, dolor, ut varius arcu efficitur
                 </Details>
                 <Person>
                   STEPHEN MARK <br />Chief Tech Officer
-              </Person>
+                </Person>
               </SlideThree>
             </Slide>
           </Slider>
