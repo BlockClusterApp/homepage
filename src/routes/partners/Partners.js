@@ -7,6 +7,7 @@ import PartnersButton from './PartnersButton';
 import Header from '../home/components/Header';
 import Footer from '../../components/Footer';
 import Benefits from './components/Benefits';
+import Sliders from './components/Sliders';
 // import Problem from '../home/components/Problem';
 
 const Root = styled.section`
@@ -431,6 +432,7 @@ class Partners extends React.Component {
         <Benefits />
         <Enterprise>
           <EnterpriseCover />
+          <Sliders />
           <EnterpriseWrapper>
             <EnterpriseTitle>
               Be our <EnterpriseTitleEm>Partner</EnterpriseTitleEm>
