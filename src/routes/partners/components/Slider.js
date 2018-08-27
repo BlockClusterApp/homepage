@@ -2,7 +2,11 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAirFreshener } from '@fortawesome/free-solid-svg-icons';
-import { media } from '../../../styles';
+import { colors, uppercase, media } from '../../../styles';
+import { clearFix } from 'polished';
+import apple from '../assets/apple.png';
+import appleLightBrown from '../assets/appleLightBrown.png';
+import appleLightBlue from '../assets/appleLightBlue.png';
 
 const Root = styled.section`
   height: 100%;
@@ -33,95 +37,60 @@ const Bg = styled.div`
     margin-bottom: 100px;
   }
 `;
+
 const Wrap = styled.section`
   width: 820px;
   background: #fff;
   height: 350px;
   margin: 0 auto;
   border-radius: 10px;
-  margin-top:64px;
-  margin-bottom: 100px;
+  margin-top: 64px;
+  margin-bottom: 28px;
   overflow: hidden;
-   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
-
+  box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
+  ${clearFix()};
   ${media.max980} {
     width: 640px;
     height: 270px;
   }
   ${media.max768} {
-    height: 260px;
-  ${media.max700}{
+    height: auto;
+  }
+  ${media.max700} {
     width: 420px;
-    height: 200px
-  }
-  ${media.max460}{
-    width: 320px;
-    height: 200px
-  }
-  ${media.max375}{
-    width: 280px;
-    height: 200px
-  }
-`;
-const LogoWrapper = styled.div`
-  margin: 0 auto;
-  width: 600px;
-  padding-top: 23px;
-  ${media.max980} {
-    padding-top: 0;
-  }
-  ${media.max768} {
-    padding-top: 10px;
-  }
-  ${media.max700} {
-    padding-top: 0px;
-  }
-`;
-const Logo = styled.div`
-  background: #fff;
-  height: 305px;
-  width: 500px;
-  display: inline-block;
-  margin-right: 30px;
-  padding: 30px;
-
-  ${media.max980} {
-    height: 120px;
-    padding: 10px;
-  }
-  ${media.max700} {
-    height: 120px;
-    padding: 20px;
-    display: flex;
-    width: 400px;
   }
   ${media.max460} {
-    height: 120px;
-    padding: 20px;
-    display: flex;
-    width: 400px;
+    width: 320px;
+  }
+  ${media.max375} {
+    width: 280px;
   }
 `;
 
-const slide = keyframes`
-  from{
-      transform: translateX(40%);
-  }
-  to {
-      transform: translateX(-380%);
-  }
-`;
-
-const Move = styled.div`
-  display: flex;
+const WrapLogos = styled.section`
+  width: 820px;
+  background: transparent;
   margin: 0 auto;
-  animation: ${slide} 10s linear infinite;
-
-  &:hover {
-    animation-play-state: paused;
+  border-radius: 10px;
+  margin-bottom: 100px;
+  overflow: hidden;
+  ${clearFix()};
+  ${media.max980} {
+    width: 640px;
+    height: 270px;
   }
-  &:focus {
-    animation-play-state: paused;
+  ${media.max768} {
+    height: auto;
+  }
+  ${media.max700} {
+    width: 420px;
+  }
+  ${media.max460} {
+    width: 320px;
+  }
+  ${media.max375} {
+    width: 280px;
+  }
 `;
 
 const FontAwesomeIconStyle = styled.p`
@@ -132,23 +101,105 @@ const FontAwesomeIconStyle = styled.p`
     margin-right: 30px;
   }
 `;
-const PartnerTitle = styled.h3`
-'Source Sans Pro','Helvetica Neue',Helvetica,Arial,sans-serif;
- font-size: 34px;
- font-weight: 600;
- width: 250px;
- ${media.max980}{
-   font-size: 18px;
- }
- ${media.max700}{
-   display:none;
- }
-`;
-const ParterTestimonial = styled.p`
-  width: 460px;
-  color: #585f64;
+
+const LogoWrapper = styled.div`
+  width: 40%;
+  display: inline-block;
+  height: 100%;
+  float: left;
+  position: relative;
+  z-index: 3;
+
+  ${media.max768} {
+    display: block;
+    width: 100%;
+    float: none;
+    background: ${colors.secondary};
+    padding: 30px;
+  }
 `;
 
+const LogoCover = styled.div`
+  position: absolute;
+  background: ${colors.secondary};
+  transform: matrix(1.1, 0, -0.4, 1, -50, 0);
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+
+  ${media.max768} {
+    display: none;
+  }
+`;
+
+const LogoCoverHeader = styled.div`
+  padding: 25px;
+  background: ${colors.primary};
+  ${media.max768} {
+    display: none;
+  }
+`;
+
+const TextWrapper = styled.div`
+  width: 60%;
+  display: inline-block;
+  padding: 80px;
+  height: 100%;
+  text-align: left;
+  float: left;
+  ${media.max768} {
+    display: block;
+    width: 100%;
+    float: none;
+    padding: 30px;
+  }
+`;
+
+const ContentLogo = styled.img`
+  width: 35%;
+  position: absolute;
+  left: 26%;
+  top: 30%;
+
+  ${media.max768} {
+    position: static;
+    margin-left: auto;
+    margin-right: auto;
+    display: inherit;
+    width: 80px;
+  }
+`;
+
+const Quote = styled.q`
+  font-style: italic;
+`;
+
+const PersonName = styled.div`
+  ${uppercase} margin-top: 20px;
+  font-weiight: bold;
+`;
+
+const PersonDesignation = styled.p``;
+
+const LogoList = styled.div`
+  display: block;
+  text-align: center;
+`;
+
+const Logo = styled.img`
+  width: 8%;
+  margin-left: 20px;
+  margin-right: 20px;
+
+  ${media.max700} {
+    width: 12%;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+`;
+
+// <LeftArrow></LeftArrow>
+// <RightArrow></RightArrow>
 class Slider extends React.Component {
   render() {
     return (
@@ -159,88 +210,33 @@ class Slider extends React.Component {
         </SliderHeading>
         <Wrap>
           <LogoWrapper>
-            <Move>
-              <Logo>
-                <PartnerTitle>Company 1</PartnerTitle>
-                <FontAwesomeIconStyle>
-                  <FontAwesomeIcon icon={faAirFreshener} />
-                </FontAwesomeIconStyle>
-                <ParterTestimonial>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  sem velit, placerat ac ex auctor, tincidunt pretium metus.
-                  Nulla auctor diam eget consequat vulputate.
-                  <br />
-                  KIM LEE<br />
-                  COO
-                </ParterTestimonial>
-              </Logo>
-              <Logo>
-                <PartnerTitle>Company 2</PartnerTitle>
-                <FontAwesomeIconStyle>
-                  <FontAwesomeIcon icon={faAirFreshener} />
-                </FontAwesomeIconStyle>
-                <ParterTestimonial>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  sem velit, placerat ac ex auctor, tincidunt pretium metus.
-                  Nulla auctor diam eget consequat vulputate.
-                  <br />
-                  KIM LEE<br />
-                  COO
-                </ParterTestimonial>
-              </Logo>
-              <Logo>
-                <PartnerTitle>Company 3</PartnerTitle>
-                <FontAwesomeIconStyle>
-                  <FontAwesomeIcon icon={faAirFreshener} />
-                </FontAwesomeIconStyle>
-                <ParterTestimonial>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  sem velit, placerat ac ex auctor, tincidunt pretium metus.
-                  Nulla auctor diam eget consequat vulputate.
-                  <br />
-                  KIM LEE<br />
-                  COO
-                </ParterTestimonial>
-              </Logo>
-              <Logo>
-                <PartnerTitle>Company 4</PartnerTitle>
-                <FontAwesomeIconStyle>
-                  <FontAwesomeIcon icon={faAirFreshener} />
-                </FontAwesomeIconStyle>
-                <ParterTestimonial>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  sem velit, placerat ac ex auctor, tincidunt pretium metus.
-                  Nulla auctor diam eget consequat vulputate.
-                  <br />
-                  <br />
-                  <span style={{ color: '#025faa', fontWeight: 700 }}>
-                    KIM LEE CEO
-                  </span>
-                  <br />
-                  The Solar Company
-                </ParterTestimonial>
-              </Logo>
-              <Logo>
-                <PartnerTitle>Company 5</PartnerTitle>
-                <FontAwesomeIconStyle>
-                  <FontAwesomeIcon icon={faAirFreshener} />
-                </FontAwesomeIconStyle>
-                <ParterTestimonial>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                  sem velit, placerat ac ex auctor, tincidunt pretium metus.
-                  Nulla auctor diam eget consequat vulputate.
-                  <br />
-                  <br />
-                  <span style={{ color: '#025faa', fontWeight: 700 }}>
-                    KIM LEE CEO
-                  </span>
-                  <br />
-                  The Solar Company
-                </ParterTestimonial>
-              </Logo>
-            </Move>
+            <LogoCover>
+              <LogoCoverHeader />
+            </LogoCover>
+            <ContentLogo src={apple} />
           </LogoWrapper>
+          <TextWrapper>
+            <Quote>
+              &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Morbi ac odio eu est suscipit hendrerit quis porta nisi. Proin
+              nisl dui, blandit blandit tortor ac, imperdiet bibendum massa.
+              Nulla ut nisi sed purus ultricies porttitor sollicitudin eget
+              nisi.&nbsp;
+            </Quote>
+            <PersonName>Narayan Prusty</PersonName>
+            <PersonDesignation>Founder, CTO</PersonDesignation>
+          </TextWrapper>
+          ̵{' '}
         </Wrap>
+        <WrapLogos>
+          <LogoList>
+            <Logo src={appleLightBlue} />
+            <Logo src={appleLightBrown} />
+            <Logo src={appleLightBrown} />
+            <Logo src={appleLightBrown} />
+            <Logo src={appleLightBrown} />
+          </LogoList>
+        </WrapLogos>
       </Root>
     );
   }
