@@ -18,6 +18,8 @@ export const max585h = '@media (max-height:585px)';
 
 export const max640 = '@media (max-width: 640px)';
 
+export const max700 = '@media (max-width: 700px)';
+
 export const max768 = '@media (max-width: 768px)';
 
 export const min768 = '@media (min-width: 769px)';
