@@ -17,7 +17,7 @@ const Root = styled.section`
   text-align: center;
 
   ${media.min768} {
-    padding: ${spacing(7)} ${spacing()};
+    padding: 112px 16px 0 16px;
   }
 
   ${media.max375} {
@@ -33,7 +33,7 @@ const Cover = styled.div`
   transform: matrix(1, 0.06, 0, 1, 0, -1);
 
   ${media.max768} {
-    transform: matrix(1, 0.06, 0, 1, 0, -1);
+    height: 100%;
   }
 `;
 
