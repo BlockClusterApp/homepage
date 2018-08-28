@@ -1,12 +1,20 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAirFreshener } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { colors, uppercase, media } from '../../../styles';
 import { clearFix } from 'polished';
 import apple from '../assets/apple.png';
 import appleLightBrown from '../assets/appleLightBrown.png';
 import appleLightBlue from '../assets/appleLightBlue.png';
+import tm from '../assets/tm.png';
+import bdb from '../assets/bigchainDB.png';
+import ith from '../assets/ith.png';
+import mc from '../assets/mc.png';
+import era from '../assets/era.png';
+import boh from '../assets/boh.png';
+import sc from '../assets/sc.png';
+import eleven01 from '../assets/eleven01.png';
 
 const Root = styled.section`
   height: 100%;
@@ -22,6 +30,7 @@ const SliderHeading = styled.h1`
     margin-top: 60px;
   }
 `;
+
 const Bg = styled.div`
   position: absolute;
   top: 0;
@@ -45,7 +54,6 @@ const Wrap = styled.section`
   margin: 0 auto;
   border-radius: 10px;
   margin-top: 64px;
-  margin-bottom: 28px;
   overflow: hidden;
   box-shadow: 0 15px 35px rgba(51, 72, 97, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   ${clearFix()};
@@ -55,6 +63,7 @@ const Wrap = styled.section`
   }
   ${media.max768} {
     height: auto;
+    margin-bottom: 40px;
   }
   ${media.max700} {
     width: 420px;
@@ -72,7 +81,7 @@ const WrapLogos = styled.section`
   background: transparent;
   margin: 0 auto;
   border-radius: 10px;
-  margin-bottom: 100px;
+  margin-bottom: 140px;
   overflow: hidden;
   ${clearFix()};
   ${media.max980} {
@@ -81,6 +90,7 @@ const WrapLogos = styled.section`
   }
   ${media.max768} {
     height: auto;
+    margin-bottom: 80px;
   }
   ${media.max700} {
     width: 420px;
@@ -93,12 +103,36 @@ const WrapLogos = styled.section`
   }
 `;
 
-const FontAwesomeIconStyle = styled.p`
-  font-size: 32px;
-  text-align: left;
-  color: #e5e5e5;
+const Arrows = styled.section`
+  top: -196px;
+  position: relative;
+  width: 868px;
+  background: transparent;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  ${clearFix()};
+  height: 44px;
+  ${media.max980} {
+    width: 688px;
+    top: -150px;
+  }
+  ${media.max768} {
+    top: -258px;
+  }
+
   ${media.max700} {
-    margin-right: 30px;
+    width: 468px;
+    top: -304px;
+  }
+
+  ${media.max460} {
+    width: 368px;
+    top: -354px;
+  }
+  ${media.max375} {
+    width: 328px;
+    top: -378px;
   }
 `;
 
@@ -147,6 +181,11 @@ const TextWrapper = styled.div`
   height: 100%;
   text-align: left;
   float: left;
+  transition: all 0.5s;
+
+  ${media.max980} {
+    padding: 40px;
+  }
   ${media.max768} {
     display: block;
     width: 100%;
@@ -160,6 +199,8 @@ const ContentLogo = styled.img`
   position: absolute;
   left: 26%;
   top: 30%;
+  opacity: ${props => props.opacity};
+  transition: all 0.5s;
 
   ${media.max768} {
     position: static;
@@ -172,14 +213,21 @@ const ContentLogo = styled.img`
 
 const Quote = styled.q`
   font-style: italic;
+  opacity: ${props => props.opacity};
+  transition: all 0.5s;
 `;
 
 const PersonName = styled.div`
   ${uppercase} margin-top: 20px;
   font-weiight: bold;
+  opacity: ${props => props.opacity};
+  transition: all 0.5s;
 `;
 
-const PersonDesignation = styled.p``;
+const PersonDesignation = styled.p`
+  opacity: ${props => props.opacity};
+  transition: all 0.5s;
+`;
 
 const LogoList = styled.div`
   display: block;
@@ -187,54 +235,211 @@ const LogoList = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 8%;
+  height: 40px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 28px;
 
   ${media.max700} {
-    width: 12%;
+    height: 20px;
     margin-left: 8px;
     margin-right: 8px;
   }
 `;
 
-// <LeftArrow></LeftArrow>
-// <RightArrow></RightArrow>
+const LeftArrow = styled.div`
+  position: absolute;
+  width: 40px;
+  border-radius: 25px;
+  background: #fff;
+  z-index: 4;
+  height: 40px;
+  box-shadow: 0 0 0 2px rgb(233, 241, 246);
+  top: 2px;
+  left: 4px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover:not([disabled]) {
+    left: 2px;
+  }
+`;
+
+const RightArrow = styled.div`
+  position: absolute;
+  width: 40px;
+  border-radius: 25px;
+  background: #fff;
+  z-index: 4;
+  height: 40px;
+  box-shadow: 0 0 0 2px rgb(233, 241, 246);
+  top: 2px;
+  right: 4px;
+  font-size: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.1s;
+
+  &:hover:not([disabled]) {
+    right: 2px;
+  }
+`;
+
 class Slider extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      current: 0,
+      opacity: '1',
+      content: [
+        {
+          logo: apple,
+          text: `Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Morbi ac odio eu est suscipit
+                  hendrerit quis porta nisi. Proin nisl dui, blandit
+                  blandit tortor ac, imperdiet bibendum massa. Nulla
+                  ut nisi sed purus ultricies porttitor sollicitudin
+                  eget nisi. Apple`,
+          name: `Narayan Prusty`,
+          designation: `Founder, CTO`,
+        },
+        {
+          logo: apple,
+          text: `Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Morbi ac odio eu est suscipit
+                  hendrerit quis porta nisi. Proin nisl dui, blandit
+                  blandit tortor ac, imperdiet bibendum massa. Nulla
+                  ut nisi sed purus ultricies porttitor sollicitudin
+                  eget nisi. Ball`,
+          name: `Vinshu Gupta`,
+          designation: `Co-Founder, CEO`,
+        },
+      ],
+    };
+
+    this.goPrev = this.goPrev.bind(this);
+    this.goNext = this.goNext.bind(this);
+  }
+
+  goPrev() {
+    if (this.state.current === 0) {
+      this.setState(
+        {
+          opacity: '0',
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({
+              current: this.state.content.length - 1,
+              opacity: '1',
+            });
+          }, 500);
+        },
+      );
+    } else {
+      this.setState(
+        {
+          opacity: '0',
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({
+              current: this.state.current - 1,
+              opacity: '1',
+            });
+          }, 500);
+        },
+      );
+    }
+  }
+
+  goNext() {
+    console.log(this.state.current, this.state.content.length - 1);
+    if (this.state.current === this.state.content.length - 1) {
+      this.setState(
+        {
+          opacity: '0',
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({
+              current: 0,
+              opacity: '1',
+            });
+          }, 500);
+        },
+      );
+    } else {
+      this.setState(
+        {
+          opacity: '0',
+        },
+        () => {
+          setTimeout(() => {
+            this.setState({
+              current: this.state.current + 1,
+              opacity: '1',
+            });
+          }, 500);
+        },
+      );
+    }
+  }
+
   render() {
     return (
       <Root>
         <Bg />
         <SliderHeading>
-          Partner Sucess<span style={{ color: '#025faa' }}> Stories</span>
+          Partner Sucess
+          <span style={{ color: '#025faa' }}> Stories</span>
         </SliderHeading>
         <Wrap>
           <LogoWrapper>
             <LogoCover>
               <LogoCoverHeader />
             </LogoCover>
-            <ContentLogo src={apple} />
+            <ContentLogo
+              opacity={this.state.opacity}
+              src={this.state.content[this.state.current].logo}
+            />
           </LogoWrapper>
           <TextWrapper>
-            <Quote>
-              &nbsp;Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Morbi ac odio eu est suscipit hendrerit quis porta nisi. Proin
-              nisl dui, blandit blandit tortor ac, imperdiet bibendum massa.
-              Nulla ut nisi sed purus ultricies porttitor sollicitudin eget
-              nisi.&nbsp;
+            <Quote opacity={this.state.opacity}>
+              &nbsp;{this.state.content[this.state.current].text}&nbsp;
             </Quote>
-            <PersonName>Narayan Prusty</PersonName>
-            <PersonDesignation>Founder, CTO</PersonDesignation>
+            <PersonName opacity={this.state.opacity}>
+              {this.state.content[this.state.current].name}
+            </PersonName>
+            <PersonDesignation opacity={this.state.opacity}>
+              {this.state.content[this.state.current].designation}
+            </PersonDesignation>
           </TextWrapper>
-          ̵{' '}
         </Wrap>
+        <Arrows>
+          <LeftArrow onClick={this.goPrev}>
+            <FontAwesomeIcon
+              icon={faArrowLeft}
+              style={{ position: 'relative', top: '3px' }}
+            />
+          </LeftArrow>
+          <RightArrow onClick={this.goNext}>
+            <FontAwesomeIcon
+              icon={faArrowRight}
+              style={{ position: 'relative', top: '3px' }}
+            />
+          </RightArrow>
+        </Arrows>
         <WrapLogos>
           <LogoList>
-            <Logo src={appleLightBlue} />
-            <Logo src={appleLightBrown} />
-            <Logo src={appleLightBrown} />
-            <Logo src={appleLightBrown} />
-            <Logo src={appleLightBrown} />
+            <Logo src={ith} />
+            <Logo src={mc} />
+            <Logo src={era} />
+            <Logo src={boh} />
+            <Logo src={eleven01} />
           </LogoList>
         </WrapLogos>
       </Root>
