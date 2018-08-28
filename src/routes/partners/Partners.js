@@ -79,6 +79,7 @@ const CoverContent = styled.div`
   z-index: -1;
   background: linear-gradient(#f6fbff, #eef7fe);
   transform: matrix(1, 0, 0, 1, 0, -124);
+  height: 110%;
 
   ${media.max768} {
     transform: matrix(1, 0, 0, 1, 0, -156);
