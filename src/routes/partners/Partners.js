@@ -11,11 +11,6 @@ import Slider from './components/Slider';
 // import Sliders from './components/Sliders';
 // import Problem from '../home/components/Problem';
 
-const Root = styled.section`
-  position: relative;
-  min-height: 100%;
-`;
-
 const Hero = styled.div`
   position: relative;
   z-index: 3;
@@ -29,6 +24,30 @@ const Hero = styled.div`
   }
 `;
 
+const Bg = styled.div`
+  background: linear-gradient(#f6fbff, #eef7fe);
+  height: 468px;
+  margin-top: -114px;
+`;
+
+const Root = styled.section`
+  position: relative;
+  min-height: 100%;
+`;
+
+const Main = styled.div`
+  position: relative;
+  z-index: 3;
+  height: 440px;
+  padding-top: ${spacing()};
+  color: #fff;
+  text-align: center;
+
+  ${media.max768} {
+    height: 392px;
+  }
+`;
+
 const Cover = styled.div`
   ${cover};
   height: 114%;
@@ -36,7 +55,7 @@ const Cover = styled.div`
 
   ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
   background-size: cover; */}
-  transform: matrix(1, 0.04, 0, 1, 0, -116);
+  transform: matrix(1, 0.08, 0, 1, 0, -116);
 
   ${props =>
     props.formSuccess &&
@@ -52,13 +71,12 @@ const Cover2 = styled.div`
   opacity: 0.5;
   ${'' /* background-color: ${colors.secondary}; */} ${'' /* background-image: url(${heroBackground});
   background-size: cover; */}
-  transform: matrix(1, -0.08, 0, 1, 0, -116);
+  transform: matrix(1, 0.08, 0, 1, 0, -116);
 `;
 
 const CoverContent = styled.div`
   ${cover};
   z-index: -1;
-  height: 120%;
   background: linear-gradient(#f6fbff, #eef7fe);
   transform: matrix(1, 0, 0, 1, 0, -124);
 
@@ -77,7 +95,7 @@ const InnerWrapper = styled.div`
   position: relative;
   padding: ${spacing(1.5)} 0;
 
-  @media (max-width: 768px) {
+  @media (max-width: 460px) {
     padding-top: ${spacing(4)};
   }
 
@@ -93,7 +111,7 @@ const Title = styled.h1`
   font-size: 42px;
   line-height: 1.2;
   font-weight: 700;
-  margin-bottom: ${spacing(1.5)};
+  margin-bottom: ${spacing(1)};
 
   ${media.max768} {
     font-size: 31px;
@@ -122,6 +140,11 @@ const Subtitle = styled.h2`
   ${media.max375} {
     font-size: 18px;
   }
+`;
+
+const SubtitleLink = styled.a`
+  color: #fff;
+  text-decoration: underline;
 `;
 
 const Body = styled.div`
@@ -330,7 +353,7 @@ class Partners extends React.Component {
   render() {
     return (
       <Root>
-        <Hero>
+        <Main>
           <Cover />
           <Cover2 />
           <Wrapper>
@@ -338,12 +361,14 @@ class Partners extends React.Component {
             <InnerWrapper>
               <Title>Partners</Title>
               <Subtitle>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. <br />
-                Pellentesque porta euismod dolor, ut varius arcu efficitur ut.
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Pellentesque porta euismod dolor, ut varius arcu efficitur ut.{' '}
+                {''}
+                <SubtitleLink href="/rsvp">Become our Partner!</SubtitleLink>
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
-        </Hero>
+        </Main>
         <Body>
           <CoverContent />
           <Content>

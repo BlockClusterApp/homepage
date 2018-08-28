@@ -394,7 +394,7 @@ class Slider extends React.Component {
       <Root>
         <Bg />
         <SliderHeading>
-          Partner Sucess
+          Partner Success
           <span style={{ color: '#025faa' }}> Stories</span>
         </SliderHeading>
         <Wrap>

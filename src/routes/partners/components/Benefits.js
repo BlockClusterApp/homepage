@@ -5,7 +5,6 @@ import { clearFix, darken, lighten } from 'polished';
 // import SVG from 'react-svg-inline';
 import { colors, spacing, media } from '../../../styles';
 import { wrapper, cover, uppercase } from '../../../styles/mixins';
-import AnimateText from '../../../components/AnimateText';
 import mq from '../../../helpers/mediaQueries';
 // import SquareBox from '../Partners';
 // import error from '../../../assets/images/error.svg';
@@ -88,6 +87,20 @@ const PointColumn = styled.div`
     float: left;
     width: 50%;
   }
+
+  ${media.min460} {
+    float: left;
+    width: 44%;
+    margin-left: 3%;
+
+    &:first-child {
+      margin-left: 3%;
+    }
+
+    &:first-child {
+      margin-right: 3%;
+    }
+  }
 `;
 
 const PointsRow = styled.div`
@@ -130,46 +143,7 @@ const PointInt = styled.div`
   ${pointCss};
 `;
 
-const PointsWrapper = styled.div`
-  ${props =>
-    props.mounted &&
-    css`
-      ${PointDev},
-      ${PointErr},
-      ${PointExe},
-      ${PointInt} {
-        opacity: 0;
-        will-change: opacity, transform;
-        transition: none;
-        transform: matrix(0.8, 0, 0, 0.8, 0, 32);
-      }
-    `};
-
-  ${props =>
-    props.visible &&
-    css`
-      ${PointDev},
-      ${PointErr},
-      ${PointExe},
-      ${PointInt} {
-        opacity: 1;
-        transform: matrix(1, 0, 0, 1, 0, 0);
-        transition: opacity 0.5s, transform 0.5s;
-      }
-
-      ${PointErr} {
-        transition-delay: 100ms;
-      }
-
-      ${PointExe} {
-        transition-delay: 200ms;
-      }
-
-      ${PointInt} {
-        transition-delay: 300ms;
-      }
-    `};
-`;
+const PointsWrapper = styled.div``;
 
 const PointIllustration = styled.div`
   position: relative;
@@ -200,70 +174,24 @@ const Break = styled.br`
 `;
 
 class Benefits extends React.Component {
-  state = {
-    visible: false,
-    mounted: false,
-  };
-
-  componentDidMount() {
-    if (canUseDOM && mq.min768()) {
-      // eslint-disable-next-line
-      this.setState({ mounted: true });
-      window.addEventListener('scroll', this.onScrollFade);
-    }
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.onScrollFade);
-  }
-
-  onScrollFade = () => {
-    if (
-      !this.state.visible &&
-      window.innerHeight * 0.8 >
-        this.pointsRef.current.getBoundingClientRect().top
-    ) {
-      this.setState({ visible: true });
-    }
-
-    if (
-      this.state.visible &&
-      window.innerHeight < this.pointsRef.current.getBoundingClientRect().top
-    ) {
-      this.setState({ visible: false });
-    }
-  };
-
   titleRef = React.createRef();
 
   pointsRef = React.createRef();
 
   render() {
-    const { mounted, visible } = this.state;
-
     return (
       <Root>
         <Cover />
         <Wrapper>
           <Title ref={this.titleRef}>
-            <AnimateText
-              textNodes={['Benefits of being a', <TitleEm> Partner </TitleEm>]}
-              animationStyle="slide"
-            />
+            Benefits of being a <TitleEm> Partner </TitleEm>
           </Title>
           <Subtitle>
-            <AnimateText
-              textNodes={[
-                `Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam Pellentesque porta euismod dolor,urabitur justo odio, elementum at mi in, molestie vulputate eros.`,
-              ]}
-              animationStyle="fadeSlide"
-            />
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
+            Pellentesque porta euismod dolor,urabitur justo odio, elementum at
+            mi in, molestie vulputate eros.
           </Subtitle>
-          <PointsWrapper
-            innerRef={this.pointsRef}
-            visible={visible}
-            mounted={mounted}
-          >
+          <PointsWrapper innerRef={this.pointsRef}>
             <PointsRow>
               <PointColumn>
                 <PointDev>
