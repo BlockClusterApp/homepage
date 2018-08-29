@@ -4,9 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import { colors, uppercase, media } from '../../../styles';
 import { clearFix } from 'polished';
-import apple from '../assets/apple.png';
-import appleLightBrown from '../assets/appleLightBrown.png';
-import appleLightBlue from '../assets/appleLightBlue.png';
+import boh_white from '../assets/boh.svg';
+import eleven01_white from '../assets/eleve.svg';
+import infotech_white from '../assets/infotech.svg';
+import mega_white from '../assets/mega.svg';
+
 import tm from '../assets/tm.png';
 import bdb from '../assets/bigchainDB.png';
 import ith from '../assets/ith.png';
@@ -132,7 +134,7 @@ const Arrows = styled.section`
   }
   ${media.max375} {
     width: 328px;
-    top: -378px;
+    top: -402px;
   }
 `;
 
@@ -195,10 +197,10 @@ const TextWrapper = styled.div`
 `;
 
 const ContentLogo = styled.img`
-  width: 35%;
+  width: 55%;
   position: absolute;
-  left: 26%;
-  top: 30%;
+  left: 15%;
+  top: 26%;
   opacity: ${props => props.opacity};
   transition: all 0.5s;
 
@@ -207,7 +209,7 @@ const ContentLogo = styled.img`
     margin-left: auto;
     margin-right: auto;
     display: inherit;
-    width: 80px;
+    width: 120px;
   }
 `;
 
@@ -296,7 +298,7 @@ class Slider extends React.Component {
       opacity: '1',
       content: [
         {
-          logo: apple,
+          logo: boh_white,
           text: `Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Morbi ac odio eu est suscipit
                   hendrerit quis porta nisi. Proin nisl dui, blandit
@@ -307,7 +309,29 @@ class Slider extends React.Component {
           designation: `Founder, CTO`,
         },
         {
-          logo: apple,
+          logo: eleven01_white,
+          text: `Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Morbi ac odio eu est suscipit
+                  hendrerit quis porta nisi. Proin nisl dui, blandit
+                  blandit tortor ac, imperdiet bibendum massa. Nulla
+                  ut nisi sed purus ultricies porttitor sollicitudin
+                  eget nisi. Ball`,
+          name: `Vinshu Gupta`,
+          designation: `Co-Founder, CEO`,
+        },
+        {
+          logo: infotech_white,
+          text: `Lorem ipsum dolor sit amet, consectetur
+                  adipiscing elit. Morbi ac odio eu est suscipit
+                  hendrerit quis porta nisi. Proin nisl dui, blandit
+                  blandit tortor ac, imperdiet bibendum massa. Nulla
+                  ut nisi sed purus ultricies porttitor sollicitudin
+                  eget nisi. Ball`,
+          name: `Vinshu Gupta`,
+          designation: `Co-Founder, CEO`,
+        },
+        {
+          logo: mega_white,
           text: `Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Morbi ac odio eu est suscipit
                   hendrerit quis porta nisi. Proin nisl dui, blandit
