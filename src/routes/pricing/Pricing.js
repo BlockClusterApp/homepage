@@ -501,8 +501,8 @@ class Pricing extends React.Component {
                   </NodeSpecs>
                   <NodePrice>
                     <NodePriceTitle>Price</NodePriceTitle>
-                    <NodePricePerHour>$0.05/hour</NodePricePerHour>
-                    <NodePricePerMonth>$35/month</NodePricePerMonth>
+                    <NodePricePerHour>$0.137/hour</NodePricePerHour>
+                    <NodePricePerMonth>$99/month</NodePricePerMonth>
                   </NodePrice>
                 </CardFooter>
               </Card>
@@ -539,8 +539,8 @@ class Pricing extends React.Component {
                   </NodeSpecs>
                   <NodePrice>
                     <NodePriceTitle>Price</NodePriceTitle>
-                    <NodePricePerHour>$0.276/hour</NodePricePerHour>
-                    <NodePricePerMonth>$199/month</NodePricePerMonth>
+                    <NodePricePerHour>$0.415/hour</NodePricePerHour>
+                    <NodePricePerMonth>$299/month</NodePricePerMonth>
                   </NodePrice>
                 </CardFooter>
               </Card>
