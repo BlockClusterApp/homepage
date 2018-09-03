@@ -187,29 +187,30 @@ class Benefits extends React.Component {
             Benefits of being a <TitleEm> Partner </TitleEm>
           </Title>
           <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-            Pellentesque porta euismod dolor,urabitur justo odio, elementum at
-            mi in, molestie vulputate eros.
+            Being an official Blockclsuter partner comes with great growth
+            benefits. By teaming up with you, we commit to provide you with
+            tech, consulting and business enablement support you need to acquire
+            new blockchain customers and advance existing ones.
           </Subtitle>
           <PointsWrapper innerRef={this.pointsRef}>
             <PointsRow>
               <PointColumn>
                 <PointDev>
                   <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointTitle>Platform Expertise</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Access to BlockCluster technical training opportunities to
+                    strengthen your blockchain expertise
                   </PointDescription>
                 </PointDev>
               </PointColumn>
               <PointColumn>
                 <PointErr>
                   <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointTitle>Business Enablement</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Meet regulatory requirements better, improve customer facing
+                    initiatives, expand faster globally and empower employees.
                   </PointDescription>
                 </PointErr>
               </PointColumn>
@@ -218,20 +219,20 @@ class Benefits extends React.Component {
               <PointColumn>
                 <PointExe>
                   <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointTitle>Blockchain Consultancy</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Consulting expertise provided by <Break /> Blockcluster
+                    Ninjas in for your <Break /> client pitches
                   </PointDescription>
                 </PointExe>
               </PointColumn>
               <PointColumn>
                 <PointInt>
                   <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsumn</PointTitle>
+                  <PointTitle>Ecosystem Exposure</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Get access to our developer and partner ecosystem, and
+                    promote your service and company in the ecosystem.
                   </PointDescription>
                 </PointInt>
               </PointColumn>

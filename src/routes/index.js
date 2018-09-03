@@ -20,7 +20,7 @@ const routes = {
       load: () => import(/* webpackChunkName: 'rsvp' */ './rsvp'),
     },
     {
-      path: '/media',
+      path: '/events',
       load: () => import(/* webpackChunkName: 'media' */ './media'),
     },
     {

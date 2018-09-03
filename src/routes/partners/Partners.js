@@ -193,7 +193,7 @@ const Card = styled.div`
   @media (min-width: 850px) {
     display: inline-block;
     width: 100%;
-    height: 450px;
+    height: 340px;
   }
 `;
 
@@ -362,9 +362,9 @@ class Partners extends React.Component {
             <InnerWrapper>
               <Title>Partners</Title>
               <Subtitle>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Pellentesque porta euismod dolor, ut varius arcu efficitur ut.{' '}
-                {''}
+                Are you beginning to build your business on Blockchain, or
+                expanding your practice? Look to the Blockcluster partnership
+                programme to help you grow and succeed. {''}
                 <SubtitleLink href="/rsvp">Become our Partner!</SubtitleLink>
               </Subtitle>
             </InnerWrapper>
@@ -377,9 +377,10 @@ class Partners extends React.Component {
               Partner<span> Types</span>
             </ContentTitle>
             <ContentText>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-              Pellentesque porta euismod dolor,urabitur justo odio, elementum at
-              mi in, molestie vulputate eros.
+              We offer various programs, platforms and resources to support you
+              in your journey. Whether you have a Consulting Practice or offer a
+              Technology Solution on BlockCluster, there are plenty of
+              opportunities to advance your business.
             </ContentText>
             {/* Keep adding context tag for more context */}
           </Content>
@@ -388,16 +389,13 @@ class Partners extends React.Component {
               <Card>
                 <SquareBox>This is an svg</SquareBox>
                 <CardTitle>
-                  Lorem <span>ipsum</span>
+                  Product <span>Resellers</span>
                 </CardTitle>
                 <CardDescription>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-                  Nam sed velit urna. Pellentesque porta euismod dolor, ut
-                  varius arcu efficitur.Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit Nam Nam sed velit urna. Pellentesque porta
-                  euismod dolor, ut varius arcu efficitur.Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit Nam Nam sed velit urna.
-                  Pellentesque porta euismod dolor, ut varius arcu efficitur.
+                  As a product reseller, you will be getting exclusive access to
+                  early releases and ongoing partner discounts on the products.
+                  Any costs going towards PSO, App dev or support is also
+                  subsidised.
                 </CardDescription>
               </Card>
             </Column>
@@ -405,16 +403,13 @@ class Partners extends React.Component {
               <Card>
                 <SquareBox>This is an svg</SquareBox>
                 <CardTitle>
-                  Lorem <span>ipsum</span>
+                  <span>Consulting</span> Partners
                 </CardTitle>
                 <CardDescription>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-                  Nam sed velit urna. Pellentesque porta euismod dolor, ut
-                  varius arcu efficitur Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit Nam Nam sed velit urna. Pellentesque porta
-                  euismod dolor, ut varius arcu efficitur. Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit Nam Nam sed velit urna.
-                  Pellentesque porta euismod dolor, ut varius arcu efficitur.
+                  As a Consulting Partners, you will help customers design and
+                  manage their workloads and applications on Blockcluster.
+                  Consulting Partners can be Strategic Consultancies, Agencies
+                  or Service Providers.
                 </CardDescription>
               </Card>
             </Column>
@@ -424,16 +419,13 @@ class Partners extends React.Component {
               <Card>
                 <SquareBox>This is an svg</SquareBox>
                 <CardTitle>
-                  Lorem <span>ipsum</span>
+                  System <span>Integrator</span>
                 </CardTitle>
                 <CardDescription>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-                  Nam sed velit urna. Pellentesque porta euismod dolor, ut
-                  varius arcu efficitur.Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit Nam Nam sed velit urna. Pellentesque porta
-                  euismod dolor, ut varius arcu efficitur.Lorem ipsum dolor sit
-                  amet, consectetur adipiscing elit Nam Nam sed velit urna.
-                  Pellentesque porta euismod dolor, ut varius arcu efficitur.
+                  Our System integrators(SIs) work to provide us with services
+                  for our customers application projects. Any client project can
+                  be classified as : Blockcluster Platform + SI
+                  services(Servers/UI/UX etc)
                 </CardDescription>
               </Card>
             </Column>
@@ -441,16 +433,13 @@ class Partners extends React.Component {
               <Card>
                 <SquareBox>This is an svg</SquareBox>
                 <CardTitle>
-                  Lorem<span> ipsum</span>
+                  <span>Strategic</span> Partners
                 </CardTitle>
                 <CardDescription>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-                  Nam sed velit urna. Pellentesque porta euismod dolor, utLorem
-                  ipsum dolor sit amet, consectetur adipiscing elit Nam Nam sed
-                  velit urna. Pellentesque porta euismod dolor, ut varius arcu
-                  efficitur. Lorem ipsum dolor sit amet, consectetur adipiscing
-                  elit Nam Nam sed velit urna. Pellentesque porta euismod dolor,
-                  ut varius arcu efficitur.
+                  As a strategic partner, we both will share expertise,
+                  technology, resources, or competencies with each other for
+                  mutual benefit. Strategic partnership is to create a synergy
+                  that increases boths profit potential.
                 </CardDescription>
               </Card>
             </Column>

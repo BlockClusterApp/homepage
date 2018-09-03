@@ -8,6 +8,7 @@ import boh_white from '../assets/boh.svg';
 import eleven01_white from '../assets/eleve.svg';
 import infotech_white from '../assets/infotech.svg';
 import mega_white from '../assets/mega.svg';
+import snapper_white from '../assets/snapper.svg';
 
 import tm from '../assets/tm.png';
 import bdb from '../assets/bigchainDB.png';
@@ -17,6 +18,7 @@ import era from '../assets/era.png';
 import boh from '../assets/boh.png';
 import sc from '../assets/sc.png';
 import eleven01 from '../assets/eleven01.png';
+import snapper from '../assets/snapper.png';
 
 const Root = styled.section`
   height: 100%;
@@ -183,7 +185,7 @@ const TextWrapper = styled.div`
   height: 100%;
   text-align: left;
   float: left;
-  transition: all 0.5s;
+  transition: all 0.4s;
 
   ${media.max980} {
     padding: 40px;
@@ -202,7 +204,7 @@ const ContentLogo = styled.img`
   left: 15%;
   top: 26%;
   opacity: ${props => props.opacity};
-  transition: all 0.5s;
+  transition: all 0.4s;
 
   ${media.max768} {
     position: static;
@@ -216,19 +218,19 @@ const ContentLogo = styled.img`
 const Quote = styled.q`
   font-style: italic;
   opacity: ${props => props.opacity};
-  transition: all 0.5s;
+  transition: all 0.4s;
 `;
 
 const PersonName = styled.div`
   ${uppercase} margin-top: 20px;
   font-weiight: bold;
   opacity: ${props => props.opacity};
-  transition: all 0.5s;
+  transition: all 0.4s;
 `;
 
 const PersonDesignation = styled.p`
   opacity: ${props => props.opacity};
-  transition: all 0.5s;
+  transition: all 0.4s;
 `;
 
 const LogoList = styled.div`
@@ -309,7 +311,7 @@ class Slider extends React.Component {
           designation: `Founder, CTO`,
         },
         {
-          logo: eleven01_white,
+          logo: snapper_white,
           text: `Lorem ipsum dolor sit amet, consectetur
                   adipiscing elit. Morbi ac odio eu est suscipit
                   hendrerit quis porta nisi. Proin nisl dui, blandit
@@ -464,6 +466,7 @@ class Slider extends React.Component {
             <Logo src={era} />
             <Logo src={boh} />
             <Logo src={eleven01} />
+            <Logo src={snapper} />
           </LogoList>
         </WrapLogos>
       </Root>
