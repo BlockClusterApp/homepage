@@ -300,48 +300,22 @@ class Slider extends React.Component {
       opacity: '1',
       content: [
         {
-          logo: boh_white,
-          text: `Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Morbi ac odio eu est suscipit
-                  hendrerit quis porta nisi. Proin nisl dui, blandit
-                  blandit tortor ac, imperdiet bibendum massa. Nulla
-                  ut nisi sed purus ultricies porttitor sollicitudin
-                  eget nisi. Apple`,
-          name: `Narayan Prusty`,
-          designation: `Founder, CTO`,
-        },
-        {
-          logo: snapper_white,
-          text: `Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Morbi ac odio eu est suscipit
-                  hendrerit quis porta nisi. Proin nisl dui, blandit
-                  blandit tortor ac, imperdiet bibendum massa. Nulla
-                  ut nisi sed purus ultricies porttitor sollicitudin
-                  eget nisi. Ball`,
-          name: `Vinshu Gupta`,
-          designation: `Co-Founder, CEO`,
-        },
-        {
           logo: infotech_white,
-          text: `Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Morbi ac odio eu est suscipit
-                  hendrerit quis porta nisi. Proin nisl dui, blandit
-                  blandit tortor ac, imperdiet bibendum massa. Nulla
-                  ut nisi sed purus ultricies porttitor sollicitudin
-                  eget nisi. Ball`,
-          name: `Vinshu Gupta`,
-          designation: `Co-Founder, CEO`,
+          text: `BlockCluster sits at the core of all our customers private blockchain DApps.
+                The platform provides all the pieces the developers need in
+                order to create operable blockchains with low friction.
+                BlockCluster was our great opportunity to modernize.`,
+          name: `Gaurav Dubey`,
+          designation: `CEO, ITH Technologies Pvt. Ltd.`,
         },
         {
           logo: mega_white,
-          text: `Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Morbi ac odio eu est suscipit
-                  hendrerit quis porta nisi. Proin nisl dui, blandit
-                  blandit tortor ac, imperdiet bibendum massa. Nulla
-                  ut nisi sed purus ultricies porttitor sollicitudin
-                  eget nisi. Ball`,
-          name: `Vinshu Gupta`,
-          designation: `Co-Founder, CEO`,
+          text: `This wasn't just a technology shift for Megachain,
+                 it was also a business shift. With help of BlockCluster we were able to
+                 consult our client better and achieve better conversion ratio. We are more
+                 confident in running our blockchain services with BlockCluster as a partner.`,
+          name: `K. Sive`,
+          designation: `CEO, Megachain`,
         },
       ],
     };

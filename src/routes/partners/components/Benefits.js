@@ -9,6 +9,11 @@ import mq from '../../../helpers/mediaQueries';
 // import SquareBox from '../Partners';
 // import error from '../../../assets/images/error.svg';
 
+import platform_img from '../assets/platform.png';
+import ecosystem_img from '../assets/ecosystem.png';
+import blockchain_img from '../assets/blockchain.png';
+import business_img from '../assets/business.png';
+
 const Root = styled.section`
   position: relative;
   z-index: 2;
@@ -145,12 +150,11 @@ const PointInt = styled.div`
 
 const PointsWrapper = styled.div``;
 
-const PointIllustration = styled.div`
-  position: relative;
-  width: 48px;
+const PointIllustration = styled.img`
   height: 48px;
   margin: 0 auto ${spacing(1)};
   transform: translateX(-9px);
+  display: block;
 `;
 
 const PointTitle = styled.div`
@@ -196,7 +200,7 @@ class Benefits extends React.Component {
             <PointsRow>
               <PointColumn>
                 <PointDev>
-                  <PointIllustration>this is an svg</PointIllustration>
+                  <PointIllustration src={platform_img} />
                   <PointTitle>Platform Expertise</PointTitle>
                   <PointDescription>
                     Access to BlockCluster technical training opportunities to
@@ -206,7 +210,7 @@ class Benefits extends React.Component {
               </PointColumn>
               <PointColumn>
                 <PointErr>
-                  <PointIllustration>this is an svg</PointIllustration>
+                  <PointIllustration src={business_img} />
                   <PointTitle>Business Enablement</PointTitle>
                   <PointDescription>
                     Meet regulatory requirements better, improve customer facing
@@ -218,7 +222,7 @@ class Benefits extends React.Component {
             <PointsRow last>
               <PointColumn>
                 <PointExe>
-                  <PointIllustration>this is an svg</PointIllustration>
+                  <PointIllustration src={blockchain_img} />
                   <PointTitle>Blockchain Consultancy</PointTitle>
                   <PointDescription>
                     Consulting expertise provided by <Break /> Blockcluster
@@ -228,7 +232,7 @@ class Benefits extends React.Component {
               </PointColumn>
               <PointColumn>
                 <PointInt>
-                  <PointIllustration>this is an svg</PointIllustration>
+                  <PointIllustration src={ecosystem_img} />
                   <PointTitle>Ecosystem Exposure</PointTitle>
                   <PointDescription>
                     Get access to our developer and partner ecosystem, and

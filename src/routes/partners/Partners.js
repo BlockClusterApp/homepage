@@ -11,6 +11,11 @@ import Slider from './components/Slider';
 // import Sliders from './components/Sliders';
 // import Problem from '../home/components/Problem';
 
+import reseller_img from './assets/reseller.png';
+import strategic_img from './assets/strategic.png';
+import consulting_img from './assets/consulting.png';
+import system_img from './assets/system.png';
+
 const Hero = styled.div`
   position: relative;
   z-index: 3;
@@ -322,12 +327,11 @@ const EnterpriseWrapper = styled.div`
   }
 `;
 
-const SquareBox = styled.div`
+const SquareBox = styled.img`
   height: 80px;
-  width: 80px;
-  background: #efefef;
   border-radius: 10%;
   margin: 0 auto;
+  display: block;
 `;
 
 const ButtonsWrapper = styled.div`
@@ -387,7 +391,7 @@ class Partners extends React.Component {
           <Row>
             <Column>
               <Card>
-                <SquareBox>This is an svg</SquareBox>
+                <SquareBox src={reseller_img} />
                 <CardTitle>
                   Product <span>Resellers</span>
                 </CardTitle>
@@ -401,7 +405,7 @@ class Partners extends React.Component {
             </Column>
             <Column>
               <Card>
-                <SquareBox>This is an svg</SquareBox>
+                <SquareBox src={consulting_img} />
                 <CardTitle>
                   <span>Consulting</span> Partners
                 </CardTitle>
@@ -417,7 +421,7 @@ class Partners extends React.Component {
           <Row>
             <Column>
               <Card>
-                <SquareBox>This is an svg</SquareBox>
+                <SquareBox src={system_img} />
                 <CardTitle>
                   System <span>Integrator</span>
                 </CardTitle>
@@ -431,7 +435,7 @@ class Partners extends React.Component {
             </Column>
             <Column>
               <Card>
-                <SquareBox>This is an svg</SquareBox>
+                <SquareBox src={strategic_img} />
                 <CardTitle>
                   <span>Strategic</span> Partners
                 </CardTitle>
@@ -454,9 +458,10 @@ class Partners extends React.Component {
               Be our <EnterpriseTitleEm>Partner</EnterpriseTitleEm>
             </EnterpriseTitle>
             <EnterpriseSubtitle>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit Vivamus
-              Vivamus dapibus tortor sed enim vulputate dapibus. Pellentesque
-              iaculis iaculis. Nulla pharetra sollicitudin orci, non
+              We partner with a wide range of companies, from consulting
+              agencies to ISVs to technical solution providers. Our partner
+              program helps you grow your business through a closer relationship
+              with BlockCluster and our developer community.
             </EnterpriseSubtitle>
             <ButtonsWrapper>
               <PartnersButton component="a" href="/contact" primary>
