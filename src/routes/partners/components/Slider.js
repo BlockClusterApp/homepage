@@ -310,10 +310,10 @@ class Slider extends React.Component {
         },
         {
           logo: mega_white,
-          text: `This wasn't just a technology shift for Megachain,
-                 it was also a business shift. With help of BlockCluster we were able to
+          text: `This wasn't just a product shift for us,
+                 it was also a business shift. As a partner we were able to
                  consult our client better and achieve better conversion ratio. We are more
-                 confident in running our blockchain services with BlockCluster as a partner.`,
+                 confident in running our services with BlockCluster as a partner.`,
           name: `K. Sive`,
           designation: `CEO, Megachain`,
         },
