@@ -21,7 +21,7 @@ const routes = {
     },
     {
       path: '/events',
-      load: () => import(/* webpackChunkName: 'media' */ './events'),
+      load: () => import(/* webpackChunkName: 'events' */ './events'),
     },
     {
       path: '/privacy',
