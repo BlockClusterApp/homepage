@@ -306,7 +306,7 @@ class Slider extends React.Component {
                 order to create operable blockchains with low friction.
                 BlockCluster was our great opportunity to modernize.`,
           name: `Gaurav Dubey`,
-          designation: `CEO, ITH Technologies Pvt. Ltd.`,
+          designation: `CEO, ITH Technologies`,
         },
         {
           logo: mega_white,
