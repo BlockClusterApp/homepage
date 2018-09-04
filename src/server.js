@@ -19,6 +19,7 @@ import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unr
 import config from './config';
 import { LABELS as REQUEST_DEMO_LABELS } from './routes/request-demo/constants';
 import { LABELS as RSVP_LABELS } from './routes/rsvp/constants';
+import { LABELS as BECOME_PARTNER_LABELS } from './routes/become-partner/constants';
 import { LABELS as CONTACT_LABELS } from './routes/legal/contact/constants';
 
 process.on('unhandledRejection', (reason, p) => {
@@ -280,6 +281,49 @@ app.post('/emails/rsvp', async (req, res, next) => {
           {Object.entries(req.body).map(([key, value]) => (
             <React.Fragment>
               <p style={styles.title}>{RSVP_LABELS[key]}</p>
+              <p style={styles.text}>
+                {Array.isArray(value) ? value.join(', ') : value}
+              </p>
+            </React.Fragment>
+          ))}
+        </React.Fragment>,
+      ),
+    };
+
+    transporter.sendMail(mailOptions, (err, info) => {
+      if (err) {
+        console.log(err);
+        res.status(400).json({
+          error: err,
+        });
+        return;
+      }
+
+      console.info(err);
+      res.status(200).json({
+        info,
+      });
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
+//
+// Email from rsvp
+// -----------------------------------------------------------------------------
+app.post('/emails/become-partner', async (req, res, next) => {
+  try {
+    const mailOptions = {
+      from: req.body.email,
+      to: 'info@blockcluster.io',
+      subject: 'Partner Request',
+      html: ReactDOM.renderToStaticMarkup(
+        <React.Fragment>
+          <p style={styles.headline}>Partner Request from the website</p>
+          {Object.entries(req.body).map(([key, value]) => (
+            <React.Fragment>
+              <p style={styles.title}>{BECOME_PARTNER_LABELS[key]}</p>
               <p style={styles.text}>
                 {Array.isArray(value) ? value.join(', ') : value}
               </p>

@@ -20,8 +20,13 @@ const routes = {
       load: () => import(/* webpackChunkName: 'rsvp' */ './rsvp'),
     },
     {
-      path: '/media',
-      load: () => import(/* webpackChunkName: 'media' */ './media'),
+      path: '/events',
+      load: () => import(/* webpackChunkName: 'events' */ './events'),
+    },
+    {
+      path: '/become-partner',
+      load: () =>
+        import(/* webpackChunkName: 'become-partner' */ './become-partner'),
     },
     {
       path: '/privacy',

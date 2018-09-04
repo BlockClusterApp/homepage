@@ -1,10 +1,10 @@
 import React from 'react';
-import Media from './Media';
+import Events from './Events';
 
 async function action() {
   return {
-    chunks: ['media'],
-    component: <Media />,
+    chunks: ['events'],
+    component: <Events />,
   };
 }
 
