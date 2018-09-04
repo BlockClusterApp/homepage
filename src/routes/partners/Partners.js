@@ -369,7 +369,9 @@ class Partners extends React.Component {
                 Are you beginning to build your business on Blockchain, or
                 expanding your practice? Look to the Blockcluster partnership
                 programme to help you grow and succeed. {''}
-                <SubtitleLink href="/rsvp">Become our Partner!</SubtitleLink>
+                <SubtitleLink href="/become-partner">
+                  Become our Partner!
+                </SubtitleLink>
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
@@ -464,7 +466,7 @@ class Partners extends React.Component {
               with BlockCluster and our developer community.
             </EnterpriseSubtitle>
             <ButtonsWrapper>
-              <PartnersButton component="a" href="/contact" primary>
+              <PartnersButton component="a" href="/become-partner" primary>
                 Become a Partner
               </PartnersButton>
               <PartnersButton component="a" href="/contact" secondary>
