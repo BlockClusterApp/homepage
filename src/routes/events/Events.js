@@ -229,7 +229,7 @@ const CardLink = styled.a`
   text-decoration: underline;
 `;
 
-class RequestDemo extends React.Component {
+class Events extends React.Component {
   state = {
     blink: false,
     form: {
@@ -453,4 +453,4 @@ class RequestDemo extends React.Component {
   }
 }
 
-export default RequestDemo;
+export default Events;

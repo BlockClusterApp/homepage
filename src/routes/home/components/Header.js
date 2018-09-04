@@ -184,13 +184,9 @@ export default class Header extends React.Component {
         <Logo href="/" />
         <Nav>
           <NavLeft>
-            <NavItem href="/media">Media</NavItem>
             <NavItem href="/pricing">Pricing</NavItem>
-            {/*<NavItem href="/partners">Partners</NavItem>*/}
-            <NavItem href="/about">About us</NavItem>
-            {/* <NavItem>Features</NavItem>
-        <NavItem>Use cases</NavItem>
-        <NavItem>Pricing</NavItem> */}
+            <NavItem href="/events">Events</NavItem>
+            <NavItem href="/partners">Partners</NavItem>
           </NavLeft>
           <NavRight>
             {/* <NavItem href="/media">Media</NavItem> */}
@@ -205,9 +201,9 @@ export default class Header extends React.Component {
           onClose={() => this.setState({ showSidebar: false })}
         >
           <NavTop>
-            <SidebarNavItem href="/media">Media</SidebarNavItem>
             <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
-            {/*<SidebarNavItem href="/partners">Partners</SidebarNavItem>*/}
+            <SidebarNavItem href="/events">Events</SidebarNavItem>
+            <SidebarNavItem href="/partners">Partners</SidebarNavItem>
             <SidebarNavItem href="/about">About us</SidebarNavItem>
           </NavTop>
           <NavBottom>

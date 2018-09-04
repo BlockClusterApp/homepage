@@ -9,6 +9,11 @@ import mq from '../../../helpers/mediaQueries';
 // import SquareBox from '../Partners';
 // import error from '../../../assets/images/error.svg';
 
+import platform_img from '../assets/platform.png';
+import ecosystem_img from '../assets/ecosystem.png';
+import blockchain_img from '../assets/blockchain.png';
+import business_img from '../assets/business.png';
+
 const Root = styled.section`
   position: relative;
   z-index: 2;
@@ -145,12 +150,11 @@ const PointInt = styled.div`
 
 const PointsWrapper = styled.div``;
 
-const PointIllustration = styled.div`
-  position: relative;
-  width: 48px;
+const PointIllustration = styled.img`
   height: 48px;
   margin: 0 auto ${spacing(1)};
   transform: translateX(-9px);
+  display: block;
 `;
 
 const PointTitle = styled.div`
@@ -187,29 +191,30 @@ class Benefits extends React.Component {
             Benefits of being a <TitleEm> Partner </TitleEm>
           </Title>
           <Subtitle>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit Nam
-            Pellentesque porta euismod dolor,urabitur justo odio, elementum at
-            mi in, molestie vulputate eros.
+            Being an official Blockclsuter partner comes with great growth
+            benefits. By teaming up with you, we commit to provide you with
+            tech, consulting and business enablement support you need to acquire
+            new blockchain customers and advance existing ones.
           </Subtitle>
           <PointsWrapper innerRef={this.pointsRef}>
             <PointsRow>
               <PointColumn>
                 <PointDev>
-                  <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointIllustration src={platform_img} />
+                  <PointTitle>Platform Expertise</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Access to BlockCluster technical training opportunities to
+                    strengthen your blockchain expertise
                   </PointDescription>
                 </PointDev>
               </PointColumn>
               <PointColumn>
                 <PointErr>
-                  <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointIllustration src={business_img} />
+                  <PointTitle>Business Enablement</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Meet regulatory requirements better, improve customer facing
+                    initiatives, expand faster globally and empower employees.
                   </PointDescription>
                 </PointErr>
               </PointColumn>
@@ -217,21 +222,21 @@ class Benefits extends React.Component {
             <PointsRow last>
               <PointColumn>
                 <PointExe>
-                  <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsum</PointTitle>
+                  <PointIllustration src={blockchain_img} />
+                  <PointTitle>Blockchain Consultancy</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Consulting expertise provided by <Break /> Blockcluster
+                    Ninjas in for your <Break /> client pitches
                   </PointDescription>
                 </PointExe>
               </PointColumn>
               <PointColumn>
                 <PointInt>
-                  <PointIllustration>this is an svg</PointIllustration>
-                  <PointTitle>Lorem ipsumn</PointTitle>
+                  <PointIllustration src={ecosystem_img} />
+                  <PointTitle>Ecosystem Exposure</PointTitle>
                   <PointDescription>
-                    Lorem ipsum dolor sit amet, consectetur <Break />
-                    Lorem ipsum dolor sit amet, consectetur
+                    Get access to our developer and partner ecosystem, and
+                    promote your service and company in the ecosystem.
                   </PointDescription>
                 </PointInt>
               </PointColumn>
