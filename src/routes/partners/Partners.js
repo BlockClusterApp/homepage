@@ -395,11 +395,11 @@ class Partners extends React.Component {
               <Card>
                 <SquareBox src={reseller_img} />
                 <CardTitle>
-                  Product <span>Resellers</span>
+                  Platform <span>Resellers</span>
                 </CardTitle>
                 <CardDescription>
-                  As a product reseller, you will be getting exclusive access to
-                  early releases and ongoing partner discounts on the products.
+                  As a platform reseller, you will be getting exclusive access to
+                  early releases and ongoing partner discounts on the platform.
                   Any costs going towards PSO, App dev or support is also
                   subsidised.
                 </CardDescription>
