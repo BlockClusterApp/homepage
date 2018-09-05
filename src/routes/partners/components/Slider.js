@@ -136,7 +136,7 @@ const Arrows = styled.section`
   }
   ${media.max375} {
     width: 328px;
-    top: -402px;
+    top: -378px;
   }
 `;
 
@@ -301,12 +301,12 @@ class Slider extends React.Component {
       content: [
         {
           logo: infotech_white,
-          text: `BlockCluster sits at the core of all our customers private blockchain DApps.
-                The platform provides all the pieces the developers need in
-                order to create operable blockchains with low friction.
-                BlockCluster was our great opportunity to modernize.`,
-          name: `Gaurav Dubey`,
-          designation: `CEO, ITH Technologies`,
+          text: `
+                Partnering with BlockCluster has greatly accelerated the blockchain solutions
+                Infotech Hub can offer our clients and has deepened our capabilities through
+                BlockCluster Partner Specializations including Cloud and Serverless.`,
+          name: `Manisha Dubey`,
+          designation: `Director, ITH Technologies`,
         },
         {
           logo: mega_white,
