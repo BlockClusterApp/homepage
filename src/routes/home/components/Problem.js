@@ -302,7 +302,7 @@ class Problem extends React.Component {
               textNodes={[
                 'Building',
                 'your',
-                'private',
+                'enterprise',
                 'blockchain',
                 <TitleEm>is</TitleEm>,
                 <TitleEm>difficult</TitleEm>,
