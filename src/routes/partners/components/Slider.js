@@ -19,6 +19,7 @@ import boh from '../assets/boh.png';
 import sc from '../assets/sc.png';
 import eleven01 from '../assets/eleven01.png';
 import snapper from '../assets/snapper.png';
+import hustle from '../assets/hustle.png';
 
 const Root = styled.section`
   height: 100%;
@@ -441,6 +442,7 @@ class Slider extends React.Component {
             <Logo src={boh} />
             <Logo src={eleven01} />
             <Logo src={snapper} />
+            <Logo src={hustle} />
           </LogoList>
         </WrapLogos>
       </Root>
