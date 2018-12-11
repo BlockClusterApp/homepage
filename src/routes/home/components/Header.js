@@ -185,7 +185,7 @@ export default class Header extends React.Component {
         <Nav>
           <NavLeft>
             <NavItem href="/pricing">Pricing</NavItem>
-            <NavItem href="/events">Events</NavItem>
+            <NavItem target="_blank" href="https://docs.blockcluster.io">Documentation</NavItem>
             <NavItem href="/partners">Partners</NavItem>
           </NavLeft>
           <NavRight>
@@ -202,7 +202,7 @@ export default class Header extends React.Component {
         >
           <NavTop>
             <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
-            <SidebarNavItem href="/events">Events</SidebarNavItem>
+            <SidebarNavItem target="_blank" href="https://docs.blockcluster.io">Documentation</SidebarNavItem>
             <SidebarNavItem href="/partners">Partners</SidebarNavItem>
             <SidebarNavItem href="/about">About us</SidebarNavItem>
           </NavTop>
