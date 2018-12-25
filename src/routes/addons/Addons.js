@@ -545,7 +545,7 @@ class Addons extends React.Component {
                   <NodePrice>
                     <NodePriceTitle>Price</NodePriceTitle>
                     <NodePricePerHour>$399/month</NodePricePerHour>
-                    <NodePricePerMonth>$0.0273/GB</NodePricePerMonth>
+                    <NodePricePerMonth>$0.342/GB</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
                     * Bill amount will be either total storage fees or subscription fees depending on whichever is greater
