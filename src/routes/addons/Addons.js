@@ -559,8 +559,7 @@ class Addons extends React.Component {
                   Paymeter - <span>Create Wallets</span>
                 </CardTitle>
                 <CardDescription>
-                  It provides APIs for integrating ETH and ERC20 tokens in your dapp. It's uniqueness is that it let's you integrate
-                  any ERC20 token wallet and also it provides gas tank to pay for the gas of all ERC20 transfer.
+                  It provides APIs for integrating ETH and ERC20 tokens in your dapp. Features include instant internal transactions settlement, supports any ERC20 token support, gas tank for easing ERC20 transfer.
                 </CardDescription>
                 <CardImgBox>
                   <CardImg src={ethereum_img} />
