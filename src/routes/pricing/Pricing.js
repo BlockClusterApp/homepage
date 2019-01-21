@@ -484,8 +484,8 @@ class Pricing extends React.Component {
                       dangerouslySetInnerHTML={{ __html: checkSvg }}
                     />
                     <CardHighlightText>
-                      Light Nodes can handle a very limited TPS and has slow 
-                      query performance.
+                      Light Nodes can handle a very limited TPS and search
+                      queries.
                     </CardHighlightText>
                   </CardHighlight>
                   <NodeSpecs>
