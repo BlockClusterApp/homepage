@@ -484,8 +484,8 @@ class Pricing extends React.Component {
                       dangerouslySetInnerHTML={{ __html: checkSvg }}
                     />
                     <CardHighlightText>
-                      Currently we’re offering 2 nodes free for the first 2
-                      months of use.
+                      Light Nodes can handle a very limited TPS and has slow 
+                      query performance.
                     </CardHighlightText>
                   </CardHighlight>
                   <NodeSpecs>
