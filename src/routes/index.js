@@ -56,7 +56,10 @@ const routes = {
       path: '/addons',
       load: () => import(/* webpackChunkName: 'addons' */ './addons'),
     },
-
+    {
+      path: '/faqs',
+      load: () => import(/* webpackChunkName: 'addons' */ './faqs'),
+    },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
       path: '(.*)',
