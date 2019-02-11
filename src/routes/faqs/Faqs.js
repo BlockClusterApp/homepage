@@ -155,7 +155,7 @@ const Card = styled.div`
   @media (min-width: 850px) {
     display: inline-block;
     width: 100%;
-    height: 350px;
+    height: 220px;
   }
 `;
 
@@ -299,8 +299,8 @@ class Addons extends React.Component {
           <Wrapper>
             <Header />
             <InnerWrapper>
-              <Title>Faq&apos;s</Title>
-              <Subtitle>frequently asked questations</Subtitle>
+              <Title>FAQ</Title>
+              <Subtitle>Frequently Asked Questions</Subtitle>
             </InnerWrapper>
           </Wrapper>
         </Hero>
@@ -314,12 +314,6 @@ class Addons extends React.Component {
                     Getting <span>Started</span>
                   </CardTitle>
                 </a>
-                <CardDescription>
-                  As a platform reseller, you will be getting exclusive access
-                  to early releases and ongoing partner discounts on the
-                  platform. Any costs going towards PSO, App dev or support is
-                  also subsidised.
-                </CardDescription>
               </Card>
             </Column>
             <Column>
@@ -330,12 +324,6 @@ class Addons extends React.Component {
                     <span>AMA</span>
                   </CardTitle>
                 </a>
-                <CardDescription>
-                  As a Consulting Partners, you will help customers design and
-                  manage their workloads and applications on Blockcluster.
-                  Consulting Partners can be Strategic Consultancies, Agencies
-                  or Service Providers.
-                </CardDescription>
               </Card>
             </Column>
           </Row>
@@ -347,12 +335,8 @@ class Addons extends React.Component {
               Anything <EnterpriseTitleEm>else?</EnterpriseTitleEm>
             </EnterpriseTitle>
             <EnterpriseSubtitle>
-              is simply dummy text of the printing and typesetting industry.
-              Lorem Ipsum has been the industrys standard dummy text ever since
-              the 1500s, when an unknown printer took a galley of type and
-              scrambled it to make a type specimen book. It has survived not
-              only five centuries, but also the leap into electronic
-              typesetting, remaining essentially unchanged.
+              If there is something not answered and you would like to 
+              know then get in touch with us.
             </EnterpriseSubtitle>
             <ButtonsWrapper>
               <Button component="a" href="/request-demo" primary>
