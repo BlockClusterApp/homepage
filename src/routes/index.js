@@ -60,6 +60,10 @@ const routes = {
       path: '/faqs',
       load: () => import(/* webpackChunkName: 'addons' */ './faqs'),
     },
+    {
+      path: '/faqs/list',
+      load: () => import(/* webpackChunkName: 'addons' */ './legal/faqsList'),
+    },
     // Wildcard routes, e.g. { path: '(.*)', ... } (must go last)
     {
       path: '(.*)',

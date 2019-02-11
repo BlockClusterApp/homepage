@@ -44,7 +44,7 @@ const NavTitle = styled.div`
 const NavLinkWrapper = styled.div`
   margin-bottom: ${spacing(0.25)};
 `;
-
+/* eslint-disable jsx-a11y/anchor-has-content */
 const NavLink = styled(props => (
   <NavLinkWrapper>
     <a {...props} />
@@ -157,9 +157,10 @@ export default class Layout extends React.Component {
                 <SidebarBgCover coverHeight={sidebarBgHeight} />
                 <Nav>
                   <NavTitle>Site</NavTitle>
-                  <NavLink href="/media">Media</NavLink>
+                  {/* <NavLink href="/media">Media</NavLink> */}
                   <NavLink href="/pricing">Pricing</NavLink>
                   <NavLink href="/about">About</NavLink>
+                  <NavLink href="/faqs/list">Faq&apos;s</NavLink>
                   <NavLink href="/contact">Contact us</NavLink>
                 </Nav>
                 <Nav>

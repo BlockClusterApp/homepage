@@ -219,7 +219,7 @@ export default function Footer() {
           <StyledAnchor target="_blank" href="https://docs.blockcluster.io">
             Documentation
           </StyledAnchor>
-          <StyledAnchor href="/faqs">FAQ&apos;s</StyledAnchor>
+          <StyledAnchor href="/faqs/list">FAQ&apos;s</StyledAnchor>
           <StyledLink href="https://angel.co/blockcluster/jobs">
             Careers
           </StyledLink>
