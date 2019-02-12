@@ -85,6 +85,12 @@ export default function FaqsList() {
       </p>
       </div>
 
+      <button class="accordion">What are we doing?</button>
+      <div class="panel">
+        <p>We are making enterprise blockchain sexier.
+      </p>
+      </div>
+
       <button class="accordion">What all protocols BlockCluster supports?</button>
       <div class="panel">
         <p>At present, we support 3 protocols:</p>
