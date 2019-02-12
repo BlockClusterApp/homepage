@@ -442,7 +442,7 @@ class Pricing extends React.Component {
             <InnerWrapper>
               <Title>On-Demand Nodes</Title>
               <Subtitle>
-                BlockClusters gives two offerings,<br /> on the cloud and
+                BlockClusters provides two offerings,<br /> on-cloud and
                 on-premises
               </Subtitle>
             </InnerWrapper>
@@ -452,7 +452,7 @@ class Pricing extends React.Component {
           <CoverContent />
           <Content>
             <ContentTitle>
-              On the <span>cloud</span>
+              On-<span>cloud</span>
             </ContentTitle>
             <ContentText>
               BlockCluster’s On-Demand Blockchain Nodes let you pay for compute
@@ -552,7 +552,7 @@ class Pricing extends React.Component {
           <EnterpriseWrapper>
             <EnterpriseContent>
               <EnterpriseTitle>
-                Enterprise <EnterpriseTitleEm>license</EnterpriseTitleEm>
+                On-<EnterpriseTitleEm>Premise</EnterpriseTitleEm>
               </EnterpriseTitle>
               <EnterpriseSubtitle>
                 You can install BlockCluster on-premise on your local servers,
@@ -568,7 +568,7 @@ class Pricing extends React.Component {
             </EnterpriseContent>
             <CardOnPremises>
               <CardTitle>
-                Maximum <span>control</span>
+                Enterprise <span>License</span>
               </CardTitle>
               <CardDescription>
                 BlockCluster Enterprise lets you achieve your goals by securing

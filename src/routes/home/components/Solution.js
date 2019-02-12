@@ -358,7 +358,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>No knowledge required</PointTitle>
                   <PointDescription>
-                    Dynamo protocol let’s you configure your <Break />
+                    Blockcluster let’s you configure your <Break />
                     digital assets without writing smart contracts
                   </PointDescription>
                 </Point2>
@@ -379,8 +379,8 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>Secure and reliable</PointTitle>
                   <PointDescription>
-                    Impulse master node provides full proof <Break />
-                    access control and privacy over data
+                    Highly secure access control<Break />
+                    and privacy over data using proxy re-encryption
                   </PointDescription>
                 </Point3>
               </PointColumn>

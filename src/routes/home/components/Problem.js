@@ -300,7 +300,7 @@ class Problem extends React.Component {
           <Title ref={this.titleRef}>
             <AnimateText
               textNodes={[
-                'Building',
+                'Managing',
                 'your',
                 'enterprise',
                 'blockchain',

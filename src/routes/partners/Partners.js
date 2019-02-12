@@ -366,8 +366,8 @@ class Partners extends React.Component {
             <InnerWrapper>
               <Title>Partners</Title>
               <Subtitle>
-                Are you beginning to build your business on Blockchain, or
-                expanding your practice? Look to the Blockcluster partnership
+                Are you beginning to enable your business on Blockchain, or
+                expanding your practice? Look at the Blockcluster partnership
                 programme to help you grow and succeed. {''}
                 <SubtitleLink href="/become-partner">
                   Become our Partner!

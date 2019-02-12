@@ -68,7 +68,7 @@ const Title = styled.h1`
 `;
 
 const TitleSecondary = styled.span`
-  font-size: 36px;
+  font-size: 22px;
   font-weight: 600;
   color: ${colors.backgroundSecondaryText};
   position: relative;
@@ -292,13 +292,7 @@ class Hero extends React.Component {
               Build and deploy powerful <br />
               blockchain applications<br />
               <TitleSecondary>
-                without writing any{' '}
-                <Code>
-                  {'<code/'}
-                  <CodeClosingBracket blink={this.state.blink}>
-                    {'>'}
-                  </CodeClosingBracket>
-                </Code>
+                Multi Protocol | On Demand | Hybrid Deployment &nbsp;&nbsp;&nbsp;
                 <BlinkingCursor blink={this.state.blink} />
               </TitleSecondary>
             </Title>
