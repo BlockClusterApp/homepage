@@ -48,7 +48,7 @@ export default function FaqsList() {
       }
 
       .accordion:after {
-        content: '-';
+        content: '+';
         color: #777;
         font-weight: bold;
         float: right;
@@ -56,7 +56,7 @@ export default function FaqsList() {
       }
 
       .active:after {
-        content: "+";
+        content: "-";
       }
 
       .panel {
@@ -147,30 +147,29 @@ export default function FaqsList() {
 
       <button class="accordion">I want to use this product to create solutions as a reseller, how can I partner up? </button>
       <div class="panel">
-        <p>We have a partnership program wherein you can become a platform reseller. To know more about our partnership programs, you can click here. Fill out the form and somebody from our team will get in touch with you very soon.</p>
+        <p>We have a partnership program wherein you can become a platform reseller. To know more about our partnership programs, you can <a href="/partners">click here</a>. Fill out the form and somebody from our team will get in touch with you very soon.</p>
       </div>
 
       <button class="accordion">How BlockCluster helps me achieve maximum service coverage in my enterprise Blockchain development? </button>
       <div class="panel">
-        <p>BlockCluster provides you with end-to-end service coverage. It helps you manage the whole life cycle of your enterprise Blockchain development, right from initial steps of selecting the right protocol, spinning the nodes, etc. up till the finishing steps of figuring how to work with smart contracts and other services. In summary, BlockCluster covers these 4 layers of services: Infrastructure, smart contracts, presenting application, and web services.</p>
+        <p>BlockCluster provides you with end-to-end service coverage. It helps you manage the whole life cycle of your enterprise Blockchain development, right from initial steps of selecting the right protocol, spinning the nodes, etc. up till the finishing steps of figuring how to work with smart contracts and other services. In summary, BlockCluster covers these 4 layers of services: Infrastructure, smart contracts, application and web services.</p>
       </div>
 
       <button class="accordion">What are the different add-ons that BlockCluster Offers? </button>
       <div class="panel">
-        <p>At BlockCluster, we feel that Blockchain alone is not enough to create the perfect DApp for your business. We offer other important tools as add-ons as a part of BlockCluster, such as file storage, payment gateway etc. Here is a list of add-ons:</p>
+        <p>At BlockCluster, we feel that Blockchain alone is not enough to create the perfect DApp for your business. We offer other important tools as add-ons as a part of BlockCluster, such as file storage, payment gateway etc. Here is a list of current add-ons:</p>
         <ul class="koko_kinie">
           <li>Hyperion – File storage: Hyperion is IPFS Cluster-as-a-Service. It scales on-demand according to your storage requirements. You can choose to upload files to a specific geographic location to adhere to regulatory compliances.</li>
         <li>Paymeter – For Creating Wallets: It provides APIs for integrating ETH and ERC20 tokens in your DApp. Features include instant internal transactions settlement, supports any ERC20 token support, gas tank for easing ERC20 transfer.</li>
-        <li>PrivateHive - HL's Fabric: PrivateHive allows you to use Hyperledger's Fabric as your choice of blockchain protocol instead of the default dynamo protocol. It lets you easily provision channels, Kafka based orderers, peers, membership service and so on.</li>
         </ul>
       </div>
 
       <button class="accordion">How do I get billed for using BlockCluster platform?</button>
       <div class="panel">
-        <p>You can avail BlockCluster's on-demand cloud computing capabilities on monthly subscription billing.</p>
+        <p>You can avail BlockCluster's on-demand cloud computing capabilities on monthly subscription billing or go for an yearly enterprise license. For the cloud you can choose:</p>
         <li>The light node, suitable for development, testing, and experimenting, costs USD 99/month, which is equivalent to USD 0.137/hour.</li>
         <li>The Power node, recommended for production-grade solutions, cost USD 299/month, which is equivalent to USD 0.415/hour. </li>
-         <p>For more details, you can visit this link.</p>
+         <p>For more details, you can visit <a href="/pricing">this</a> link.</p>
       </div>
 
       <button class="accordion">I don't have expertise in Blockchain. How can BlockCluster help me in brainstorming and visualizing my use-case?  </button>
@@ -192,14 +191,13 @@ export default function FaqsList() {
           <li><b>Standard support </b>– You can raise a ticket from the support section available in the dashboard after logging into BlockCluster. The raised concerns get resolved by the engineers in the support team and the turn-around time for the tickets to get resolved is up to 3 days.</li>
           <li><b>Premium support </b> You get a dedicated support assistant to work along with your team from the support department. For the pricing of the premium support, you can reach out to us via the contact us form.</li>
         </ul>
-        <p>	For more information, please visit this link. (Didn't find the right section in T&C) </p>
       </div>
 
       <button class="accordion">Can BlockCluster team also assist me with my DApp maintenance?</button>
       <div class="panel">
         <p>Yes, the BlockCluster support team will help you with your DApp maintenance. <br/><br/>
         In terms of Blockchain ecosystem, the maintenance support comes bundled with the license (both cloud and enterprise) and is valid till the expiry of your license. <br/>
-        In terms of DApp application maintenance, the support for the nodes is a part of the product. However, if you need support for the maintenance of the core use-case application or flow of your DApp, then you can get engineers allocated from the support department, charged separately on the case-to-case basis.</p>
+        In terms of DApp application maintenance, the support for the blockchain nodes is a part of the license. However, if you need us to support the maintenance of your application, then a seperate support contract can be drafted.</p>
       </div>
 
       <button class="accordion">I am a part of a startup/SME who wants to build a Blockchain Solution. How can BlockCluster help me manage the product's lifecycle? </button>
