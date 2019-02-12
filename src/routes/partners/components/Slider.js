@@ -439,6 +439,7 @@ class Slider extends React.Component {
         <WrapLogos>
           <LogoList>
             <Logo src={microsoft} />
+            <Logo src={tm} />
             <Logo src={ith} />
             <Logo src={mc} />
             <Logo src={era} />
