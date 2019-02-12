@@ -160,7 +160,7 @@ export default class Layout extends React.Component {
                   {/* <NavLink href="/media">Media</NavLink> */}
                   <NavLink href="/pricing">Pricing</NavLink>
                   <NavLink href="/about">About</NavLink>
-                  <NavLink href="/faqs/list">Faq&apos;s</NavLink>
+                  <NavLink href="/faqs/list">FAQs</NavLink>
                   <NavLink href="/contact">Contact us</NavLink>
                 </Nav>
                 <Nav>

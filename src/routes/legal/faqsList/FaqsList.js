@@ -26,12 +26,6 @@ export default function FaqsList() {
           width: 970px;
         }
       }
-      @media (min-width: 1200px) {
-        .container_boot {
-          width: 1170px;
-        }
-      }
-
 
       .accordion {
         background-color: #fff;
@@ -46,6 +40,7 @@ export default function FaqsList() {
         font-size: 17px;
        transition: 0.4s;
         border-bottom: dotted 1px #eee;
+        padding-top: 24px;
       }
 
       .active, .accordion:hover {
@@ -81,13 +76,12 @@ export default function FaqsList() {
   <body style="font-family: 'Source Sans Pro', sans-serif;">
     <div class="container_boot">
 
-      <h2 id="gettingStarted">Getting Started</h2>
+      <h2 id="gettingStarted">FAQs</h2>
       <div style="padding-top: 30px;"></div>
 
       <button class="accordion">What is BlockCluster?</button>
       <div class="panel">
-        <p>BlockCluster is an accelerator platform that allows developers to build cross-platform DApps utilizing multiple protocols as required and deploying it on-premises, cloud or hybrid environment. Developers can create any kind of asset-based use case wherein they can control privacy, permission over the assets, and issue assets to other users with minimal coding, thus saving a lot of time required for development. <br/><br/>
-        Utilizing BlockCluster, DApps can be developed with just a few clicks for the popular operating systems like Windows, Mac, Ubuntu, etc. using multiple supported Blockchain protocols.
+        <p>BlockCluster is an enterprise cloud platform that allows developers to build, manage and scale their dapps using any blockchain protocol of choice with multiple  deployment options ( on-premises, cloud or hybrid ). Developers can create use case flows wherein they can control node management , smart contracts, transaction privacy, role permissions, asset distribution and web services through a simple user interface saving months of time and effort required for scratch development.
       </p>
       </div>
 
@@ -106,9 +100,9 @@ export default function FaqsList() {
       <div class="panel">
         <p>You can use BlockCluster and benefit from it if you are:</p>
         <ul class="koko_kinie">
-        <li>A start-up/SME/large enterprise looking to transform a business idea into a Blockchain solution.</li>
-        <li>Exploring Blockchain for a possible solution to a business problem and want to do a Proof of Concept (POC) before investing in full-scale development.</li>
-        <li>Looking to scale a successful POC Blockchain experiment to a production version and want to manage your whole Blockchain ecosystem end-to-end, including nodes spinning, smart contract </li>
+        <li>A start-up/SME/large enterprise looking to transform a business idea using DLTs.</li>
+        <li>Exploring blockchain for a possible enablement to a business bottleneck and want to do a quick Proof of Concept (POC) before investing in full-scale development.</li>
+        <li>Looking to scale a successful POC to production</li>
         </ul>
       </div>
 
@@ -137,12 +131,10 @@ export default function FaqsList() {
 
       <button class="accordion">There are open source tools and solutions available on the market? What makes BlockCluster a better choice for developing DApps? </button>
       <div class="panel">
-        <p>Yes, there are open source tools available in the market. But developing solutions using them can be actually costly because:</p>
+        <p>There are some open source tools available in the market. However developing a solution using one of them poses a few issues:-</p>
         <ul class="koko_kinie">
-          <li>You need different tools and solution to build one comprehensive solution. In order to accomplish that, you need to hire different Blockchain resources who can understand and integrate these tools into a single solution. It can cost you a lot of money to hire these resources and it is time-consuming to develop the solution (typically 7 – 8 months). You may not find the right resources even after spending money. Assuming everything goes well, there is no assurance that the end solution will be a success. </li>
-
-        <li>The support provided for these open source tools varies and there is no guarantee that the support will be available for a lifetime (at least for a long time). Hence, you would also require resources who could manage these open source tools which again requires investing in hiring the right resources.</li>
-
+          <li>You need different tools and solution to build one comprehensive solution. In order to accomplish that, you need to hire different Blockchain resources who can understand and integrate these tools into a single solution which usually costs a lot more in terms of money and time.</li>
+        <li>The support provided for these open source tools varies. Hence, you would also require resources who could manage these open source tools which again requires investing in hiring the right resources.</li>
         </ul>
       </div>
 
@@ -219,25 +211,10 @@ export default function FaqsList() {
       <div class="panel">
         <p>BlockCluster can help you develop a highly scalable solution with minimal coding, so you can focus on other important aspects of the development process. You can perform quick iterations and launch the product sooner with quick deployment capabilities at a low cost.</p>
       </div>
-      <div style="padding:20px;"></div>
-
-      <h2 id="ama">AMA</h2>
-      <div style="padding-top:20px;"></div>
-      <button class="accordion">Who is the current team behind the BlockCluster Project?</button>
-      <div class="panel">
-        <p>We, at BlockCluster, want to be known by our work and not by our backgrounds. But still, if you are interested in knowing the details of the team, we would be happy to share them with you upon request.</p>
-      </div>
-
-      <button class="accordion">Are there any live AMA sessions that founders undertake?</button>
-      <div class="panel">
-        <p>Founders undertake live webinar sessions on last xxx (day) of every month. These are 30 minutes to 1-hour long sessions in which one of the founders answer questions posted by the attendants.</p>
-      </div>
-
       <button class="accordion">Where can I find the Github code or activity for the project?</button>
       <div class="panel">
         <p>The BlockCluster code developed by us is confidential and is our intellectual property. We are doing the deployment for multiple enterprises and have signed multiple NDAs, which restrict us in making the code public. However, there are certain proxy contract templates which are publicly available from which you can learn coding and deploying smart contracts on BlockCluster. You can get an idea of the activity for the project such as the number of commits from this Github link. (need to hyperlink the URL) </p>
       </div>
-
     </div>
     <div style="padding-top: 30px;"></div>
 
@@ -250,9 +227,12 @@ export default function FaqsList() {
           this.classList.toggle("active");
           var panel = this.nextElementSibling;
           if (panel.style.maxHeight){
+            panel.style.paddingTop = null;
             panel.style.maxHeight = null;
           } else {
-            panel.style.maxHeight = panel.scrollHeight + "px";
+            console.log((panel.scrollHeight + 30), (panel.scrollHeight + 30) + "px")
+            panel.style.paddingTop = 30 + "px";
+            panel.style.maxHeight = (panel.scrollHeight + 30) + "px";
           }
         });
       }
