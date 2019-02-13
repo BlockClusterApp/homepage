@@ -217,10 +217,6 @@ export default function FaqsList() {
       <div class="panel">
         <p>BlockCluster can help you develop a highly scalable solution with minimal coding, so you can focus on other important aspects of the development process. You can perform quick iterations and launch the product sooner with quick deployment capabilities at a low cost.</p>
       </div>
-      <button class="accordion">Where can I find the Github code or activity for the project?</button>
-      <div class="panel">
-        <p>The BlockCluster code developed by us is confidential and is our intellectual property. We are doing the deployment for multiple enterprises and have signed multiple NDAs, which restrict us in making the code public. However, there are certain proxy contract templates which are publicly available from which you can learn coding and deploying smart contracts on BlockCluster. You can get an idea of the activity for the project such as the number of commits from this Github link. (need to hyperlink the URL) </p>
-      </div>
     </div>
     <div style="padding-top: 30px;"></div>
 
