@@ -85,15 +85,10 @@ export default function FaqsList() {
       </p>
       </div>
 
-      <button class="accordion">What all protocols BlockCluster supports?</button>
+      <button class="accordion">What are we doing?</button>
       <div class="panel">
-        <p>At present, we support 3 protocols:</p>
-        <ul class="koko_kinie">
-          <li>Quorum</li>
-          <li>Dynamo (a modified version of Quorum)</li>
-          <li>Hyperledger</li>
-        </ul>
-        <p>We are in the process of developing support for Corda and Multi-chain as well.</p>
+        <p>We are making enterprise blockchains sexy.
+      </p>
       </div>
 
       <button class="accordion">Why do I need BlockCluster? Who can benefit from it?</button>
@@ -105,6 +100,19 @@ export default function FaqsList() {
         <li>Looking to scale a successful POC to production</li>
         </ul>
       </div>
+
+      <button class="accordion">What all protocols BlockCluster supports?</button>
+      <div class="panel">
+        <p>At present, we support 3 protocols:</p>
+        <ul class="koko_kinie">
+          <li>Quorum</li>
+          <li>Dynamo (a modified version of Quorum)</li>
+          <li>Hyperledger</li>
+        </ul>
+        <p>We are in the process of developing support for Corda and Multi-chain as well.</p>
+      </div>
+
+      
 
 
 

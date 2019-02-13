@@ -18,7 +18,7 @@ Subscribers are responsible for maintaining accurate account information at all 
 
 Any Subscriber engaging in spamming blockchain networks through BlockCluster will be considered in breach of this Agreement and will be suspended from the Service immediately.
 
-Your use of the Service must be in compliance with Indian laws, and the laws of your country at all times.
+Your use of the Service must be in compliance with US laws, and the laws of your country at all times.
 
 You are responsible for ensuring that your use of the Service does not consume excessive system or network resources that disrupts the normal use of the Service through, but not limited to, spawning multiple processes, or consuming excessive amounts of memory, CPU or bandwidth capacity.
 
@@ -57,9 +57,9 @@ If any part of this Agreement is found to be invalid or unenforceable under appl
 
 ## Governing Law
 
-The rights and obligations of the parties pursuant to this Agreement are governed by, and shall be construed in accordance with, the laws of India.
+The rights and obligations of the parties pursuant to this Agreement are governed by, and shall be construed in accordance with, the laws of US.
 
-You may be subject to other local, provincial or state and national laws. You hereby irrevocably submit to the exclusive jurisdiction of the Courts of the Province of India for any dispute arising under or relating to this Agreement and waive your right to institute legal proceedings in any other jurisdiction. We shall be entitled to institute legal proceedings in connection with any matter arising under this Agreement in any jurisdiction where you reside, do business or have assets.
+You may be subject to other local, provincial or state and national laws. You hereby irrevocably submit to the exclusive jurisdiction of the Courts of the Province of US for any dispute arising under or relating to this Agreement and waive your right to institute legal proceedings in any other jurisdiction. We shall be entitled to institute legal proceedings in connection with any matter arising under this Agreement in any jurisdiction where you reside, do business or have assets.
 
 ## Age of Majority
 

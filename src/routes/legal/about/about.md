@@ -4,9 +4,13 @@
 
 To provide the most convenient way for corporates, SMEs, startups, freelancers and governments to manage blockchain applications
 
+## What we want to do?
+
+We want to make Enterprise blockchain sexy
+
 ## About
 
-BlockCluster is an offering of Byzantine Technologies Pvt Ltd. BlockCluster is a Blockchain Management System build specifically for targeting permissoned blockchain industry.
+BlockCluster is an offering of Byzantine Technologies Corp. BlockCluster is a Blockchain Management System build specifically for targeting permissoned blockchain industry.
 
 ## Our Story
 
