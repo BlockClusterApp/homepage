@@ -87,8 +87,18 @@ export default function FaqsList() {
 
       <button class="accordion">What are we doing?</button>
       <div class="panel">
-        <p>We are making enterprise blockchain sexier.
+        <p>We are making enterprise blockchains sexy.
       </p>
+      </div>
+
+      <button class="accordion">Why do I need BlockCluster? Who can benefit from it?</button>
+      <div class="panel">
+        <p>You can use BlockCluster and benefit from it if you are:</p>
+        <ul class="koko_kinie">
+        <li>A start-up/SME/large enterprise looking to transform a business idea using DLTs.</li>
+        <li>Exploring blockchain for a possible enablement to a business bottleneck and want to do a quick Proof of Concept (POC) before investing in full-scale development.</li>
+        <li>Looking to scale a successful POC to production</li>
+        </ul>
       </div>
 
       <button class="accordion">What all protocols BlockCluster supports?</button>
@@ -102,15 +112,7 @@ export default function FaqsList() {
         <p>We are in the process of developing support for Corda and Multi-chain as well.</p>
       </div>
 
-      <button class="accordion">Why do I need BlockCluster? Who can benefit from it?</button>
-      <div class="panel">
-        <p>You can use BlockCluster and benefit from it if you are:</p>
-        <ul class="koko_kinie">
-        <li>A start-up/SME/large enterprise looking to transform a business idea using DLTs.</li>
-        <li>Exploring blockchain for a possible enablement to a business bottleneck and want to do a quick Proof of Concept (POC) before investing in full-scale development.</li>
-        <li>Looking to scale a successful POC to production</li>
-        </ul>
-      </div>
+      
 
 
 
