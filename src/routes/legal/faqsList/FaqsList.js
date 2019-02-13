@@ -97,11 +97,12 @@ export default function FaqsList() {
         <ul class="koko_kinie">
         <li>A start-up/SME/large enterprise looking to transform a business idea using DLTs.</li>
         <li>Exploring blockchain for a possible enablement to a business bottleneck and want to do a quick Proof of Concept (POC) before investing in full-scale development.</li>
-        <li>Looking to scale a successful POC to production</li>
+        <li>Looking to scale a successful 
+to production</li>
         </ul>
       </div>
 
-      <button class="accordion">What all protocols BlockCluster supports?</button>
+      <button class="accordion">What all protocols do BlockCluster support?</button>
       <div class="panel">
         <p>At present, we support 3 protocols:</p>
         <ul class="koko_kinie">
@@ -116,9 +117,9 @@ export default function FaqsList() {
 
 
 
-      <button class="accordion">What kind of deployment BlockCluster supports?</button>
+      <button class="accordion">What kind of deployment options do BlockCluster support?</button>
       <div class="panel">
-        <p>BlockCluster supports 3 kinds of deployment:</p>
+        <p>BlockCluster supports 3 kinds of deployments:</p>
         <ul>
           <li>BlockCluster Cloud: All the nodes are deployed on our cloud platform and can be accessed via the web interface on the subscription-based model. </li>
           <li>On-Premises: All the nodes are deployed in your data center with the enterprise version license of BlockCluster.</li>
@@ -163,7 +164,7 @@ export default function FaqsList() {
         <p>BlockCluster provides you with end-to-end service coverage. It helps you manage the whole life cycle of your enterprise Blockchain development, right from initial steps of selecting the right protocol, spinning the nodes, etc. up till the finishing steps of figuring how to work with smart contracts and other services. In summary, BlockCluster covers these 4 layers of services: Infrastructure, smart contracts, application and web services.</p>
       </div>
 
-      <button class="accordion">What are the different add-ons that BlockCluster Offers? </button>
+      <button class="accordion">What are the different add-ons that BlockCluster Offer? </button>
       <div class="panel">
         <p>At BlockCluster, we feel that Blockchain alone is not enough to create the perfect DApp for your business. We offer other important tools as add-ons as a part of BlockCluster, such as file storage, payment gateway etc. Here is a list of current add-ons:</p>
         <ul class="koko_kinie">
