@@ -24,6 +24,10 @@ const routes = {
       load: () => import(/* webpackChunkName: 'events' */ './events'),
     },
     {
+      path: '/media',
+      load: () => import(/* webpackChunkName: 'media' */ './media'),
+    },
+    {
       path: '/become-partner',
       load: () =>
         import(/* webpackChunkName: 'become-partner' */ './become-partner'),
