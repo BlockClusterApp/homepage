@@ -187,7 +187,7 @@ export default class Header extends React.Component {
             <NavItem href="/pricing">Pricing</NavItem>
             <NavItem href="/addons">Add-ons</NavItem>
             <NavItem href="/partners">Partners</NavItem>
-            <NavItem href="/media" target="_blank">Media</NavItem>
+            <NavItem href="/media">Media</NavItem>
             <NavItem href="/faqs/list">FAQ</NavItem>
           </NavLeft>
           <NavRight>
@@ -206,7 +206,7 @@ export default class Header extends React.Component {
             <SidebarNavItem href="/pricing">Pricing</SidebarNavItem>
             <SidebarNavItem href="/addons">Add-ons</SidebarNavItem>
             <SidebarNavItem href="/partners">Partners</SidebarNavItem>
-            <SidebarNavItem href="/media" target="_blank">Media</SidebarNavItem>
+            <SidebarNavItem href="/media">Media</SidebarNavItem>
             <SidebarNavItem href="/faqs/list">FAQ</SidebarNavItem>
             <SidebarNavItem href="/about">About us</SidebarNavItem>
           </NavTop>

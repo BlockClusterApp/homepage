@@ -12,12 +12,6 @@ import Input, { InputError, Textarea } from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../home/components/Header';
 import Footer from '../../components/Footer';
-import ibc from './assets/ibc.jpg';
-import bh from './assets/bh.jpg';
-import wbcMalta from './assets/wbc-malta.jpg';
-import dubai from './assets/dubai.jpg';
-import dubai2 from './assets/dubai2.jpg';
-import zurich from './assets/zurich.jpg';
 import techm from './assets/techm.jpeg'
 import boostvc from './assets/boostvc.jpeg'
 import blockcluster from './assets/blockcluster.png'
