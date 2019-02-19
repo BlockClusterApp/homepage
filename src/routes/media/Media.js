@@ -15,6 +15,7 @@ import Footer from '../../components/Footer';
 import techm from './assets/techm.jpeg'
 import boostvc from './assets/boostvc.jpeg'
 import blockcluster from './assets/blockcluster.png'
+import team from './assets/team.png'
 // const check = (
 //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 //     <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
@@ -314,6 +315,26 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
+            <Column>
+              <Card>
+                <CardImgLink
+                  href="https://medium.com/blockcluster-io/announcing-blockcluster-a-complete-blockchain-management-solution-5dc9dcb8071b"
+                  target="_blank"
+                >
+                  <CardImg src={team} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle
+                    href="https://medium.com/blockcluster-io/announcing-blockcluster-a-complete-blockchain-management-solution-5dc9dcb8071b"
+                    target="_blank"
+                  >
+                    Announcing BlockCluster — A Complete Blockchain Management Solution
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Column>
+          </Row>
+          <Row>
             <Column>
               <Card>
                 <CardImgLink href="/" />
