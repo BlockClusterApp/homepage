@@ -87,7 +87,7 @@ export default function FaqsList() {
 
       <button class="accordion">What are we doing?</button>
       <div class="panel">
-        <p>We are making enterprise blockchains sexy.
+        <p>We are making enterprise blockchains easy to implement.
       </p>
       </div>
 
