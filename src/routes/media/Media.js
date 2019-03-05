@@ -338,6 +338,22 @@ class Media extends React.Component {
           <Row>
             <Column>
               <Card>
+                <CardImgLink
+                  href="https://medium.com/@chinka12g/what-the-heck-is-blockcluster-c90c0af1f69b"
+                  target="_blank"
+                >
+                  <CardImg src={blockcluster} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle
+                    href="https://medium.com/@chinka12g/what-the-heck-is-blockcluster-c90c0af1f69b"
+                    target="_blank"
+                  >
+                    What the heck is BlockCluster?
+                  </CardTitle>
+                </CardBody>
+              </Card>
+              <Card>
                 <CardImgLink href="/" />
                 <CardBody>
                   <CardTitle href="/">More coming soon!</CardTitle>
