@@ -353,6 +353,8 @@ class Media extends React.Component {
                   </CardTitle>
                 </CardBody>
               </Card>
+            </Column>
+            <Column>
               <Card>
                 <CardImgLink href="/" />
                 <CardBody>
