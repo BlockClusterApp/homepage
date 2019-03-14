@@ -257,7 +257,8 @@ const BlinkingCursor = styled.span`
     props.blink &&
     css`
       opacity: 0.9;
-    `};
+    `
+  };
 
   ${media.max768} {
     position: absolute;
@@ -268,6 +269,32 @@ const BlinkingCursor = styled.span`
     height: 25px;
   }
 `;
+
+const Credits = styled.div`
+  padding: 0 12px 0 5px;
+  border-radius: 15px;
+  background: rgba(0,0,140,.08);
+  display: inline-block;
+  font-size: 14px;
+  line-height: 26px;
+  font-weight: 500;
+`
+
+const Limited = styled.div`
+  padding: 0 6px;
+  border-radius: 15px;
+  background: rgba(36, 180, 26, 0.6);
+  display: inline-block;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+`
+
+const LargeArrow = styled.span`
+  font-size: 22px;
+  position: relative;
+  top: 1px;
+`
 
 class Hero extends React.Component {
   state = {
@@ -288,12 +315,15 @@ class Hero extends React.Component {
         <Wrapper>
           <Header />
           <InnerWrapper>
+            <Credits>
+              <Limited>LIMITED</Limited>
+              &nbsp;&nbsp;Get $200 USD on Sign Up
+            </Credits>
             <Title>
               Build and deploy powerful <br />
               blockchain applications<br />
               <TitleSecondary>
                 Multi Protocol | On Demand | Hybrid Deployment &nbsp;&nbsp;&nbsp;
-                <BlinkingCursor blink={this.state.blink} />
               </TitleSecondary>
             </Title>
             <Subtitle>
@@ -301,12 +331,13 @@ class Hero extends React.Component {
               ecosystem through a simple user interface.
             </Subtitle>
             <ButtonsWrapper>
-              <Button primary href="https://docs.blockcluster.io/" target="_blank">
+              <Button  primary href="/request-demo">
+                Create Account
+              </Button>
+              <Button secondary href="https://docs.blockcluster.io/" target="_blank">
                 Documentation
               </Button>
-              <Button secondary href="/request-demo">
-                Request demo
-              </Button>
+              
             </ButtonsWrapper>
             <Network />
           </InnerWrapper>
