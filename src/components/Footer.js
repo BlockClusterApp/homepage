@@ -216,8 +216,8 @@ export default function Footer() {
         <Nav>
           <StyledAnchor href="/about">About us</StyledAnchor>
           <StyledAnchor href="/contact">Contact us</StyledAnchor>
-          <StyledAnchor target="_blank" href="https://docs.blockcluster.io">
-            Documentation
+          <StyledAnchor target="_blank" href="https://status.blockcluster.io">
+            Status
           </StyledAnchor>
           <StyledAnchor href="/faqs/list">FAQ&apos;s</StyledAnchor>
           <StyledLink href="https://angel.co/blockcluster/jobs">
