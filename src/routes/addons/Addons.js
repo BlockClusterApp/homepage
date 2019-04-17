@@ -586,7 +586,7 @@ class Addons extends React.Component {
             </Column>
           </Row>
           <Row>
-            <ColumnDull>
+            <Column>
               <Card>
                 <CardTitle>
                   PrivateHive - <span>HL's Fabric</span>
@@ -594,7 +594,7 @@ class Addons extends React.Component {
                 <CardDescription>
                   PrivateHive allows you to use Hyperledger's Fabric as your choice of blockchain protocol
                   instead of default dynamo protocol. It let's you easily provision channels, kafka based 
-                  orderers, peers, membership service and so on.
+                  ordering service, private data, CouchDB and so on.
                 </CardDescription>
                 <CardImgBox>
                   <CardImg src={hyperledger_img} style={{width: '124px'}} />
@@ -605,21 +605,20 @@ class Addons extends React.Component {
                       dangerouslySetInnerHTML={{ __html: waitSvg }}
                     />
                     <CardHighlightText>
-                      We support Hyperledger's Fabric version 1.4.0. This plugin is yet to release.
+                      We support Hyperledger's Fabric version 1.4.0.
                     </CardHighlightText>
                   </CardHighlight>
                   <NodePrice>
-                    <NodePriceTitle>Price</NodePriceTitle>
-                    <NodePricePerHour>$299/node</NodePricePerHour>
-                    <NodePricePerMonth>$599/orderer</NodePricePerMonth>
+                    <NodePriceTitle>Monthly Orderer Price</NodePriceTitle>
+                    <NodePricePerHour>$699 for Kafka</NodePricePerHour>
+                    <NodePricePerMonth>$99 for Solo</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
-                    * The above amount is charged on per month basics. A node includes 
-                    1 peer, 1 anchor peer and 1 membership server. 
+                    * Cost for Light peer nodes is $99/mon whereas Power peer nodes is $299/mon 
                   </NodeSpecsDisclaimer>
                 </CardFooter>
               </Card>
-            </ColumnDull>
+            </Column>
           </Row>
         </Body>
         <Enterprise>
