@@ -610,7 +610,7 @@ class Addons extends React.Component {
                   </CardHighlight>
                   <NodePrice>
                     <NodePriceTitle>Monthly Orderer Price</NodePriceTitle>
-                    <NodePricePerHour>$699 for Kafka</NodePricePerHour>
+                    <NodePricePerHour>$1499 for Kafka</NodePricePerHour>
                     <NodePricePerMonth>$99 for Solo</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
