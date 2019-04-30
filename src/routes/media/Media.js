@@ -17,6 +17,9 @@ import boostvc from './assets/boostvc.jpeg'
 import blockcluster from './assets/blockcluster.png'
 import team from './assets/team.png'
 import eleven01 from './assets/eleven01.jpeg'
+import bcsummit from './assets/bcsummit.jpeg'
+import protocols from './assets/5protocols.jpeg'
+import ph from './assets/privatehive.jpeg'
 // const check = (
 //   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 //     <path d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z" />
@@ -268,6 +271,56 @@ class Media extends React.Component {
           <Row>
             <Column>
               <Card>
+                <CardImgLink href="https://medium.com/blockcluster-io/blockcluster-launches-privatehive-a-hyperledger-fabric-as-a-service-b66a6e8d0c34" target="_blank">
+                  <CardImg src={ph} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle href="https://medium.com/blockcluster-io/blockcluster-launches-privatehive-a-hyperledger-fabric-as-a-service-b66a6e8d0c34" target="_blank">
+                  BlockCluster Launches PrivateHive: A Hyperledger Fabric-as-a-Service Module
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Column>
+            <Column>
+              <Card>
+                <CardImgLink
+                  href="https://medium.com/blockcluster-io/the-top-5-enterprise-blockchain-protocols-316927de02f5"
+                  target="_blank"
+                >
+                  <CardImg src={protocols} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle
+                    href="https://medium.com/blockcluster-io/the-top-5-enterprise-blockchain-protocols-316927de02f5"
+                    target="_blank"
+                  >
+                    The Top 5 Enterprise Blockchain Protocols
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Card>
+                <CardImgLink
+                  href="https://medium.com/blockcluster-io/blockcluster-reached-out-to-indian-ministries-it-giants-at-blockchain-summit-india-2019-9a34233d70a0"
+                  target="_blank"
+                >
+                  <CardImg src={bcsummit} />
+                </CardImgLink>
+                <CardBody>
+                  <CardTitle
+                    href="https://medium.com/blockcluster-io/blockcluster-reached-out-to-indian-ministries-it-giants-at-blockchain-summit-india-2019-9a34233d70a0"
+                    target="_blank"
+                  >
+                    BlockCluster Reached Out to Indian Ministries & IT Giants at Blockchain Summit India 2019
+                  </CardTitle>
+                </CardBody>
+              </Card>
+            </Column>
+            <Column>
+              <Card>
                 <CardImgLink href="https://medium.com/blockcluster-io/blockcluster-tech-mahindra-a-strategic-partnership-to-help-fortune-400-371a73c5f6b1" target="_blank">
                   <CardImg src={techm} />
                 </CardImgLink>
@@ -278,6 +331,8 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
+          </Row>
+          <Row>
             <Column>
               <Card>
                 <CardImgLink
@@ -296,9 +351,7 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
-          </Row>
-          <Row>
-          <Column>
+            <Column>
               <Card>
                 <CardImgLink
                   href="https://medium.com/blockcluster-io/eleven01-blockcluster-join-hands-to-promote-blockchain-adoption-with-codeless-deployment-4e088b121d75"
@@ -316,6 +369,8 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
+          </Row>
+          <Row>
             <Column>
               <Card>
                 <CardImgLink
@@ -334,8 +389,6 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
-          </Row>
-          <Row>
             <Column>
               <Card>
                 <CardImgLink
@@ -354,6 +407,8 @@ class Media extends React.Component {
                 </CardBody>
               </Card>
             </Column>
+          </Row>
+          <Row>
             <Column>
               <Card>
                 <CardImgLink href="/" />
