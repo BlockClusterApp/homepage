@@ -30,6 +30,7 @@
     "formik": "^0.11.11",
     "graphql": "^0.13.2",
     "history": "^4.7.2",
+    "hsts": "^2.2.0",
     "nodemailer": "^4.6.5",
     "polished": "^1.9.2",
     "pretty-error": "^2.1.1",

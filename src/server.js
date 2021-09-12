@@ -22,6 +22,8 @@ import { LABELS as RSVP_LABELS } from './routes/rsvp/constants';
 import { LABELS as BECOME_PARTNER_LABELS } from './routes/become-partner/constants';
 import { LABELS as CONTACT_LABELS } from './routes/legal/contact/constants';
 
+const hsts = require('hsts');
+
 process.on('unhandledRejection', (reason, p) => {
   console.error('Unhandled Rejection at:', p, 'reason:', reason);
   // send entire app down. Process manager will restart it
@@ -130,6 +132,12 @@ app.use(express.static(path.resolve(__dirname, 'public')));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(
+  hsts({
+    maxAge: 0, // 180 days in seconds
+    includeSubDomains: false,
+  }),
+);
 app.use(
   expressWinston.logger({
     winstonInstance: winston,
