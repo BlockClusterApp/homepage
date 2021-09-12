@@ -80,9 +80,7 @@ const routes = {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = route.title
-      ? `${route.title} - BlockCluster`
-      : 'BlockCluster';
+    route.title = route.title ? `${route.title} - Fyda` : 'Fyda';
     route.description =
       route.description ||
       'Build and deploy powerful blockchain applications without writing any code. ' +

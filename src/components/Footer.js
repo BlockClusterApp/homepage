@@ -41,7 +41,7 @@ const Wrapper = styled.div`
 const Logo = styled.img.attrs({
   src: logo,
   srcSet: `${logo2x} 2x`,
-  alt: 'BlockCluster',
+  alt: 'Fyda',
 })`
   color: ${lighten(0.4, colors.text)};
   filter: grayscale(100%);
@@ -216,27 +216,13 @@ export default function Footer() {
         <Nav>
           <StyledAnchor href="/about">About us</StyledAnchor>
           <StyledAnchor href="/contact">Contact us</StyledAnchor>
-          <StyledAnchor target="_blank" href="https://status.blockcluster.io">
-            Status
-          </StyledAnchor>
-          <StyledAnchor target="_blank" href="https://docs.blockcluster.io">Documentation</StyledAnchor>
-          <StyledLink href="https://angel.co/blockcluster/jobs">
-            Careers
-          </StyledLink>
           <StyledLink href="/terms">Terms & conditions</StyledLink>
           <StyledLink href="/privacy">Privacy policy</StyledLink>
         </Nav>
         <Logo />
-        <SocialMediaWrapper>
-          <SocialMedia
-            href="https://www.linkedin.com/company/blockcluster"
-            provider="LINKED_IN"
-          >
-            <LinkedIn />
-          </SocialMedia>
-        </SocialMediaWrapper>
         <Copyright>
-          &copy; BlockCluster {new Date().getFullYear()}. All rights reserved.
+          &copy; Decentralized Technologies Pvt Ltd {new Date().getFullYear()}.
+          All rights reserved.
         </Copyright>
       </Wrapper>
     </Root>

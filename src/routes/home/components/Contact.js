@@ -210,12 +210,7 @@ class Contact extends React.Component {
           <TextWrapper>
             <Title>
               <AnimateText
-                textNodes={[
-                  'Ready',
-                  'to',
-                  'use',
-                  <TitleEm>BlockCluster?</TitleEm>,
-                ]}
+                textNodes={['Ready', 'to', 'use', <TitleEm>Fyda?</TitleEm>]}
                 animationStyle="slide"
               />
             </Title>
@@ -231,10 +226,7 @@ class Contact extends React.Component {
             mounted={mounted}
             visible={visible}
           >
-            <Button primary href="https://docs.blockcluster.io/">
-              Documentation
-            </Button>
-            <Button secondary href="/request-demo">
+            <Button secondary href="mailto:info@fyda.app">
               Request demo
             </Button>
           </ButtonsWrapper>

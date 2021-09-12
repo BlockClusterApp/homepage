@@ -35,7 +35,7 @@ const LogoLink = styled(({ white, ...props }) => <a {...props} />)`
 const LogoImg = styled.img.attrs({
   src: logo,
   srcSet: `${logo2x} 2x`,
-  alt: 'BlockCluster',
+  alt: 'Fyda',
 })`
   width: 191px;
   height: 42px;
@@ -143,7 +143,7 @@ export default class Header extends React.Component {
         <Button
           buttonCss={loginButtonCss}
           component="a"
-          href="//app.blockcluster.io/login"
+          href="mailto:info@fyda.app"
         >
           Login
         </Button>
@@ -160,10 +160,8 @@ export default class Header extends React.Component {
             <SidebarNavItem href="/about">About us</SidebarNavItem>
           </NavTop>
           <NavBottom>
-            <SidebarNavItem href="//app.blockcluster.io/login">
-              Login
-            </SidebarNavItem>
-            <SidebarNavItem href="//app.blockcluster.io/register">
+            <SidebarNavItem href="mailto:info@fyda.app">Login</SidebarNavItem>
+            <SidebarNavItem href="mailto:info@fyda.app">
               Register
             </SidebarNavItem>
           </NavBottom>

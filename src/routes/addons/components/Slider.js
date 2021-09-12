@@ -305,9 +305,9 @@ class Slider extends React.Component {
         {
           logo: infotech_white,
           text: `
-                Partnering with BlockCluster has greatly accelerated the blockchain solutions
+                Partnering with Fyda has greatly accelerated the blockchain solutions
                 Infotech Hub can offer our clients and has deepened our capabilities through
-                BlockCluster Partner Specializations including Cloud and Serverless.`,
+                Fyda Partner Specializations including Cloud and Serverless.`,
           name: `Manisha Dubey`,
           designation: `Director, ITH Technologies`,
         },
@@ -316,7 +316,7 @@ class Slider extends React.Component {
           text: `This wasn't just a product shift for us,
                  it was also a business shift. As a partner we were able to
                  consult our client better and achieve better conversion ratio. We are more
-                 confident in running our services with BlockCluster as a partner.`,
+                 confident in running our services with Fyda as a partner.`,
           name: `K. Sive`,
           designation: `CEO, Megachain`,
         },

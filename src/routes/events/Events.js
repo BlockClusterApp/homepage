@@ -256,10 +256,10 @@ class Events extends React.Component {
             <InnerWrapper>
               <Title>Media & Events</Title>
               <Subtitle>
-                Discover more about BlockCluster and it’s quest to build world’s
-                first Blockchain Management System. We want to accelerate the
-                adoption of blockchain technology by making it easy for
-                enterprises to set it up.{' '}
+                Discover more about Fyda and it’s quest to build world’s first
+                Blockchain Management System. We want to accelerate the adoption
+                of blockchain technology by making it easy for enterprises to
+                set it up.{' '}
                 <SubtitleLink href="/rsvp">Come say hi!</SubtitleLink>
               </Subtitle>
             </InnerWrapper>

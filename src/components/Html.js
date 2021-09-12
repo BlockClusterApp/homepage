@@ -329,21 +329,18 @@ class Html extends React.Component {
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="title" content={title} />
           <meta name="description" content={description} />
-          <meta name="author" content="Blockcluster" />
+          <meta name="author" content="Fyda" />
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:site" content="@blockcluster" />
+          <meta name="twitter:site" content="@fyda" />
           <meta name="twitter:title" content={title} />
           <meta name="twitter:description" content={description} />
           <meta property="og:title" content={title} />
-          <meta property="og:site_name" content="Blockcluster" />
+          <meta property="og:site_name" content="Fyda" />
           <meta property="og:description" content={description} />
           <meta property="og:type" content="website" />
-          <meta property="og:url" content="http://blockcluster.io/" />
+          <meta property="og:url" content="http://fyda.app/" />
           <meta property="og:locale" content="en_US" />
-          <meta
-            property="og:image"
-            content="http://blockcluster.io/og-image.png"
-          />
+          <meta property="og:image" content="http://fyda.app/og-image.png" />
           <meta property="og:image:type" content="image/png" />
           <link
             rel="apple-touch-icon"
@@ -435,8 +432,17 @@ class Html extends React.Component {
             })(document);`,
             }}
           />
-          <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
-          <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            charSet="UTF-8"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css"
+          />
+          <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
+          />
         </head>
         <body>
           <div

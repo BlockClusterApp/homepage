@@ -298,7 +298,7 @@ class Problem extends React.Component {
           <Title>
             <TitleIntro>
               <AnimateText
-                textNodes={['Introducing', 'BlockCluster’s']}
+                textNodes={['Introducing', 'Fyda’s']}
                 animationStyle="slide"
               />
             </TitleIntro>
@@ -312,7 +312,7 @@ class Problem extends React.Component {
           <Subtitle>
             <AnimateText
               textNodes={[
-                `BlockCluster’s BMS includes a rich catalog of cloud services which
+                `Fyda’s BMS includes a rich catalog of cloud services which
                   allows you to customly build and deploy business blockchain
                   applications rapidly — a few clicks aways.`,
               ]}
@@ -358,7 +358,7 @@ class Problem extends React.Component {
                   </PointIllustration>
                   <PointTitle>No knowledge required</PointTitle>
                   <PointDescription>
-                    Blockcluster let’s you configure your <Break />
+                    Fyda let’s you configure your <Break />
                     digital assets without writing smart contracts
                   </PointDescription>
                 </Point2>
@@ -399,7 +399,7 @@ class Problem extends React.Component {
                   <PointTitle>Easy integration & scalable</PointTitle>
                   <PointDescription>
                     Whether hosted on the cloud or on premises, <Break />
-                    BlockCluster’s integration is simple
+                    Fyda’s integration is simple
                   </PointDescription>
                 </Point4>
               </PointColumn>

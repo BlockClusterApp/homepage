@@ -186,13 +186,11 @@ export default class Header extends React.Component {
           <NavLeft>
             <NavItem href="/pricing">Pricing</NavItem>
             <NavItem href="/addons">Add-ons</NavItem>
-            <NavItem href="/partners">Partners</NavItem>
-            <NavItem href="/media">Media</NavItem>
             <NavItem href="/faqs/list">FAQ</NavItem>
           </NavLeft>
           <NavRight>
             {/* <NavItem href="/media">Media</NavItem> */}
-            <NavButton href="//app.blockcluster.io/login">Login</NavButton>
+            <NavButton href="mailto:info@fyda.app">Login</NavButton>
           </NavRight>
         </Nav>
         <Hamburger onClick={() => this.setState({ showSidebar: true })}>
@@ -211,10 +209,7 @@ export default class Header extends React.Component {
             <SidebarNavItem href="/about">About us</SidebarNavItem>
           </NavTop>
           <NavBottom>
-            <SidebarNavItem href="//app.blockcluster.io/login">
-              Login
-            </SidebarNavItem>
-            <SidebarNavItem href="//app.blockcluster.io/register">
+            <SidebarNavItem href="mailto:info@fyda.app">
               Register
             </SidebarNavItem>
           </NavBottom>

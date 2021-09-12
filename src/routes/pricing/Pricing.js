@@ -442,8 +442,7 @@ class Pricing extends React.Component {
             <InnerWrapper>
               <Title>On-Demand Nodes</Title>
               <Subtitle>
-                BlockClusters provides two offerings,<br /> on-cloud and
-                on-premises
+                Fyda provides two offerings,<br /> on-cloud and on-premises
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
@@ -455,10 +454,9 @@ class Pricing extends React.Component {
               On-<span>cloud</span>
             </ContentTitle>
             <ContentText>
-              BlockCluster’s On-Demand Blockchain Nodes let you pay for compute
-              capacity by the hour with no long-term commitments. This frees you
-              from the costs and complexities of setting up blockchain nodes
-              securely.
+              Fyda’s On-Demand Blockchain Nodes let you pay for compute capacity
+              by the hour with no long-term commitments. This frees you from the
+              costs and complexities of setting up blockchain nodes securely.
             </ContentText>
             <ContentText>
               The pricing below includes the cost to run Light and Power
@@ -473,7 +471,7 @@ class Pricing extends React.Component {
                 </CardTitle>
                 <CardDescription>
                   These nodes are used for developing and testing your
-                  decentralized application or for experimenting BlockCluster’s
+                  decentralized application or for experimenting Fyda’s
                   capabilities. They are good to go with transactions and events
                   which don’t need an instant response and networks with low
                   transactions volume.
@@ -555,11 +553,10 @@ class Pricing extends React.Component {
                 On-<EnterpriseTitleEm>Premise</EnterpriseTitleEm>
               </EnterpriseTitle>
               <EnterpriseSubtitle>
-                You can install BlockCluster on-premise on your local servers,
-                hybrid IT, public clouds and private cloud by purchasing our
-                enterprise license. Our automation tools and PSO experts help
-                you setup blockcluster across any infrastructure without any
-                hassle.
+                You can install Fyda on-premise on your local servers, hybrid
+                IT, public clouds and private cloud by purchasing our enterprise
+                license. Our automation tools and PSO experts help you setup
+                Fyda across any infrastructure without any hassle.
               </EnterpriseSubtitle>
               <EnterpriseSubtitle>
                 It works independently of any infrastructure and seamlessly
@@ -571,8 +568,8 @@ class Pricing extends React.Component {
                 Enterprise <span>License</span>
               </CardTitle>
               <CardDescription>
-                BlockCluster Enterprise lets you achieve your goals by securing
-                data as per your regulatory compliances.
+                Fyda Enterprise lets you achieve your goals by securing data as
+                per your regulatory compliances.
               </CardDescription>
               <CardDescription>
                 This gives you the ability to further decentralise your

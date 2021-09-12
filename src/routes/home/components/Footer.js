@@ -90,15 +90,12 @@ const StyledLink = styled.a`
 const Footer = () => (
   <Root>
     <Wrapper>
-      <Copyright>&copy; BlockCluster {new Date().getFullYear()}</Copyright>
+      <Copyright>&copy; Fyda {new Date().getFullYear()}</Copyright>
       <Separator />
       <Company>
         <Title>Company</Title>
         <Links>
-          <StyledLink href="mailto:info@blockcluster.io">Contact</StyledLink>
-          <StyledLink href="https://angel.co/blockcluster/jobs" target="_blank">
-            Careers
-          </StyledLink>
+          <StyledLink href="mailto:info@fyda.app">Contact</StyledLink>
         </Links>
       </Company>
     </Wrapper>

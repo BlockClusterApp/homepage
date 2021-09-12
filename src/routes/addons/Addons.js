@@ -19,7 +19,8 @@ import hyperledger_img from './assets/hyperledger.png';
 const checkSvg =
   '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z"/></svg>';
 
-const waitSvg = '<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkNhcGFfMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxwYXRoIGQ9Ik0zODYsMTBjMTYuNTcsMCwzMCwxMy40MywzMCwzMGMwLDguMjgtMy4zNiwxNS43OC04Ljc5LDIxLjIxQzQwMS43OCw2Ni42NCwzOTQuMjgsNzAsMzg2LDcwaC0xMCAgIEgxMzZoLTEwYy0xNi41NywwLTMwLTEzLjQzLTMwLTMwYzAtOC4yOCwzLjM2LTE1Ljc4LDguNzktMjEuMjFTMTE3LjcyLDEwLDEyNiwxMEgzODZ6IiBzdHlsZT0iZmlsbDojNTc1NTVDOyIvPjxwYXRoIGQ9Ik0zODYsNDQyYzE2LjU3LDAsMzAsMTMuNDMsMzAsMzBjMCw4LjI4LTMuMzYsMTUuNzgtOC43OSwyMS4yMWMtNS40Myw1LjQzLTEyLjkzLDguNzktMjEuMjEsOC43OSAgIEgxMjZjLTE2LjU3LDAtMzAtMTMuNDMtMzAtMzBjMC04LjI4LDMuMzYtMTUuNzgsOC43OS0yMS4yMVMxMTcuNzIsNDQyLDEyNiw0NDJoMTBoMjQwSDM4NnoiIHN0eWxlPSJmaWxsOiM1NzU1NUM7Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0zNzYsNzBsLTguOTYsODkuNjFjLTAuMDQsMC4zOC0wLjA5LDAuNzYtMC4xNCwxLjEzSDE0NS4xYy0wLjA1LTAuMzctMC4xLTAuNzUtMC4xNC0xLjEzTDEzNiw3MCAgIEgzNzZ6IiBzdHlsZT0iZmlsbDojQzBFM0YwOyIvPjxwYXRoIGQ9Ik0zNjcuMDQsMzU4LjM5Yy0zLjE0LTI4LjI5LTE2LjY3LTUzLjE0LTM2LjUzLTcwLjkxQzMxMC42NiwyNjkuNywyODQuNDYsMjU5LDI1NiwyNTkgICBjLTU2LjkzLDAtMTA0Ljc2LDQyLjgxLTExMS4wNCw5OS4zOUwxMzYsNDQyaDI0MEwzNjcuMDQsMzU4LjM5eiIgc3R5bGU9ImZpbGw6I0MwRTNGMDsiLz48L2c+PGc+PHBhdGggZD0iTTM3Niw0NDJIMTM2bDExNS4wNS02MS42OWMzLjI1LTAuODYsNi42Ni0wLjg5LDkuOTItMC4wOEwzNzYsNDQyeiIgc3R5bGU9ImZpbGw6I0ZFQjc1NjsiLz48cGF0aCBkPSJNMTQ1LjEsMTYwLjc0aDIyMS44QzM2MC4xMiwyMTYuNzYsMzEyLjU1LDI1OSwyNTYsMjU5UzE1MS44OCwyMTYuNzYsMTQ1LjEsMTYwLjc0eiIgc3R5bGU9ImZpbGw6I0ZFQjc1NjsiLz48L2c+PHBhdGggZD0iTTI1NiwzNDljNS41MiwwLDEwLTQuNDgsMTAtMTBzLTQuNDgtMTAtMTAtMTBjLTUuNTIsMC0xMCw0LjQ4LTEwLDEwUzI1MC40OCwzNDksMjU2LDM0OXoiLz48cGF0aCBkPSJNMzg2LDQzMmgtMS4wMTVsLTguMDA2LTc0LjcxNGMtMy4zMS0yOS44MTctMTcuNDQ1LTU3LjI1NS0zOS43OTctNzcuMjU0Yy05Ljg0NS04LjgxOS0yMC45NTItMTUuODg5LTMyLjg2NC0yMS4wNDIgIGMzOC41OS0xNi43MzcsNjcuMTQyLTUyLjk0NSw3Mi41LTk2Ljk3NmMwLjAwNi0wLjA0NSwwLjAxMi0wLjA5MiwwLjAxOC0wLjEzOGMwLjAwNi0wLjA0OSwwLjAxNC0wLjA5NywwLjAxOS0wLjE0NyAgYzAuMDQ3LTAuMzU4LDAuMDkzLTAuNzI1LDAuMTM1LTEuMTI1TDM4NS4wNSw4MEgzODZjMTAuNjgsMCwyMC43MjMtNC4xNjIsMjguMjgxLTExLjcxOUM0MjEuODM4LDYwLjcyNSw0MjYsNTAuNjgxLDQyNiw0MCAgYzAtMjIuMDU2LTE3Ljk0NC00MC00MC00MEgxMjZjLTEwLjY4LDAtMjAuNzIzLDQuMTYyLTI4LjI4MSwxMS43MTlDOTAuMTYyLDE5LjI3NSw4NiwyOS4zMTksODYsNDBjMCwyMi4wNTYsMTcuOTQ0LDQwLDQwLDQwaDAuOTUgIGw4LjA2NSw4MC42NThjMC4wMzcsMC4zNTEsMC4wODMsMC42OTksMC4xMjgsMS4wNDVjMC4wMDYsMC4wNjgsMC4wMTcsMC4xMzUsMC4wMjUsMC4yMDJjMC4wMDUsMC4wMzYsMC4wMDksMC4wNzMsMC4wMTMsMC4xMDkgIGM1LjM1Niw0NC4wMTcsMzMuODkxLDgwLjIxNiw3Mi40NjMsOTYuOTZjLTM5LjAxNSwxNi44NzEtNjcuNjYyLDUzLjYxNy03Mi42MjcsOTguMzVMMTI3LjAxNSw0MzJIMTI2ICBjLTEwLjY4LDAtMjAuNzIzLDQuMTYyLTI4LjI4MSwxMS43MTlDOTAuMTYyLDQ1MS4yNzUsODYsNDYxLjMxOSw4Niw0NzJjMCwyMi4wNTYsMTcuOTQ0LDQwLDQwLDQwaDI2MCAgYzEwLjY4LDAsMjAuNzIzLTQuMTYyLDI4LjI4MS0xMS43MTlDNDIxLjgzOCw0OTIuNzI1LDQyNiw0ODIuNjgxLDQyNiw0NzJDNDI2LDQ0OS45NDQsNDA4LjA1Niw0MzIsMzg2LDQzMnogTTE1NC4xMjMsMTUwLjc0ICBMMTQ3LjA1LDgwaDIxNy45bC03LjA3Myw3MC43NEwxNTQuMTIzLDE1MC43NEwxNTQuMTIzLDE1MC43NHogTTEwNiw0MGMwLTUuMzM4LDIuMDgyLTEwLjM1OSw1Ljg2MS0xNC4xMzkgIEMxMTUuNjQxLDIyLjA4MiwxMjAuNjYyLDIwLDEyNiwyMGgyNjBjMTEuMDI4LDAsMjAsOC45NzIsMjAsMjBjMCw1LjMzOC0yLjA4MiwxMC4zNTktNS44NjEsMTQuMTM5ICBDMzk2LjM1OSw1Ny45MTgsMzkxLjMzOCw2MCwzODYsNjBoLTEwSDEzNmgtMTBDMTE0Ljk3Miw2MCwxMDYsNTEuMDI4LDEwNiw0MHogTTE1Ny4wNDcsMTcwLjc0aDE5Ny45MDYgIEMzNDQuMjQ0LDIxNi4wNjMsMzAzLjU1MSwyNDksMjU2LDI0OVMxNjcuNzU2LDIxNi4wNjMsMTU3LjA0NywxNzAuNzR6IE0yNDYsMjY5LjQ4OVYyOTljMCw1LjUyMiw0LjQ3NywxMCwxMCwxMCAgYzUuNTIzLDAsMTAtNC40NzgsMTAtMTB2LTI5LjQ5N2MyMS40MjYsMi4xMDgsNDEuNjY5LDEwLjk0Myw1Ny44NDIsMjUuNDI5YzE4LjY4MiwxNi43MTUsMzAuNDk0LDM5LjY0NCwzMy4yNTUsNjQuNTIybDYuOTQxLDY0Ljc3MSAgbC05OC4zMzctNTIuODA2Yy0wLjczMi0wLjM5My0xLjUxMS0wLjY5My0yLjMxOC0wLjg5NGMtNC44NzMtMS4yMTItMTAuMDIxLTEuMTcxLTE0Ljg4OSwwLjExNSAgYy0wLjc1NCwwLjE5OS0xLjQ4MiwwLjQ4Ni0yLjE2OSwwLjg1NEwxNDcuOTYsNDI0LjI0bDYuOTM4LTY0Ljc0N0MxNjAuMjUzLDMxMS4yNTQsMTk4LjYwMywyNzQuMTExLDI0NiwyNjkuNDg5eiBNMzM2LjI0LDQzMiAgSDE3NS44MTJsNzguNzQ4LTQyLjIyNmMwLjk4Ny0wLjE2LDEuOTk0LTAuMTcxLDIuOTc5LTAuMDM2TDMzNi4yNCw0MzJ6IE00MDAuMTM5LDQ4Ni4xMzlDMzk2LjM1OSw0ODkuOTE4LDM5MS4zMzgsNDkyLDM4Niw0OTJIMTI2ICBjLTExLjAyOCwwLTIwLTguOTcyLTIwLTIwYzAtNS4zMzgsMi4wODItMTAuMzU5LDUuODYxLTE0LjEzOWMzLjc4LTMuNzc5LDguODAxLTUuODYxLDE0LjEzOS01Ljg2MWg5LjkyNmMwLjAyMSwwLDAuMDQyLDAsMC4wNjQsMCAgSDEzNmgyMzkuOTU5YzAuMDExLDAsMC4wMjIsMC4wMDIsMC4wMzIsMC4wMDJTMzc2LjAxLDQ1MiwzNzYuMDIsNDUySDM4NmMxMS4wMjgsMCwyMCw4Ljk3MiwyMCwyMCAgQzQwNiw0NzcuMzM4LDQwMy45MTgsNDgyLjM1OSw0MDAuMTM5LDQ4Ni4xMzl6Ii8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PC9zdmc+" />'
+const waitSvg =
+  '<img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaWQ9IkNhcGFfMSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTEyIDUxMjsiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxnPjxwYXRoIGQ9Ik0zODYsMTBjMTYuNTcsMCwzMCwxMy40MywzMCwzMGMwLDguMjgtMy4zNiwxNS43OC04Ljc5LDIxLjIxQzQwMS43OCw2Ni42NCwzOTQuMjgsNzAsMzg2LDcwaC0xMCAgIEgxMzZoLTEwYy0xNi41NywwLTMwLTEzLjQzLTMwLTMwYzAtOC4yOCwzLjM2LTE1Ljc4LDguNzktMjEuMjFTMTE3LjcyLDEwLDEyNiwxMEgzODZ6IiBzdHlsZT0iZmlsbDojNTc1NTVDOyIvPjxwYXRoIGQ9Ik0zODYsNDQyYzE2LjU3LDAsMzAsMTMuNDMsMzAsMzBjMCw4LjI4LTMuMzYsMTUuNzgtOC43OSwyMS4yMWMtNS40Myw1LjQzLTEyLjkzLDguNzktMjEuMjEsOC43OSAgIEgxMjZjLTE2LjU3LDAtMzAtMTMuNDMtMzAtMzBjMC04LjI4LDMuMzYtMTUuNzgsOC43OS0yMS4yMVMxMTcuNzIsNDQyLDEyNiw0NDJoMTBoMjQwSDM4NnoiIHN0eWxlPSJmaWxsOiM1NzU1NUM7Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0zNzYsNzBsLTguOTYsODkuNjFjLTAuMDQsMC4zOC0wLjA5LDAuNzYtMC4xNCwxLjEzSDE0NS4xYy0wLjA1LTAuMzctMC4xLTAuNzUtMC4xNC0xLjEzTDEzNiw3MCAgIEgzNzZ6IiBzdHlsZT0iZmlsbDojQzBFM0YwOyIvPjxwYXRoIGQ9Ik0zNjcuMDQsMzU4LjM5Yy0zLjE0LTI4LjI5LTE2LjY3LTUzLjE0LTM2LjUzLTcwLjkxQzMxMC42NiwyNjkuNywyODQuNDYsMjU5LDI1NiwyNTkgICBjLTU2LjkzLDAtMTA0Ljc2LDQyLjgxLTExMS4wNCw5OS4zOUwxMzYsNDQyaDI0MEwzNjcuMDQsMzU4LjM5eiIgc3R5bGU9ImZpbGw6I0MwRTNGMDsiLz48L2c+PGc+PHBhdGggZD0iTTM3Niw0NDJIMTM2bDExNS4wNS02MS42OWMzLjI1LTAuODYsNi42Ni0wLjg5LDkuOTItMC4wOEwzNzYsNDQyeiIgc3R5bGU9ImZpbGw6I0ZFQjc1NjsiLz48cGF0aCBkPSJNMTQ1LjEsMTYwLjc0aDIyMS44QzM2MC4xMiwyMTYuNzYsMzEyLjU1LDI1OSwyNTYsMjU5UzE1MS44OCwyMTYuNzYsMTQ1LjEsMTYwLjc0eiIgc3R5bGU9ImZpbGw6I0ZFQjc1NjsiLz48L2c+PHBhdGggZD0iTTI1NiwzNDljNS41MiwwLDEwLTQuNDgsMTAtMTBzLTQuNDgtMTAtMTAtMTBjLTUuNTIsMC0xMCw0LjQ4LTEwLDEwUzI1MC40OCwzNDksMjU2LDM0OXoiLz48cGF0aCBkPSJNMzg2LDQzMmgtMS4wMTVsLTguMDA2LTc0LjcxNGMtMy4zMS0yOS44MTctMTcuNDQ1LTU3LjI1NS0zOS43OTctNzcuMjU0Yy05Ljg0NS04LjgxOS0yMC45NTItMTUuODg5LTMyLjg2NC0yMS4wNDIgIGMzOC41OS0xNi43MzcsNjcuMTQyLTUyLjk0NSw3Mi41LTk2Ljk3NmMwLjAwNi0wLjA0NSwwLjAxMi0wLjA5MiwwLjAxOC0wLjEzOGMwLjAwNi0wLjA0OSwwLjAxNC0wLjA5NywwLjAxOS0wLjE0NyAgYzAuMDQ3LTAuMzU4LDAuMDkzLTAuNzI1LDAuMTM1LTEuMTI1TDM4NS4wNSw4MEgzODZjMTAuNjgsMCwyMC43MjMtNC4xNjIsMjguMjgxLTExLjcxOUM0MjEuODM4LDYwLjcyNSw0MjYsNTAuNjgxLDQyNiw0MCAgYzAtMjIuMDU2LTE3Ljk0NC00MC00MC00MEgxMjZjLTEwLjY4LDAtMjAuNzIzLDQuMTYyLTI4LjI4MSwxMS43MTlDOTAuMTYyLDE5LjI3NSw4NiwyOS4zMTksODYsNDBjMCwyMi4wNTYsMTcuOTQ0LDQwLDQwLDQwaDAuOTUgIGw4LjA2NSw4MC42NThjMC4wMzcsMC4zNTEsMC4wODMsMC42OTksMC4xMjgsMS4wNDVjMC4wMDYsMC4wNjgsMC4wMTcsMC4xMzUsMC4wMjUsMC4yMDJjMC4wMDUsMC4wMzYsMC4wMDksMC4wNzMsMC4wMTMsMC4xMDkgIGM1LjM1Niw0NC4wMTcsMzMuODkxLDgwLjIxNiw3Mi40NjMsOTYuOTZjLTM5LjAxNSwxNi44NzEtNjcuNjYyLDUzLjYxNy03Mi42MjcsOTguMzVMMTI3LjAxNSw0MzJIMTI2ICBjLTEwLjY4LDAtMjAuNzIzLDQuMTYyLTI4LjI4MSwxMS43MTlDOTAuMTYyLDQ1MS4yNzUsODYsNDYxLjMxOSw4Niw0NzJjMCwyMi4wNTYsMTcuOTQ0LDQwLDQwLDQwaDI2MCAgYzEwLjY4LDAsMjAuNzIzLTQuMTYyLDI4LjI4MS0xMS43MTlDNDIxLjgzOCw0OTIuNzI1LDQyNiw0ODIuNjgxLDQyNiw0NzJDNDI2LDQ0OS45NDQsNDA4LjA1Niw0MzIsMzg2LDQzMnogTTE1NC4xMjMsMTUwLjc0ICBMMTQ3LjA1LDgwaDIxNy45bC03LjA3Myw3MC43NEwxNTQuMTIzLDE1MC43NEwxNTQuMTIzLDE1MC43NHogTTEwNiw0MGMwLTUuMzM4LDIuMDgyLTEwLjM1OSw1Ljg2MS0xNC4xMzkgIEMxMTUuNjQxLDIyLjA4MiwxMjAuNjYyLDIwLDEyNiwyMGgyNjBjMTEuMDI4LDAsMjAsOC45NzIsMjAsMjBjMCw1LjMzOC0yLjA4MiwxMC4zNTktNS44NjEsMTQuMTM5ICBDMzk2LjM1OSw1Ny45MTgsMzkxLjMzOCw2MCwzODYsNjBoLTEwSDEzNmgtMTBDMTE0Ljk3Miw2MCwxMDYsNTEuMDI4LDEwNiw0MHogTTE1Ny4wNDcsMTcwLjc0aDE5Ny45MDYgIEMzNDQuMjQ0LDIxNi4wNjMsMzAzLjU1MSwyNDksMjU2LDI0OVMxNjcuNzU2LDIxNi4wNjMsMTU3LjA0NywxNzAuNzR6IE0yNDYsMjY5LjQ4OVYyOTljMCw1LjUyMiw0LjQ3NywxMCwxMCwxMCAgYzUuNTIzLDAsMTAtNC40NzgsMTAtMTB2LTI5LjQ5N2MyMS40MjYsMi4xMDgsNDEuNjY5LDEwLjk0Myw1Ny44NDIsMjUuNDI5YzE4LjY4MiwxNi43MTUsMzAuNDk0LDM5LjY0NCwzMy4yNTUsNjQuNTIybDYuOTQxLDY0Ljc3MSAgbC05OC4zMzctNTIuODA2Yy0wLjczMi0wLjM5My0xLjUxMS0wLjY5My0yLjMxOC0wLjg5NGMtNC44NzMtMS4yMTItMTAuMDIxLTEuMTcxLTE0Ljg4OSwwLjExNSAgYy0wLjc1NCwwLjE5OS0xLjQ4MiwwLjQ4Ni0yLjE2OSwwLjg1NEwxNDcuOTYsNDI0LjI0bDYuOTM4LTY0Ljc0N0MxNjAuMjUzLDMxMS4yNTQsMTk4LjYwMywyNzQuMTExLDI0NiwyNjkuNDg5eiBNMzM2LjI0LDQzMiAgSDE3NS44MTJsNzguNzQ4LTQyLjIyNmMwLjk4Ny0wLjE2LDEuOTk0LTAuMTcxLDIuOTc5LTAuMDM2TDMzNi4yNCw0MzJ6IE00MDAuMTM5LDQ4Ni4xMzlDMzk2LjM1OSw0ODkuOTE4LDM5MS4zMzgsNDkyLDM4Niw0OTJIMTI2ICBjLTExLjAyOCwwLTIwLTguOTcyLTIwLTIwYzAtNS4zMzgsMi4wODItMTAuMzU5LDUuODYxLTE0LjEzOWMzLjc4LTMuNzc5LDguODAxLTUuODYxLDE0LjEzOS01Ljg2MWg5LjkyNmMwLjAyMSwwLDAuMDQyLDAsMC4wNjQsMCAgSDEzNmgyMzkuOTU5YzAuMDExLDAsMC4wMjIsMC4wMDIsMC4wMzIsMC4wMDJTMzc2LjAxLDQ1MiwzNzYuMDIsNDUySDM4NmMxMS4wMjgsMCwyMCw4Ljk3MiwyMCwyMCAgQzQwNiw0NzcuMzM4LDQwMy45MTgsNDgyLjM1OSw0MDAuMTM5LDQ4Ni4xMzl6Ii8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PGcvPjxnLz48Zy8+PC9zdmc+" />';
 const Bg = styled.div`
   background: linear-gradient(#f6fbff, #eef7fe);
   height: 568px;
@@ -185,7 +186,7 @@ const Row = styled.div`
     margin-bottom: ${spacing(2)};
   }
 `;
-//486px
+// 486px
 const Card = styled.div`
   position: relative;
   background: #fff;
@@ -200,7 +201,7 @@ const Card = styled.div`
   @media (min-width: 850px) {
     display: inline-block;
     width: 100%;
-    height: 622px
+    height: 622px;
   }
 `;
 
@@ -472,11 +473,11 @@ const EnterpriseContent = styled.div`
 const CardImgBox = styled.div`
   text-align: center;
   margin-top: 26px;
-`
+`;
 
 const CardImg = styled.img`
   width: 152px;
-`
+`;
 
 class Addons extends React.Component {
   state = {
@@ -497,9 +498,9 @@ class Addons extends React.Component {
             <InnerWrapper>
               <Title>Platform Add-ons</Title>
               <Subtitle>
-                Tools and services for developing and extending your DApp. Our add-ons 
-                helps your DApp achieve next-level of decentralization, customization and 
-                automation.
+                Tools and services for developing and extending your DApp. Our
+                add-ons helps your DApp achieve next-level of decentralization,
+                customization and automation.
               </Subtitle>
             </InnerWrapper>
           </Wrapper>
@@ -511,13 +512,14 @@ class Addons extends React.Component {
               Plug and play <span>services</span>
             </ContentTitle>
             <ContentText>
-              In various use-cases, a dynamo based private network is not enough to make your dapp 
-              completely decentralized. BlockClutser's cloud services marketplace aims to provide 
-              you everything you need for your dapp. 
+              In various use-cases, a dynamo based private network is not enough
+              to make your dapp completely decentralized. Fyda's cloud services
+              marketplace aims to provide you everything you need for your dapp.
             </ContentText>
             <ContentText>
-              Now you can provision, configure and deploy various protocols, apps, services 
-              and tools with a click. We automate the build and scalability of your preferred features.
+              Now you can provision, configure and deploy various protocols,
+              apps, services and tools with a click. We automate the build and
+              scalability of your preferred features.
             </ContentText>
           </Content>
           <Row>
@@ -527,11 +529,13 @@ class Addons extends React.Component {
                   Hyperion - <span>Store Files</span>
                 </CardTitle>
                 <CardDescription>
-                  Hyperion is IPFS Cluster-as-a-Service. It scales on-demand according to your storage requirements. You 
-                  can choose to upload files to a specific geo-graphic location to adhere to regulatory compliances.
+                  Hyperion is IPFS Cluster-as-a-Service. It scales on-demand
+                  according to your storage requirements. You can choose to
+                  upload files to a specific geo-graphic location to adhere to
+                  regulatory compliances.
                 </CardDescription>
                 <CardImgBox>
-                  <CardImg src={ipfs_img} style={{width: '120px'}} />
+                  <CardImg src={ipfs_img} style={{ width: '120px' }} />
                 </CardImgBox>
                 <CardFooter>
                   <CardHighlight>
@@ -539,7 +543,8 @@ class Addons extends React.Component {
                       dangerouslySetInnerHTML={{ __html: checkSvg }}
                     />
                     <CardHighlightText>
-                      It enables you to store and share files with others using just file's unique fingerprint.
+                      It enables you to store and share files with others using
+                      just file's unique fingerprint.
                     </CardHighlightText>
                   </CardHighlight>
                   <NodePrice>
@@ -548,7 +553,8 @@ class Addons extends React.Component {
                     <NodePricePerMonth>$0.342/GB</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
-                    * Bill amount will be either total storage fees or subscription fees depending on whichever is greater
+                    * Bill amount will be either total storage fees or
+                    subscription fees depending on whichever is greater
                   </NodeSpecsDisclaimer>
                 </CardFooter>
               </Card>
@@ -559,7 +565,10 @@ class Addons extends React.Component {
                   Paymeter - <span>Create Wallets</span>
                 </CardTitle>
                 <CardDescription>
-                  It provides APIs for integrating ETH and ERC20 tokens in your dapp. Features include instant internal transactions settlement, supports any ERC20 token support, gas tank for easing ERC20 transfer.
+                  It provides APIs for integrating ETH and ERC20 tokens in your
+                  dapp. Features include instant internal transactions
+                  settlement, supports any ERC20 token support, gas tank for
+                  easing ERC20 transfer.
                 </CardDescription>
                 <CardImgBox>
                   <CardImg src={ethereum_img} />
@@ -570,7 +579,7 @@ class Addons extends React.Component {
                       dangerouslySetInnerHTML={{ __html: checkSvg }}
                     />
                     <CardHighlightText>
-                      We only charge for deposits from external wallets. 
+                      We only charge for deposits from external wallets.
                     </CardHighlightText>
                   </CardHighlight>
                   <NodePrice>
@@ -579,7 +588,8 @@ class Addons extends React.Component {
                     <NodePricePerMonth>0.20%/txn</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
-                    * Bill amount will be either total transaction fees or subscription fees depending on whichever is greater
+                    * Bill amount will be either total transaction fees or
+                    subscription fees depending on whichever is greater
                   </NodeSpecsDisclaimer>
                 </CardFooter>
               </Card>
@@ -592,12 +602,13 @@ class Addons extends React.Component {
                   PrivateHive - <span>HL's Fabric</span>
                 </CardTitle>
                 <CardDescription>
-                  PrivateHive allows you to use Hyperledger's Fabric as your choice of blockchain protocol
-                  instead of default dynamo protocol. It let's you easily provision channels, kafka based 
+                  PrivateHive allows you to use Hyperledger's Fabric as your
+                  choice of blockchain protocol instead of default dynamo
+                  protocol. It let's you easily provision channels, kafka based
                   ordering service, private data, CouchDB and so on.
                 </CardDescription>
                 <CardImgBox>
-                  <CardImg src={hyperledger_img} style={{width: '124px'}} />
+                  <CardImg src={hyperledger_img} style={{ width: '124px' }} />
                 </CardImgBox>
                 <CardFooter>
                   <CardHighlight>
@@ -614,7 +625,8 @@ class Addons extends React.Component {
                     <NodePricePerMonth>$99 for Solo</NodePricePerMonth>
                   </NodePrice>
                   <NodeSpecsDisclaimer>
-                    * Cost for Light peer nodes is $99/mon whereas Power peer nodes is $299/mon 
+                    * Cost for Light peer nodes is $99/mon whereas Power peer
+                    nodes is $299/mon
                   </NodeSpecsDisclaimer>
                 </CardFooter>
               </Card>
@@ -630,10 +642,11 @@ class Addons extends React.Component {
               </EnterpriseTitle>
               <EnterpriseSubtitle>
                 All the addons are supported in the enterprise license also. The
-                pricing for each addon varies in enterprise license. 
+                pricing for each addon varies in enterprise license.
               </EnterpriseSubtitle>
               <EnterpriseSubtitle>
-                You can choose to opt in or out of certain addons according to your needs.
+                You can choose to opt in or out of certain addons according to
+                your needs.
               </EnterpriseSubtitle>
             </EnterpriseContent>
             <CardOnPremises>
@@ -641,12 +654,13 @@ class Addons extends React.Component {
                 List your <span>tool</span>
               </CardTitle>
               <CardDescription>
-                We are looking to partner with various blockchain protocol providers, oracle services and 
-                dapps to provide their tools and applications as a service integrated in BlockCluster.
+                We are looking to partner with various blockchain protocol
+                providers, oracle services and dapps to provide their tools and
+                applications as a service integrated in Fyda.
               </CardDescription>
               <CardDescription>
-                If you are protocol or tool provider and you wish to see your dapp provided as a service
-                in blockcluster then kindly contact us. 
+                If you are protocol or tool provider and you wish to see your
+                dapp provided as a service in fyda then kindly contact us.
               </CardDescription>
               <CardHighlight>
                 <Button component="a" href="/contact" secondary>

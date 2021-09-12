@@ -168,10 +168,6 @@ export default class Layout extends React.Component {
                   <NavLink href="/privacy">Privacy policy</NavLink>
                   <NavLink href="/terms">Terms and condition</NavLink>
                 </Nav>
-                <Nav>
-                  <NavTitle>Misc</NavTitle>
-                  <NavLink href="/rsvp">RSVP</NavLink>
-                </Nav>
               </Sidebar>
               <Content>{children}</Content>
             </Body>

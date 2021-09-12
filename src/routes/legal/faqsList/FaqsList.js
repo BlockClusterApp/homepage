@@ -8,7 +8,7 @@ export default function FaqsList() {
         __html: `<!DOCTYPE html>
   <html>
   <head>
-    <title>Blockcluster FAQ</title>
+    <title>Fyda FAQ</title>
     <style type="text/css">
       .container_boot {
         padding-right: 15px;
@@ -79,9 +79,9 @@ export default function FaqsList() {
       <h2 id="gettingStarted">FAQs</h2>
       <div style="padding-top: 30px;"></div>
 
-      <button class="accordion">What is BlockCluster?</button>
+      <button class="accordion">What is Fyda?</button>
       <div class="panel">
-        <p>BlockCluster is an enterprise cloud platform that allows developers to build, manage and scale their dapps using any blockchain protocol of choice with multiple  deployment options ( on-premises, cloud or hybrid ). Developers can create use case flows wherein they can control node management , smart contracts, transaction privacy, role permissions, asset distribution and web services through a simple user interface saving months of time and effort required for scratch development.
+        <p>Fyda is an enterprise cloud platform that allows developers to build, manage and scale their dapps using any blockchain protocol of choice with multiple  deployment options ( on-premises, cloud or hybrid ). Developers can create use case flows wherein they can control node management , smart contracts, transaction privacy, role permissions, asset distribution and web services through a simple user interface saving months of time and effort required for scratch development.
       </p>
       </div>
 
@@ -91,9 +91,9 @@ export default function FaqsList() {
       </p>
       </div>
 
-      <button class="accordion">Why do I need BlockCluster? Who can benefit from it?</button>
+      <button class="accordion">Why do I need Fyda? Who can benefit from it?</button>
       <div class="panel">
-        <p>You can use BlockCluster and benefit from it if you are:</p>
+        <p>You can use Fyda and benefit from it if you are:</p>
         <ul class="koko_kinie">
         <li>A start-up/SME/large enterprise looking to transform a business idea using DLTs.</li>
         <li>Exploring blockchain for a possible enablement to a business bottleneck and want to do a quick Proof of Concept (POC) before investing in full-scale development.</li>
@@ -102,7 +102,7 @@ to production</li>
         </ul>
       </div>
 
-      <button class="accordion">What all protocols do BlockCluster support?</button>
+      <button class="accordion">What all protocols do Fyda support?</button>
       <div class="panel">
         <p>At present, we support 3 protocols:</p>
         <ul class="koko_kinie">
@@ -117,28 +117,28 @@ to production</li>
 
 
 
-      <button class="accordion">What kind of deployment options do BlockCluster support?</button>
+      <button class="accordion">What kind of deployment options do Fyda support?</button>
       <div class="panel">
-        <p>BlockCluster supports 3 kinds of deployments:</p>
+        <p>Fyda supports 3 kinds of deployments:</p>
         <ul>
-          <li>BlockCluster Cloud: All the nodes are deployed on our cloud platform and can be accessed via the web interface on the subscription-based model. </li>
-          <li>On-Premises: All the nodes are deployed in your data center with the enterprise version license of BlockCluster.</li>
-          <li>Your Cloud Platform: All the nodes are deployed in your cloud platform with the enterprise version license of BlockCluster.</li>
+          <li>Fyda Cloud: All the nodes are deployed on our cloud platform and can be accessed via the web interface on the subscription-based model. </li>
+          <li>On-Premises: All the nodes are deployed in your data center with the enterprise version license of Fyda.</li>
+          <li>Your Cloud Platform: All the nodes are deployed in your cloud platform with the enterprise version license of Fyda.</li>
         </ul>
-        <p>BlockCluster also supports Hybrid deployment in which few of the nodes are deployed in your data center, while some of them are deployed on BlockCluster cloud.</p>
+        <p>Fyda also supports Hybrid deployment in which few of the nodes are deployed in your data center, while some of them are deployed on Fyda cloud.</p>
       </div>
 
-      <button class="accordion">What is BlockCluster compatibility with my existing software products/tools?</button>
+      <button class="accordion">What is Fyda compatibility with my existing software products/tools?</button>
       <div class="panel">
-        <p>BlockCluster offers out-of-the-box compatibility with all the tools that communicate with REST API. However, if your existing software products/tools use SOAP or XML based communication, you can still connect them with BlockCluster using add-on connectors available on request.</p>
+        <p>Fyda offers out-of-the-box compatibility with all the tools that communicate with REST API. However, if your existing software products/tools use SOAP or XML based communication, you can still connect them with Fyda using add-on connectors available on request.</p>
       </div>
 
-      <button class="accordion">I want to do a PoC first to test out my idea, without investing too much in development. Can BlockCluster help me?  </button>
+      <button class="accordion">I want to do a PoC first to test out my idea, without investing too much in development. Can Fyda help me?  </button>
       <div class="panel">
-        <p>BlockCluster cloud version offers two types of nodes: A light node and a Power node. Light nodes are specifically designed to carry out all kinds of experiments to test the feasibility of use cases by developing PoC. They require investment as low as USD 99 per month for each node. You can easily perform PoC by buying a minimum number of nodes required to successfully test your concept, minimizing your investment. After successful POC, you can switch to either Power nodes or buy enterprise license of BlockCluster for developing a production version of your solution.</p>
+        <p>Fyda cloud version offers two types of nodes: A light node and a Power node. Light nodes are specifically designed to carry out all kinds of experiments to test the feasibility of use cases by developing PoC. They require investment as low as USD 99 per month for each node. You can easily perform PoC by buying a minimum number of nodes required to successfully test your concept, minimizing your investment. After successful POC, you can switch to either Power nodes or buy enterprise license of Fyda for developing a production version of your solution.</p>
       </div>
 
-      <button class="accordion">There are open source tools and solutions available on the market? What makes BlockCluster a better choice for developing DApps? </button>
+      <button class="accordion">There are open source tools and solutions available on the market? What makes Fyda a better choice for developing DApps? </button>
       <div class="panel">
         <p>There are some open source tools available in the market. However developing a solution using one of them poses a few issues:-</p>
         <ul class="koko_kinie">
@@ -148,9 +148,9 @@ to production</li>
       </div>
 
 
-      <button class="accordion">I want to do a PoC first to test out my idea, without investing too much in development. Can BlockCluster help me?  </button>
+      <button class="accordion">I want to do a PoC first to test out my idea, without investing too much in development. Can Fyda help me?  </button>
       <div class="panel">
-        <p>BlockCluster cloud version offers two types of nodes: A light node and a Power node. Light nodes are specifically designed to carry out all kinds of experiments to test the feasibility of use cases by developing PoC. They require investment as low as USD 99 per month for each node. You can easily perform PoC by buying a minimum number of nodes required to successfully test your concept, minimizing your investment. After successful POC, you can switch to either Power nodes or buy enterprise license of BlockCluster for developing a production version of your solution.</p>
+        <p>Fyda cloud version offers two types of nodes: A light node and a Power node. Light nodes are specifically designed to carry out all kinds of experiments to test the feasibility of use cases by developing PoC. They require investment as low as USD 99 per month for each node. You can easily perform PoC by buying a minimum number of nodes required to successfully test your concept, minimizing your investment. After successful POC, you can switch to either Power nodes or buy enterprise license of Fyda for developing a production version of your solution.</p>
       </div>
 
 
@@ -159,31 +159,31 @@ to production</li>
         <p>We have a partnership program wherein you can become a platform reseller. To know more about our partnership programs, you can <a href="/partners">click here</a>. Fill out the form and somebody from our team will get in touch with you very soon.</p>
       </div>
 
-      <button class="accordion">How BlockCluster helps me achieve maximum service coverage in my enterprise Blockchain development? </button>
+      <button class="accordion">How Fyda helps me achieve maximum service coverage in my enterprise Blockchain development? </button>
       <div class="panel">
-        <p>BlockCluster provides you with end-to-end service coverage. It helps you manage the whole life cycle of your enterprise Blockchain development, right from initial steps of selecting the right protocol, spinning the nodes, etc. up till the finishing steps of figuring how to work with smart contracts and other services. In summary, BlockCluster covers these 4 layers of services: Infrastructure, smart contracts, application and web services.</p>
+        <p>Fyda provides you with end-to-end service coverage. It helps you manage the whole life cycle of your enterprise Blockchain development, right from initial steps of selecting the right protocol, spinning the nodes, etc. up till the finishing steps of figuring how to work with smart contracts and other services. In summary, Fyda covers these 4 layers of services: Infrastructure, smart contracts, application and web services.</p>
       </div>
 
-      <button class="accordion">What are the different add-ons that BlockCluster Offer? </button>
+      <button class="accordion">What are the different add-ons that Fyda Offer? </button>
       <div class="panel">
-        <p>At BlockCluster, we feel that Blockchain alone is not enough to create the perfect DApp for your business. We offer other important tools as add-ons as a part of BlockCluster, such as file storage, payment gateway etc. Here is a list of current add-ons:</p>
+        <p>At Fyda, we feel that Blockchain alone is not enough to create the perfect DApp for your business. We offer other important tools as add-ons as a part of Fyda, such as file storage, payment gateway etc. Here is a list of current add-ons:</p>
         <ul class="koko_kinie">
           <li>Hyperion – File storage: Hyperion is IPFS Cluster-as-a-Service. It scales on-demand according to your storage requirements. You can choose to upload files to a specific geographic location to adhere to regulatory compliances.</li>
         <li>Paymeter – For Creating Wallets: It provides APIs for integrating ETH and ERC20 tokens in your DApp. Features include instant internal transactions settlement, supports any ERC20 token support, gas tank for easing ERC20 transfer.</li>
         </ul>
       </div>
 
-      <button class="accordion">How do I get billed for using BlockCluster platform?</button>
+      <button class="accordion">How do I get billed for using Fyda platform?</button>
       <div class="panel">
-        <p>You can avail BlockCluster's on-demand cloud computing capabilities on monthly subscription billing or go for an yearly enterprise license. For the cloud you can choose:</p>
+        <p>You can avail Fyda's on-demand cloud computing capabilities on monthly subscription billing or go for an yearly enterprise license. For the cloud you can choose:</p>
         <li>The light node, suitable for development, testing, and experimenting, costs USD 99/month, which is equivalent to USD 0.137/hour.</li>
         <li>The Power node, recommended for production-grade solutions, cost USD 299/month, which is equivalent to USD 0.415/hour. </li>
          <p>For more details, you can visit <a href="/pricing">this</a> link.</p>
       </div>
 
-      <button class="accordion">I don't have expertise in Blockchain. How can BlockCluster help me in brainstorming and visualizing my use-case?  </button>
+      <button class="accordion">I don't have expertise in Blockchain. How can Fyda help me in brainstorming and visualizing my use-case?  </button>
       <div class="panel">
-        <p>The current BlockCluster team is divided into 3 different departments:</p>
+        <p>The current Fyda team is divided into 3 different departments:</p>
         <ul>
           <li>PSO (Professional services organization) – They take care of all the pre-sale and consulting related tasks. </li>
           <li>R&D – They are responsible for the core product, protocols, and the add-ons.</li>
@@ -193,30 +193,30 @@ to production</li>
         </p>
       </div>
 
-      <button class="accordion">What kind of support do I get for BlockCluster Products?  </button>
+      <button class="accordion">What kind of support do I get for Fyda Products?  </button>
       <div class="panel">
         <p>For both cloud and enterprise versions, there are two types of support services available:</p>
         <ul>
-          <li><b>Standard support </b>– You can raise a ticket from the support section available in the dashboard after logging into BlockCluster. The raised concerns get resolved by the engineers in the support team and the turn-around time for the tickets to get resolved is up to 3 days.</li>
+          <li><b>Standard support </b>– You can raise a ticket from the support section available in the dashboard after logging into Fyda. The raised concerns get resolved by the engineers in the support team and the turn-around time for the tickets to get resolved is up to 3 days.</li>
           <li><b>Premium support </b> You get a dedicated support assistant to work along with your team from the support department. For the pricing of the premium support, you can reach out to us via the contact us form.</li>
         </ul>
       </div>
 
-      <button class="accordion">Can BlockCluster team also assist me with my DApp maintenance?</button>
+      <button class="accordion">Can Fyda team also assist me with my DApp maintenance?</button>
       <div class="panel">
-        <p>Yes, the BlockCluster support team will help you with your DApp maintenance. <br/><br/>
+        <p>Yes, the Fyda support team will help you with your DApp maintenance. <br/><br/>
         In terms of Blockchain ecosystem, the maintenance support comes bundled with the license (both cloud and enterprise) and is valid till the expiry of your license. <br/>
         In terms of DApp application maintenance, the support for the blockchain nodes is a part of the license. However, if you need us to support the maintenance of your application, then a seperate support contract can be drafted.</p>
       </div>
 
-      <button class="accordion">I am a part of a startup/SME who wants to build a Blockchain Solution. How can BlockCluster help me manage the product's lifecycle? </button>
+      <button class="accordion">I am a part of a startup/SME who wants to build a Blockchain Solution. How can Fyda help me manage the product's lifecycle? </button>
       <div class="panel">
-        <p>For a startup/SME, cost and time-to-market are crucial factors. BlockCluster helps in low-cost development and integration of your Blockchain solution quickly, so you can disrupt the target industry by reaching the market early. You also have the access to on-demand scalability, which you can buy on-the-go to match increasing demand of your business, thus helping you save the initial investment and experiment with your idea.</p>
+        <p>For a startup/SME, cost and time-to-market are crucial factors. Fyda helps in low-cost development and integration of your Blockchain solution quickly, so you can disrupt the target industry by reaching the market early. You also have the access to on-demand scalability, which you can buy on-the-go to match increasing demand of your business, thus helping you save the initial investment and experiment with your idea.</p>
       </div>
 
-      <button class="accordion">I am a developer who wants to build a Blockchain Solution. How can BlockCluster help me manage the product's lifecycle?  </button>
+      <button class="accordion">I am a developer who wants to build a Blockchain Solution. How can Fyda help me manage the product's lifecycle?  </button>
       <div class="panel">
-        <p>BlockCluster can help you develop a highly scalable solution with minimal coding, so you can focus on other important aspects of the development process. You can perform quick iterations and launch the product sooner with quick deployment capabilities at a low cost.</p>
+        <p>Fyda can help you develop a highly scalable solution with minimal coding, so you can focus on other important aspects of the development process. You can perform quick iterations and launch the product sooner with quick deployment capabilities at a low cost.</p>
       </div>
     </div>
     <div style="padding-top: 30px;"></div>

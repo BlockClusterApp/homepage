@@ -203,7 +203,7 @@ class Benefits extends React.Component {
                   <PointIllustration src={platform_img} />
                   <PointTitle>Platform Expertise</PointTitle>
                   <PointDescription>
-                    Access to BlockCluster technical training opportunities to
+                    Access to Fyda technical training opportunities to
                     strengthen your blockchain expertise
                   </PointDescription>
                 </PointDev>
@@ -225,8 +225,8 @@ class Benefits extends React.Component {
                   <PointIllustration src={blockchain_img} />
                   <PointTitle>Blockchain Consultancy</PointTitle>
                   <PointDescription>
-                    Consulting expertise provided by <Break /> Blockcluster
-                    Ninjas in for your <Break /> client pitches
+                    Consulting expertise provided by <Break /> Fyda Ninjas in
+                    for your <Break /> client pitches
                   </PointDescription>
                 </PointExe>
               </PointColumn>

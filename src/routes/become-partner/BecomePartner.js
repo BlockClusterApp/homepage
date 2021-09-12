@@ -261,7 +261,7 @@ class BecomePartner extends React.Component {
                 <Fragment>
                   <Title>Become a Partner</Title>
                   <Subtitle>
-                    Thanks for showing your interest in BlockCluster Partership
+                    Thanks for showing your interest in Fyda Partership
                     Programme! Go ahead and fill in your details, and we’ll get
                     back to you.
                   </Subtitle>
@@ -407,7 +407,7 @@ class BecomePartner extends React.Component {
                                 value={values.company}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                placeholder="BlockCluster"
+                                placeholder="Fyda"
                               />
                               {errors &&
                                 errors.company &&
@@ -430,7 +430,7 @@ class BecomePartner extends React.Component {
                                 value={values.website}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                placeholder="www.blockcluster.io"
+                                placeholder="fyda.app"
                               />
                               {errors &&
                                 errors.website &&

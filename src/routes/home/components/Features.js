@@ -78,7 +78,7 @@ const Features = () => (
     <Subtitle>
       <AnimateText
         textNodes={[
-          `BlockCluster automatically sets up your nodes, writes your smart contracts and auto generates your API endpoints.`,
+          `Fyda automatically sets up your nodes, writes your smart contracts and auto generates your API endpoints.`,
         ]}
         animationStyle="fadeSlide"
       />

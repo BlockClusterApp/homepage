@@ -1,6 +1,6 @@
 ﻿# Privacy policy
 
-BlockCluster collects and uses personal data as needed in order for us to provide you with top-notch applications, products, services, and support (collectively, our "Services"). Your personal data includes information such as:
+Fyda collects and uses personal data as needed in order for us to provide you with top-notch applications, products, services, and support (collectively, our "Services"). Your personal data includes information such as:
 
 - Name
 - Address

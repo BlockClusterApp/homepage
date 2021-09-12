@@ -256,8 +256,8 @@ class RequestDemo extends React.Component {
                 <Fragment>
                   <Title>Request a demo</Title>
                   <Subtitle>
-                    Thanks for showing your interest in BlockCluster! Go ahead
-                    and fill in your details, and we’ll get back to you.
+                    Thanks for showing your interest in Fyda! Go ahead and fill
+                    in your details, and we’ll get back to you.
                   </Subtitle>
                   <Card>
                     {form.error && <InputError>{form.error}</InputError>}
@@ -385,7 +385,7 @@ class RequestDemo extends React.Component {
                                 value={values.website}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                placeholder="www.blockcluster.io"
+                                placeholder="fyda.app"
                               />
                               {errors &&
                                 errors.website &&
@@ -408,7 +408,7 @@ class RequestDemo extends React.Component {
                                 value={values.orgName}
                                 onBlur={handleBlur}
                                 onChange={handleChange}
-                                placeholder="BlockCluster"
+                                placeholder="Fyda"
                               />
                               {errors &&
                                 errors.orgName &&
@@ -608,7 +608,7 @@ class RequestDemo extends React.Component {
                                 id="comments"
                                 value={values.comments}
                                 onChange={handleChange}
-                                placeholder="I would like to know a specific application of Blockcluster"
+                                placeholder="I would like to know a specific application of Fyda"
                               />
                               {errors &&
                                 errors.comments &&

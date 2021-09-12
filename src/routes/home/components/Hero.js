@@ -257,8 +257,7 @@ const BlinkingCursor = styled.span`
     props.blink &&
     css`
       opacity: 0.9;
-    `
-  };
+    `};
 
   ${media.max768} {
     position: absolute;
@@ -273,12 +272,12 @@ const BlinkingCursor = styled.span`
 const Credits = styled.div`
   padding: 0 12px 0 5px;
   border-radius: 15px;
-  background: rgba(0,0,140,.08);
+  background: rgba(0, 0, 140, 0.08);
   display: inline-block;
   font-size: 14px;
   line-height: 26px;
   font-weight: 500;
-`
+`;
 
 const Limited = styled.div`
   padding: 0 6px;
@@ -288,13 +287,13 @@ const Limited = styled.div`
   font-size: 14px;
   line-height: 16px;
   font-weight: 600;
-`
+`;
 
 const LargeArrow = styled.span`
   font-size: 22px;
   position: relative;
   top: 1px;
-`
+`;
 
 class Hero extends React.Component {
   state = {
@@ -315,30 +314,18 @@ class Hero extends React.Component {
         <Wrapper>
           <Header />
           <InnerWrapper>
-            <Credits>
-              <Limited>LIMITED</Limited>
-              &nbsp;&nbsp;Get $200 USD on Sign Up
-            </Credits>
             <Title>
               Build and deploy powerful <br />
               blockchain applications<br />
               <TitleSecondary>
-                Multi Protocol | On Demand | Hybrid Deployment &nbsp;&nbsp;&nbsp;
+                Multi Protocol | On Demand | Hybrid Deployment
+                &nbsp;&nbsp;&nbsp;
               </TitleSecondary>
             </Title>
             <Subtitle>
               Easily manage your enterprise blockchain <BreakDesktop />
               ecosystem through a simple user interface.
             </Subtitle>
-            <ButtonsWrapper>
-              <Button  primary href="https://app.blockcluster.io/register">
-                Create Account
-              </Button>
-              <Button secondary href="https://docs.blockcluster.io/" target="_blank">
-                Documentation
-              </Button>
-              
-            </ButtonsWrapper>
             <Network />
           </InnerWrapper>
         </Wrapper>
